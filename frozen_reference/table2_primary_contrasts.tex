@@ -1,0 +1,38 @@
+% Table 2: F-involving primary contrasts (session-level, exact sign-flip, Holm)
+\begin{table}[t]
+\centering
+\caption{Primary session-level contrasts involving the proposed arm~F (shielded-DPP). The independent unit is the session (n$=$12); the three capacity runs per session are pooled. Exact sign-flip test over $2^{12}$ enumerations; 95\% CIs are session-cluster bootstrap; Holm correction within each metric family (15 pairwise contrasts). $n_{\mathrm{cells}}$ reports the underlying (session, capacity) cells pooled into the 12 sessions. The full 75-contrast family appears in the appendix.}
+\label{tab:contrasts}
+\small
+\begin{tabular}{llrrlllrr}
+\toprule
+Metric & Contrast & $\Delta$ & 95\% CI & raw $p$ & Holm $p$ & test & $n_{\mathrm{sess}}$ & $n_{\mathrm{cells}}$ \\
+\midrule
+FPR & central-DPP (E) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+FPR & fixed-full (C) vs shielded-DPP (F) & $+0.2817$ & [0.268, 0.296] & $<10^{-3}$ & $0.0073$ & exact & 12 & 36 \\
+FPR & fixed-local (A) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+FPR & fixed-summary (B) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+FPR & independent-DPP (D) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+deadline-violation rate & central-DPP (E) vs shielded-DPP (F) & $-0.0001$ & [-0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+deadline-violation rate & fixed-full (C) vs shielded-DPP (F) & $-0.0001$ & [-0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+deadline-violation rate & fixed-local (A) vs shielded-DPP (F) & $-0.0001$ & [-0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+deadline-violation rate & fixed-summary (B) vs shielded-DPP (F) & $-0.0001$ & [-0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+deadline-violation rate & independent-DPP (D) vs shielded-DPP (F) & $-0.0001$ & [-0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+mean E2E (ms) & central-DPP (E) vs shielded-DPP (F) & $+5.8135$ & [-7.877, 20.847] & $0.4902$ & $1.0000$ & exact & 12 & 36 \\
+mean E2E (ms) & fixed-full (C) vs shielded-DPP (F) & $+28.2071$ & [19.194, 36.563] & $0.0015$ & $0.0205$ & exact & 12 & 36 \\
+mean E2E (ms) & fixed-local (A) vs shielded-DPP (F) & $+7.8710$ & [-5.839, 28.067] & $0.5864$ & $1.0000$ & exact & 12 & 36 \\
+mean E2E (ms) & fixed-summary (B) vs shielded-DPP (F) & $+8.0812$ & [-7.097, 30.487] & $0.6646$ & $1.0000$ & exact & 12 & 36 \\
+mean E2E (ms) & independent-DPP (D) vs shielded-DPP (F) & $-4.9435$ & [-24.366, 8.978] & $0.7207$ & $1.0000$ & exact & 12 & 36 \\
+queue-violation rate & central-DPP (E) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+queue-violation rate & fixed-full (C) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+queue-violation rate & fixed-local (A) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+queue-violation rate & fixed-summary (B) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+queue-violation rate & independent-DPP (D) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+timely-F1 & central-DPP (E) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+timely-F1 & fixed-full (C) vs shielded-DPP (F) & $-0.0665$ & [-0.070, -0.063] & $<10^{-3}$ & $0.0073$ & exact & 12 & 36 \\
+timely-F1 & fixed-local (A) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+timely-F1 & fixed-summary (B) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+timely-F1 & independent-DPP (D) vs shielded-DPP (F) & $+0.0000$ & [0.000, 0.000] & $1.0000$ & $1.0000$ & exact & 12 & 36 \\
+\bottomrule
+\end{tabular}
+\end{table}

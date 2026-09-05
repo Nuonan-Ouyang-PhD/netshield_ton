@@ -1,0 +1,26 @@
+metric,method_a,method_b,mean_difference,bootstrap_ci_low,bootstrap_ci_high,sign_flip_p,holm_p,sign_flip_method,n_sessions,n_capacity_cells
+FPR,central-DPP (E),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+FPR,fixed-full (C),shielded-DPP (F),0.2817162281160578,0.26799149970762515,0.296214314521937,0.00048828125,0.00732421875,exact,12,36
+FPR,fixed-local (A),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+FPR,fixed-summary (B),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+FPR,independent-DPP (D),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+deadline-violation rate,central-DPP (E),shielded-DPP (F),-0.00010288065843621399,-0.00030864197530864197,0.0,1.0,1.0,exact,12,36
+deadline-violation rate,fixed-full (C),shielded-DPP (F),-0.00010288065843621399,-0.00030864197530864197,0.0,1.0,1.0,exact,12,36
+deadline-violation rate,fixed-local (A),shielded-DPP (F),-0.00010288065843621399,-0.00030864197530864197,0.0,1.0,1.0,exact,12,36
+deadline-violation rate,fixed-summary (B),shielded-DPP (F),-0.00010288065843621399,-0.00030864197530864197,0.0,1.0,1.0,exact,12,36
+deadline-violation rate,independent-DPP (D),shielded-DPP (F),-0.00010288065843621399,-0.00030864197530864197,0.0,1.0,1.0,exact,12,36
+mean E2E (ms),central-DPP (E),shielded-DPP (F),5.813498040843608,-7.8767975786008435,20.847478689403307,0.490234375,1.0,exact,12,36
+mean E2E (ms),fixed-full (C),shielded-DPP (F),28.207131292283947,19.193972632613207,36.5629893222222,0.00146484375,0.0205078125,exact,12,36
+mean E2E (ms),fixed-local (A),shielded-DPP (F),7.870973027366205,-5.838604500205851,28.06704525462962,0.58642578125,1.0,exact,12,36
+mean E2E (ms),fixed-summary (B),shielded-DPP (F),8.081161152057604,-7.097339469444449,30.486960490843597,0.66455078125,1.0,exact,12,36
+mean E2E (ms),independent-DPP (D),shielded-DPP (F),-4.943462730967052,-24.36587965236622,8.977514683436246,0.720703125,1.0,exact,12,36
+queue-violation rate,central-DPP (E),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+queue-violation rate,fixed-full (C),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+queue-violation rate,fixed-local (A),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+queue-violation rate,fixed-summary (B),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+queue-violation rate,independent-DPP (D),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+timely-F1,central-DPP (E),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+timely-F1,fixed-full (C),shielded-DPP (F),-0.06649298546983169,-0.07008322686884641,-0.06263820685879933,0.00048828125,0.00732421875,exact,12,36
+timely-F1,fixed-local (A),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+timely-F1,fixed-summary (B),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36
+timely-F1,independent-DPP (D),shielded-DPP (F),0.0,0.0,0.0,1.0,1.0,exact,12,36

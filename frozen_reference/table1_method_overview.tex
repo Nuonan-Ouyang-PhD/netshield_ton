@@ -1,0 +1,26 @@
+% Table 1: per-method overview, S01-S12 formal campaign (216 arms x 3 Pi)
+% Timely-F1/FPR/E2E/violation rates are unweighted macro means
+% across the 108 device-runs per method (not pooled-window
+% micro-averages); MaxQ is the largest per-run queue backlog
+% over all 648 runs, reported in MiB (1 MiB = 2^20 bytes).
+% Deliv/Gen (full) covers all 95 windows incl. warmup, so warmup
+% backlog drainage cannot exceed 1; the measured-only ratio for D
+% is 1.004 because ~4.5 MB of warmup backlog drains during measured.
+% The local arm A generates no application payload.
+\begin{table}[t]
+\centering
+\caption{Per-method performance across the 12 formal sessions (216 arms, 648 device-runs, 58\,320 measured windows). Timely-F1/FPR are unweighted means across the 108 device-runs per method (macro-average; the pooled-window micro-average for C is F1 $=$ 0.9336, FPR $=$ 0.2823); E2E is the mean of per-run evidence completion times; violation rates are per measured window, averaged across runs. Deliv/Gen (full) is the delivered/generated payload-bytes ratio over all 95 windows including warmup (arm~A executes locally and uploads no application payload); MaxQ is the maximum queue backlog in MiB.}
+\label{tab:method-overview}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Method & Runs & Timely-F1 & FPR & E2E (ms) & Deadline-viol & Queue-viol & Deliv/Gen (full) & MaxQ (MiB) \\
+\midrule
+fixed-local (A) & 108 & 1.0000 & 0.0000 & 672.9 & 0.000000 & 0.000000 & n/a (local only) & 0.00 \\
+fixed-summary (B) & 108 & 1.0000 & 0.0000 & 673.1 & 0.000000 & 0.000000 & 1.000 & 0.00 \\
+fixed-full (C) & 108 & 0.9332 & 0.2845 & 693.2 & 0.000000 & 0.000000 & 0.667 & 7.92 \\
+independent-DPP (D) & 108 & 1.0000 & 0.0000 & 660.1 & 0.000000 & 0.000000 & 0.998 & 0.08 \\
+central-DPP (E) & 108 & 1.0000 & 0.0000 & 670.8 & 0.000000 & 0.000000 & 1.000 & 0.00 \\
+shielded-DPP (F) & 108 & 1.0000 & 0.0000 & 665.0 & 0.000103 & 0.000000 & 1.000 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

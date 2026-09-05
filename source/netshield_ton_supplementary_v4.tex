@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.65in]{geometry}
+\usepackage{booktabs,longtable,array,amsmath,amssymb,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\newcommand{\NetShield}{\textsc{NetShield-IDS}}
+\title{Supplementary Material for\\
+\NetShield{}: Shared-Bottleneck Evidence Scheduling for Multi-Probe IoT Edge Intrusion Detection}
+\author{Nuonan Ouyang, Adrian Shatte, Zhigang Lu, Chao Chen, and Wei Xiang}
+\date{Frozen REV2 analysis baseline: \texttt{v0.4.7-analysis-rev2-session-level}}
+\begin{document}
+\maketitle
+\small
+
+\section{Scope and Statistical Unit}
+This supplement contains statistical and provenance detail omitted from the main manuscript for readability. It does not introduce new experimental data or recompute the frozen empirical results. The formal campaign contains 12 paper-eligible sessions (S01--S12), three capacity regimes, six methods, 216 method--capacity arms, 648 device-runs, and 58,320 measured probe-windows. Each method contributes 108 device-runs and 9,720 measured windows.
+
+The inferential unit is the \emph{session} ($n=12$). Within each session and method, the three capacities and three probes are pooled before paired method differences are formed. The 36 session--capacity cells are descriptive, not independent inferential replicates. For each metric family, all 15 pairwise method contrasts are tested by exact two-sided sign flip over $2^{12}=4096$ assignments, with 10,000-resample session-cluster bootstrap confidence intervals and Holm correction across the 15 contrasts in that family.
+
+\section{Complete Session-Level Pairwise Contrasts}
+Table~\ref{tab:allcontrasts} gives all 75 frozen comparisons (five metric families $\times$ 15 method pairs). Method IDs are A=fixed-local, B=fixed-summary, C=fixed-full, D=independent-DPP, E=central-DPP, and F=shielded-DPP. Differences are the first ID minus the second ID. The values are copied directly from \texttt{tableS1\_full\_contrasts.csv} in the frozen paper package.
+
+\setlength{\LTpre}{4pt}\setlength{\LTpost}{4pt}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{0.16\textwidth}p{0.10\textwidth}r p{0.19\textwidth}rrr@{}}
+\caption{Complete frozen REV2 session-level contrast family.}\label{tab:allcontrasts}\\
+\toprule
+Metric & Pair & $\Delta$ & 95\% CI & raw $p$ & Holm $p$ & $n$ \\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{\tablename\ \thetable{} -- continued}\\
+\toprule
+Metric & Pair & $\Delta$ & 95\% CI & raw $p$ & Holm $p$ & $n$ \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+FPR & E -- C & -0.28172 & [-0.29621, -0.26799] & 0.000488 & 0.0073 & 12 \\
+FPR & E -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & E -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & E -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & E -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & C -- A & 0.28172 & [0.26799, 0.29621] & 0.000488 & 0.0073 & 12 \\
+FPR & C -- B & 0.28172 & [0.26799, 0.29621] & 0.000488 & 0.0073 & 12 \\
+FPR & C -- D & 0.28172 & [0.26799, 0.29621] & 0.000488 & 0.0073 & 12 \\
+FPR & C -- F & 0.28172 & [0.26799, 0.29621] & 0.000488 & 0.0073 & 12 \\
+FPR & A -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & A -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & A -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & B -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & B -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+FPR & D -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & E -- C & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & E -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & E -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & E -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & E -- F & -0.00010 & [-0.00031, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & C -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & C -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & C -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & C -- F & -0.00010 & [-0.00031, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & A -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & A -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & A -- F & -0.00010 & [-0.00031, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & B -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & B -- F & -0.00010 & [-0.00031, 0] & 1.0000 & 1.0000 & 12 \\
+deadline-violation rate & D -- F & -0.00010 & [-0.00031, 0] & 1.0000 & 1.0000 & 12 \\
+mean E2E (ms) & E -- C & -22.39363 & [-40.63494, -4.42483] & 0.0420 & 0.5459 & 12 \\
+mean E2E (ms) & E -- A & -2.05747 & [-14.02703, 8.47212] & 0.7363 & 1.0000 & 12 \\
+mean E2E (ms) & E -- B & -2.26766 & [-16.02513, 9.97172] & 0.7480 & 1.0000 & 12 \\
+mean E2E (ms) & E -- D & 10.75696 & [-6.62047, 31.97360] & 0.3682 & 1.0000 & 12 \\
+mean E2E (ms) & E -- F & 5.81350 & [-7.87680, 20.84748] & 0.4902 & 1.0000 & 12 \\
+mean E2E (ms) & C -- A & 20.33616 & [-1.38858, 35.19507] & 0.0684 & 0.8203 & 12 \\
+mean E2E (ms) & C -- B & 20.12597 & [-2.75963, 34.14628] & 0.0845 & 0.9292 & 12 \\
+mean E2E (ms) & C -- D & 33.15059 & [19.80053, 48.33126] & 0.000977 & 0.0146 & 12 \\
+mean E2E (ms) & C -- F & 28.20713 & [19.19397, 36.56299] & 0.0015 & 0.0205 & 12 \\
+mean E2E (ms) & A -- B & -0.21019 & [-5.39903, 5.17789] & 0.9390 & 1.0000 & 12 \\
+mean E2E (ms) & A -- D & 12.81444 & [-6.35393, 37.15630] & 0.3838 & 1.0000 & 12 \\
+mean E2E (ms) & A -- F & 7.87097 & [-5.83860, 28.06705] & 0.5864 & 1.0000 & 12 \\
+mean E2E (ms) & B -- D & 13.02462 & [-6.35064, 38.58680] & 0.3613 & 1.0000 & 12 \\
+mean E2E (ms) & B -- F & 8.08116 & [-7.09734, 30.48696] & 0.6646 & 1.0000 & 12 \\
+mean E2E (ms) & D -- F & -4.94346 & [-24.36588, 8.97751] & 0.7207 & 1.0000 & 12 \\
+queue-violation rate & E -- C & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & E -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & E -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & E -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & E -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & C -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & C -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & C -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & C -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & A -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & A -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & A -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & B -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & B -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+queue-violation rate & D -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & E -- C & 0.06649 & [0.06264, 0.07009] & 0.000488 & 0.0073 & 12 \\
+timely-F1 & E -- A & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & E -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & E -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & E -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & C -- A & -0.06649 & [-0.07008, -0.06264] & 0.000488 & 0.0073 & 12 \\
+timely-F1 & C -- B & -0.06649 & [-0.07008, -0.06264] & 0.000488 & 0.0073 & 12 \\
+timely-F1 & C -- D & -0.06649 & [-0.07008, -0.06264] & 0.000488 & 0.0073 & 12 \\
+timely-F1 & C -- F & -0.06649 & [-0.07008, -0.06264] & 0.000488 & 0.0073 & 12 \\
+timely-F1 & A -- B & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & A -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & A -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & B -- D & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & B -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+timely-F1 & D -- F & 0 & [0, 0] & 1.0000 & 1.0000 & 12 \\
+\end{longtable}
+
+\section{Non-Inferiority and Action Consistency}
+The prespecified non-inferiority comparison is shielded-DPP (F) versus fixed-summary (B) in timely F1. The frozen result is $F-B=0.000$ with margin $-0.02$, $n=12$ sessions, exact sign-flip procedure, and \texttt{meets\_non\_inferiority=true}. The Holm-adjusted equality-test $p$-value is 1.0; the non-inferiority conclusion follows from the prespecified margin and observed difference rather than from rejecting an equality null.
+
+\begin{table}[h]
+\centering
+\caption{Measured-window action consistency.}
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+Comparison & Windows & Action differences & Interpretation\\
+\midrule
+E vs F & 9,720 & 0 & shield non-interference in evaluated envelope\\
+D vs F & 9,720 & 5,940 & independent vs shared pre-admission differs by design\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The four dominant D$\rightarrow$F transition pairs are H-NONE$\rightarrow$H-SUMMARY (2,736 windows), H-FULL$\rightarrow$H-SUMMARY (1,872), M-SUMMARY$\rightarrow$H-SUMMARY (792), and H-NONE$\rightarrow$H-FULL (540). Measured-window generated payload is 747,307,008~B for D and 654,704,640~B for F/E; D therefore generates 14.1\% more measured-window application payload.
+
+\section{Capacity-Specific Fixed-Full Diagnostic}
+The capacity interaction is descriptive and uses pooled confusion matrices within each capacity. Fixed-full (C) is the only method that loses timely detection quality under low/mid capacity; all other methods remain at F1 1.0000 and FPR 0.0000 in all three capacity regimes.
+
+\begin{table}[h]
+\centering
+\caption{Fixed-full (C) capacity-specific descriptive diagnostics.}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Capacity & timely F1 & FPR & TP/FP/FN/TN & age$>10$ windows & rate\\
+\midrule
+Low  & 0.9375 & 0.2797 & 2452/179/148/461 & 2916/3240 & 90.0\%\\
+Mid  & 0.8634 & 0.5672 & 2251/363/349/277 & 2376/3240 & 73.3\%\\
+High & 1.0000 & 0.0000 & 2600/0/0/640     & 0/3240    & 0.0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These age counts are a separate descriptive diagnostic from the configured primary queue-violation indicator. A zero primary queue-violation rate therefore must not be read as zero backlog or zero stale evidence.
+
+\section{Unique Shielded-DPP Deadline Miss}
+F records one measured deadline violation in 9,720 windows, giving the Table-1 run-macro violation rate 0.000103. The event is S09/high/P3/window~80: decision latency 1315.090898~ms against the 1000-ms deadline, evidence completion 1578.689249~ms, and evidence receipt RTT 1311.904469~ms. Queue bytes are zero, the action is H-FULL, and neighboring RTT values are approximately 66/63~ms. This is retained as evidence that configured byte feasibility is not an unconditional guarantee on stochastic Wi-Fi completion latency.
+
+\section{Primary Table Aggregation Check}
+Table-1 timely-F1/FPR/E2E/violation values are unweighted macro means over the 108 device-runs per method. For fixed-full, the run-macro values are timely F1 0.933168 and FPR 0.284536 (reported 0.9332/0.2845). Pooling all window-level confusion counts instead gives micro F1 0.933589 and FPR 0.282292 (reported only as a reference). MaxQ is measured in MiB: C reaches 8,301,290~B $=7.92$~MiB and D reaches 87,382~B $=0.08$~MiB.
+
+\section{Artifact Identity}
+\begin{itemize}
+\item Statistical truth: commit \texttt{a24b909}, tag \texttt{v0.4.7-analysis-rev2-session-level}.
+\item Paper-facing documentation: commit \texttt{92c3108}, tag \texttt{v0.4.7-analysis-rev2-doc-clean}.
+\item Clean data-package SHA-256: \texttt{561742f99e7b4d389fd2077cf6485c04c432468ce692ef8c54144525ecfd8092}.
+\item The package manifest verifies 18/18 hashed entries with \texttt{shasum -a 256 -c}.
+\end{itemize}
+
+\end{document}

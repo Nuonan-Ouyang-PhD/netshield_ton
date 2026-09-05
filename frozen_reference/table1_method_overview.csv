@@ -1,0 +1,7 @@
+method,n_runs,timely_f1_mean,fpr_mean,mean_e2e_ms,deadline_violation_rate,queue_violation_rate,delivered_gen_ratio_measured,delivered_gen_ratio_full,max_queue_mb
+fixed-local (A),108,1.0000,0.0000,672.9,0.000000,0.000000,n/a (local only),n/a (local only),0.00
+fixed-summary (B),108,1.0000,0.0000,673.1,0.000000,0.000000,1.000,1.000,0.00
+fixed-full (C),108,0.9332,0.2845,693.2,0.000000,0.000000,0.667,0.667,7.92
+independent-DPP (D),108,1.0000,0.0000,660.1,0.000000,0.000000,1.004,0.998,0.08
+central-DPP (E),108,1.0000,0.0000,670.8,0.000000,0.000000,1.000,1.000,0.00
+shielded-DPP (F),108,1.0000,0.0000,665.0,0.000103,0.000000,1.000,1.000,0.00

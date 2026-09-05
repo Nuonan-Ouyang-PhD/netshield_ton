@@ -1,0 +1,9 @@
+{
+  "comparison": "shielded_dpp vs fixed_summary (timely F1)",
+  "holm_adjusted_p_value": 1.0,
+  "mean_difference_F1_shielded_minus_summary": 0.0,
+  "meets_non_inferiority": true,
+  "n_sessions": 12,
+  "non_inferiority_margin": -0.02,
+  "sign_flip_method": "exact"
+}

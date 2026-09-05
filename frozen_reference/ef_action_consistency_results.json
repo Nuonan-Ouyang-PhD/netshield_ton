@@ -1,0 +1,23 @@
+{
+  "source": "staging snapshot data/processed/analysis_input_S01_S12, measured windows only",
+  "expected_windows_per_method": 9720,
+  "E_vs_F": {
+    "key_sets_identical": true,
+    "n_windows": 9720,
+    "action_differences": 0,
+    "method": "direct index comparison after strict key-set assertion",
+    "conclusion": "shield never altered the central-DPP action in any measured window under evaluated conditions"
+  },
+  "D_vs_F": {
+    "key_sets_identical": true,
+    "n_windows": 9720,
+    "action_differences": 5940,
+    "note": "independent-DPP schedules per-probe without network-wide shared admission; differences expected by design",
+    "top_transition_pairs_D_to_F": {
+      "H_NONE->H_SUMMARY": 2736,
+      "H_FULL->H_SUMMARY": 1872,
+      "M_SUMMARY->H_SUMMARY": 792,
+      "H_NONE->H_FULL": 540
+    }
+  }
+}
