@@ -1,0 +1,35 @@
+{
+  "protocol_id": "NSF12_20260906_RC1",
+  "protocol_zip_sha256": "88d70b1ae62b294c522472f408f4c802a745c5a70e60ca387bee25c63f25379a",
+  "approved_by": "Nuonan Ouyang",
+  "approved_at_utc": "2026-09-06T12:03:41.221582+00:00",
+  "formal_run_authorized": true,
+  "approval_scope": "Activate RC1, freeze and accept the formal runner, validator, and metric extractor, verify a second physical-disk backup, deploy the isolated V1.2 runtime, and execute the complete 216-arm campaign only after all gates pass.",
+  "activation_recorded_at_utc": "2026-09-06T13:00:12.180193+00:00",
+  "frozen_tools": {
+    "archive_filename": "NetShield_Formal_Tools_V1_2_FROZEN_R2.zip",
+    "archive_sha256": "c5497eb9a9f7032586156b22b779a6469419dc67211a37f4f0b5464135c66949",
+    "archive_file_count": 42,
+    "crc": "PASS",
+    "restored_hashes": "PASS",
+    "critical_file_sha256": {
+      "aggregate.py": "db1aee6d3a48169d90ae4a715e2ef5b0cba39a9c1cbbac21c7fce9b96e6a5e5d",
+      "launch_campaign.py": "8ff9c8380f70363751a4fd9dca875d431df40b838e8cc8a69c28f4faa710738c",
+      "metrics.py": "569d14c039d8e40fc4152fe620b956e664cc77804984c93279dbf460a7589959",
+      "supervisor.py": "24d49a7f29d760fad75819a4e713f9937ba2cfb82b583f7b459a1e8d077e4506",
+      "validator.py": "40419837f050e9980d7571f03b1fec0d2541610f1d6196dfdc54ff15c914af27"
+    },
+    "fixture_result_sha256": "0402acbd49e157e90a85f5f6a196bf26471f781a03b8e280c54c03ca726390ce",
+    "independent_suite_result_sha256": "626140b635e0faea6a1dad72477a1ef09d9b3eb63b3a5fd4019e52dc258678aa"
+  },
+  "backup_gate": {
+    "status": "PASS",
+    "separate_physical_disk": true,
+    "same_computer_limitation": true,
+    "write_read_delete_test": "PASS",
+    "frozen_package_restore_file_count": 75,
+    "frozen_package_restore": "PASS"
+  },
+  "submission": "HOLD",
+  "redaction_note": "Hostnames, usernames, device identifiers, and filesystem paths were omitted from this repository record."
+}

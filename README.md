@@ -1,40 +1,81 @@
-# NetShield — Shared-Bottleneck Evidence Scheduling for Multi-Probe IoT Edge Intrusion Detection
+# NetShield
 
-Private repository holding the **submission-frozen V4.4 manuscript package** for the
-IEEE Transactions on Networking (ToN) submission.
+Private research repository for the NetShield IEEE Transactions on Networking
+manuscript and its formal three-device Raspberry Pi campaign.
 
-> **Visibility policy:** This repository must remain **private during co-author
-> review and submission**. A public artifact release can be prepared separately
-> after the submission policy decision. Do not make it public before the paper
-> is accepted (or a preprint policy decision is made by all authors).
+> **Current state (8 September 2026):** protocol
+> `NSF12_20260906_RC1` completed 12 sessions and 216 accepted arms. All 216
+> accepted-arm validators report `PASS`; three interrupted attempts remain
+> preserved and excluded. The campaign is **pending independent review** and the
+> submission state is **HOLD**.
 
-## Contents
+The earlier V4.4 submission candidate is preserved under
+[`legacy/v4_4/`](legacy/v4_4/). Its pre-RC1 empirical numbers are historical and
+must not be presented as results from the RC1 campaign.
 
-| Path | Description |
+## Repository map
+
+| Path | Purpose |
 |---|---|
-| `netshield_ton_full_manuscript_v4_4.pdf` / `.tex` | Main manuscript, V4.4, 10 pages, parameter-locked |
-| `netshield_ton_supplementary_v4.pdf` | Reviewer-facing supplementary (75 frozen contrasts, action consistency, diagnostics) |
-| `source/` | LaTeX source: figures, configs, `references_v4.bib`, supplementary `.tex` |
-| `frozen_reference/` | Frozen evidence chain: tables, `NUMBER_PROVENANCE.md`, `PROVENANCE.md`, `STATISTICS_FACTS.md`, formal config JSONs with SHA-256 |
-| `audit/` | Submission-side audits: config parameter audit, numeric/semantic audit, reviewer-attack report, originality & prior-work disclosure, cover letter, author metadata, submission readiness |
-| `docs/` | `README.md` (bundle), `V4_4_RELEASE_NOTES.md`, `MANIFEST_SHA256.txt` (integrity manifest, `shasum -a 256 -c` verified) |
+| [`formal_rc1/`](formal_rc1/) | Path-free RC1 status, accepted-attempt index, 216-arm matrix, validator summary, aggregate descriptive tables, configuration snapshot, and integrity manifest |
+| [`legacy/v4_4/`](legacy/v4_4/) | Payload-preserved V4.4 manuscript package and its original supporting material |
+| [`scripts/verify_repository.py`](scripts/verify_repository.py) | Standard-library verification of hashes, expected counts, package receipts, and private host/path exclusion |
+| [`CHANGELOG.md`](CHANGELOG.md) | Repository-level history and status transitions |
+| [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) | Access, redistribution, and licensing boundary |
 
-## Key frozen facts
+## Verified campaign boundary
 
-- Formal campaign: S01–S12, Raspberry Pi fleet, three capacity budgets (low/mid/high)
-- Selector parameter: `dpp_v = 1.0` in all three formal configurations (SHA-256 audited)
-- Statistical truth baseline: `a24b909` / `v0.4.7-analysis-rev2-session-level`
-- Paper-facing documentation baseline: `92c3108` / `v0.4.7-analysis-rev2-doc-clean`
-- Dataset scope: CICIoT2023-derived feature-vector replay (not live packet capture)
-- Concurrent submission: none
+- Design: 12 sessions × 6 methods × 3 capacities = **216 accepted arms**.
+- Accepted set: 12 complete session blocks, each containing 18 arms.
+- Invalid attempts retained: `F12_S03/a01`, `F12_S04/a01`, and
+  `F12_S07/a01`; none contributes to the accepted set.
+- Validator result: **216/216 `PASS`**, with zero recorded failed checks.
+- Session packages: **12/12** pass receipt SHA-256, ZIP CRC, and restored-hash
+  checks.
+- Final raw archive: `NetShield_Formal_Campaign_V1_2_20260908.zip`,
+  1,340,825,224 bytes, SHA-256
+  `846643a85ace5d840d9c0d7a41245c760989d1886ce0d8c62ca4873368564acf`.
+- The primary archive and independent backup are byte-identical. The archive is
+  deliberately not stored in Git because it contains private raw evidence and
+  is 1.34 GB.
 
-## Integrity
+These checks establish collection structure and artifact integrity. They do not
+constitute an independent scientific verdict or authorize manuscript claims.
 
-Every file's SHA-256 is recorded in `docs/MANIFEST_SHA256.txt`. Verify with:
+The frozen matrix deliberately retains its pre-activation
+`PLANNED_NOT_AUTHORIZED` provenance field. The later author approval, frozen
+tool identities, fixture evidence hashes, and backup gate are recorded in
+[`formal_rc1/results/activation_record.json`](formal_rc1/results/activation_record.json).
+
+## Verify this checkout
 
 ```bash
-cd <repo> && shasum -a 256 -c docs/MANIFEST_SHA256.txt
+python3 scripts/verify_repository.py
 ```
 
-Note: the manifest paths are relative to the bundle root (this repository root);
-`./README.md` and `./V4_4_RELEASE_NOTES.md` entries now live under `docs/`.
+To verify the archived V4.4 bundle separately:
+
+```bash
+cd legacy/v4_4
+shasum -a 256 -c docs/MANIFEST_SHA256.txt
+```
+
+The GitHub Actions workflow runs the same repository checks on every push and
+pull request.
+
+## Evidence and disclosure policy
+
+Only aggregate, role-labelled, path-free audit material is committed here. Raw
+event ledgers, packet-level material, model artifacts, machine addresses, SSH
+targets, user paths, and the full campaign archive remain outside Git. Public
+release and licensing require a separate author decision and dataset/model
+license review. Repository visibility must remain private during review.
+
+## Open review gates
+
+1. Record an independent review verdict for the RC1 protocol, accepted-set
+   reconstruction, raw-log metric reconstruction, and retry/exclusion logic.
+2. Rewrite and numerically audit the manuscript against RC1 if the verdict
+   permits publication use.
+3. Complete artifact licensing and disclosure review before any public release.
+4. Keep submission status at `HOLD` until those decisions are recorded.

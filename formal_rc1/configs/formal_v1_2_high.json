@@ -1,0 +1,25 @@
+{
+  "experiment_id": "NSF12_20260906_RC1",
+  "method": "shielded_dpp",
+  "seed": 20260828,
+  "expected_devices": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "windows": 95,
+  "warmup_windows": 5,
+  "window_seconds": 1.0,
+  "deadline_ms": 1000.0,
+  "app_capacity_bps": 3145728,
+  "bucket_depth_windows": 2.0,
+  "max_queue_bytes": 8388608,
+  "max_evidence_age_windows": 10,
+  "thermal_guard_c": 75.0,
+  "minimum_mem_available_bytes": 134217728,
+  "dpp_v": 1.0,
+  "shared_efficiency": 1.0,
+  "strict_telemetry": true,
+  "synthetic": false,
+  "drain_windows": 200
+}

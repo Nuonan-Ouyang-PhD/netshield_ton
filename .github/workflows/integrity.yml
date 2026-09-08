@@ -1,0 +1,26 @@
+name: repository-integrity
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify current RC1 snapshot
+        run: python3 scripts/verify_repository.py
+      - name: Verify archived V4.4 snapshot
+        working-directory: legacy/v4_4
+        run: sha256sum -c docs/MANIFEST_SHA256.txt
+      - name: Check whitespace
+        run: git diff --check HEAD^ HEAD

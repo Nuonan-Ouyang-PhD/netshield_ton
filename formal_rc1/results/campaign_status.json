@@ -1,0 +1,18 @@
+{
+  "accepted_arms": 216,
+  "accepted_sessions": 12,
+  "collection_status": "FORMAL_CAMPAIGN_EXECUTION_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "invalid_attempts_retained": 3,
+  "non_inferiority": {
+    "decision": null,
+    "margin": null,
+    "status": "not_evaluated"
+  },
+  "paper_modified_by_campaign_runner": false,
+  "protocol_id": "NSF12_20260906_RC1",
+  "public_release_status": "NOT_AUTHORIZED",
+  "review_status": "PENDING_INDEPENDENT_REVIEW",
+  "submission": "HOLD",
+  "validator_failed_checks": 0,
+  "validator_overall_pass": 216
+}

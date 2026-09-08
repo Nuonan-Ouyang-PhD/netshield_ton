@@ -1,0 +1,11 @@
+/.gitattributes text eol=lf
+/.gitignore text eol=lf
+/*.md text eol=lf
+/CITATION.cff text eol=lf
+/.github/** text eol=lf
+/formal_rc1/** text eol=lf
+/scripts/** text eol=lf
+
+*.pdf binary
+*.png binary
+*.zip binary

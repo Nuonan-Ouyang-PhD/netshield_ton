@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "This private review repository is not yet a public archival release. Contact the corresponding author before citing or redistributing it."
+title: "NetShield: Shared-Bottleneck Evidence Scheduling for Multi-Probe IoT Edge Intrusion Detection"
+type: software
+version: "0.1.0-rc1-review"
+date-released: 2026-09-08
+authors:
+  - family-names: Ouyang
+    given-names: Nuonan
+  - family-names: Shatte
+    given-names: Adrian
+  - family-names: Lu
+    given-names: Zhigang
+  - family-names: Chen
+    given-names: Chao
+  - family-names: Xiang
+    given-names: Wei
+repository-code: "https://github.com/Nuonan-Ouyang-PhD/netshield_ton"

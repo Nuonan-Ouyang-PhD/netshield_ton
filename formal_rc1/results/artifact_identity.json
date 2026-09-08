@@ -1,0 +1,18 @@
+{
+  "final_campaign_archive": {
+    "crc": "PASS",
+    "declared_file_count": 82408,
+    "filename": "NetShield_Formal_Campaign_V1_2_20260908.zip",
+    "restored_hashes": "PASS",
+    "sha256": "846643a85ace5d840d9c0d7a41245c760989d1886ce0d8c62ca4873368564acf",
+    "size_bytes": 1340825224
+  },
+  "independent_backup": {
+    "byte_identity_with_primary": true,
+    "filename": "NetShield_Formal_Campaign_V1_2_20260908.zip",
+    "sha256": "846643a85ace5d840d9c0d7a41245c760989d1886ce0d8c62ca4873368564acf",
+    "size_bytes": 1340825224
+  },
+  "protocol_id": "NSF12_20260906_RC1",
+  "protocol_zip_sha256": "88d70b1ae62b294c522472f408f4c802a745c5a70e60ca387bee25c63f25379a"
+}

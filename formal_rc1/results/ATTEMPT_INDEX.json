@@ -1,0 +1,372 @@
+{
+  "accepted": [
+    {
+      "session_id": "F12_S01",
+      "attempt": "a01",
+      "arms": [
+        "F12_S01_A_low_a01",
+        "F12_S01_B_low_a01",
+        "F12_S01_F_low_a01",
+        "F12_S01_C_low_a01",
+        "F12_S01_E_low_a01",
+        "F12_S01_D_low_a01",
+        "F12_S01_A_mid_a01",
+        "F12_S01_B_mid_a01",
+        "F12_S01_F_mid_a01",
+        "F12_S01_C_mid_a01",
+        "F12_S01_E_mid_a01",
+        "F12_S01_D_mid_a01",
+        "F12_S01_A_high_a01",
+        "F12_S01_B_high_a01",
+        "F12_S01_F_high_a01",
+        "F12_S01_C_high_a01",
+        "F12_S01_E_high_a01",
+        "F12_S01_D_high_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S02",
+      "attempt": "a01",
+      "arms": [
+        "F12_S02_B_mid_a01",
+        "F12_S02_C_mid_a01",
+        "F12_S02_A_mid_a01",
+        "F12_S02_D_mid_a01",
+        "F12_S02_F_mid_a01",
+        "F12_S02_E_mid_a01",
+        "F12_S02_B_high_a01",
+        "F12_S02_C_high_a01",
+        "F12_S02_A_high_a01",
+        "F12_S02_D_high_a01",
+        "F12_S02_F_high_a01",
+        "F12_S02_E_high_a01",
+        "F12_S02_B_low_a01",
+        "F12_S02_C_low_a01",
+        "F12_S02_A_low_a01",
+        "F12_S02_D_low_a01",
+        "F12_S02_F_low_a01",
+        "F12_S02_E_low_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S03",
+      "attempt": "a02",
+      "arms": [
+        "F12_S03_C_high_a02",
+        "F12_S03_D_high_a02",
+        "F12_S03_B_high_a02",
+        "F12_S03_E_high_a02",
+        "F12_S03_A_high_a02",
+        "F12_S03_F_high_a02",
+        "F12_S03_C_low_a02",
+        "F12_S03_D_low_a02",
+        "F12_S03_B_low_a02",
+        "F12_S03_E_low_a02",
+        "F12_S03_A_low_a02",
+        "F12_S03_F_low_a02",
+        "F12_S03_C_mid_a02",
+        "F12_S03_D_mid_a02",
+        "F12_S03_B_mid_a02",
+        "F12_S03_E_mid_a02",
+        "F12_S03_A_mid_a02",
+        "F12_S03_F_mid_a02"
+      ]
+    },
+    {
+      "session_id": "F12_S04",
+      "attempt": "a02",
+      "arms": [
+        "F12_S04_D_low_a02",
+        "F12_S04_E_low_a02",
+        "F12_S04_C_low_a02",
+        "F12_S04_F_low_a02",
+        "F12_S04_B_low_a02",
+        "F12_S04_A_low_a02",
+        "F12_S04_D_mid_a02",
+        "F12_S04_E_mid_a02",
+        "F12_S04_C_mid_a02",
+        "F12_S04_F_mid_a02",
+        "F12_S04_B_mid_a02",
+        "F12_S04_A_mid_a02",
+        "F12_S04_D_high_a02",
+        "F12_S04_E_high_a02",
+        "F12_S04_C_high_a02",
+        "F12_S04_F_high_a02",
+        "F12_S04_B_high_a02",
+        "F12_S04_A_high_a02"
+      ]
+    },
+    {
+      "session_id": "F12_S05",
+      "attempt": "a01",
+      "arms": [
+        "F12_S05_E_mid_a01",
+        "F12_S05_F_mid_a01",
+        "F12_S05_D_mid_a01",
+        "F12_S05_A_mid_a01",
+        "F12_S05_C_mid_a01",
+        "F12_S05_B_mid_a01",
+        "F12_S05_E_high_a01",
+        "F12_S05_F_high_a01",
+        "F12_S05_D_high_a01",
+        "F12_S05_A_high_a01",
+        "F12_S05_C_high_a01",
+        "F12_S05_B_high_a01",
+        "F12_S05_E_low_a01",
+        "F12_S05_F_low_a01",
+        "F12_S05_D_low_a01",
+        "F12_S05_A_low_a01",
+        "F12_S05_C_low_a01",
+        "F12_S05_B_low_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S06",
+      "attempt": "a01",
+      "arms": [
+        "F12_S06_F_high_a01",
+        "F12_S06_A_high_a01",
+        "F12_S06_E_high_a01",
+        "F12_S06_B_high_a01",
+        "F12_S06_D_high_a01",
+        "F12_S06_C_high_a01",
+        "F12_S06_F_low_a01",
+        "F12_S06_A_low_a01",
+        "F12_S06_E_low_a01",
+        "F12_S06_B_low_a01",
+        "F12_S06_D_low_a01",
+        "F12_S06_C_low_a01",
+        "F12_S06_F_mid_a01",
+        "F12_S06_A_mid_a01",
+        "F12_S06_E_mid_a01",
+        "F12_S06_B_mid_a01",
+        "F12_S06_D_mid_a01",
+        "F12_S06_C_mid_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S07",
+      "attempt": "a02",
+      "arms": [
+        "F12_S07_D_low_a02",
+        "F12_S07_E_low_a02",
+        "F12_S07_C_low_a02",
+        "F12_S07_F_low_a02",
+        "F12_S07_B_low_a02",
+        "F12_S07_A_low_a02",
+        "F12_S07_D_mid_a02",
+        "F12_S07_E_mid_a02",
+        "F12_S07_C_mid_a02",
+        "F12_S07_F_mid_a02",
+        "F12_S07_B_mid_a02",
+        "F12_S07_A_mid_a02",
+        "F12_S07_D_high_a02",
+        "F12_S07_E_high_a02",
+        "F12_S07_C_high_a02",
+        "F12_S07_F_high_a02",
+        "F12_S07_B_high_a02",
+        "F12_S07_A_high_a02"
+      ]
+    },
+    {
+      "session_id": "F12_S08",
+      "attempt": "a01",
+      "arms": [
+        "F12_S08_E_mid_a01",
+        "F12_S08_F_mid_a01",
+        "F12_S08_D_mid_a01",
+        "F12_S08_A_mid_a01",
+        "F12_S08_C_mid_a01",
+        "F12_S08_B_mid_a01",
+        "F12_S08_E_high_a01",
+        "F12_S08_F_high_a01",
+        "F12_S08_D_high_a01",
+        "F12_S08_A_high_a01",
+        "F12_S08_C_high_a01",
+        "F12_S08_B_high_a01",
+        "F12_S08_E_low_a01",
+        "F12_S08_F_low_a01",
+        "F12_S08_D_low_a01",
+        "F12_S08_A_low_a01",
+        "F12_S08_C_low_a01",
+        "F12_S08_B_low_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S09",
+      "attempt": "a01",
+      "arms": [
+        "F12_S09_F_high_a01",
+        "F12_S09_A_high_a01",
+        "F12_S09_E_high_a01",
+        "F12_S09_B_high_a01",
+        "F12_S09_D_high_a01",
+        "F12_S09_C_high_a01",
+        "F12_S09_F_low_a01",
+        "F12_S09_A_low_a01",
+        "F12_S09_E_low_a01",
+        "F12_S09_B_low_a01",
+        "F12_S09_D_low_a01",
+        "F12_S09_C_low_a01",
+        "F12_S09_F_mid_a01",
+        "F12_S09_A_mid_a01",
+        "F12_S09_E_mid_a01",
+        "F12_S09_B_mid_a01",
+        "F12_S09_D_mid_a01",
+        "F12_S09_C_mid_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S10",
+      "attempt": "a01",
+      "arms": [
+        "F12_S10_A_low_a01",
+        "F12_S10_B_low_a01",
+        "F12_S10_F_low_a01",
+        "F12_S10_C_low_a01",
+        "F12_S10_E_low_a01",
+        "F12_S10_D_low_a01",
+        "F12_S10_A_mid_a01",
+        "F12_S10_B_mid_a01",
+        "F12_S10_F_mid_a01",
+        "F12_S10_C_mid_a01",
+        "F12_S10_E_mid_a01",
+        "F12_S10_D_mid_a01",
+        "F12_S10_A_high_a01",
+        "F12_S10_B_high_a01",
+        "F12_S10_F_high_a01",
+        "F12_S10_C_high_a01",
+        "F12_S10_E_high_a01",
+        "F12_S10_D_high_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S11",
+      "attempt": "a01",
+      "arms": [
+        "F12_S11_B_mid_a01",
+        "F12_S11_C_mid_a01",
+        "F12_S11_A_mid_a01",
+        "F12_S11_D_mid_a01",
+        "F12_S11_F_mid_a01",
+        "F12_S11_E_mid_a01",
+        "F12_S11_B_high_a01",
+        "F12_S11_C_high_a01",
+        "F12_S11_A_high_a01",
+        "F12_S11_D_high_a01",
+        "F12_S11_F_high_a01",
+        "F12_S11_E_high_a01",
+        "F12_S11_B_low_a01",
+        "F12_S11_C_low_a01",
+        "F12_S11_A_low_a01",
+        "F12_S11_D_low_a01",
+        "F12_S11_F_low_a01",
+        "F12_S11_E_low_a01"
+      ]
+    },
+    {
+      "session_id": "F12_S12",
+      "attempt": "a01",
+      "arms": [
+        "F12_S12_C_high_a01",
+        "F12_S12_D_high_a01",
+        "F12_S12_B_high_a01",
+        "F12_S12_E_high_a01",
+        "F12_S12_A_high_a01",
+        "F12_S12_F_high_a01",
+        "F12_S12_C_low_a01",
+        "F12_S12_D_low_a01",
+        "F12_S12_B_low_a01",
+        "F12_S12_E_low_a01",
+        "F12_S12_A_low_a01",
+        "F12_S12_F_low_a01",
+        "F12_S12_C_mid_a01",
+        "F12_S12_D_mid_a01",
+        "F12_S12_B_mid_a01",
+        "F12_S12_E_mid_a01",
+        "F12_S12_A_mid_a01",
+        "F12_S12_F_mid_a01"
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "session_id": "F12_S01",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S02",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S03",
+      "attempt": "a01",
+      "status": "invalid_attempt",
+      "reason": "Primary SSD became unavailable; R1 incident record."
+    },
+    {
+      "session_id": "F12_S03",
+      "attempt": "a02",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S04",
+      "attempt": "a01",
+      "status": "invalid_attempt",
+      "reason": "P3 throttled=0x50000; pre-arm and recovery power gates failed."
+    },
+    {
+      "session_id": "F12_S04",
+      "attempt": "a02",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S05",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S06",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S07",
+      "attempt": "a01",
+      "status": "invalid_attempt",
+      "reason": "P2 wlan0 disappeared; SCP raw collection timed out; R2 stop record."
+    },
+    {
+      "session_id": "F12_S07",
+      "attempt": "a02",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S08",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S09",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S10",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S11",
+      "attempt": "a01",
+      "status": "accepted"
+    },
+    {
+      "session_id": "F12_S12",
+      "attempt": "a01",
+      "status": "accepted"
+    }
+  ]
+}

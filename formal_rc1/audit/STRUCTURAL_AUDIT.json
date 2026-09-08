@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "accepted_arms_unique": true,
+    "accepted_sessions": true,
+    "aggregate_arm_set_matches_accepted_index": true,
+    "contrast_pairs_recomputed": true,
+    "description_rows_recomputed": true,
+    "final_archive_matches_independent_backup": true,
+    "final_restore_crc": true,
+    "final_restore_hashes": true,
+    "invalid_attempts_excluded": true,
+    "session_package_receipts_verified": true,
+    "validator_failed_checks_zero": true,
+    "validators_overall_pass": true
+  },
+  "counts": {
+    "accepted_arms": 216,
+    "accepted_sessions": 12,
+    "contrast_rows": 48,
+    "description_rows": 144,
+    "session_packages": 12,
+    "validator_files": 216
+  },
+  "open_items": [
+    "Independent reviewer verdict has not been recorded.",
+    "The manuscript has not been rewritten or numerically audited against RC1.",
+    "Public artifact licensing and disclosure review remain open."
+  ],
+  "scope": "local structural and aggregate-consistency audit",
+  "verdict": "PASS_WITH_OPEN_REVIEW_ITEMS"
+}
