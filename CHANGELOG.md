@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-09 — V1.3 methodology-repair review package
+
+- Added an isolated, path-free review export for the completed v sensitivity,
+  desynchronised-baseline, nominal-deadline, and scaling analyses.
+- Preserved the formal V1.2 evidence and manuscript without modification; no
+  Raspberry Pi campaign was rerun.
+- Added independent checks for row counts, retained failures, internal hashes,
+  scope guards, and private path/host exclusion.
+- Kept offline replay/simulation distinct from the Task C reconstruction of
+  retained formal hardware timestamps.
+
 ## 2026-09-08 — RC1 evidence transition
 
 - Recorded completion of protocol `NSF12_20260906_RC1`: 12 accepted sessions,

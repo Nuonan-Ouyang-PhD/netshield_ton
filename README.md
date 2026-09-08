@@ -18,8 +18,10 @@ must not be presented as results from the RC1 campaign.
 | Path | Purpose |
 |---|---|
 | [`formal_rc1/`](formal_rc1/) | Path-free RC1 status, accepted-attempt index, 216-arm matrix, validator summary, aggregate descriptive tables, configuration snapshot, and integrity manifest |
+| [`ToN_V1_3_Methodology_Repair_20260909/`](ToN_V1_3_Methodology_Repair_20260909/) | Isolated path-free sensitivity, desynchronisation, nominal-deadline reconstruction, and scaling-validation review package |
 | [`legacy/v4_4/`](legacy/v4_4/) | Payload-preserved V4.4 manuscript package and its original supporting material |
 | [`scripts/verify_repository.py`](scripts/verify_repository.py) | Standard-library verification of hashes, expected counts, package receipts, and private host/path exclusion |
+| [`scripts/verify_methodology_repair.py`](scripts/verify_methodology_repair.py) | Standard-library verification of V1.3 row counts, hashes, scope guards, and path-free publication boundary |
 | [`CHANGELOG.md`](CHANGELOG.md) | Repository-level history and status transitions |
 | [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) | Access, redistribution, and licensing boundary |
 
@@ -51,6 +53,7 @@ tool identities, fixture evidence hashes, and backup gate are recorded in
 
 ```bash
 python3 scripts/verify_repository.py
+python3 scripts/verify_methodology_repair.py
 ```
 
 To verify the archived V4.4 bundle separately:
@@ -70,6 +73,11 @@ event ledgers, packet-level material, model artifacts, machine addresses, SSH
 targets, user paths, and the full campaign archive remain outside Git. Public
 release and licensing require a separate author decision and dataset/model
 license review. Repository visibility must remain private during review.
+
+The V1.3 methodology-repair directory is supplementary analysis, not a new
+Raspberry Pi campaign and not a manuscript revision. Tasks A, B, and D are
+offline replay/simulation; Task C alone reconstructs metrics from retained
+formal timestamps.
 
 ## Open review gates
 
