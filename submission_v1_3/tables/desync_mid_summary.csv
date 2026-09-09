@@ -1,0 +1,5 @@
+method,core_required_fraction,on_time_mean,on_time_min,on_time_max,max_queue_bytes
+central_coordinated,0.3333333333333333,1.0,1.0,1.0,130985
+desynchronized_independent,0.6666666666666666,0.5027777777777778,0.5,0.5055555555555555,130985
+shielded_coordinated,0.3333333333333333,1.0,1.0,1.0,130985
+synchronized_independent,0.5,0.0,0.0,0.0,130985

@@ -1,0 +1,7 @@
+capacity,arm,events_audited,shield_safety_interventions,capacity_admission_interventions,transition,candidate_reconstruction_failures,final_reconstruction_failures,canonical_source_sha256
+low,E,3240,0,3240,H_FULL->H_SUMMARY,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705
+low,F,3240,3240,0,H_FULL->H_SUMMARY,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705
+mid,E,3240,0,2160,H_FULL->H_SUMMARY,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705
+mid,F,3240,0,2160,H_FULL->H_SUMMARY,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705
+high,E,3240,0,0,--,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705
+high,F,3240,0,0,--,0,0,f3f92f9b0f5339e00f8a865195e8dbd11fd3d0aa9436f555264bd1d0f5025705

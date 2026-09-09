@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-09 — V1.3 machine-validated submission candidate
+
+- Added the path-free V1.3 manuscript and supplementary PDFs and sources, seven
+  vector figures, complete tables, number provenance, claim/reference audits,
+  and build/validation reports.
+- Added only the path-free formal summaries and methodology-repair rows needed
+  to audit the manuscript; raw event ledgers and machine-local build inputs stay
+  outside Git.
+- Added an integrity, evidence, provenance, citation, forbidden-claim, and
+  privacy verifier for the V1.3 submission snapshot.
+- Preserved the full-raw `PASS_WITH_ISSUES` disclosure and kept submission and
+  public release at `HOLD` pending author and licensing decisions.
+
 ## 2026-09-09 — V1.3 methodology-repair review package
 
 - Added an isolated, path-free review export for the completed v sensitivity,

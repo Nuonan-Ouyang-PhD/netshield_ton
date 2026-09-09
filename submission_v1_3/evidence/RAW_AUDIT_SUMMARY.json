@@ -1,0 +1,99 @@
+{
+  "verdict": "PASS_WITH_ISSUES",
+  "audit_started_utc": "2026-09-08T08:38:24.166482+00:00",
+  "audit_completed_utc": "2026-09-08T08:40:56.262710+00:00",
+  "raw_zip_sha256": "d19ae2a5f5697d0d662848c966b8743fa2ba945a24c0247e3a4c526f5bcda87b",
+  "raw_zip_size_bytes": 455169143,
+  "raw_zip_crc": "PASS",
+  "extracted_files": 41123,
+  "accepted_sessions": 12,
+  "accepted_arms_expected": 216,
+  "accepted_arms_rebuilt": 216,
+  "measured_events_rebuilt": 58320,
+  "frozen_validator_passes": 216,
+  "validator_semantic_matches": 216,
+  "event_metric_report_semantic_matches": 216,
+  "raw_to_delivered_mismatches": 0,
+  "event_conservation_failures": 0,
+  "shared_rounds_checked": 63720,
+  "shared_round_violations": 0,
+  "accepted_gate_failures": 0,
+  "aggregate_semantic_identical": true,
+  "public_candidate_semantic_identical": true,
+  "matrix_semantic_identical": true,
+  "global_unique_event_keys": 61560,
+  "global_event_key_collisions": 0,
+  "shield_decisions_checked": 19440,
+  "shield_decision_reconstruction_failures": 0,
+  "shield_counts": {
+    "E": {
+      "low": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 0,
+        "capacity_admission_interventions": 3240,
+        "safety_transitions": {},
+        "capacity_transitions": {
+          "H_FULL->H_SUMMARY": 3240
+        },
+        "reconstruction_failures": 0
+      },
+      "mid": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 0,
+        "capacity_admission_interventions": 2160,
+        "safety_transitions": {},
+        "capacity_transitions": {
+          "H_FULL->H_SUMMARY": 2160
+        },
+        "reconstruction_failures": 0
+      },
+      "high": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 0,
+        "capacity_admission_interventions": 0,
+        "safety_transitions": {},
+        "capacity_transitions": {},
+        "reconstruction_failures": 0
+      }
+    },
+    "F": {
+      "low": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 3240,
+        "capacity_admission_interventions": 0,
+        "safety_transitions": {
+          "H_FULL->H_SUMMARY": 3240
+        },
+        "capacity_transitions": {},
+        "reconstruction_failures": 0
+      },
+      "mid": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 0,
+        "capacity_admission_interventions": 2160,
+        "safety_transitions": {},
+        "capacity_transitions": {
+          "H_FULL->H_SUMMARY": 2160
+        },
+        "reconstruction_failures": 0
+      },
+      "high": {
+        "measured_device_events": 3240,
+        "shield_safety_interventions": 0,
+        "capacity_admission_interventions": 0,
+        "safety_transitions": {},
+        "capacity_transitions": {},
+        "reconstruction_failures": 0
+      }
+    }
+  },
+  "E_F_action_mix_identical_all_36_session_capacity_pairs": true,
+  "fatal_reasons": [],
+  "issues": [
+    "S03 a01 storage-failure reason is present in ATTEMPT_INDEX but no direct failure/incident record is included in the raw session ZIP",
+    "S07 pre-hardware launcher-abort records are not present in the supplied raw session ZIP"
+  ],
+  "submission_clearance": "NOT_GRANTED",
+  "paper_modified": false,
+  "github_modified_or_pushed": false
+}
