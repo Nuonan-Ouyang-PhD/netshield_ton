@@ -19,6 +19,8 @@ jobs:
           python-version: "3.12"
       - name: Verify current RC1 snapshot
         run: python3 scripts/verify_repository.py
+      - name: Verify V1.3 methodology-repair snapshot
+        run: python3 scripts/verify_methodology_repair.py
       - name: Verify archived V4.4 snapshot
         working-directory: legacy/v4_4
         run: sha256sum -c docs/MANIFEST_SHA256.txt
