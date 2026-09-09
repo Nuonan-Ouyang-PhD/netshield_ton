@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-09 — Clean supervisor-review submission
+
+- Added `submission/` as the clean first-submission review entry point.
+- Added neutral manuscript and Supplementary filenames without internal revision
+  labels or dates.
+- Preserved all scientific results, figures, tables, references, evidence seeds,
+  and claim boundaries from the validated candidate.
+- Added clean build instructions, audits, SHA-256 checks, and a self-contained
+  submission validator.
+- Kept the repository private and retained earlier packages as historical audit
+  records.
+
 ## 2026-09-09 — V1.3 machine-validated submission candidate
 
 - Added the path-free V1.3 manuscript and supplementary PDFs and sources, seven

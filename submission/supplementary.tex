@@ -1,0 +1,76 @@
+\documentclass[10pt,onecolumn]{IEEEtran}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,pdflscape,url,hyperref}
+\hypersetup{hidelinks}
+\newcommand{\Hnone}{\textsc{H-None}}
+\newcommand{\Hsummary}{\textsc{H-Summary}}
+\newcommand{\Hfull}{\textsc{H-Full}}
+\begin{document}
+\title{Supplementary Material: NetShield}
+\author{Nuonan Ouyang, Adrian Shatte, Zhigang Lu, Chao Chen, and Wei Xiang}
+\maketitle
+
+\section{Evidence Classification and Scope}
+The formal Raspberry Pi campaign contains 12 sessions and 216 accepted arms. Task C reconstructs timing from accepted formal hardware timestamps. Task A is offline replay, Task B is a software sensitivity, and Task D is discrete-event conformance. None is a new Raspberry Pi experiment. This supplementary build does not modify the frozen formal raw evidence.
+
+\begin{table}[h]\centering\caption{Evidence classes.}\begin{tabular}{lll}\toprule
+Component & Evidence type & Permitted interpretation\\\midrule
+Formal campaign & Hardware & Three-Pi measurements\\
+Full-raw audit & Raw reconstruction & Accepted-arm traceability\\
+Task A & Offline replay & Frozen-selector sensitivity\\
+Task B & Software sensitivity & Phase-desynchronization counterfactual\\
+Task C & Raw reconstruction & Accepted-hardware timestamp metrics\\
+Task D & Discrete-event conformance & Analytical boundary check\\\bottomrule
+\end{tabular}\end{table}
+
+\section{Frozen Action Table and I-QPG Thresholds}
+\begin{table}[h]\centering\caption{Frozen action lattice and $v=1$ thresholds against H-NONE.}\begin{tabular}{lrrr}\toprule
+Action & Payload (B) & Utility & Threshold $Q$ (B)\\\midrule
+L-NONE&0&0.758501&--\\ L-ALERT&256&0.825168&221.84\\ L-SUMMARY&4096&0.891835&30.14\\
+M-NONE&0&0.766968&--\\ M-ALERT&256&0.833635&254.91\\ M-SUMMARY&8192&0.900302&16.10\\
+H-NONE&0&0.768378&--\\ H-ALERT&256&0.835044&260.41\\ H-SUMMARY&16384&0.901711&8.14\\ H-FULL&131072&0.968378&1.53\\\bottomrule
+\end{tabular}\end{table}
+
+\section{Theorem Derivations}
+For $m$ remotely represented probes and $k$ full-evidence probes, payload is $mS+k(B-S)$. Hence one-round feasibility is
+\[kB+(m-k)S\le C,\]
+and, for $C\ge mS$,
+\[k^*(C,m)=\min\left\{m,\left\lfloor\frac{C-mS}{B-S}\right\rfloor\right\}.\]
+With $\rho=C/(nB)$, $\sigma=S/B$, $r=m/n$, and $f=k/n$, the continuous frontier is $\sigma r+(1-\sigma)f\le\rho$. For synchronized fixed-full overload, conservation gives $Q_\Sigma(T)=T(nB-C)$. At mid capacity the frozen I-QPG state alternates between H-FULL and H-NONE because the post-full queue exceeds every positive-payload threshold and the zero-payload round drains the residual.
+
+\begin{landscape}
+\section{Complete V-Sweep Results}
+The $v=1$ identity gate covers 36 accepted D cells and four deterministic checks per cell. Low-capacity cycle/action composition changes with $v$; no all-$v$ cycle-identity claim is made.
+\scriptsize\input{tables/v_sweep_complete.tex}\end{landscape}
+
+\begin{landscape}
+\section{Complete Desynchronization Sensitivity}
+Probe phases are independently assigned from fixed seeds. Probes exchange neither action nor queue state, and no joint admission is introduced.
+\scriptsize\input{tables/desync_complete.tex}\end{landscape}
+
+\begin{landscape}
+\section{Complete Nominal-Deadline Reconstruction}
+Post-release latency is result return minus actual event creation. Nominal latency is result return minus scheduled release. The 1-s quantity in the main paper is a post-release service SLO, not a complete schedule-to-result deadline.
+\tiny\input{tables/nominal_deadline_complete.tex}\end{landscape}
+
+\begin{landscape}
+\section{Release-Lateness Diagnostic}
+Independent nominal clocks, the three-probe barrier, unequal first-iteration waiting, relative sleep, and no absolute catch-up are source/log supported. The specific OS/network reason for the recurring proposal-arrival order is UNKNOWN.
+\small\input{tables/release_lateness.tex}\end{landscape}
+
+\begin{landscape}
+\section{Finite-n Scaling Conformance}
+This is discrete-event conformance, not a 32-probe hardware scalability experiment.
+\small\input{tables/scaling_complete.tex}\end{landscape}
+
+\section{Accepted and Excluded Attempts}
+Accepted attempts are S01-a01, S02-a01, S03-a02, S04-a02, S05-a01, S06-a01, S07-a02, and S08--S12-a01. S03-a01, S04-a01, and S07-a01 are excluded infrastructure attempts and are not stitched into accepted sessions.
+
+\section{Detector and Replay Limitations}
+The workload is frozen CICIoT2023-derived feature-vector replay, not packet replay or an uncontrolled deployment. The formal occurrence set excludes Recon-PortScan, and exact feature-vector overlap exists across frozen partitions. Perfect correctness on the formal occurrences is therefore a controlled diagnostic rather than an IDS-superiority result.
+
+\section{Raw Audit and Methodology-Repair Verdicts}
+The full-raw audit rebuilt 216/216 accepted arms and 58,320 measured events with zero raw-to-metric mismatch and zero shared-cap violation across 63,720 service rounds. Its verdict is PASS\_WITH\_ISSUES because the raw bundle lacks direct artifacts for the S03-a01 SSD incident and the S07 pre-hardware launcher abort. The methodology repair is PASS with retained rows A/B/C/D = 432/240/648/20 and zero failed runs.
+
+\section{Artifact Access}
+Machine-readable CSV/JSON sources, number provenance, claim audit, build report, validation report, and SHA-256 manifest accompany this supplementary PDF. Third-party dataset redistribution rights remain outside the scope of this package.
+\end{document}
