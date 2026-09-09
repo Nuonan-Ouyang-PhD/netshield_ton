@@ -1,0 +1,1400 @@
+\documentclass[10pt,journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts,mathtools,amsthm}
+\usepackage{booktabs,array,multirow}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{balance}
+\graphicspath{{figures/}}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+\newcommand{\NetShield}{\textsc{NetShield}}
+\newcommand{\Hnone}{\textsc{H-None}}
+\newcommand{\Hsummary}{\textsc{H-Summary}}
+\newcommand{\Hfull}{\textsc{H-Full}}
+\newcommand{\IQPG}{\textsc{I-QPG}}
+\newcommand{\CQPG}{\textsc{C-QPG}}
+\newcommand{\SCQPG}{\textsc{S-CQPG}}
+
+\begin{document}
+
+\title{\NetShield: Feasibility Boundaries and Shared-Bottleneck
+Evidence Admission for Multi-Probe IoT Edge Intrusion Detection}
+
+\author{
+Nuonan~Ouyang,~\IEEEmembership{Member,~IEEE,}
+Adrian~Shatte,
+Zhigang~Lu,
+Chao~Chen,~\IEEEmembership{Member,~IEEE,}
+and~Wei~Xiang,~\IEEEmembership{Senior~Member,~IEEE}%
+\thanks{\textit{(Corresponding author: Nuonan Ouyang.)}}%
+\thanks{N. Ouyang and A. Shatte are with the College of Science and
+Engineering, James Cook University, Bebegu Yumba Campus, Townsville,
+QLD, Australia
+(e-mail: nuonan.ouyang@my.jcu.edu.au;
+adrian.shatte@jcu.edu.au).}%
+\thanks{Z. Lu is with the School of Computer, Data and Mathematical
+Sciences, Western Sydney University, Kingswood, NSW, Australia
+(e-mail: z.lu@westernsydney.edu.au).}%
+\thanks{C. Chen is with the College of Business and Law,
+RMIT University, Melbourne, VIC, Australia
+(e-mail: chao.chen@rmit.edu.au).}%
+\thanks{W. Xiang is with La Trobe University,
+Melbourne, VIC, Australia
+(e-mail: w.xiang@latrobe.edu.au).}%
+}
+
+\markboth{IEEE/ACM Transactions on Networking,~Vol.~XX, No.~XX, Month~2026}%
+{Ouyang \MakeLowercase{\textit{et al.}}:
+Feasibility Boundaries for Multi-Probe Edge IDS Evidence Admission}
+
+\maketitle
+
+% ============================================================
+\begin{abstract}
+Multi-probe edge intrusion detection creates an evidence-service allocation
+problem: concurrent probes may request evidence whose aggregate demand
+exceeds a shared service budget. We develop \NetShield{} around an
+analytical feasibility region rather than classifier-accuracy optimization.
+For $n$ probes, let $m$ probes retain remotely delivered evidence in a
+coordination round, of which $k$ request full evidence of size $B$ while
+the remaining $m-k$ transmit summaries of size $S<B$. The joint request
+is byte-feasible within one idealized service round if and only if
+$kB+(m-k)S\leq C$. For a fixed remote-evidence coverage requirement $m$,
+this gives the exact full-evidence boundary
+$k^\star=\min\{m,\lfloor(C-mS)/(B-S)\rfloor\}$ when $C\geq mS$,
+exposing an explicit coverage--richness trade-off.
+
+We evaluate the resulting design on a heterogeneous Raspberry Pi~5,
+Pi~4B, and Pi~3B+ testbed over Wi-Fi. With full and summary payloads of
+128~KiB and 16~KiB, respectively, the low/mid/high formal service
+budgets predict exactly 0/1/3 simultaneous full-evidence actions when
+all three probes retain remote evidence; these operating points match
+the coordinated action mixes in every formal session. We further identify
+a symmetry-induced limit cycle in the frozen independent queue-penalized
+controller. At mid capacity, a synchronized full-evidence round leaves
+approximately 43.7~KiB of backlog per probe, while every positive-payload
+action loses to the best zero-payload action once queue occupancy exceeds
+approximately 260~B. This produces the observed
+full/none period-two orbit.
+
+A 12-value offline sensitivity sweep exactly reproduces the formal
+$v=1$ operating statistics and shows that the synchronized mid-capacity
+core-request fraction remains $1/2$ through $v=30{,}000$.
+A separate 20-seed software sensitivity study breaks only the probe
+phases; the desynchronized independent controller reaches a $2/3$
+core-request fraction and approximately 0.50 simulated on-time coverage,
+showing that the original baseline failure is caused by synchronization
+rather than decentralization itself. We therefore interpret coordinated
+admission as deterministic selection of a coverage--richness operating
+point, not as universally superior control.
+
+The physical campaign contains 12 sessions, 216 accepted arms, 648
+device-runs, and 58,320 measured events. A timestamp reconstruction
+separates a 1-s post-release service SLO from schedule-inclusive latency,
+and a discrete-event conformance study matches the analytical integer
+boundary for all 20 tested probe-count/capacity combinations. A full-raw
+audit reconstructs all 216 accepted hardware arms with zero
+raw-to-metric mismatch and zero shared-cap violation across 63,720
+service rounds. These results position edge-IDS evidence scheduling as a
+shared-bottleneck feasibility and service-timeliness problem rather than
+a classifier-performance optimization problem.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Internet of Things, intrusion detection, edge computing, admission control,
+shared bottleneck, evidence scheduling, latency SLO, queue-aware control.
+\end{IEEEkeywords}
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+Intrusion detection is increasingly moved toward gateways and edge nodes
+to reduce cloud dependence, shorten response paths, and keep sensitive
+telemetry close to its source. In a multi-probe deployment, however,
+a security decision produces more than a class label. A probe may retain
+a result locally, send a compact alert or summary, or upload richer
+evidence for core-side execution and correlation. These alternatives
+create different amounts of network demand and different completion
+paths.
+
+This coupling changes the systems problem. Suppose three probes each
+decide independently that a 128~KiB full-evidence request is useful.
+Every local decision may be reasonable in isolation, yet their combined
+393,216~B request can exceed the shared service available in the current
+coordination round. The resulting question is not merely whether each
+probe can classify its traffic, but which combination of evidence
+coverage and evidence richness can be admitted over the common
+bottleneck.
+
+This paper studies that question through \NetShield{}. The key modeling
+choice is to treat evidence generation as \emph{endogenous application
+load}: the runtime action determines how many bytes enter the service
+plane. This differs from treating security traffic as a fixed exogenous
+arrival process. It also separates two mechanisms that are easily
+conflated. A selector determines which action a probe would like to take;
+a joint admission layer determines whether the simultaneous requests
+form a feasible tuple before those bytes enter the queues.
+
+The distinction became especially important during audit of our
+independent queue-aware baseline. The frozen formal controller used the
+score
+\begin{equation}
+\psi_i(a,t)
+=
+v u(a)-Q_i(t)b(a)/10^6,
+\label{eq:qpg}
+\end{equation}
+where $Q_i$ is the local evidence queue and $b(a)$ the payload of action
+$a$. Because the three formal probes execute synchronized decision
+epochs, their local queue states remain symmetric. Under the frozen
+$v=1$ scaling, this symmetry creates a deterministic period-two orbit at
+mid capacity: all probes request full evidence together, retain residual
+queue, then all switch to a zero-payload action together until the queue
+drains. Consequently, the poor mid-capacity result of this baseline
+cannot be used as evidence that decentralization is intrinsically
+inferior.
+
+Rather than hiding this behavior, V1.3 makes it a first-class systems
+result. We derive a closed-form evidence feasibility region, show how
+the synchronized local controller can cycle relative to that region,
+and then use both a desynchronized counterfactual and the physical
+campaign to distinguish three phenomena: deterministic byte feasibility,
+controller-induced operating-point selection, and real-system timing
+variation.
+
+We address four research questions:
+
+\begin{itemize}[leftmargin=1.25em]
+\item \textbf{RQ1---Feasibility region:}
+What coverage--richness evidence allocations are byte-feasible under a
+shared service budget?
+
+\item \textbf{RQ2---Controller realization and synchronization:}
+How do coordinated and independent controllers occupy that region, and
+when does synchronized local queue feedback create limit cycles?
+
+\item \textbf{RQ3---Physical timing residual:}
+Once an evidence tuple is byte-feasible, how do orchestration and
+wireless timing affect post-release and schedule-inclusive service
+attainment?
+
+\item \textbf{RQ4---Scaling and reproducibility:}
+Does the finite-probe analytical boundary hold as the number of probes
+changes, and can the physical result chain be reconstructed from raw
+occurrence-level evidence?
+\end{itemize}
+
+The paper makes four contributions.
+
+First, we derive a \emph{coverage-conditioned evidence feasibility
+boundary}. For a shared budget $C$, full payload $B$, summary payload
+$S$, $m$ remotely represented probes, and $k$ full-evidence probes,
+feasibility is exactly characterized by
+$kB+(m-k)S\leq C$. Its normalized form yields a simple
+coverage--richness frontier.
+
+Second, we identify and analytically explain a
+\emph{symmetry-induced limit cycle} in synchronized independent
+queue-penalized control. A 12-value parameter sweep reproduces the
+formal operating point over more than four orders of magnitude in $v$,
+while a 20-seed desynchronization study shows that removing the shared
+phase substantially changes the independent operating point without
+introducing joint admission.
+
+Third, we validate the analytical feasibility and overload boundaries
+on three heterogeneous physical Raspberry Pi probes. The formal
+campaign contains 12 sessions, 216 accepted arms, and 58,320 measured
+events. The hardware campaign is used to characterize the deviations
+that the byte model cannot predict, in particular evidence completion
+latency and release-time jitter.
+
+Fourth, we provide an event-level reproducibility chain. The accepted
+hardware arms are reconstructed from immutable event contracts, and a
+separate methodology-repair package validates the frozen controller,
+the desynchronization counterfactual, schedule-inclusive timing, and
+multi-$n$ boundary conformance.
+
+\paragraph{Claim boundary.}
+\NetShield{} does not claim a new intrusion classifier, state-of-the-art
+CICIoT2023 detection accuracy, global scheduler optimality, or empirical
+superiority of the safety filter over ordinary coordinated admission.
+The central claims concern evidence feasibility, admission, queue
+behavior, and service timing.
+
+% ============================================================
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Lightweight IoT Intrusion Detection}
+
+Lightweight IoT IDS research has produced compact anomaly detectors,
+device fingerprints, and online detection pipelines, including SVELTE,
+IoT Sentinel, N-BaIoT, and Kitsune~\cite{raza2013svelte,
+miettinen2017iotsentinel,meidan2018nbaiot,mirsky2018kitsune}.
+These systems primarily ask how to make prediction feasible on
+constrained devices. \NetShield{} addresses a complementary question:
+given a frozen detector/evidence action set, which evidence requests can
+be sustained jointly over a shared edge service?
+
+\subsection{Edge Offloading and Shared Network Control}
+
+Mobile-edge computing studies computation placement under latency,
+bandwidth, and energy constraints~\cite{mao2017mec,mach2017mec}.
+Classical fair queueing and network scheduling address how a bottleneck
+serves packets that have already entered queues~\cite{demers1989fair,
+parekh1993gps}. Our setting adds an upstream control decision: selecting
+an evidence action determines the amount of new traffic offered to the
+service plane. Admission and service are therefore modeled separately.
+
+\subsection{Queue-Aware Control}
+
+Queue-aware scheduling and Lyapunov drift-plus-penalty provide a
+foundation for balancing utility against backlog~\cite{tassiulas1992,
+neely2010}. The frozen experiment artifacts historically use the labels
+``independent-DPP,'' ``central-DPP,'' and ``shielded-DPP.'' The deployed
+selector, however, is the finite-action score in~\eqref{eq:qpg}, not a
+claimed implementation of a complete stochastic Lyapunov optimizer.
+V1.3 therefore uses the descriptive names independent queue-penalized
+greedy (\IQPG), coordinated QPG (\CQPG), and safety-filtered coordinated
+QPG (\SCQPG), while retaining the old identifiers only for artifact
+traceability.
+
+\subsection{Deadline-Aware Inference Serving and Admission}
+
+Prediction-serving systems also expose tight latency-resource trade-offs.
+Clipper combines batching, caching, and adaptive model selection for
+low-latency prediction serving~\cite{crankshaw2017clipper}.
+Nexus schedules DNN execution across GPU clusters while targeting
+latency constraints~\cite{shen2019nexus}. Clockwork constructs predictable
+DNN serving from predictable execution primitives and explicitly targets
+request-level latency objectives~\cite{gujarati2020clockwork}.
+InferLine combines offline provisioning with online tuning to meet
+end-to-end tail-latency SLOs for prediction pipelines
+~\cite{crankshaw2020inferline}.
+
+These systems primarily control compute allocation, batching,
+provisioning, or execution after inference requests exist.
+\NetShield{} instead controls an upstream networking decision in which
+the security action itself determines the amount and richness of evidence
+offered to the shared transport-and-core service.
+
+\subsection{Runtime Safety Filters}
+
+Runtime shields and predictive safety filters separate policy choice
+from hard enforcement~\cite{alshiekh2018shielding,wabersich2021filter}.
+We retain that architecture as an optional local-feasibility filter.
+The formal campaign shows that the filter is active under low capacity,
+but also that ordinary capacity admission can produce the same final
+action mix. We therefore do not treat the filter as an independently
+validated performance contribution.
+
+\subsection{Relation to Prior Work}
+
+Our prior ACISP 2026 Systematization of Knowledge surveyed telemetry-aware
+runtime assurance for always-on on-device IDS and presented TQS-IDS as a
+design template~\cite{ouyang2026sok}. It did not implement the present
+shared-bottleneck formulation, the queue-penalized controllers, the
+V1.2 event contract, or the S01--S12 three-Pi hardware campaign.
+
+% ============================================================
+\section{System Model and Feasibility Analysis}
+\label{sec:model}
+
+\subsection{Shared Evidence Service}
+
+Consider $n$ edge probes sharing an application-level service budget
+$C(t)$ bytes in coordination round $t$. Probe $i$ has evidence queue
+$Q_i(t)$ and chooses an admitted action $a_i(t)$ with payload $b(a_i)$.
+The common service grants $g_i(t)$ satisfy
+\begin{equation}
+g_i(t)\geq0,
+\qquad
+\sum_{i=1}^{n}g_i(t)\leq C(t).
+\label{eq:cap}
+\end{equation}
+
+The queue evolves as
+\begin{equation}
+Q_i(t+1)
+=
+\left[
+Q_i(t)+b(a_i(t))-g_i(t)
+\right]^+ .
+\label{eq:queue}
+\end{equation}
+
+The low, mid, and high labels used in the formal campaign refer to
+controlled application-byte budgets per coordination round. They are
+not measurements of Wi-Fi PHY throughput.
+
+\subsection{Frozen Action Lattice}
+
+The implementation exposes ten frozen actions spanning light, medium,
+and heavy detector execution and evidence levels from no upload to full
+core-side evidence. Table~\ref{tab:actions} lists the frozen payload and
+utility fields.
+
+\begin{table}[t]
+\centering
+\caption{Frozen action payloads and utility scores.}
+\label{tab:actions}
+\scriptsize
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Action & Payload (B) & Utility \\
+\midrule
+L-NONE    & 0      & 0.758501 \\
+L-ALERT   & 256    & 0.825168 \\
+L-SUMMARY & 4,096  & 0.891835 \\
+M-NONE    & 0      & 0.766968 \\
+M-ALERT   & 256    & 0.833635 \\
+M-SUMMARY & 8,192  & 0.900302 \\
+H-NONE    & 0      & 0.768378 \\
+H-ALERT   & 256    & 0.835044 \\
+H-SUMMARY & 16,384 & 0.901711 \\
+H-FULL    & 131,072& 0.968378 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The formal coordinated regimes eventually operate on the
+\Hsummary--\Hfull{} edge of this lattice, making it possible to state a
+compact exact boundary.
+
+\subsection{Coverage--Richness Feasibility Region}
+
+Let $m\leq n$ probes retain remotely delivered evidence in a round.
+Among them, let $k\leq m$ request full evidence of size $B$; the other
+$m-k$ send summaries of size $S$, where $0<S<B$.
+The remaining $n-m$ probes do not generate remote evidence.
+
+\begin{theorem}[Coverage-conditioned evidence feasibility]
+\label{thm:frontier}
+A $(k,m)$ allocation is byte-feasible within one idealized service round
+if and only if
+\begin{equation}
+kB+(m-k)S\leq C .
+\label{eq:feasible}
+\end{equation}
+For a fixed remote-evidence requirement $m$, if $C\geq mS$, the maximum
+feasible number of full-evidence probes is
+\begin{equation}
+k^\star(C,m)
+=
+\min\left\{
+m,
+\left\lfloor
+\frac{C-mS}{B-S}
+\right\rfloor
+\right\}.
+\label{eq:kstar}
+\end{equation}
+If $C<mS$, no allocation preserving remote evidence for all $m$ probes
+is feasible.
+\end{theorem}
+
+\begin{proof}
+The payload of a $(k,m)$ allocation is
+\[
+kB+(m-k)S=mS+k(B-S).
+\]
+Since $B-S>0$, the capacity condition is equivalent to
+$k(B-S)\leq C-mS$. The largest integer satisfying this inequality is
+$\lfloor(C-mS)/(B-S)\rfloor$, subject to $0\leq k\leq m$.
+\end{proof}
+
+Define normalized capacity, summary ratio, remote-evidence coverage, and
+full-evidence richness as
+\begin{equation}
+\rho=\frac{C}{nB},
+\qquad
+\sigma=\frac{S}{B},
+\qquad
+r=\frac{m}{n},
+\qquad
+f=\frac{k}{n}.
+\end{equation}
+Ignoring finite-$n$ integer granularity,~\eqref{eq:feasible} becomes
+\begin{equation}
+\boxed{
+\sigma r+(1-\sigma)f\leq\rho
+}
+\label{eq:frontier}
+\end{equation}
+or
+\begin{equation}
+f\leq\frac{\rho-\sigma r}{1-\sigma}.
+\label{eq:frontier2}
+\end{equation}
+
+Equation~\eqref{eq:frontier} is the central service frontier of the
+paper. Increasing remote-evidence coverage $r$ consumes budget even when
+that coverage is only summary-level; increasing full-evidence richness
+$f$ consumes the remaining budget at slope $(1-\sigma)$.
+
+\paragraph{Summary-preserving special case.}
+When all probes retain remote evidence, $m=n$. Then
+\begin{equation}
+k^\star(C,n)
+=
+\left[
+\left\lfloor
+\frac{C-nS}{B-S}
+\right\rfloor
+\right]_0^n .
+\label{eq:summarypreserving}
+\end{equation}
+This is the exact boundary implemented by the formal coordinated
+full-to-summary degradation pattern.
+
+\subsection{Deterministic Overload Growth}
+
+The feasibility boundary also predicts queue growth for an unadmitted
+fixed-full stream.
+
+\begin{proposition}[Fixed-full overload law]
+\label{prop:overload}
+Assume every probe generates $B$ bytes per generation round, the initial
+queues are empty, the aggregate service is work conserving, and
+$C<nB$. After $T$ generation rounds the aggregate backlog is
+\begin{equation}
+Q_\Sigma(T)=T(nB-C).
+\label{eq:overload}
+\end{equation}
+Under symmetric fair service, per-probe backlog is
+approximately
+\begin{equation}
+Q_i(T)
+=
+T\left(B-\frac{C}{n}\right),
+\label{eq:overload_probe}
+\end{equation}
+up to integer-grant rounding.
+\end{proposition}
+
+\begin{proof}
+Each round adds exactly $nB$ new bytes and can remove at most $C$.
+Because $nB>C$, the queue never empties after overload begins, so the
+net backlog increase is exactly $nB-C$ per round.
+\end{proof}
+
+\subsection{Independent Queue-Penalized Selection}
+
+The frozen independent policy uses
+\begin{equation}
+\psi_i(a,t)
+=
+v u(a)-Q_i(t)b(a)/10^6 .
+\end{equation}
+At $v=1$, a positive-payload action $a$ can beat \Hnone{} only while
+\begin{equation}
+Q_i
+<
+q_a
+=
+\frac{[u(a)-u(\Hnone)]10^6}{b(a)} .
+\label{eq:threshold}
+\end{equation}
+
+For the relevant actions,
+\[
+q_{\Hfull}\approx1.526~\mathrm{B},
+\quad
+q_{\Hsummary}\approx8.138~\mathrm{B},
+\]
+and the largest threshold over any positive-payload frozen action is
+approximately 260.4~B, obtained by H-ALERT.
+
+At mid capacity, a synchronized three-probe full-evidence request leaves
+approximately
+\begin{equation}
+q^+
+=
+B-\frac{2B}{3}
+=
+\frac{B}{3}
+\approx43.7~\mathrm{KiB}
+\end{equation}
+per probe after one service round.
+
+\begin{proposition}[Symmetry-induced period-two orbit]
+\label{prop:cycle}
+Suppose synchronized probes have identical selector state and empty
+queues, choose \Hfull{} when $Q_i=0$, and a synchronized \Hfull{} round
+leaves residual queue $q^+$. If
+\begin{equation}
+q^+>\max_{a:b(a)>0} q_a
+\end{equation}
+and a zero-payload round provides enough service to drain $q^+$, then
+the synchronized controller enters the period-two orbit
+\begin{equation}
+\Hfull
+\rightarrow
+\Hnone
+\rightarrow
+\Hfull
+\rightarrow\cdots .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+After the synchronized \Hfull{} round, $Q_i=q^+$ exceeds every threshold
+in~\eqref{eq:threshold}; hence every positive-payload action scores below
+\Hnone{}. With no new payload, the next service round drains $q^+$.
+The state returns to $Q_i=0$, at which point \Hfull{} again maximizes the
+frozen utility score. Symmetry makes all probes repeat the same sequence.
+\end{proof}
+
+This proposition is a diagnosis of the frozen independent controller,
+not a statement that decentralized control must oscillate.
+
+\subsection{Joint Admission and Optional Safety Filtering}
+
+\CQPG{} first obtains per-probe queue-penalized requests and then
+monotonically reduces simultaneous requests until the common budget is
+satisfied. \SCQPG{} adds a local safety filter before that same joint
+admission stage. All policies use the same downstream shared service.
+
+The safety filter is intentionally not part of
+Theorem~\ref{thm:frontier}. The theorem characterizes the network byte
+region; a local filter can additionally reject an action for
+device-specific constraints. In the present formal campaign, the
+low-capacity safety predicate and the shared-capacity admission stage
+ultimately select the same final summary mix, so the experiment does
+not establish an independent performance advantage for the filter.
+
+% ============================================================
+\section{Experimental Methodology}
+\label{sec:method}
+
+\subsection{Physical Testbed}
+
+The formal testbed uses three physical probes:
+P1 is a Raspberry Pi~5, P2 a Raspberry Pi~4B, and P3 a Raspberry
+Pi~3B+. Probe-to-core experiment traffic uses Wi-Fi. The edge core
+executes the heavy core path for \Hfull{} events.
+
+The workload is a frozen CICIoT2023-derived feature-vector replay rather
+than packet replay. Detector models, feature order, action profiles,
+window plans, and formal configuration are frozen before the campaign.
+
+Each arm uses 5 warm-up rounds followed by 90 measured event occurrences
+per probe, with up to 200 drain rounds. The paper-eligible matrix is
+\[
+12\;\text{sessions}
+\times
+6\;\text{methods}
+\times
+3\;\text{capacities}
+=
+216\;\text{arms},
+\]
+giving 648 device-runs and
+\[
+648\times90=58,320
+\]
+measured events.
+
+\subsection{Shared Service Budgets}
+
+The formal application-byte budgets are shown in
+Table~\ref{tab:capacity}. Because $B=128$~KiB, they correspond to one,
+two, or three full-evidence equivalents.
+
+\begin{table}[t]
+\centering
+\caption{Formal application-service budgets.}
+\label{tab:capacity}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Regime & Budget (B/round) & Full equivalents \\
+\midrule
+Low  & 131,072 & 1 \\
+Mid  & 262,144 & 2 \\
+High & 393,216 & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These budgets regulate application payload service. They must not be
+interpreted as measured physical 1/2/3-Mbit/s Wi-Fi links.
+
+\subsection{Methods}
+
+\begin{table*}[t]
+\centering
+\caption{Formal methods and V1.3 terminology. Historical labels remain
+only for artifact traceability.}
+\label{tab:methods}
+\small
+\begin{tabular}{@{}clll@{}}
+\toprule
+ID & V1.3 name & Historical artifact label & Runtime semantics \\
+\midrule
+A & Fixed local & fixed-local &
+Always \Hnone; no application evidence upload. \\
+B & Fixed summary & fixed-summary &
+Always \Hsummary. \\
+C & Fixed full & fixed-full &
+Always \Hfull; no joint pre-admission. \\
+D & \IQPG & independent-DPP &
+Per-probe queue-penalized selection; no joint admission. \\
+E & \CQPG & central-DPP &
+Queue-penalized requests plus joint shared-capacity admission. \\
+F & \SCQPG & shielded-DPP &
+Local safety filtering followed by the same joint admission. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Event-Level Metric Authority}
+
+The occurrence-level event ledger is the scientific source of truth.
+Each admitted event retains an immutable execution contract specifying
+whether its result is local or core-dependent and what evidence transfer
+is required.
+
+For a core-required event $e$, post-release latency is
+\begin{equation}
+L_{\mathrm{post}}(e)
+=
+t_{\mathrm{return}}(e)
+-
+t_{\mathrm{created}}(e).
+\label{eq:postlat}
+\end{equation}
+The primary timing SLO is
+\begin{equation}
+L_{\mathrm{post}}\leq1~\mathrm{s}.
+\end{equation}
+
+The schedule-inclusive sensitivity instead uses
+\begin{equation}
+L_{\mathrm{nom}}(e)
+=
+t_{\mathrm{return}}(e)
+-
+t_{\mathrm{scheduled}}(e).
+\label{eq:nomlat}
+\end{equation}
+
+This distinction is necessary because physical probes can release an
+event later than its nominal coordination-round time.
+
+The primary service quantities are:
+(i) core-required fraction;
+(ii) core-result return coverage;
+(iii) post-release on-time core-result coverage;
+(iv) conditional post-release on-time rate among core-required events;
+(v) generated application payload; and
+(vi) queue occupancy.
+
+The historical ``timely-F1'' field is not used. In the formal replay,
+classification correctness is constant for the scored occurrences, so
+adding ``correct'' to the main service metric does not provide additional
+information.
+
+\subsection{Statistical Reporting}
+
+We distinguish deterministic and timing-derived quantities.
+Action composition, core-required fractions, exact byte totals,
+analytical queue growth, and admission counts are deterministic under a
+frozen session plan and are reported exactly without confidence
+intervals.
+
+Timing-derived quantities vary across the physical sessions. For these
+we treat the formal session as the independent replicate ($n=12$) and
+report session-level means and descriptive session-bootstrap intervals
+where a paired contrast is useful. These intervals are descriptive;
+V1.3 does not carry forward the superseded non-inferiority analysis.
+
+\subsection{Methodology-Repair Sensitivities}
+
+Four post-audit analyses were run without altering the accepted hardware
+evidence.
+
+\textbf{A. $v$ sensitivity.}
+The exact frozen \IQPG{} objective, action order, and integer max-min
+allocator were replayed over 12 formal seeds for
+\begin{multline}
+v\in\{1,3,10,30,100,168,300,1000,\\
+3000,10000,30000,100000\}.
+\end{multline}
+The $v=1$ replay is required to reproduce the formal D action mix,
+payload, core fraction, and sampled maximum queue before the sweep is
+accepted.
+
+\textbf{B. Desynchronization sensitivity.}
+Twenty fixed seeds assign each probe an independent initial phase in
+$[0,1)$~s. Each probe observes only its own queue and exchanges no
+action or queue state; no joint admission is introduced. This experiment
+is a discrete-event software sensitivity, not a hardware measurement.
+
+\textbf{C. Nominal-anchor reconstruction.}
+Both~\eqref{eq:postlat} and~\eqref{eq:nomlat} are reconstructed directly
+from accepted hardware timestamps for all 648 session/method/capacity/
+device cells.
+
+\textbf{D. Probe-count conformance.}
+A discrete-event simulator evaluates $n\in\{3,8,16,32\}$ and
+$\rho\in\{1/3,1/2,2/3,3/4,1\}$ for the summary-preserving
+$m=n$ case. Its sole purpose is to test conformance with the integer
+boundary~\eqref{eq:summarypreserving}; it is not presented as a
+32-node physical performance experiment.
+
+% ============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{RQ1: The Analytical Boundary Predicts the Formal
+Coordinated Operating Points}
+
+For the formal coordinated testbed,
+\[
+n=3,\quad B=128~\mathrm{KiB},\quad S=16~\mathrm{KiB},
+\]
+so $\sigma=S/B=1/8$.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig1_feasibility_frontier.pdf}
+\caption{Coverage--richness feasibility frontier. Curves are analytical; markers are the formal $n=3$ coordinated operating points.}
+\label{fig:frontier}
+\end{figure*}
+
+When all probes retain remote evidence ($m=n=3$),
+Theorem~\ref{thm:frontier} predicts the operating points in
+Table~\ref{tab:boundary}. The formal \CQPG{} and \SCQPG{} action mixes
+match all three predictions in every session.
+
+\begin{table}[t]
+\centering
+\caption{Summary-preserving theoretical boundary and formal
+coordinated hardware operating points.}
+\label{tab:boundary}
+\small
+\begin{tabular}{@{}lcll@{}}
+\toprule
+Capacity & $k^\star$ & Predicted mix & E/F observed mix \\
+\midrule
+Low  & 0 & 3 Summary & 3 Summary \\
+Mid  & 1 & 1 Full + 2 Summary & 1 Full + 2 Summary \\
+High & 3 & 3 Full & 3 Full \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig2_formal_operating_points.pdf}
+\caption{Analytical and observed summary-preserving full-evidence counts.}
+\label{fig:formalpoints}
+\end{figure}
+
+This result also clarifies what coordinated admission optimizes in the
+formal controller. At mid capacity, keeping all three probes represented
+remotely limits full evidence to one probe per idealized synchronous
+round. If the system relaxes the remote-evidence coverage requirement to
+$m=2$, the same theorem gives
+\[
+k^\star(256~\mathrm{KiB},2)=2.
+\]
+Thus two full-evidence probes with one non-remote probe form another
+feasible operating point. Coordination does not create capacity; it
+selects a particular point on the coverage--richness frontier.
+
+\paragraph{Fixed-full overload validation.}
+For method C, Proposition~\ref{prop:overload} predicts per-probe queue
+growth over the 95 generation rounds. At low capacity,
+\[
+Q_i(95)
+\approx
+95\left(B-\frac{B}{3}\right)
+=
+7.9167~\mathrm{MiB},
+\]
+while at mid capacity,
+\[
+Q_i(95)
+\approx
+95\left(B-\frac{2B}{3}\right)
+=
+3.9583~\mathrm{MiB}.
+\]
+The sampled hardware maxima are approximately 7.9167 and 3.9584~MiB,
+respectively, closely matching the analytical overload law. At high
+capacity, $C=3B$ and no deterministic overload remains.
+
+The physical experiment therefore verifies both sides of the boundary:
+capacity-compliant coordinated tuples produce no service backlog, while
+the deliberately unadmitted fixed-full stream accumulates the predicted
+excess bytes.
+
+\subsection{RQ2: The Formal Independent Baseline Is a Synchronized
+Limit Cycle}
+
+At mid capacity, every formal \IQPG{} arm contains exactly 135
+\Hfull{} and 135 \Hnone{} measured actions. The core-required fraction
+is therefore exactly
+\[
+\frac{135}{270}=\frac{1}{2},
+\]
+with zero cross-session variation. Every one of the 135 core-required
+occurrences eventually returns, but none returns within the 1-s
+post-release SLO.
+
+This action pattern follows directly from
+Proposition~\ref{prop:cycle}. A synchronized \Hfull{} round leaves
+approximately 43,691~B of sampled queue per probe, more than two orders
+of magnitude above the largest $v=1$ positive-payload queue threshold
+of approximately 260.4~B. Hence all probes switch to \Hnone{} together.
+The following zero-payload round can drain the residual queue, restoring
+the state in which \Hfull{} again has the highest utility.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig3_iqpg_cycle.pdf}
+\caption{Frozen $v=1$ mid-capacity I-QPG queue trajectory and period-two action state.}
+\label{fig:cycle}
+\end{figure*}
+
+The formal D result is therefore not evidence that independent control
+is intrinsically unable to use the shared service. It is evidence that
+a deterministic local controller can become phase-locked when identical
+probes observe symmetric queue states at synchronized epochs.
+
+\paragraph{$v$ sensitivity.}
+The methodology-repair replay first reproduced all 36 formal D
+session-capacity cells at $v=1$ for nonzero action mix, application
+payload, core fraction, and sampled maximum queue. Across the sweep,
+the mid-capacity core-required fraction remains exactly $1/2$ for every
+tested value through $v=30,000$; it changes to 0.6222 only at
+$v=100,000$. High capacity remains full-evidence for all tested values.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig4_v_sensitivity.pdf}
+\caption{Frozen-selector sensitivity across the 12 tested $v$ values. Solid and dashed traces show core-required and full-evidence fractions; they overlap for this selector.}
+\label{fig:vsweep}
+\end{figure*}
+
+This result shows that the observed mid-capacity operating fraction is
+not a peculiarity of reporting only $v=1$. It does not, however, imply
+that every action sequence is identical across $v$; low-capacity action
+compositions and detected queue cycles do change with the weight.
+
+\paragraph{Desynchronization counterfactual.}
+The 20-seed software sensitivity changes only the probes' initial
+phases. No probe observes another probe's action or queue, and no joint
+admission is introduced. Under mid capacity, the long-run
+core-required fraction rises from $1/2$ for the synchronized independent
+controller to exactly $2/3$ for the desynchronized independent
+controller. The corresponding simulated on-time service coverage lies
+from 0.5000 to 0.5056 (mean 0.5028) across the fixed seeds, whereas
+the synchronized independent case is zero.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig5_desync_sensitivity.pdf}
+\caption{Mid-capacity software sensitivity. Desynchronization changes only probe phases and introduces neither state exchange nor joint admission.}
+\label{fig:desync}
+\end{figure*}
+
+The result changes the interpretation of RQ2. The extreme formal
+failure is caused by synchronization rather than decentralization
+itself. \CQPG{} and \SCQPG{} instead choose a deterministic
+summary-preserving point with full fraction $1/3$. The desynchronized
+independent controller chooses a richer full-evidence operating point
+but does not enforce the same per-round remote-evidence coverage policy.
+
+Accordingly, V1.3 makes no claim that centralized admission universally
+outperforms a properly phased decentralized controller.
+
+\subsection{RQ3: Hardware Adds Timing Residuals Beyond Byte
+Feasibility}
+
+The analytical region predicts which payload combinations fit the
+application budget. It cannot predict scheduling jitter, OS delay,
+barrier waiting, Wi-Fi timing, serialization, or core-return latency.
+These effects become most visible when the byte constraint is
+non-binding.
+
+At high capacity, C, D, E, and F all use \Hfull{} for every measured
+event, so each core-capable method has identical evidence richness and
+core-required fraction. Mean post-release on-time core-result coverage
+is:
+
+\begin{table}[t]
+\centering
+\caption{High-capacity physical post-release core-result coverage.}
+\label{tab:high}
+\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+Method & Mean coverage \\
+\midrule
+Fixed full (C) & 0.9636 \\
+\IQPG{} (D) & 0.9593 \\
+\CQPG{} (E) & 0.9698 \\
+\SCQPG{} (F) & 0.9651 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The paired F--E mean difference is $-0.00463$ with descriptive
+95\% session-bootstrap interval $[-0.01327,0.00278]$. The F--D
+difference is approximately $+0.00586$, and its interval also includes
+zero. Once the byte constraint is non-binding, the data provide no
+evidence of a coordinated-policy timing advantage.
+
+Mid-capacity coordinated hardware results show the remaining timing
+effect more directly. E and F both admit exactly one full-evidence event
+per three generated events. Among the core-required subset, mean
+post-release on-time rates are approximately 0.8815 and 0.8935,
+respectively. Thus the ideal byte-feasible prediction of one full action
+does not imply perfect physical SLO attainment.
+
+\paragraph{Release-time anchoring.}
+The formal experiment originally measured latency from actual event
+creation. The raw-timestamp reconstruction additionally anchors latency
+to the nominal scheduled release. Across the accepted formal data, the
+aggregate median release lateness is approximately 1972.34~ms for P1,
+763.90~ms for P2, and 83.56~ms for P3. Across core-required cells, the
+difference between post-release and nominal-anchor on-time coverage
+ranges from 0 to 1.
+
+Source and log inspection identify a mechanism for persistent phase
+offset: each probe creates an independent nominal clock before window 0,
+the core decision requires a three-probe barrier, unequal first-iteration
+waiting appears immediately, and the subsequent probe loop sleeps
+relative to the completed iteration rather than catching up to an
+absolute clock. This can preserve the initial offset.
+
+The specific OS or network cause of the recurring P1$>$P2$>$P3 proposal
+arrival ordering is not identified by the available evidence and is
+therefore reported as unknown. In particular, the inverted ordering
+must not be interpreted as a Raspberry-Pi compute-speed comparison.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig6_timing_anchors.pdf}
+\caption{Accepted-hardware timestamp reconstruction. On-time coverage is aggregated over core-required events; release lateness is shown separately.}
+\label{fig:timing}
+\end{figure*}
+
+These findings also delimit the meaning of the primary SLO:
+the 1-s metric is a \emph{post-release service SLO}, not a complete
+schedule-to-result response deadline.
+
+\subsection{RQ4: Scaling Conforms to the Integer Boundary and the
+Hardware Result Chain Is Reconstructable}
+
+For the summary-preserving case, define
+\[
+f_n^\star(\rho)
+=
+\frac{1}{n}
+\left[
+\left\lfloor
+n\frac{\rho-\sigma}{1-\sigma}
+\right\rfloor
+\right]_0^n ,
+\qquad
+\sigma=\frac18.
+\]
+The methodology-repair simulator evaluates
+$n\in\{3,8,16,32\}$ and five normalized capacities. All 20 simulated
+full counts match the analytical integer result exactly.
+
+\begin{table}[t]
+\centering
+\caption{Analytical maximum full count $k^\star$ for $m=n$;
+all 20 values match the discrete-event conformance simulation.}
+\label{tab:scale}
+\scriptsize
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+$n$ & $\rho=1/3$ & $1/2$ & $2/3$ & $3/4$ & $1$ \\
+\midrule
+3  & 0 & 1 & 1 & 2 & 3 \\
+8  & 1 & 3 & 4 & 5 & 8 \\
+16 & 3 & 6 & 9 & 11 & 16 \\
+32 & 7 & 13 & 19 & 22 & 32 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{fig7_scaling_conformance.pdf}
+\caption{Discrete-event conformance to the analytical finite-$n$ boundary. Open simulated markers coincide with analytical points in all 20 cells.}
+\label{fig:scaling}
+\end{figure*}
+
+As $n$ grows, integer granularity decreases and the boundary approaches
+\[
+f^\star(\rho)
+=
+\frac{\rho-\sigma}{1-\sigma}
+\]
+inside the feasible interval. The simulation is therefore a conformance
+test of the closed-form boundary, not evidence of real 32-probe system
+performance.
+
+\paragraph{Raw reconstruction.}
+The full-raw campaign audit independently rebuilds all 216 accepted arms
+from 58,320 measured occurrences. It reports zero
+raw-to-validator/event-metric mismatch and zero shared-cap violation
+across 63,720 audited service rounds. Rebuilt aggregate metrics, the
+public numeric candidate, and the accepted formal matrix are
+byte-identical to the delivered results.
+
+The raw-audit verdict remains \texttt{PASS\_WITH\_ISSUES} because two
+archival gaps remain: the raw package lacks a direct S03-a01 SSD-failure
+incident artifact, and it does not contain the S07 pre-hardware
+launcher-abort files. Neither gap changes the reconstructed accepted
+arms, but both remain disclosed.
+
+The separate V1.3 methodology-repair package has a \texttt{PASS}
+validation verdict: 432 $v$-sweep rows, 240 desynchronization rows,
+648 timestamp-reconstruction rows, and 20 scaling rows are present with
+zero retained failure. Tasks A, B, and D are offline replay or simulation;
+only Task C is reconstructed from measured formal hardware timestamps.
+
+\subsection{Role of the Safety Filter}
+
+The safety-filtered method records 3,240
+\Hfull$\rightarrow$\Hsummary{} safety interventions under low capacity.
+Thus the filter is not a dormant code path. However, the unfiltered
+coordinated method reaches the same final low-capacity summary mix
+through shared-capacity admission. At mid capacity, both E and F record
+2,160 \Hfull$\rightarrow$\Hsummary{} capacity-admission degradations,
+with no additional safety-filter action change. At high capacity neither
+mechanism degrades full evidence.
+
+The evidence therefore supports a narrow claim: the filter provides an
+explicit and auditable location for local feasibility predicates.
+The present hardware campaign does not demonstrate that this layer
+improves end-to-end performance beyond coordinated capacity admission.
+
+\subsection{Classifier Correctness Is a Controlled Diagnostic}
+
+The formal feature replay yields perfect classification on the measured
+occurrences for all frozen detector paths used in the event ledger.
+Consequently, the old ``on-time-and-correct'' field is numerically
+identical to on-time service whenever core execution is required.
+
+This ceiling is not interpreted as a classifier result. Independent
+detector audit shows that the complete frozen test set is itself nearly
+perfect for the heavy and medium models, while most validation error is
+associated with Recon-PortScan, which is absent from the formal replay.
+Exact feature-vector overlap also exists across frozen data partitions.
+
+For these reasons, V1.3 treats detector correctness as a controlled
+condition and does not generalize the formal F1 values to open-world IoT
+intrusion detection.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Main Result Is a Frontier, Not a Ranking}
+
+The methodology repair changes the interpretation of the entire
+experiment. The original method ranking implicitly treated more timely
+full-core results as evidence that coordination was superior. The
+desynchronization counterfactual shows why that interpretation is too
+strong.
+
+At mid capacity, a coordinated policy that preserves remote evidence
+for all three probes occupies the point
+\[
+(r,f)=\left(1,\frac13\right).
+\]
+An independent controller can instead occupy a point with a larger
+long-run full fraction by allowing less uniform evidence coverage over
+time. Neither point dominates without assigning value to remote coverage
+versus full-evidence richness.
+
+The contribution of coordinated admission is therefore deterministic
+operating-point enforcement. It can guarantee that the chosen
+full/summary tuple lies inside the configured capacity region. It does
+not imply that the selected point maximizes every downstream security
+objective.
+
+\subsection{Why the Hardware Experiment Is Still Necessary}
+
+Several headline byte quantities are analytically predictable. This is
+a strength rather than a reason to discard the hardware campaign:
+a correct network model should predict deterministic byte behavior.
+
+The hardware data answer the part the byte model cannot:
+how close a feasible tuple comes to a real response SLO. Even when
+high capacity makes all three full requests byte-feasible, approximately
+3--4\% of core returns can still fall outside the 1-s post-release SLO.
+Likewise, the nominal-clock reconstruction reveals orchestration delays
+that are invisible if latency begins only when the event is eventually
+released.
+
+The role of the 216-arm campaign is thus validation and residual
+measurement, not discovery of an arithmetic capacity law.
+
+\subsection{Synchronization Is a Systems Variable}
+
+The formal \IQPG{} experiment illustrates an often-overlooked property
+of distributed control. Identical local policies do not imply independent
+behavior when their observations and decision epochs are synchronized.
+The shared service couples their queues; identical queues then feed back
+into identical decisions.
+
+The 20-seed phase sensitivity demonstrates that this coupling can be
+changed without exchanging any controller state. This motivates treating
+probe phase, jitter, or randomized tie-breaking as an explicit systems
+design parameter in decentralized evidence scheduling.
+
+\subsection{Evidence Richness Is Not Security Utility}
+
+A summary and a full-evidence upload provide different downstream
+information. Reducing application bytes can improve timeliness while
+also reducing forensic richness. Conversely, sending more full evidence
+can improve the material available to a core but reduce the fraction
+that meets its response horizon.
+
+Accordingly, payload reduction alone is not a security improvement.
+The analytical frontier deliberately exposes both dimensions rather than
+collapsing them into a single ``bandwidth saving'' score.
+
+% ============================================================
+\section{Limitations}
+\label{sec:limitations}
+
+\textbf{Three-probe physical scale.}
+The formal hardware testbed uses three probes. The multi-$n$ study is a
+discrete-event conformance test of the analytical boundary and must not
+be interpreted as physical performance validation at 8, 16, or 32 nodes.
+
+\textbf{Desynchronization is a software sensitivity.}
+The phase-randomized independent baseline is not a new Pi experiment.
+It establishes that the synchronized failure is not intrinsic to
+decentralization, but it does not measure real Wi-Fi timing for a
+desynchronized physical deployment.
+
+\textbf{Application budget versus physical link rate.}
+Low/mid/high are application-byte service budgets per coordination
+round, not measured PHY throughput.
+
+\textbf{Timing anchor.}
+The primary 1-s metric starts at actual event creation. The nominal-anchor
+analysis demonstrates that schedule-inclusive results can be materially
+worse. Both anchors are therefore reported separately.
+
+\textbf{Replay scope.}
+The workload is a frozen CICIoT2023-derived feature replay rather than an
+uncontrolled packet-level deployment. Recon-PortScan, a major validation
+error family, is absent from the formal replay, and exact feature-vector
+repetition exists across frozen data splits.
+
+\textbf{Shield separation.}
+The tested campaign does not contain a case where a local device
+constraint rejects an action that is independently feasible under the
+shared network budget. The safety filter is therefore an implementation
+interface and audit mechanism in this paper, not an independently proven
+performance layer.
+
+\textbf{Evidence value.}
+The experiment measures evidence coverage, richness, byte demand, and
+timeliness, but not the downstream incident-resolution value of a
+summary versus full evidence. Future work should connect the frontier to
+measured forensic or cross-probe correlation utility.
+
+% ============================================================
+\section{Reproducibility and Provenance}
+\label{sec:reproducibility}
+
+The formal experiment uses protocol
+\texttt{NSF12\_20260906\_RC1}.
+The accepted scientific attempts are S01-a01, S02-a01, S03-a02,
+S04-a02, S05-a01, S06-a01, S07-a02, and S08--S12-a01.
+S03-a01, S04-a01, and S07-a01 are invalid infrastructure attempts and
+are excluded in full rather than replaced arm-by-arm.
+
+The compact audit package, formal campaign package, full-raw audit
+results, and methodology-repair package are separately hashed.
+The V1.3 methodology repair did not modify the formal V1.2 raw evidence,
+runtime source, Raspberry Pis, manuscript, or repository state.
+
+Before public release, the final artifact should expose persistent
+checksums and a durable archival identifier. Dataset redistribution
+rights should be checked separately; the paper need not redistribute
+third-party CICIoT2023 content to make the experiment code and derived
+result chain reproducible.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper reframes multi-probe IoT edge intrusion detection as an
+evidence-service allocation problem over a shared bottleneck.
+
+The analytical result is simple but consequential: when $m$ probes
+retain remote evidence and $k$ of them request full evidence, one-round
+byte feasibility is determined by
+\[
+kB+(m-k)S\leq C.
+\]
+Its normalized form,
+\[
+\sigma r+(1-\sigma)f\leq\rho,
+\]
+makes explicit the trade-off between remote-evidence coverage and
+full-evidence richness.
+
+The three-probe hardware campaign validates this boundary at its formal
+low, mid, and high operating points and verifies the associated
+fixed-full overload law. It also reveals behavior that a static capacity
+equation cannot predict. The frozen independent queue-penalized
+controller enters a synchronized full/none period-two orbit at mid
+capacity; parameter sensitivity shows that the operating fraction
+persists across a wide range of queue weights, while phase randomization
+recovers substantially more independent full-evidence service without
+central admission. The correct conclusion is therefore not that
+centralized control universally outperforms decentralization, but that
+explicit admission can deterministically enforce a chosen point on the
+coverage--richness frontier.
+
+Finally, physical timestamps show why byte feasibility is only the first
+layer of the problem. Even feasible full-evidence tuples experience
+real execution and wireless timing variation, and schedule-relative
+release offsets can materially change an end-to-end SLO interpretation.
+
+Across the 216-arm formal campaign, the event-level result chain can be
+reconstructed from raw evidence with no accepted-arm metric mismatch or
+shared-cap violation. The resulting contribution is a narrower but
+stronger networking result: \NetShield{} provides a framework for
+reasoning about, enforcing, and measuring evidence coverage, richness,
+queueing, and service timeliness under a shared edge bottleneck.
+
+\balance
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{raza2013svelte}
+S. Raza, L. Wallgren, and T. Voigt,
+``SVELTE: Real-time intrusion detection in the Internet of Things,''
+\emph{Ad Hoc Networks}, vol. 11, no. 8, pp. 2661--2674, 2013.
+
+\bibitem{miettinen2017iotsentinel}
+M. Miettinen, S. Marchal, I. Hafeez, N. Asokan, A.-R. Sadeghi,
+and S. Tarkoma,
+``IoT Sentinel: Automated device-type identification for security
+enforcement in IoT,''
+in \emph{Proc. IEEE ICDCS}, 2017, pp. 2177--2184.
+
+\bibitem{meidan2018nbaiot}
+Y. Meidan \emph{et al.},
+``N-BaIoT---Network-based detection of IoT botnet attacks using deep
+autoencoders,''
+\emph{IEEE Pervasive Computing}, vol. 17, no. 3, pp. 12--22, 2018.
+
+\bibitem{mirsky2018kitsune}
+Y. Mirsky, T. Doitshman, Y. Elovici, and A. Shabtai,
+``Kitsune: An ensemble of autoencoders for online network intrusion
+detection,''
+in \emph{Proc. NDSS}, 2018.
+
+\bibitem{mao2017mec}
+Y. Mao, C. You, J. Zhang, K. Huang, and K. B. Letaief,
+``A survey on mobile edge computing: The communication perspective,''
+\emph{IEEE Communications Surveys \& Tutorials},
+vol. 19, no. 4, pp. 2322--2358, 2017.
+
+\bibitem{mach2017mec}
+P. Mach and Z. Becvar,
+``Mobile edge computing: A survey on architecture and computation
+offloading,''
+\emph{IEEE Communications Surveys \& Tutorials},
+vol. 19, no. 3, pp. 1628--1656, 2017.
+
+\bibitem{demers1989fair}
+A. Demers, S. Keshav, and S. Shenker,
+``Analysis and simulation of a fair queueing algorithm,''
+in \emph{Proc. ACM SIGCOMM}, 1989, pp. 1--12.
+
+\bibitem{parekh1993gps}
+A. K. Parekh and R. G. Gallager,
+``A generalized processor sharing approach to flow control in integrated
+services networks: The single-node case,''
+\emph{IEEE/ACM Transactions on Networking},
+vol. 1, no. 3, pp. 344--357, 1993.
+
+\bibitem{tassiulas1992}
+L. Tassiulas and A. Ephremides,
+``Stability properties of constrained queueing systems and scheduling
+policies for maximum throughput in multihop radio networks,''
+\emph{IEEE Trans. Automatic Control},
+vol. 37, no. 12, pp. 1936--1948, 1992.
+
+\bibitem{neely2010}
+M. J. Neely,
+\emph{Stochastic Network Optimization with Application to Communication
+and Queueing Systems}.
+Morgan \& Claypool, 2010.
+
+\bibitem{crankshaw2017clipper}
+D. Crankshaw, X. Wang, G. Zhou, M. J. Franklin,
+J. E. Gonzalez, and I. Stoica,
+``Clipper: A low-latency online prediction serving system,''
+in \emph{Proc. 14th USENIX NSDI}, 2017, pp. 613--627.
+
+\bibitem{shen2019nexus}
+H. Shen, L. Chen, Y. Jin, L. Zhao, B. Kong, M. Philipose,
+A. Krishnamurthy, and R. Sundaram,
+``Nexus: A GPU cluster engine for accelerating DNN-based video
+analysis,''
+in \emph{Proc. 27th ACM SOSP}, 2019, pp. 322--337.
+
+\bibitem{gujarati2020clockwork}
+A. Gujarati, R. Karimi, S. Alzayat, W. Hao, A. Kaufmann,
+Y. Vigfusson, and J. Mace,
+``Serving DNNs like Clockwork: Performance predictability from the
+bottom up,''
+in \emph{Proc. 14th USENIX OSDI}, 2020, pp. 443--462.
+
+\bibitem{crankshaw2020inferline}
+D. Crankshaw, G.-E. Sela, X. Mo, C. Zumar, I. Stoica,
+J. E. Gonzalez, and A. Tumanov,
+``InferLine: Latency-aware provisioning and scaling for prediction
+serving pipelines,''
+in \emph{Proc. ACM SoCC}, 2020, pp. 477--491.
+
+\bibitem{alshiekh2018shielding}
+M. Alshiekh \emph{et al.},
+``Safe reinforcement learning via shielding,''
+in \emph{Proc. AAAI}, 2018, pp. 2669--2678.
+
+\bibitem{wabersich2021filter}
+K. P. Wabersich and M. N. Zeilinger,
+``A predictive safety filter for learning-based control of constrained
+nonlinear dynamical systems,''
+\emph{Automatica}, vol. 129, Art. no. 109597, 2021.
+
+\bibitem{ouyang2026sok}
+N. Ouyang, A. Shatte, Z. Lu, C. Chen, and W. Xiang,
+``SoK: Telemetry-aware runtime assurance for always-on on-device
+intrusion detection,''
+in \emph{Information Security and Privacy (ACISP 2026)},
+LNCS 16794, Springer, 2026, pp. 163--183.
+
+\end{thebibliography}
+
+\end{document}

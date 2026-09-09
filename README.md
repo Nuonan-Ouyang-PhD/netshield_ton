@@ -3,11 +3,13 @@
 Private research repository for the NetShield IEEE Transactions on Networking
 manuscript and its formal three-device Raspberry Pi campaign.
 
-> **Current state (8 September 2026):** protocol
-> `NSF12_20260906_RC1` completed 12 sessions and 216 accepted arms. All 216
-> accepted-arm validators report `PASS`; three interrupted attempts remain
-> preserved and excluded. The campaign is **pending independent review** and the
-> submission state is **HOLD**.
+> **Current state (9 September 2026):** protocol
+> `NSF12_20260906_RC1` completed 12 sessions and 216 accepted arms; all 216
+> accepted-arm validators report `PASS`. The V1.3 methodology repair and final
+> submission-candidate machine validation also report `PASS`. The full-raw
+> reconstruction remains `PASS_WITH_ISSUES` because two invalid-attempt archival
+> artifacts are unavailable. Submission and public release remain **HOLD** pending
+> the authors' final decision and licensing review.
 
 The earlier V4.4 submission candidate is preserved under
 [`legacy/v4_4/`](legacy/v4_4/). Its pre-RC1 empirical numbers are historical and
@@ -19,6 +21,7 @@ must not be presented as results from the RC1 campaign.
 |---|---|
 | [`formal_rc1/`](formal_rc1/) | Path-free RC1 status, accepted-attempt index, 216-arm matrix, validator summary, aggregate descriptive tables, configuration snapshot, and integrity manifest |
 | [`ToN_V1_3_Methodology_Repair_20260909/`](ToN_V1_3_Methodology_Repair_20260909/) | Isolated path-free sensitivity, desynchronisation, nominal-deadline reconstruction, and scaling-validation review package |
+| [`submission_v1_3/`](submission_v1_3/) | Path-free V1.3 manuscript, supplementary material, seven figures, complete tables, provenance, audits, and frozen validation reports |
 | [`legacy/v4_4/`](legacy/v4_4/) | Payload-preserved V4.4 manuscript package and its original supporting material |
 | [`scripts/verify_repository.py`](scripts/verify_repository.py) | Standard-library verification of hashes, expected counts, package receipts, and private host/path exclusion |
 | [`scripts/verify_methodology_repair.py`](scripts/verify_methodology_repair.py) | Standard-library verification of V1.3 row counts, hashes, scope guards, and path-free publication boundary |
@@ -54,6 +57,7 @@ tool identities, fixture evidence hashes, and backup gate are recorded in
 ```bash
 python3 scripts/verify_repository.py
 python3 scripts/verify_methodology_repair.py
+python3 scripts/verify_submission_v1_3.py
 ```
 
 To verify the archived V4.4 bundle separately:
@@ -79,11 +83,15 @@ Raspberry Pi campaign and not a manuscript revision. Tasks A, B, and D are
 offline replay/simulation; Task C alone reconstructs metrics from retained
 formal timestamps.
 
+The V1.3 submission directory is the final machine-validated manuscript
+candidate. Its evidence subdirectory contains only path-free numerical and audit
+material required for claim traceability; it does not contain raw event ledgers.
+
 ## Open review gates
 
-1. Record an independent review verdict for the RC1 protocol, accepted-set
-   reconstruction, raw-log metric reconstruction, and retry/exclusion logic.
-2. Rewrite and numerically audit the manuscript against RC1 if the verdict
-   permits publication use.
+1. Review and accept or otherwise resolve the two disclosed invalid-attempt
+   archival gaps in the full-raw `PASS_WITH_ISSUES` verdict.
+2. Complete the authors' final review of the machine-validated V1.3 candidate.
 3. Complete artifact licensing and disclosure review before any public release.
-4. Keep submission status at `HOLD` until those decisions are recorded.
+4. Keep submission and public-release status at `HOLD` until those decisions are
+   recorded.

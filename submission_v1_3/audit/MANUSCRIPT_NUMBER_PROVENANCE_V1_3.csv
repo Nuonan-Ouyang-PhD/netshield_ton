@@ -1,0 +1,34 @@
+manuscript_location,table_or_figure,metric,displayed_value,source_file,source_field_or_rows,evidence_type,deterministic_or_timing,verified
+Abstract/Method,--,formal sessions,12,evidence/FORMAL_ACCEPTED_ATTEMPTS.csv,12 accepted session IDs,formal_hardware,deterministic,PASS
+Abstract/Method,--,accepted arms,216,RAW_TO_ARM_REBUILD.csv,all rebuilt arms,formal_raw_reconstruction,deterministic,PASS
+Abstract/Method,--,device-runs,648,NOMINAL_DEADLINE_RESULTS.csv,648 rows,formal_raw_reconstruction,deterministic,PASS
+Abstract/Method,--,measured events,"58,320",NOMINAL_DEADLINE_RESULTS.csv,sum measured_events,formal_raw_reconstruction,deterministic,PASS
+Abstract/RQ1,Table II/Fig. 2,Low admitted full count,0,SCALING_RESULTS.csv,n=3 and matching formal capacity,analytical,deterministic,PASS
+Abstract/RQ1,Table II/Fig. 2,Mid admitted full count,1,SCALING_RESULTS.csv,n=3 and matching formal capacity,analytical,deterministic,PASS
+Abstract/RQ1,Table II/Fig. 2,High admitted full count,3,SCALING_RESULTS.csv,n=3 and matching formal capacity,analytical,deterministic,PASS
+Abstract/RQ2,Fig. 3,mid residual queue per probe,"43,691 B",V_SWEEP_RESULTS.csv,"v=1, capacity=mid, max_queue_bytes",offline_replay,deterministic,PASS
+Abstract/RQ2,--,largest v=1 positive-action threshold,260.4 B,netshield_ton_manuscript_v1_3.tex,frozen action table and analytical threshold versus H-NONE,analytical,deterministic,PASS
+RQ2,Fig. 4,v=1 identity gate,36 cells x 4 checks PASS,RUN_METADATA.json,formal_v1_replay_identity,offline_replay,deterministic,PASS
+RQ2,Fig. 4,mid core fraction through v=30000,1/2 (0.500),V_SWEEP_RESULTS.csv,"capacity=mid, v<=30000",offline_replay,deterministic,PASS
+RQ2,Fig. 4,mid core fraction at v=100000,0.6222,V_SWEEP_RESULTS.csv,"capacity=mid, v=100000",offline_replay,deterministic,PASS
+RQ2,Fig. 5,desynchronized mid core fraction,2/3 (0.667),DESYNC_BASELINE_RESULTS.csv,"method=desynchronized_independent, capacity=mid",software_sensitivity,deterministic,PASS
+RQ2,Fig. 5,desynchronized mid on-time range/mean,0.5000-0.5056; mean 0.5028,DESYNC_BASELINE_RESULTS.csv,"20 fixed seeds, capacity=mid",software_sensitivity,deterministic,PASS
+RQ3,Table IV,high post-release coverage fixed_full,0.9636,NOMINAL_DEADLINE_RESULTS.csv,"method=fixed_full, capacity=high; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,Table IV,high post-release coverage independent_dpp,0.9593,NOMINAL_DEADLINE_RESULTS.csv,"method=independent_dpp, capacity=high; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,Table IV,high post-release coverage central_dpp,0.9698,NOMINAL_DEADLINE_RESULTS.csv,"method=central_dpp, capacity=high; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,Table IV,high post-release coverage shielded_dpp,0.9651,NOMINAL_DEADLINE_RESULTS.csv,"method=shielded_dpp, capacity=high; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,Table IV,F-E high paired difference and interval,"-0.00463 [-0.01327, 0.00278]",evidence/FORMAL_CONTRAST_SUMMARY.csv,"high,F-E,conditional_core_on_time",formal_hardware,timing,PASS
+RQ3,--,F-D high paired difference and interval,"+0.00586 [-0.00309, 0.01512]",evidence/FORMAL_CONTRAST_SUMMARY.csv,"high,F-D,conditional_core_on_time",formal_hardware,timing,PASS
+RQ3,--,mid conditional post-release rate central_dpp,0.8815,NOMINAL_DEADLINE_RESULTS.csv,"method=central_dpp, capacity=mid; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,--,mid conditional post-release rate shielded_dpp,0.8935,NOMINAL_DEADLINE_RESULTS.csv,"method=shielded_dpp, capacity=mid; count-weighted",formal_raw_reconstruction,timing,PASS
+RQ3,Fig. 6/Supp. release table,P1 aggregate release lateness p50,1972.34 ms,RELEASE_LATENESS_DIAGNOSTIC.csv,device=P1,formal_raw_reconstruction,timing,PASS
+RQ3,Fig. 6/Supp. release table,P2 aggregate release lateness p50,763.90 ms,RELEASE_LATENESS_DIAGNOSTIC.csv,device=P2,formal_raw_reconstruction,timing,PASS
+RQ3,Fig. 6/Supp. release table,P3 aggregate release lateness p50,83.56 ms,RELEASE_LATENESS_DIAGNOSTIC.csv,device=P3,formal_raw_reconstruction,timing,PASS
+RQ4,Fig. 7,scaling conformance,20/20 exact match,SCALING_RESULTS.csv,all rows theory_simulation_match=true,discrete_event_conformance,deterministic,PASS
+RQ4/Reproducibility,--,Task A retained rows,432,V_SWEEP_RESULTS.csv,all rows status=PASS,offline_replay,deterministic,PASS
+RQ4/Reproducibility,--,Task B retained rows,240,DESYNC_BASELINE_RESULTS.csv,all rows status=PASS,software_sensitivity,deterministic,PASS
+RQ4/Reproducibility,--,Task C retained rows,648,NOMINAL_DEADLINE_RESULTS.csv,all rows status=PASS,formal_raw_reconstruction,deterministic,PASS
+RQ4/Reproducibility,--,Task D retained rows,20,SCALING_RESULTS.csv,all rows status=PASS,discrete_event_conformance,deterministic,PASS
+RQ4,--,audited shared-service rounds,"63,720",evidence/RAW_AUDIT_SUMMARY.json,shared_rounds_checked,formal_raw_reconstruction,deterministic,PASS
+Safety filter,--,low H-FULL to H-SUMMARY interventions,"3,240",SHIELD_INTERVENTION_SUMMARY.csv,"capacity=low, arm=F, shield_safety_interventions",formal_raw_reconstruction,deterministic,PASS
+Safety filter,--,mid capacity-admission degradations per E/F,"2,160",SHIELD_INTERVENTION_SUMMARY.csv,"capacity=mid, arms=E/F, capacity_admission_interventions per arm",formal_raw_reconstruction,deterministic,PASS

@@ -1,0 +1,197 @@
+{
+  "command": [
+    "python3",
+    "<TON_WORKSPACE>/ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py"
+  ],
+  "completed_utc": "2026-09-08T14:28:56.880700+00:00",
+  "cwd": "<TON_WORKSPACE>/",
+  "environment": {
+    "executable": "python3",
+    "machine": "arm64",
+    "platform": "macOS-15.3.1-arm64-arm-64bit",
+    "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]"
+  },
+  "formal_v1_replay_identity": {
+    "all_match": true,
+    "cells_checked": 36,
+    "checks_per_cell": 4,
+    "failed_checks": 0
+  },
+  "input_sha256": {
+    "accepted_attempts": {
+      "path": "<AUDIT_ROOT>/results/ACCEPTED_EXCLUDED_ATTEMPTS.json",
+      "sha256": "e0c0571caebe4d9e0e8864c562908e82a904c95b1369fc74bfa14390862d8e5f"
+    },
+    "actions": {
+      "path": "<AUDIT_ROOT>/protocol/inputs/actions.json",
+      "sha256": "6a3c201e20c72c28cf322043f00340ae3bdb89e6ee1f2cb93ba327a27b5eaf01"
+    },
+    "analysis_script": {
+      "path": "<TON_WORKSPACE>/ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py",
+      "sha256": "a7ae6ae52dfc6d66949af9ab4c1f23a108f7193205038671a3f1031b9be668fc"
+    },
+    "formal_high_config": {
+      "path": "<AUDIT_ROOT>/protocol/configs/formal_v1_2_high.json",
+      "sha256": "dbdf031878932907b9f933688dee2bda0f3b9c8a38cddd037a08423399eaa229"
+    },
+    "formal_low_config": {
+      "path": "<AUDIT_ROOT>/protocol/configs/formal_v1_2_low.json",
+      "sha256": "5e459856b2eb7ae27d4f5e6f99d4994d0ff73b205f20729598be1e216710a622"
+    },
+    "formal_mid_config": {
+      "path": "<AUDIT_ROOT>/protocol/configs/formal_v1_2_mid.json",
+      "sha256": "8cdc02e5c35be19518b528d27b6004b4beba9b8e260e6323adc260e7b36d165c"
+    },
+    "frozen_actions_source": {
+      "path": "<RUNTIME_ROOT>/netshield/actions.py",
+      "sha256": "b092edfa0f75835e2e58d30a95a37ba35a449fa091d21f1dd67da77169461fd8"
+    },
+    "frozen_core_source": {
+      "path": "<RUNTIME_ROOT>/netshield/core.py",
+      "sha256": "6231d35d476b7fd8326e1f1988d699c68cd8b55484429bcd521e7c5b52bace40"
+    },
+    "frozen_probe_source": {
+      "path": "<RUNTIME_ROOT>/netshield/probe.py",
+      "sha256": "2df2d3d4514028cc7070ff0fd95bcb391d2e409063902c780ba501dac7fb1571"
+    },
+    "raw_zip": {
+      "path": "<TON_WORKSPACE>/outputs/ToN_Raw_Sessions_12x_20260908_under512MB.zip",
+      "sha256": "d19ae2a5f5697d0d662848c966b8743fa2ba945a24c0247e3a4c526f5bcda87b"
+    },
+    "rebuilt_aggregate_event_metrics": {
+      "path": "<AUDIT_ROOT>/results/REBUILT_AGGREGATE_EVENT_METRICS.json",
+      "sha256": "9b09782a8b671195e7c6f4abfff29d107c0dac10f22d64dd4d221904d1ac2f72"
+    },
+    "session_schedule": {
+      "path": "<AUDIT_ROOT>/protocol/inputs/SESSION_SCHEDULE.json",
+      "sha256": "4afff5b2bef21d0bbe92471ac0289fcf71df70154cc17fb5be4877eff9636701"
+    }
+  },
+  "planned_and_retained": {
+    "failed_rows": 0,
+    "task_a_rows": 432,
+    "task_b_rows": 240,
+    "task_c_rows": 648,
+    "task_d_rows": 20
+  },
+  "release_lateness_finding": {
+    "observed_p50_descending": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "p1_gt_p2_gt_p3": true,
+    "scope": "accepted formal V1.2 measured events only"
+  },
+  "schema": "ton_v1_3_methodology_repair_run_metadata_v1",
+  "scope_guards": {
+    "formal_v1_2_evidence_modified": false,
+    "github_modified": false,
+    "manuscript_modified": false,
+    "overleaf_modified": false,
+    "raspberry_pi_campaign_rerun": false
+  },
+  "started_utc": "2026-09-08T14:28:07.934340+00:00",
+  "task_a": {
+    "capacities_bps": {
+      "high": 3145728,
+      "low": 1048576,
+      "mid": 2097152
+    },
+    "formal_session_seeds": [
+      3668046706,
+      2668262893,
+      1809636670,
+      1747354681,
+      3669907594,
+      864869646,
+      4283485909,
+      75213238,
+      1848007487,
+      1781053179,
+      3706986015,
+      300664444
+    ],
+    "v_values": [
+      1,
+      3,
+      10,
+      30,
+      100,
+      168,
+      300,
+      1000,
+      3000,
+      10000,
+      30000,
+      100000
+    ]
+  },
+  "task_b": {
+    "phase_rule": "python random.Random(seed).sample(range(1000),3), mapped P1/P2/P3",
+    "seeds": [
+      2026090901,
+      2026090902,
+      2026090903,
+      2026090904,
+      2026090905,
+      2026090906,
+      2026090907,
+      2026090908,
+      2026090909,
+      2026090910,
+      2026090911,
+      2026090912,
+      2026090913,
+      2026090914,
+      2026090915,
+      2026090916,
+      2026090917,
+      2026090918,
+      2026090919,
+      2026090920
+    ],
+    "selector_v": 1.0,
+    "shield_nominal_telemetry": {
+      "memory_guard_triggered": false,
+      "thermal_guard_triggered": false,
+      "tx_retries_delta": 0
+    },
+    "ticks_per_second": 1000
+  },
+  "task_c": {
+    "accepted_attempts": {
+      "F12_S01": "a01",
+      "F12_S02": "a01",
+      "F12_S03": "a02",
+      "F12_S04": "a02",
+      "F12_S05": "a01",
+      "F12_S06": "a01",
+      "F12_S07": "a02",
+      "F12_S08": "a01",
+      "F12_S09": "a01",
+      "F12_S10": "a01",
+      "F12_S11": "a01",
+      "F12_S12": "a01"
+    },
+    "cohort": "measured",
+    "deadline_ms": 1000.0
+  },
+  "task_d": {
+    "B": 131072,
+    "S": 16384,
+    "n": [
+      3,
+      8,
+      16,
+      32
+    ],
+    "rho": [
+      "1/3",
+      "1/2",
+      "2/3",
+      "3/4",
+      "1"
+    ]
+  }
+}
