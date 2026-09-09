@@ -24,4 +24,3 @@ Thank you for reviewing the NetShield manuscript.
 Reference metadata and claim checks are available under [`submission/audit/`](submission/audit/).
 The repository intentionally excludes raw event ledgers, machine identities,
 network addresses, and the full private campaign archive.
-

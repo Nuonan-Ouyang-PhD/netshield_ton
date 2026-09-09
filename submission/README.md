@@ -18,4 +18,3 @@ NetShield submission.
 - `SHA256SUMS.txt`
 
 The manuscript has 12 pages and the supplementary material has 24 pages.
-

@@ -39,4 +39,3 @@ Overall status: **PASS**
   orientation defect was found.
 - ZIP CRC, clean-unzip SHA-256 verification, self-contained validation, and
   clean compilation from the unpacked package all passed.
-

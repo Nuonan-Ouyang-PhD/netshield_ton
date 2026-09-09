@@ -19,4 +19,3 @@ Integrity and semantic checks:
 shasum -a 256 -c SHA256SUMS.txt
 python3 validate_submission.py
 ```
-
