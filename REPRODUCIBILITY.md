@@ -57,7 +57,7 @@ the campaign:
 - session seeds and accepted-attempt mapping.
 
 The public repository contains the resulting path-free summaries and the
-methodology-repair source/results, but it does **not** contain the original
+offline analysis source/results, but it does **not** contain the original
 third-party dataset, private model files, or the raw feature-vector material
 used to instantiate the physical campaign. Therefore:
 
@@ -84,9 +84,9 @@ These checks validate committed hashes, row counts, result identities, claim
 and number provenance, citation consistency, and private-path exclusion. They
 do not claim that a physical experiment was rerun.
 
-### Level 2 — V1.3 methodology-repair replay and simulation
+### Level 2 — Offline sensitivity, timing reconstruction, and scaling analysis
 
-The V1.3 package is self-contained for its offline analyses. It uses only the
+The analysis package is self-contained for its offline analyses. It uses only the
 Python standard library, but it requires the separately retained audit/runtime
 inputs named in `RUN_METADATA.json`:
 
@@ -98,8 +98,9 @@ python3 supporting_material/methodology_repair/run_methodology_repair.py \
   > supporting_material/methodology_repair/run.log 2>&1
 ```
 
-Tasks A, B, and D are offline replay/software simulation. Task C is a
-timestamp reconstruction from accepted formal hardware records. The run
+The parameter sweep, desynchronization study, and scaling validation are
+offline replay/software simulation. Timing is reconstructed from accepted
+formal hardware records. The run
 metadata records seeds, environment, input SHA-256 values, and scope guards.
 
 ### Level 3 — Manuscript build
@@ -108,8 +109,8 @@ Build the clean review PDFs with Tectonic:
 
 ```bash
 cd submission
-tectonic -X compile manuscript.tex
-tectonic -X compile supplementary.tex
+tectonic -X compile netshield_manuscript.tex
+tectonic -X compile netshield_supplementary.tex
 shasum -a 256 -c SHA256SUMS.txt
 python3 validate_submission.py
 ```

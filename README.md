@@ -1,12 +1,12 @@
 # NetShield
 
-Clean submission and reproduction package for the NetShield IEEE/ACM
-Transactions on Networking manuscript.
+Clean submission and reproduction package for the NetShield
+IEEE Transactions on Networking manuscript.
 
 ## Start here
 
-- Read the paper: [`submission/manuscript.pdf`](submission/manuscript.pdf)
-- Read the supplementary material: [`submission/supplementary.pdf`](submission/supplementary.pdf)
+- Read the paper: [`submission/netshield_manuscript.pdf`](submission/netshield_manuscript.pdf)
+- Read the supplementary material: [`submission/netshield_supplementary.pdf`](submission/netshield_supplementary.pdf)
 - Build and validate the submission: [`submission/BUILD_INSTRUCTIONS.md`](submission/BUILD_INSTRUCTIONS.md)
 - Follow the complete data/reproduction guide: [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)
 
@@ -25,8 +25,8 @@ To build the PDFs locally:
 
 ```bash
 cd submission
-tectonic -X compile manuscript.tex
-tectonic -X compile supplementary.tex
+tectonic -X compile netshield_manuscript.tex
+tectonic -X compile netshield_supplementary.tex
 python3 validate_submission.py
 ```
 

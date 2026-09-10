@@ -7,14 +7,15 @@ Overall status: **PASS**
 - The archive, directory, manuscript, supplementary material, reports, and
   validation files use clean first-submission names without revision numbers or
   dates.
-- Internal revision labels were removed from the manuscript and Supplementary
-  title. No scientific statement, result, number, table, figure, theorem, RQ,
-  limitation, or claim boundary was changed.
+- Internal development labels were removed from the manuscript and Supplementary
+  title. The approved submission revisions add the common-denominator RQ2
+  comparison, the device-level nominal-anchor reconstruction, the CICIoT2023
+  and Sommer--Paxson references, and the current journal name.
 - No tool attribution or generated-content label appears in the submission.
 
 ## References and claims
 
-- Bibliography entries: 28.
+- Bibliography entries: 30.
 - Recent 2024--2026 additions: 11, all checked against official publication
   records.
 - Undefined citations: 0.
@@ -25,11 +26,13 @@ Overall status: **PASS**
 
 ## Build
 
-- Main manuscript: 12 US Letter pages.
+- Main manuscript: 13 US Letter pages.
 - Supplementary material: 24 US Letter pages.
 - Undefined citations/references: 0.
 - Missing figures/files: 0.
-- Overfull boxes: 0.
+- Overfull horizontal boxes: 0. IEEEtran emits a 1.7pt vertical balance
+  warning on the final bibliography page; rendered inspection found no
+  clipping, overlap, or missing content.
 - Fatal errors: 0.
 
 ## Artifact checks

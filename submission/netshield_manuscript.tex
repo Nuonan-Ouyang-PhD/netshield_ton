@@ -50,7 +50,7 @@ Melbourne, VIC, Australia
 (e-mail: w.xiang@latrobe.edu.au).}%
 }
 
-\markboth{IEEE/ACM Transactions on Networking,~Vol.~XX, No.~XX, Month~2026}%
+\markboth{IEEE Transactions on Networking,~Vol.~XX, No.~XX, Month~2026}%
 {Ouyang \MakeLowercase{\textit{et al.}}:
 Feasibility Boundaries for Multi-Probe Edge IDS Evidence Admission}
 
@@ -218,13 +218,13 @@ latency and release-time jitter.
 
 Fourth, we provide an event-level reproducibility chain. The accepted
 hardware arms are reconstructed from immutable event contracts, and a
-separate methodology-repair package validates the frozen controller,
+separate reproducibility package validates the frozen controller,
 the desynchronization counterfactual, schedule-inclusive timing, and
 multi-$n$ boundary conformance.
 
 \paragraph{Claim boundary.}
 \NetShield{} does not claim a new intrusion classifier, state-of-the-art
-CICIoT2023 detection accuracy, global scheduler optimality, or empirical
+CICIoT2023~\cite{neto2023ciciot} detection accuracy, global scheduler optimality, or empirical
 superiority of the safety filter over ordinary coordinated admission.
 The central claims concern evidence feasibility, admission, queue
 behavior, and service timing.
@@ -609,7 +609,7 @@ P1 is a Raspberry Pi~5, P2 a Raspberry Pi~4B, and P3 a Raspberry
 Pi~3B+. Probe-to-core experiment traffic uses Wi-Fi. The edge core
 executes the heavy core path for \Hfull{} events.
 
-The workload is a frozen CICIoT2023-derived feature-vector replay rather
+The workload is a frozen CICIoT2023-derived feature-vector replay~\cite{neto2023ciciot} rather
 than packet replay. Detector models, feature order, action profiles,
 window plans, and formal configuration are frozen before the campaign.
 
@@ -744,12 +744,12 @@ report session-level means and descriptive session-bootstrap intervals
 where a paired contrast is useful. These intervals are descriptive;
 We do not report the superseded non-inferiority analysis.
 
-\subsection{Methodology-Repair Sensitivities}
+\subsection{Offline Sensitivity and Scaling Analyses}
 
-Four post-audit analyses were run without altering the accepted hardware
-evidence.
+Four complementary analyses were run without altering the accepted
+hardware evidence.
 
-\textbf{A. $v$ sensitivity.}
+\textbf{$v$ sensitivity.}
 The exact frozen \IQPG{} objective, action order, and integer max-min
 allocator were replayed over 12 formal seeds for
 \begin{multline}
@@ -760,18 +760,18 @@ The $v=1$ replay is required to reproduce the formal D action mix,
 payload, core fraction, and sampled maximum queue before the sweep is
 accepted.
 
-\textbf{B. Desynchronization sensitivity.}
+\textbf{Desynchronization sensitivity.}
 Twenty fixed seeds assign each probe an independent initial phase in
 $[0,1)$~s. Each probe observes only its own queue and exchanges no
 action or queue state; no joint admission is introduced. This experiment
 is a discrete-event software sensitivity, not a hardware measurement.
 
-\textbf{C. Nominal-anchor reconstruction.}
+\textbf{Nominal-anchor reconstruction.}
 Both~\eqref{eq:postlat} and~\eqref{eq:nomlat} are reconstructed directly
 from accepted hardware timestamps for all 648 session/method/capacity/
 device cells.
 
-\textbf{D. Probe-count conformance.}
+\textbf{Probe-count conformance.}
 A discrete-event simulator evaluates $n\in\{3,8,16,32\}$ and
 $\rho\in\{1/3,1/2,2/3,3/4,1\}$ for the summary-preserving
 $m=n$ case. Its sole purpose is to test conformance with the integer
@@ -900,7 +900,7 @@ a deterministic local controller can become phase-locked when identical
 probes observe symmetric queue states at synchronized epochs.
 
 \paragraph{$v$ sensitivity.}
-The methodology-repair replay first reproduced all 36 formal D
+The offline replay first reproduced all 36 formal D
 session-capacity cells at $v=1$ for nonzero action mix, application
 payload, core fraction, and sampled maximum queue. Across the sweep,
 the mid-capacity core-required fraction remains exactly $1/2$ for every
@@ -942,6 +942,35 @@ itself. \CQPG{} and \SCQPG{} instead choose a deterministic
 summary-preserving point with full fraction $1/3$. The desynchronized
 independent controller chooses a richer full-evidence operating point
 but does not enforce the same per-round remote-evidence coverage policy.
+
+For a common denominator of 270 generated events, the coordinated
+operating point produces 90 full-evidence and 180 summary events. Its
+timely full-core output is therefore
+\[
+\frac{90}{270}\times 1.0000=0.3333,
+\]
+with $14.7456$~MB of application payload. The phase-randomized
+independent controller produces 180 full-evidence events and has mean
+conditional simulated on-time coverage $0.5028$, giving
+\[
+\frac{180}{270}\times 0.5028=0.3352,
+\]
+with $23.59296$~MB of application payload. Thus coordinated admission
+achieves essentially the same common timely full-core output
+($0.3333$ versus $0.3352$) while generating 37.5\% fewer application
+bytes. Both quantities are software-sensitivity results, not new
+hardware measurements; the deterministic guarantee is byte-feasible
+admission and full remote-evidence coverage under the model, not
+end-to-end physical timing.
+
+At low capacity, the phase-randomized independent controller still
+generates 90 full-evidence requests per 270-event arm, corresponding to
+11.79648~MB of full-evidence demand, but produces no timely full-core
+result. Coordinated admission instead selects the summary-only operating
+point, which generates 4.42368~MB of summary payload. In other words,
+coordinated admission prevents 11.80~MB per 270-event arm of
+full-evidence demand that yields no timely core result, replacing it
+with the 4.42~MB summary operating point.
 
 Accordingly, we make no claim that centralized admission universally
 outperforms a properly phased decentralized controller.
@@ -1011,6 +1040,29 @@ arrival ordering is not identified by the available evidence and is
 therefore reported as unknown. In particular, the inverted ordering
 must not be interpreted as a Raspberry-Pi compute-speed comparison.
 
+Table~\ref{tab:deviceanchors} reports the device-level reconstruction
+over all accepted core-required measured events. RQ3's primary SLO
+conclusions are post-release service conclusions. Schedule-inclusive
+nominal anchoring is materially more stringent; in particular, P1's
+median release lateness alone exceeds the 1-s SLO, driving its
+nominal-anchor coverage to zero.
+
+\begin{table}[t]
+\centering
+\caption{Device-level timing-anchor reconstruction; lateness is p50/p95/p99 in ms.}
+\label{tab:deviceanchors}
+\scriptsize
+\begin{tabular}{@{}lrrl@{}}
+\toprule
+Device & Post-release & Nominal-anchor & Lateness (p50/p95/p99) \\
+\midrule
+P1 & 0.5835 & 0.0000 & 1972.34/2173.36/2326.13 \\
+P2 & 0.5881 & 0.0000 & 763.90/976.78/1080.30 \\
+P3 & 0.6296 & 0.6296 & 83.56/154.08/167.94 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.92\textwidth]{fig6_timing_anchors.pdf}
@@ -1038,7 +1090,7 @@ n\frac{\rho-\sigma}{1-\sigma}
 \qquad
 \sigma=\frac18.
 \]
-The methodology-repair simulator evaluates
+The discrete-event simulator evaluates
 $n\in\{3,8,16,32\}$ and five normalized capacities. All 20 simulated
 full counts match the analytical integer result exactly.
 
@@ -1091,11 +1143,12 @@ incident artifact, and it does not contain the S07 pre-hardware
 launcher-abort files. Neither gap changes the reconstructed accepted
 arms, but both remain disclosed.
 
-The separate methodology-repair package has a \texttt{PASS}
+The separate reproducibility package has a \texttt{PASS}
 validation verdict: 432 $v$-sweep rows, 240 desynchronization rows,
 648 timestamp-reconstruction rows, and 20 scaling rows are present with
-zero retained failure. Tasks A, B, and D are offline replay or simulation;
-only Task C is reconstructed from measured formal hardware timestamps.
+zero retained failure. The parameter sweep, desynchronization study, and
+scaling analysis are offline replay or simulation; only the timing
+reconstruction uses measured formal hardware timestamps.
 
 \subsection{Role of the Safety Filter}
 
@@ -1136,7 +1189,7 @@ intrusion detection.
 
 \subsection{The Main Result Is a Frontier, Not a Ranking}
 
-The methodology repair changes the interpretation of the entire
+The additional sensitivity analysis changes the interpretation of the entire
 experiment. The original method ranking implicitly treated more timely
 full-core results as evidence that coordination was superior. The
 desynchronization counterfactual shows why that interpretation is too
@@ -1225,10 +1278,12 @@ analysis demonstrates that schedule-inclusive results can be materially
 worse. Both anchors are therefore reported separately.
 
 \textbf{Replay scope.}
-The workload is a frozen CICIoT2023-derived feature replay rather than an
+The workload is a frozen CICIoT2023-derived feature replay~\cite{neto2023ciciot} rather than an
 uncontrolled packet-level deployment. Recon-PortScan, a major validation
 error family, is absent from the formal replay, and exact feature-vector
-repetition exists across frozen data splits.
+repetition exists across frozen data splits. This is a closed-world
+diagnostic rather than evidence of open-world generalisation, consistent
+with the cautions in~\cite{sommer2010outside}.
 
 \textbf{Shield separation.}
 The tested campaign does not contain a case where a local device
@@ -1255,8 +1310,8 @@ S03-a01, S04-a01, and S07-a01 are invalid infrastructure attempts and
 are excluded in full rather than replaced arm-by-arm.
 
 The compact audit package, formal campaign package, full-raw audit
-results, and methodology-repair package are separately hashed.
-The methodology repair did not modify the formal raw evidence,
+results, and reproducibility package are separately hashed.
+The additional analyses did not modify the formal raw evidence,
 runtime source, Raspberry Pis, manuscript, or repository state.
 
 Before public release, the final artifact should expose persistent
@@ -1311,7 +1366,9 @@ reasoning about, enforcing, and measuring evidence coverage, richness,
 queueing, and service timeliness under a shared edge bottleneck.
 
 % ============================================================
+\balance
 \begin{thebibliography}{99}
+\setlength{\itemsep}{-0.01em}
 
 \bibitem{raza2013svelte}
 S. Raza, L. Wallgren, and T. Voigt,
@@ -1412,6 +1469,21 @@ K. P. Wabersich and M. N. Zeilinger,
 ``A predictive safety filter for learning-based control of constrained
 nonlinear dynamical systems,''
 \emph{Automatica}, vol. 129, Art. no. 109597, 2021.
+
+\bibitem{neto2023ciciot}
+E.~C. P. Neto, S.~Dadkhah, R.~Ferreira, A.~Zohourian, R.~Lu, and
+A.~A. Ghorbani,
+``CICIoT2023: A real-time dataset and benchmark for large-scale attacks
+in IoT environment,''
+\emph{Sensors}, vol.~23, no.~13, Art. no.~5941, 2023,
+doi: 10.3390/s23135941.
+
+\bibitem{sommer2010outside}
+R.~Sommer and V.~Paxson,
+``Outside the closed world: On using machine learning for network
+intrusion detection,''
+in \emph{Proc. IEEE Symposium on Security and Privacy}, 2010,
+pp.~305--316, doi: 10.1109/SP.2010.25.
 
 \bibitem{ouyang2026sok}
 N. Ouyang, A. Shatte, Z. Lu, C. Chen, and W. Xiang,

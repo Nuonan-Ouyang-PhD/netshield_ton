@@ -3,7 +3,7 @@
 Status: **PASS**
 
 The manuscript includes 11 recent references published in 2024--2026 and
-28 bibliography entries in total. Metadata was checked against
+30 bibliography entries in total. Metadata was checked against
 IEEE Xplore or USENIX proceedings records and cross-checked with DBLP or
 Crossref where available. No ResearchGate record was used as the sole source.
 
@@ -16,6 +16,34 @@ CCF-A.
 - CCF network and information security list: https://www.ccf.org.cn/Academic_Evaluation/NIS/
 
 ## Added references
+
+### `neto2023ciciot`
+
+- Exact title: CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment
+- Authors: E. C. P. Neto et al.
+- Venue: Sensors
+- Year: 2023
+- Volume: 23
+- Issue: 13
+- Article: 5941
+- DOI: 10.3390/s23135941
+- Official verification: https://www.unb.ca/cic/datasets/iotdataset-2023.html
+- Publication quality: peer-reviewed dataset paper
+- Cited in: Abstract, methodology, and detector/replay limitations
+- Relevance: Formal source citation for the CICIoT2023-derived frozen feature-vector workload.
+
+### `sommer2010outside`
+
+- Exact title: Outside the Closed World: On Using Machine Learning for Network Intrusion Detection
+- Authors: Robin Sommer; Vern Paxson
+- Venue: IEEE Symposium on Security and Privacy
+- Year: 2010
+- Pages: 305--316
+- DOI: 10.1109/SP.2010.25
+- Official verification: https://doi.org/10.1109/SP.2010.25
+- Publication quality: IEEE security and privacy conference paper
+- Cited in: Detector and replay limitations
+- Relevance: Supports the closed-world/generalisation limitation for the frozen detector evaluation.
 
 ### `yang2025openset`
 

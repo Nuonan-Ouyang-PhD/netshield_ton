@@ -6,8 +6,9 @@ NetShield submission.
 
 ## Primary files
 
-- `manuscript.tex` and `manuscript.pdf`
-- `supplementary.tex` and `supplementary.pdf`
+- `netshield_manuscript.tex` and `netshield_manuscript.pdf`
+- `netshield_supplementary.tex` and `netshield_supplementary.pdf`
+- `cover_letter.md`
 - `figures/`
 - `tables/`
 - `audit/REFERENCE_AUDIT.md`
@@ -22,4 +23,4 @@ level in [`REPRODUCIBILITY.md`](../REPRODUCIBILITY.md).
 They distinguish the public CICIoT2023 source and offline analyses from the
 controlled raw evidence of the 216-arm physical campaign.
 
-The manuscript has 12 pages and the supplementary material has 24 pages.
+The manuscript has 13 pages and the supplementary material has 24 pages.

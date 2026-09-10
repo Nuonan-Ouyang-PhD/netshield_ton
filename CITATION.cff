@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "This private review repository is not yet a public archival release. Contact the corresponding author before citing or redistributing it."
+message: "This repository contains the clean submission package. Contact the corresponding author before citing or redistributing private evidence."
 title: "NetShield: Shared-Bottleneck Evidence Scheduling for Multi-Probe IoT Edge Intrusion Detection"
 type: software
-version: "0.1.0-rc1-review"
-date-released: 2026-09-08
+version: "1.0.0"
+date-released: 2026-09-10
 authors:
   - family-names: Ouyang
     given-names: Nuonan

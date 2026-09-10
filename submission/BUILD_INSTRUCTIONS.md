@@ -6,12 +6,13 @@ IEEEtran dependencies.
 From the package directory, compile with Tectonic:
 
 ```sh
-tectonic -X compile manuscript.tex
-tectonic -X compile supplementary.tex
+tectonic -X compile netshield_manuscript.tex
+tectonic -X compile netshield_supplementary.tex
 ```
 
 Equivalent XeLaTeX-compatible workflows may also be used. The checked build
-produces a 12-page `manuscript.pdf` and a 24-page `supplementary.pdf`.
+produces the manuscript and supplementary PDFs from the clean submission
+sources.
 
 Integrity and semantic checks:
 

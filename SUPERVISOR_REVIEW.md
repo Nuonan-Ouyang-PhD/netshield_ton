@@ -4,12 +4,12 @@ Thank you for reviewing the NetShield manuscript.
 
 ## Recommended review order
 
-1. Read [`submission/manuscript.pdf`](submission/manuscript.pdf).
-2. Consult [`submission/supplementary.pdf`](submission/supplementary.pdf) for
+1. Read [`submission/netshield_manuscript.pdf`](submission/netshield_manuscript.pdf).
+2. Consult [`submission/netshield_supplementary.pdf`](submission/netshield_supplementary.pdf) for
    complete sensitivity, timing-reconstruction, and scaling tables.
 3. Use the pull request's **Files changed** view to attach comments to the
-   corresponding lines in [`submission/manuscript.tex`](submission/manuscript.tex)
-   or [`submission/supplementary.tex`](submission/supplementary.tex).
+   corresponding lines in [`submission/netshield_manuscript.tex`](submission/netshield_manuscript.tex)
+   or [`submission/netshield_supplementary.tex`](submission/netshield_supplementary.tex).
 4. Submit an overall GitHub review when finished so comments remain grouped.
 
 ## Suggested review focus
@@ -19,7 +19,7 @@ Thank you for reviewing the NetShield manuscript.
 - separation of hardware measurements, timestamp reconstruction, offline replay,
   and discrete-event conformance;
 - strength and precision of the limitations and claim boundaries;
-- suitability for IEEE/ACM Transactions on Networking.
+- suitability for IEEE Transactions on Networking.
 
 Reference metadata and claim checks are available under [`submission/audit/`](submission/audit/).
 Dataset acquisition, replay commands, frozen action semantics, and the exact
