@@ -1,0 +1,5 @@
+method,core_request_fraction,conditional_on_time_rate,common_timely_full_core_output,denominator_events,source_boundary
+Sync-I-QPG,0.5000,0.0000,0.0000,270,offline software sensitivity
+Desync-I-QPG,0.6667,0.5028,0.3352,270,offline software sensitivity
+C-QPG,0.3333,1.0000,0.3333,270,offline software sensitivity
+S-CQPG,0.3333,1.0000,0.3333,270,offline software sensitivity

@@ -1,80 +1,100 @@
 %PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%âãÏÓ
 1 0 obj
-<<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R
->>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
->>
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 510 250] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
 endobj
 4 0 obj
-<<
-/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
->>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<<
-/Contents 9 0 R /MediaBox [ 0 0 510 250 ] /Parent 8 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
-endobj
-6 0 obj
-<<
-/PageMode /UseNone /Pages 8 0 R /Type /Catalog
->>
-endobj
-7 0 obj
-<<
-/Author (NetShield V1.3 submission build) /CreationDate (D:20260909144124+10'00') /Creator (anonymous) /Keywords () /ModDate (D:20260909144124+10'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (unspecified) /Title (Mid-capacity synchronization sensitivity) /Trapped /False
->>
-endobj
-8 0 obj
-<<
-/Count 1 /Kids [ 5 0 R ] /Type /Pages
->>
-endobj
-9 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 884
->>
+<< /Length 3759 >>
 stream
-Gat%!?#Q2d'Rf.GgrHN0T!,DYXhCi@X%Af1Y.RJU@"bm\!EqfoA\W]G?mdcV;aR;<O*f25pAFuBdgq66U'CCW_1sND'TamI-'OF=K.g@aX:%9WXGbmaH@Wqa&-fEYhL2RCEKNKJ7Fc<a]kN@ZY&12RH!drgXNP3]p!jH;]nbqbA/>`3%k'ZF,GsEWC-X4E!c!gc]>4jB-B%LcRgt?_DX(2hXk8AM.].p/%hiZ0:CqA"Z\io=3s`SGXme3^]t'_*CHuj`9^9I2A.F>`Z34_=qcp97_^4(l%,/R/%O\>iRVY+AjU=Y"bE<tu9]e<k<D;Y!GKBRM/J>DF)D6To`'*`ng??IDj'X"<Z"i&dLksrY&o1BU5k0Dk1X=;h229M\N4e1q:*"/Zk(a+:OD/X_+Oh8I:e2?YN8qI'@'_^TX9"#_6%_5]*`-pDDFKMJ""JoQcJs]jA_cDr,X(HKW8bGs?[I,4LAeTX\PI*5Apg'T^4qWJ@8$8XCFt-Q`1R;V`Og<H^ZJf^D'`#FrBn2aTKYfi20Kf<I;Fde$6-VN-4Pq0H.D#1CJY\#gPAH8Q+"I@-*0LBb4*=VkjI]^PZPT<OLEZXQS^9I,%cKa#::$]XamsK9LgJ+Zg>>LE;:RdRP_AnEcGB9T(E^P5tteN8J3Tk'Sd>]Ks@=AOf($P9SsKC'?#_T8p(JH@X2WuB@9?c'@.]Ti=Eg\&X:3nI!L2?U6mKd-;Ab1L(6p0h2PZ7qs?-0M1:uSkWXN,/mYnk)0b2kF4HN`=O&_gfTD3X5R]\eFG^Rr>CBL9YO\8AZq]=WFU:M6;Khka\R0g-r_6)uWMU>X]^jcg[J:)&$i+7/\T?m`plVa%J!XHMJX_Nh1LE@jAR.2WS+&c:%rrKDd/~>endstream
+BT /F1 9 Tf 1 0 0 1 42.00 233.00 Tm (RQ2 software sensitivity: conditional rates and common-denominator output) Tj ET
+BT /F1 6.5 Tf 1 0 0 1 42.00 222.00 Tm (The right panel uses 270 generated events per arm; values are not hardware measurements.) Tj ET
+BT /F1 7.2 Tf 1 0 0 1 67.20 211.00 Tm (Core-request fraction) Tj ET
+0.860 G 0.35 w 42.00 60.00 m 168.00 60.00 l S
+BT /F1 5.8 Tf 1 0 0 1 26.00 58.00 Tm (0.0) Tj ET
+0.860 G 0.35 w 42.00 130.00 m 168.00 130.00 l S
+BT /F1 5.8 Tf 1 0 0 1 26.00 128.00 Tm (0.5) Tj ET
+0.860 G 0.35 w 42.00 200.00 m 168.00 200.00 l S
+BT /F1 5.8 Tf 1 0 0 1 26.00 198.00 Tm (1.0) Tj ET
+0.250 G 0.65 w 42.00 60.00 m 42.00 200.00 l S
+0.250 G 0.65 w 42.00 60.00 m 168.00 60.00 l S
+0.160 0.380 0.630 rg 52.50 60.00 15.00 70.00 re f
+BT /F1 5.6 Tf 1 0 0 1 53.00 134.00 Tm (0.5000) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 50.00 46.00 Tm (Sync-I) Tj ET
+0.160 0.380 0.630 rg 82.50 60.00 15.00 93.34 re f
+BT /F1 5.6 Tf 1 0 0 1 83.00 157.34 Tm (0.6667) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 75.00 46.00 Tm (Desync-I) Tj ET
+0.160 0.380 0.630 rg 112.50 60.00 15.00 46.66 re f
+BT /F1 5.6 Tf 1 0 0 1 113.00 110.66 Tm (0.3333) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 110.00 46.00 Tm (C) Tj ET
+0.160 0.380 0.630 rg 142.50 60.00 15.00 46.66 re f
+BT /F1 5.6 Tf 1 0 0 1 143.00 110.66 Tm (0.3333) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 140.00 46.00 Tm (S) Tj ET
+BT /F1 7.2 Tf 1 0 0 1 207.80 211.00 Tm (Conditional on-time rate) Tj ET
+0.860 G 0.35 w 188.00 60.00 m 314.00 60.00 l S
+BT /F1 5.8 Tf 1 0 0 1 172.00 58.00 Tm (0.0) Tj ET
+0.860 G 0.35 w 188.00 130.00 m 314.00 130.00 l S
+BT /F1 5.8 Tf 1 0 0 1 172.00 128.00 Tm (0.5) Tj ET
+0.860 G 0.35 w 188.00 200.00 m 314.00 200.00 l S
+BT /F1 5.8 Tf 1 0 0 1 172.00 198.00 Tm (1.0) Tj ET
+0.250 G 0.65 w 188.00 60.00 m 188.00 200.00 l S
+0.250 G 0.65 w 188.00 60.00 m 314.00 60.00 l S
+0.860 0.430 0.100 rg 198.50 60.00 15.00 0.80 re f
+BT /F1 5.6 Tf 1 0 0 1 199.00 64.80 Tm (0.0000) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 196.00 46.00 Tm (Sync-I) Tj ET
+0.860 0.430 0.100 rg 228.50 60.00 15.00 70.39 re f
+BT /F1 5.6 Tf 1 0 0 1 229.00 134.39 Tm (0.5028) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 221.00 46.00 Tm (Desync-I) Tj ET
+0.860 0.430 0.100 rg 258.50 60.00 15.00 140.00 re f
+BT /F1 5.6 Tf 1 0 0 1 259.00 204.00 Tm (1.0000) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 256.00 46.00 Tm (C) Tj ET
+0.860 0.430 0.100 rg 288.50 60.00 15.00 140.00 re f
+BT /F1 5.6 Tf 1 0 0 1 289.00 204.00 Tm (1.0000) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 286.00 46.00 Tm (S) Tj ET
+BT /F1 7.2 Tf 1 0 0 1 343.00 211.00 Tm (Common timely full-core output) Tj ET
+0.860 G 0.35 w 334.00 60.00 m 460.00 60.00 l S
+BT /F1 5.8 Tf 1 0 0 1 318.00 58.00 Tm (0.0) Tj ET
+0.860 G 0.35 w 334.00 130.00 m 460.00 130.00 l S
+BT /F1 5.8 Tf 1 0 0 1 318.00 128.00 Tm (0.5) Tj ET
+0.860 G 0.35 w 334.00 200.00 m 460.00 200.00 l S
+BT /F1 5.8 Tf 1 0 0 1 318.00 198.00 Tm (1.0) Tj ET
+0.250 G 0.65 w 334.00 60.00 m 334.00 200.00 l S
+0.250 G 0.65 w 334.00 60.00 m 460.00 60.00 l S
+0.180 0.550 0.320 rg 344.50 60.00 15.00 0.80 re f
+BT /F1 5.6 Tf 1 0 0 1 345.00 64.80 Tm (0.0000) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 342.00 46.00 Tm (Sync-I) Tj ET
+0.180 0.550 0.320 rg 374.50 60.00 15.00 46.93 re f
+BT /F1 5.6 Tf 1 0 0 1 375.00 110.93 Tm (0.3352) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 367.00 46.00 Tm (Desync-I) Tj ET
+0.180 0.550 0.320 rg 404.50 60.00 15.00 46.66 re f
+BT /F1 5.6 Tf 1 0 0 1 405.00 110.66 Tm (0.3333) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 402.00 46.00 Tm (C) Tj ET
+0.180 0.550 0.320 rg 434.50 60.00 15.00 46.66 re f
+BT /F1 5.6 Tf 1 0 0 1 435.00 110.66 Tm (0.3333) Tj ET
+BT /F1 5.7 Tf 1 0 0 1 432.00 46.00 Tm (S) Tj ET
+BT /F1 6 Tf 0 1 -1 0 20.00 105.00 Tm (Fraction / rate) Tj ET
+0.900 G 0.30 w 40.00 35.00 m 466.00 35.00 l S
+BT /F1 6 Tf 1 0 0 1 42.00 25.00 Tm (Sync-I = synchronized independent; Desync-I = phase-randomized independent; C/S = coordinated controllers.) Tj ET
+endstream
 endobj
 xref
-0 10
+0 6
 0000000000 65535 f 
-0000000061 00000 n 
-0000000112 00000 n 
-0000000219 00000 n 
-0000000331 00000 n 
-0000000446 00000 n 
-0000000639 00000 n 
-0000000707 00000 n 
-0000001022 00000 n 
-0000001081 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000317 00000 n 
 trailer
-<<
-/ID 
-[<818e0bd70fdc9f6a89a69b89164bd6c6><818e0bd70fdc9f6a89a69b89164bd6c6>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 7 0 R
-/Root 6 0 R
-/Size 10
->>
+<< /Size 6 /Root 1 0 R >>
 startxref
-2055
+4127
 %%EOF

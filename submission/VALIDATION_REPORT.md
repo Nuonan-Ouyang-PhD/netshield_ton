@@ -12,10 +12,15 @@ Overall status: **PASS**
   comparison, the device-level nominal-anchor reconstruction, the CICIoT2023
   and Sommer--Paxson references, and the current journal name.
 - No tool attribution or generated-content label appears in the submission.
+- IEEE Transactions on Networking format check: 10-point two-column layout;
+  13 manuscript pages are within the journal's typical 16-page submission
+  maximum. The journal states that accepted papers receive 10 pages free and
+  charge US$220 for each additional page.
 
 ## References and claims
 
 - Bibliography entries: 30.
+- Abstract length: 247 words, within the journal's 150--250 word guideline.
 - Recent 2024--2026 additions: 11, all checked against official publication
   records.
 - Undefined citations: 0.
@@ -30,7 +35,7 @@ Overall status: **PASS**
 - Supplementary material: 24 US Letter pages.
 - Undefined citations/references: 0.
 - Missing figures/files: 0.
-- Overfull horizontal boxes: 0. IEEEtran emits a 1.7pt vertical balance
+- Overfull horizontal boxes: 0. IEEEtran emits a 0.68pt vertical balance
   warning on the final bibliography page; rendered inspection found no
   clipping, overlap, or missing content.
 - Fatal errors: 0.

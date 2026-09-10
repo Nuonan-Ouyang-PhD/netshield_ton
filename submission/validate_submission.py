@@ -35,8 +35,8 @@ require("sommer2010outside" in bibliography_keys, "missing Sommer-Paxson citatio
 require("IEEE Transactions on Networking" in manuscript,
         "current target journal name is missing")
 require(len(list((ROOT / "figures").glob("*.pdf"))) == 7, "expected seven figures")
-require(len([p for p in (ROOT / "tables").iterdir() if p.is_file()]) == 10,
-        "expected ten table/data files")
+require(len([p for p in (ROOT / "tables").iterdir() if p.is_file()]) == 11,
+        "expected eleven table/data files")
 
 require(r"\title{Supplementary Material: NetShield}" in supplementary,
         "supplementary title is not submission-clean")

@@ -4,17 +4,17 @@ Status: **PASS**
 
 ## Frozen scientific content
 
-- The abstract, RQ1--RQ4, contributions, claim boundary, system model, theorem, propositions, methodology, results, numerical tables, figures, discussion, limitations, provenance, and conclusions retain the validated scientific content.
-- Internal revision labels were removed from the manuscript and Supplementary title for clean first-submission presentation; no scientific statement changed.
-- All figures and tables are copied unchanged from the validated source package.
+- The abstract, RQ1--RQ4, contributions, claim boundary, system model, theorem, propositions, methodology, results, numerical tables, figures, discussion, limitations, provenance, and conclusions use the validated scientific content and the common-denominator RQ2 interpretation.
+- Internal revision labels were removed from the manuscript and Supplementary title for clean first-submission presentation.
+- Figure 5 was rebuilt to show conditional rates and common-denominator timely full-core output separately; the plotted values are the already validated software-sensitivity values.
 - No Raspberry Pi execution, simulation, replay, or statistical analysis was run.
 
 ## Permitted changes
 
 - Related Work received four distributed literature updates: recent lightweight/open-set IIoT IDS; security data collection and overhead; edge scheduling/admission; and remote-inference/inference-serving timeliness.
-- Eleven verified bibliography entries were added, raising the reference count from 17 to 28.
-- The pre-bibliography `\\balance` command was removed after it generated overfull final-page columns with the longer reference list; this is a layout-only change.
-- No scientific result or conclusion was changed by the literature integration.
+- The clean manuscript contains 30 bibliography entries, including the formal CICIoT2023 and Sommer--Paxson citations.
+- The pre-bibliography `\\balance` command is present in the source. The final build emits a 0.68pt vertical balance warning on the last bibliography page; rendered inspection found no clipping, overlap, or missing content.
+- The abstract, discussion, conclusion, and Figure 5 now state the validated common-denominator comparison without introducing new measurements or analyses.
 
 ## Forbidden-claim scan
 

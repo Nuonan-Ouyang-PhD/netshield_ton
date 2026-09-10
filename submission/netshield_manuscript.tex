@@ -59,52 +59,34 @@ Feasibility Boundaries for Multi-Probe Edge IDS Evidence Admission}
 % ============================================================
 \begin{abstract}
 Multi-probe edge intrusion detection creates an evidence-service allocation
-problem: concurrent probes may request evidence whose aggregate demand
-exceeds a shared service budget. We develop \NetShield{} around an
-analytical feasibility region rather than classifier-accuracy optimization.
-For $n$ probes, let $m$ probes retain remotely delivered evidence in a
-coordination round, of which $k$ request full evidence of size $B$ while
-the remaining $m-k$ transmit summaries of size $S<B$. The joint request
-is byte-feasible within one idealized service round if and only if
-$kB+(m-k)S\leq C$. For a fixed remote-evidence coverage requirement $m$,
-this gives the exact full-evidence boundary
-$k^\star=\min\{m,\lfloor(C-mS)/(B-S)\rfloor\}$ when $C\geq mS$,
-exposing an explicit coverage--richness trade-off.
+problem when concurrent probes share a capacity-limited core. We formulate
+\NetShield{} around a coverage-conditioned feasibility region rather than
+classifier accuracy. If $m$ probes retain remote evidence, $k$ request full
+payloads of size $B$ and the remaining probes transmit summaries of size
+$S<B$; one-round feasibility is $kB+(m-k)S\leq C$, yielding an exact
+coverage--richness boundary.
 
-We evaluate the resulting design on a heterogeneous Raspberry Pi~5,
-Pi~4B, and Pi~3B+ testbed over Wi-Fi. With full and summary payloads of
-128~KiB and 16~KiB, respectively, the low/mid/high formal service
-budgets predict exactly 0/1/3 simultaneous full-evidence actions when
-all three probes retain remote evidence; these operating points match
-the coordinated action mixes in every formal session. We further identify
-a symmetry-induced limit cycle in the frozen independent queue-penalized
-controller. At mid capacity, a synchronized full-evidence round leaves
-approximately 43.7~KiB of backlog per probe, while every positive-payload
-action loses to the best zero-payload action once queue occupancy exceeds
-approximately 260~B. This produces the observed
-full/none period-two orbit.
+We evaluate the design on a heterogeneous Raspberry Pi~5, Pi~4B, and
+Pi~3B+ testbed over Wi-Fi. With 128~KiB full and 16~KiB summary payloads,
+the low/mid/high budgets predict 0/1/3 simultaneous full-evidence actions
+under full remote coverage, matching every coordinated formal session.
+The synchronized independent controller instead enters a full/none
+period-two orbit. A 12-value offline sweep reproduces its formal operating
+statistics, while a 20-seed phase sensitivity shows that synchronization,
+not decentralization alone, causes the failure: on a common denominator,
+desynchronized independence and coordination deliver 0.3352 and 0.3333
+timely full-core output, respectively, with coordination using 37.5\%
+fewer application bytes.
 
-A 12-value offline sensitivity sweep exactly reproduces the formal
-$v=1$ operating statistics and shows that the synchronized mid-capacity
-core-request fraction remains $1/2$ through $v=30{,}000$.
-A separate 20-seed software sensitivity study breaks only the probe
-phases; the desynchronized independent controller reaches a $2/3$
-core-request fraction and approximately 0.50 simulated on-time coverage,
-showing that the original baseline failure is caused by synchronization
-rather than decentralization itself. We therefore interpret coordinated
-admission as deterministic selection of a coverage--richness operating
-point, not as universally superior control.
-
-The physical campaign contains 12 sessions, 216 accepted arms, 648
-device-runs, and 58,320 measured events. A timestamp reconstruction
-separates a 1-s post-release service SLO from schedule-inclusive latency,
-and a discrete-event conformance study matches the analytical integer
-boundary for all 20 tested probe-count/capacity combinations. A full-raw
-audit reconstructs all 216 accepted hardware arms with zero
-raw-to-metric mismatch and zero shared-cap violation across 63,720
-service rounds. These results position edge-IDS evidence scheduling as a
-shared-bottleneck feasibility and service-timeliness problem rather than
-a classifier-performance optimization problem.
+The physical campaign contains 12 sessions, 216 accepted arms, and 58,320
+measured events. Timestamp reconstruction separates post-release service
+from schedule-inclusive latency, and discrete-event conformance matches
+the analytical boundary for 20 probe-count/capacity combinations. A
+full-raw audit reconstructs all accepted hardware arms with zero
+raw-to-metric mismatch and zero shared-cap violation across 63,720 service
+rounds. The results frame edge-IDS evidence scheduling as a
+shared-bottleneck feasibility and service-timeliness problem rather than a
+classifier-performance optimization problem.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -932,7 +914,7 @@ the synchronized independent case is zero.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.92\textwidth]{fig5_desync_sensitivity.pdf}
-\caption{Mid-capacity software sensitivity. Desynchronization changes only probe phases and introduces neither state exchange nor joint admission.}
+\caption{Mid-capacity software sensitivity. Left: core-request fraction. Center: conditional on-time rate among core-required events. Right: common-denominator timely full-core output per 270 generated events. Desynchronization changes only probe phases and introduces neither state exchange nor joint admission.}
 \label{fig:desync}
 \end{figure*}
 
@@ -1201,9 +1183,13 @@ for all three probes occupies the point
 (r,f)=\left(1,\frac13\right).
 \]
 An independent controller can instead occupy a point with a larger
-long-run full fraction by allowing less uniform evidence coverage over
-time. Neither point dominates without assigning value to remote coverage
-versus full-evidence richness.
+long-run full-request fraction by allowing less uniform evidence coverage
+over time. On the common denominator, however, the two points are
+essentially indistinguishable in timely full-core output ($0.3352$ versus
+$0.3333$). Coordination reaches that output with 37.5\% fewer application
+bytes, raises the conditional on-time rate from $0.5028$ to $1.0000$, and
+provides deterministic per-round remote-evidence coverage. The difference
+is therefore efficiency and predictability, not a larger timely output.
 
 The contribution of coordinated admission is therefore deterministic
 operating-point enforcement. It can guarantee that the chosen
@@ -1347,11 +1333,14 @@ equation cannot predict. The frozen independent queue-penalized
 controller enters a synchronized full/none period-two orbit at mid
 capacity; parameter sensitivity shows that the operating fraction
 persists across a wide range of queue weights, while phase randomization
-recovers substantially more independent full-evidence service without
-central admission. The correct conclusion is therefore not that
-centralized control universally outperforms decentralization, but that
-explicit admission can deterministically enforce a chosen point on the
-coverage--richness frontier.
+issues substantially more full-evidence requests without increasing
+timely full-core output. Explicit admission instead reaches essentially
+the same timely output with 37.5\% fewer application bytes, guarantees the
+chosen per-round coverage point, and avoids low-capacity full-evidence
+demand that yields no timely result. The correct conclusion is therefore
+not that centralized control universally outperforms decentralization,
+but that explicit admission is the more byte-efficient and predictable
+way to enforce a chosen point on the coverage--richness frontier.
 
 Finally, physical timestamps show why byte feasibility is only the first
 layer of the problem. Even feasible full-evidence tuples experience
