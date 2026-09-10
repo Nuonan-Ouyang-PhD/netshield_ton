@@ -17,16 +17,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Verify current RC1 snapshot
-        run: python3 scripts/verify_repository.py
-      - name: Verify V1.3 methodology-repair snapshot
-        run: python3 scripts/verify_methodology_repair.py
-      - name: Verify V1.3 submission snapshot
-        run: python3 scripts/verify_submission_v1_3.py
+      - name: Verify campaign audit
+        run: python3 scripts/verify_campaign_audit.py
+      - name: Verify methodology package
+        run: python3 scripts/verify_methodology.py
+      - name: Verify evidence snapshot
+        run: python3 scripts/verify_submission.py
       - name: Verify clean submission package
         run: python3 submission/validate_submission.py
-      - name: Verify archived V4.4 snapshot
-        working-directory: legacy/v4_4
+      - name: Verify supporting archive
+        working-directory: supporting_material/archive/v4_4
         run: sha256sum -c docs/MANIFEST_SHA256.txt
       - name: Check whitespace
         run: git diff --check HEAD^ HEAD

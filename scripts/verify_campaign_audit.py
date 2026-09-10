@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RC1 = ROOT / "formal_rc1"
+RC1 = ROOT / "supporting_material" / "formal_campaign_audit"
 PROTOCOL = "NSF12_20260906_RC1"
 SESSIONS = {f"F12_S{number:02d}" for number in range(1, 13)}
 METHODS = set("ABCDEF")
@@ -45,7 +45,7 @@ def verify_manifest() -> None:
     actual_files = {path for path in RC1.rglob("*") if path.is_file()}
     actual_files.remove(RC1 / "MANIFEST_SHA256.txt")
     if listed != actual_files:
-        fail("manifest file list does not match formal_rc1 contents")
+        fail("manifest file list does not match formal campaign audit contents")
 
 
 def main() -> None:

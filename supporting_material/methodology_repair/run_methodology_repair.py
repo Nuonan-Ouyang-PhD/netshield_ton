@@ -43,7 +43,7 @@ RAW_ZIP = required_path("TON_RAW_ZIP")
 ZIP_PATH = Path(
     os.environ.get(
         "TON_OUTPUT_ZIP",
-        str(HERE.parent / "ToN_V1_3_Methodology_Repair_20260909.zip"),
+        str(HERE.parent.parent / "methodology_repair_results.zip"),
     )
 ).expanduser().resolve()
 

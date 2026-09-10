@@ -10,8 +10,8 @@ Run:
 export TON_AUDIT_ROOT=/path/to/ToN_FullRaw_Audit_20260908
 export TON_RUNTIME_ROOT=/path/to/NSF12_20260906_RC1/runtime
 export TON_RAW_ZIP=/path/to/ToN_Raw_Sessions_12x_20260908_under512MB.zip
-python3 ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py \
-  > ToN_V1_3_Methodology_Repair_20260909/run.log 2>&1
+python3 supporting_material/methodology_repair/run_methodology_repair.py \
+  > supporting_material/methodology_repair/run.log 2>&1
 ```
 
 The analysis uses only Python's standard library. See `RUN_METADATA.json` for

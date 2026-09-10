@@ -17,7 +17,7 @@ V1.3 manuscript candidate created on 9 September 2026.
 
 For the dataset source, download procedure, exact replay boundary, runnable
 commands, and controlled raw-evidence access policy, see the repository-level
-[`DATASET_AND_REPRODUCIBILITY.md`](../DATASET_AND_REPRODUCIBILITY.md).
+[`REPRODUCIBILITY.md`](../../REPRODUCIBILITY.md).
 
 ## Evidence boundary
 
@@ -39,9 +39,9 @@ historical invalid-attempt artifacts are unavailable. This does not change the
 From the repository root:
 
 ```bash
-python3 scripts/verify_repository.py
-python3 scripts/verify_methodology_repair.py
-python3 scripts/verify_submission_v1_3.py
+python3 scripts/verify_campaign_audit.py
+python3 scripts/verify_methodology.py
+python3 scripts/verify_submission.py
 ```
 
 The manuscript and supplementary sources compile from this directory with

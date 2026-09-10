@@ -18,7 +18,7 @@ NetShield submission.
 - `SHA256SUMS.txt`
 
 Dataset and reproducibility instructions are maintained at the repository
-level in [`DATASET_AND_REPRODUCIBILITY.md`](../DATASET_AND_REPRODUCIBILITY.md).
+level in [`REPRODUCIBILITY.md`](../REPRODUCIBILITY.md).
 They distinguish the public CICIoT2023 source and offline analyses from the
 controlled raw evidence of the 216-arm physical campaign.
 

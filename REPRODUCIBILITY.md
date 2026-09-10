@@ -74,9 +74,9 @@ This distinction is intentional and is part of the paper's evidence boundary.
 From the repository root:
 
 ```bash
-python3 scripts/verify_repository.py
-python3 scripts/verify_methodology_repair.py
-python3 scripts/verify_submission_v1_3.py
+python3 scripts/verify_campaign_audit.py
+python3 scripts/verify_methodology.py
+python3 scripts/verify_submission.py
 python3 submission/validate_submission.py
 ```
 
@@ -94,8 +94,8 @@ inputs named in `RUN_METADATA.json`:
 export TON_AUDIT_ROOT=/path/to/ToN_FullRaw_Audit_20260908
 export TON_RUNTIME_ROOT=/path/to/NSF12_20260906_RC1/runtime
 export TON_RAW_ZIP=/path/to/ToN_Raw_Sessions_12x_20260908_under512MB.zip
-python3 ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py \
-  > ToN_V1_3_Methodology_Repair_20260909/run.log 2>&1
+python3 supporting_material/methodology_repair/run_methodology_repair.py \
+  > supporting_material/methodology_repair/run.log 2>&1
 ```
 
 Tasks A, B, and D are offline replay/software simulation. Task C is a
@@ -114,8 +114,8 @@ shasum -a 256 -c SHA256SUMS.txt
 python3 validate_submission.py
 ```
 
-The V1.3 candidate can be built similarly from `submission_v1_3/` using its
-source files and the repository-level validators.
+The evidence snapshot under `supporting_material/evidence_snapshot/` contains
+the machine-readable supporting records used by the repository validators.
 
 ## 4. Frozen action and service interface
 
@@ -143,9 +143,9 @@ sum(grant_i(t)) <= C(t)
 Q_i(t+1) = max(0, Q_i(t) + payload_i(t) - grant_i(t))
 ```
 
-The exact selector, degradation, service, and seed rules used by the V1.3
-repair are implemented in
-[`ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py`](ToN_V1_3_Methodology_Repair_20260909/run_methodology_repair.py).
+The exact selector, degradation, service, and seed rules used by the sensitivity
+analysis are implemented in
+[`supporting_material/methodology_repair/run_methodology_repair.py`](supporting_material/methodology_repair/run_methodology_repair.py).
 
 ## 5. Evidence and access boundary
 
@@ -163,7 +163,7 @@ stitched into an accepted session.
 
 For an authorized reviewer who needs to audit the raw evidence, the archive
 identity and controlled-access boundary are recorded in
-[`formal_rc1/README.md`](formal_rc1/README.md),
+[`supporting_material/formal_campaign_audit/README.md`](supporting_material/formal_campaign_audit/README.md),
 [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md), and the committed audit
 manifests. The raw archive itself must be transferred through an authorized
 private channel rather than GitHub.

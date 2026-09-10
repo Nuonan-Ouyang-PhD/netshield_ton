@@ -39,8 +39,8 @@ Every file in this directory except the manifest itself has a SHA-256 entry in
 `docs/MANIFEST_SHA256.txt`. Verify with:
 
 ```bash
-cd legacy/v4_4
+cd supporting_material/archive/v4_4
 shasum -a 256 -c docs/MANIFEST_SHA256.txt
 ```
 
-The manifest paths are relative to this `legacy/v4_4/` directory.
+The manifest paths are relative to this directory.

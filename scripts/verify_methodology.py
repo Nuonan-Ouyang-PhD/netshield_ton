@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "ToN_V1_3_Methodology_Repair_20260909"
+PACKAGE = ROOT / "supporting_material" / "methodology_repair"
 EXPECTED_ROWS = {
     "V_SWEEP_RESULTS.csv": 432,
     "DESYNC_BASELINE_RESULTS.csv": 240,
@@ -41,7 +41,7 @@ def main() -> None:
     actual = {path for path in PACKAGE.iterdir() if path.is_file()}
     actual.remove(PACKAGE / "SHA256SUMS.txt")
     if listed != actual:
-        fail("manifest file list does not match methodology-repair contents")
+        fail("manifest file list does not match methodology repair contents")
 
     for name, expected in EXPECTED_ROWS.items():
         with (PACKAGE / name).open(newline="", encoding="utf-8") as handle:

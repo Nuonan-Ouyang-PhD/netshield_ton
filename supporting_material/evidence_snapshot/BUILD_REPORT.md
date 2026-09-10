@@ -26,11 +26,11 @@ Build date: 2026-09-09 (Australia/Melbourne)
 Run from the package root:
 
 ```sh
-cd submission_v1_3
+cd supporting_material/evidence_snapshot
 tectonic -X compile netshield_ton_manuscript_v1_3.tex
 tectonic -X compile netshield_ton_supplementary_v1_3.tex
 cd ..
-python3 scripts/verify_submission_v1_3.py
+python3 scripts/verify_submission.py
 ```
 
 The frozen figures and complete tables were generated from the methodology-repair

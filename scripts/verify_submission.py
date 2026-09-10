@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "submission_v1_3"
+PACKAGE = ROOT / "supporting_material" / "evidence_snapshot"
 EXPECTED_ROWS = {
     "V_SWEEP_RESULTS.csv": 432,
     "DESYNC_BASELINE_RESULTS.csv": 240,
@@ -45,7 +45,7 @@ def main() -> None:
             fail(f"SHA-256 mismatch: {relative}")
     actual = {path for path in PACKAGE.rglob("*") if path.is_file()} - {manifest}
     if listed != actual:
-        fail("manifest file list does not match submission_v1_3 contents")
+        fail("manifest file list does not match evidence snapshot contents")
 
     required = {
         "netshield_ton_manuscript_v1_3.tex",

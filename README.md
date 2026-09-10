@@ -1,109 +1,88 @@
 # NetShield
 
-Private research repository for the NetShield IEEE Transactions on Networking
-manuscript and its formal three-device Raspberry Pi campaign.
+Clean submission and reproduction package for the NetShield IEEE/ACM
+Transactions on Networking manuscript.
 
-> **Current review package:** the clean first-submission manuscript and
-> supplementary material are available under [`submission/`](submission/).
-> Protocol
-> `NSF12_20260906_RC1` completed 12 sessions and 216 accepted arms; all 216
-> accepted-arm validators report `PASS`. The methodology repair and final
-> submission-package machine validation also report `PASS`. The full-raw
-> reconstruction remains `PASS_WITH_ISSUES` because two invalid-attempt archival
-> artifacts are unavailable. Submission and public release remain **HOLD** pending
-> the authors' final decision and licensing review.
+## Start here
 
-The earlier V4.4 submission candidate is preserved under
-[`legacy/v4_4/`](legacy/v4_4/). Its pre-RC1 empirical numbers are historical and
-must not be presented as results from the RC1 campaign.
+- Read the paper: [`submission/manuscript.pdf`](submission/manuscript.pdf)
+- Read the supplementary material: [`submission/supplementary.pdf`](submission/supplementary.pdf)
+- Build and validate the submission: [`submission/BUILD_INSTRUCTIONS.md`](submission/BUILD_INSTRUCTIONS.md)
+- Follow the complete data/reproduction guide: [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)
 
-## Repository map
+## Reproduce the package
 
-| Path | Purpose |
-|---|---|
-| [`submission/`](submission/) | Clean first-submission manuscript, Supplementary, figures, tables, reference/claim audits, and integrity checks for supervisor review |
-| [`formal_rc1/`](formal_rc1/) | Path-free RC1 status, accepted-attempt index, 216-arm matrix, validator summary, aggregate descriptive tables, configuration snapshot, and integrity manifest |
-| [`ToN_V1_3_Methodology_Repair_20260909/`](ToN_V1_3_Methodology_Repair_20260909/) | Isolated path-free sensitivity, desynchronisation, nominal-deadline reconstruction, and scaling-validation review package |
-| [`submission_v1_3/`](submission_v1_3/) | Preserved internal pre-clean submission candidate and validation records |
-| [`legacy/v4_4/`](legacy/v4_4/) | Payload-preserved V4.4 manuscript package and its original supporting material |
-| [`scripts/verify_repository.py`](scripts/verify_repository.py) | Standard-library verification of hashes, expected counts, package receipts, and private host/path exclusion |
-| [`scripts/verify_methodology_repair.py`](scripts/verify_methodology_repair.py) | Standard-library verification of V1.3 row counts, hashes, scope guards, and path-free publication boundary |
-| [`DATASET_AND_REPRODUCIBILITY.md`](DATASET_AND_REPRODUCIBILITY.md) | Official CICIoT2023 source, download/use instructions, reproducibility levels, and evidence boundary |
-| [`CHANGELOG.md`](CHANGELOG.md) | Repository-level history and status transitions |
-| [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) | Access, redistribution, and licensing boundary |
-
-## Verified campaign boundary
-
-- Design: 12 sessions × 6 methods × 3 capacities = **216 accepted arms**.
-- Accepted set: 12 complete session blocks, each containing 18 arms.
-- Invalid attempts retained: `F12_S03/a01`, `F12_S04/a01`, and
-  `F12_S07/a01`; none contributes to the accepted set.
-- Validator result: **216/216 `PASS`**, with zero recorded failed checks.
-- Session packages: **12/12** pass receipt SHA-256, ZIP CRC, and restored-hash
-  checks.
-- Final raw archive: `NetShield_Formal_Campaign_V1_2_20260908.zip`,
-  1,340,825,224 bytes, SHA-256
-  `846643a85ace5d840d9c0d7a41245c760989d1886ce0d8c62ca4873368564acf`.
-- The primary archive and independent backup are byte-identical. The archive is
-  deliberately not stored in Git because it contains private raw evidence and
-  is 1.34 GB.
-
-These checks establish collection structure and artifact integrity. They do not
-constitute an independent scientific verdict or authorize manuscript claims.
-
-The frozen matrix deliberately retains its pre-activation
-`PLANNED_NOT_AUTHORIZED` provenance field. The later author approval, frozen
-tool identities, fixture evidence hashes, and backup gate are recorded in
-[`formal_rc1/results/activation_record.json`](formal_rc1/results/activation_record.json).
-
-## Verify this checkout
+From the repository root:
 
 ```bash
-python3 scripts/verify_repository.py
-python3 scripts/verify_methodology_repair.py
-python3 scripts/verify_submission_v1_3.py
 python3 submission/validate_submission.py
+python3 scripts/verify_submission.py
+python3 scripts/verify_campaign_audit.py
+python3 scripts/verify_methodology.py
 ```
 
-To verify the archived V4.4 bundle separately:
+To build the PDFs locally:
 
 ```bash
-cd legacy/v4_4
-shasum -a 256 -c docs/MANIFEST_SHA256.txt
+cd submission
+tectonic -X compile manuscript.tex
+tectonic -X compile supplementary.tex
+python3 validate_submission.py
 ```
 
-The GitHub Actions workflow runs the same repository checks on every push and
-pull request.
+The validation scripts use only the Python standard library. Tectonic is
+needed only to compile the PDFs.
 
-## Evidence and disclosure policy
+## Required data
 
-Only aggregate, role-labelled, path-free audit material is committed here. Raw
-event ledgers, packet-level material, model artifacts, machine addresses, SSH
-targets, user paths, and the full campaign archive remain outside Git. Public
-release and licensing require a separate author decision and dataset/model
-license review. Repository visibility must remain private during review.
+The public source dataset is [CICIoT2023](https://www.unb.ca/cic/datasets/iotdataset-2023.html),
+available through the official [download form](https://cicresearch.ca/IOTDataset/CIC_IOT_Dataset2023/).
+Download the provider's archive and keep it outside this Git checkout. The
+provider describes `PCAP`, extracted `CSV` features, examples, and
+supplementary processing material.
 
-The V1.3 methodology-repair directory is supplementary analysis, not a new
-Raspberry Pi campaign and not a manuscript revision. Tasks A, B, and D are
-offline replay/simulation; Task C alone reconstructs metrics from retained
-formal timestamps.
+The paper uses a frozen **CICIoT2023-derived feature-vector replay**, not a
+packet-level replay. A fresh download by itself does not recreate the exact
+formal workload: the authorized frozen workload/model/runtime bundle and the
+private raw hardware archive are also required for an exact physical rerun.
+This boundary is documented in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
-The clean `submission/` directory is the supervisor-review entry point. The
-preserved internal submission directory contains only path-free numerical and
-audit material required for claim traceability; it does not contain raw event
-ledgers.
+## Required equipment for the physical campaign
 
-For dataset acquisition and reproducibility instructions, start with
-[`DATASET_AND_REPRODUCIBILITY.md`](DATASET_AND_REPRODUCIBILITY.md). It explains
-the official CICIoT2023 download route, the frozen feature-vector replay
-boundary, runnable verification commands, and why the private 216-arm raw
-campaign cannot be recreated from a Git checkout alone.
+- Three Raspberry Pi probes: Raspberry Pi 5, Raspberry Pi 4B, and Raspberry
+  Pi 3B+.
+- One shared edge-core host running the heavy core-side service.
+- Wi-Fi connectivity between the probes and the core service.
+- A workstation with Python 3 for verification and Tectonic for manuscript
+  compilation.
 
-## Open review gates
+The public checkout does not contain SSH targets, machine addresses, private
+model files, raw event ledgers, or the full physical-campaign archive. Those
+items must be provided through the controlled reviewer workflow described in
+[`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md); they are not required for the
+package-only checks above.
 
-1. Review and accept or otherwise resolve the two disclosed invalid-attempt
-   archival gaps in the full-raw `PASS_WITH_ISSUES` verdict.
-2. Complete the authors' final review of the clean submission package.
-3. Complete artifact licensing and disclosure review before any public release.
-4. Keep submission and public-release status at `HOLD` until those decisions are
-   recorded.
+## Reproduction boundary
+
+The repository supports three reproducible activities:
+
+1. build and validate the clean manuscript package;
+2. verify the committed aggregate evidence, hashes, provenance, and claim
+   boundaries;
+3. rerun the offline replay, software sensitivity, timestamp reconstruction,
+   and scaling simulation when the retained authorized inputs named in
+   `supporting_material/methodology_repair/RUN_METADATA.json` are available.
+
+The 216-arm physical campaign is auditable from the controlled raw archive,
+but is not publicly rerunnable from this Git checkout alone. No Raspberry Pi
+experiment is started by any repository command.
+
+## Repository contents
+
+- [`submission/`](submission/) — clean paper, supplementary material, figures,
+  tables, audits, and build validation.
+- [`scripts/`](scripts/) — standard-library verification commands.
+- [`supporting_material/`](supporting_material/) — path-free audit inputs,
+  sensitivity outputs, and historical supporting material retained for review.
+- [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) — access and redistribution
+  boundary.
