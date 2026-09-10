@@ -22,5 +22,8 @@ Thank you for reviewing the NetShield manuscript.
 - suitability for IEEE/ACM Transactions on Networking.
 
 Reference metadata and claim checks are available under [`submission/audit/`](submission/audit/).
+Dataset acquisition, replay commands, frozen action semantics, and the exact
+public/private reproducibility boundary are documented in
+[`DATASET_AND_REPRODUCIBILITY.md`](DATASET_AND_REPRODUCIBILITY.md).
 The repository intentionally excludes raw event ledgers, machine identities,
 network addresses, and the full private campaign archive.

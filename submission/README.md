@@ -17,4 +17,9 @@ NetShield submission.
 - `validate_submission.py`
 - `SHA256SUMS.txt`
 
+Dataset and reproducibility instructions are maintained at the repository
+level in [`DATASET_AND_REPRODUCIBILITY.md`](../DATASET_AND_REPRODUCIBILITY.md).
+They distinguish the public CICIoT2023 source and offline analyses from the
+controlled raw evidence of the 216-arm physical campaign.
+
 The manuscript has 12 pages and the supplementary material has 24 pages.

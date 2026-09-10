@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-10 — Dataset and reproducibility guide
+
+- Added the official CICIoT2023 description/download links and citation.
+- Documented the frozen feature-vector replay boundary, runnable repository,
+  methodology-repair, and manuscript-build commands.
+- Added the frozen action/service interface and an explicit public/private
+  evidence boundary for supervisor review.
+- Disclosed that a fresh CICIoT2023 download alone cannot recreate the private
+  216-arm physical campaign because the authorized derived workload, models,
+  and raw hardware evidence are not in Git.
+
 ## 2026-09-09 — Clean supervisor-review submission
 
 - Added `submission/` as the clean first-submission review entry point.

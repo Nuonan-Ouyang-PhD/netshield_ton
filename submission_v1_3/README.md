@@ -15,6 +15,10 @@ V1.3 manuscript candidate created on 9 September 2026.
 - `BUILD_REPORT.md` and `VALIDATION_REPORT_V1_3.md`: frozen build and final checks.
 - `SHA256SUMS.txt`: integrity manifest for this directory.
 
+For the dataset source, download procedure, exact replay boundary, runnable
+commands, and controlled raw-evidence access policy, see the repository-level
+[`DATASET_AND_REPRODUCIBILITY.md`](../DATASET_AND_REPRODUCIBILITY.md).
+
 ## Evidence boundary
 
 The formal campaign remains the 12-session, 216-arm, three-Raspberry-Pi RC1

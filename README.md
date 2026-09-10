@@ -28,6 +28,7 @@ must not be presented as results from the RC1 campaign.
 | [`legacy/v4_4/`](legacy/v4_4/) | Payload-preserved V4.4 manuscript package and its original supporting material |
 | [`scripts/verify_repository.py`](scripts/verify_repository.py) | Standard-library verification of hashes, expected counts, package receipts, and private host/path exclusion |
 | [`scripts/verify_methodology_repair.py`](scripts/verify_methodology_repair.py) | Standard-library verification of V1.3 row counts, hashes, scope guards, and path-free publication boundary |
+| [`DATASET_AND_REPRODUCIBILITY.md`](DATASET_AND_REPRODUCIBILITY.md) | Official CICIoT2023 source, download/use instructions, reproducibility levels, and evidence boundary |
 | [`CHANGELOG.md`](CHANGELOG.md) | Repository-level history and status transitions |
 | [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) | Access, redistribution, and licensing boundary |
 
@@ -91,6 +92,12 @@ The clean `submission/` directory is the supervisor-review entry point. The
 preserved internal submission directory contains only path-free numerical and
 audit material required for claim traceability; it does not contain raw event
 ledgers.
+
+For dataset acquisition and reproducibility instructions, start with
+[`DATASET_AND_REPRODUCIBILITY.md`](DATASET_AND_REPRODUCIBILITY.md). It explains
+the official CICIoT2023 download route, the frozen feature-vector replay
+boundary, runnable verification commands, and why the private 216-arm raw
+campaign cannot be recreated from a Git checkout alone.
 
 ## Open review gates
 
