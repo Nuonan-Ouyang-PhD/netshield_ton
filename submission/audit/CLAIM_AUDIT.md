@@ -13,7 +13,7 @@ Status: **PASS**
 
 - Related Work received four distributed literature updates: recent lightweight/open-set IIoT IDS; security data collection and overhead; edge scheduling/admission; and remote-inference/inference-serving timeliness.
 - The clean manuscript contains 30 bibliography entries, including the formal CICIoT2023 and Sommer--Paxson citations.
-- The pre-bibliography `\\balance` command is present in the source. The final build emits a 0.68pt vertical balance warning on the last bibliography page; rendered inspection found no clipping, overlap, or missing content.
+- The pre-bibliography `\\balance` command is present in the source. The final build emits no overfull-box warning; rendered inspection found no clipping, overlap, or missing content.
 - The abstract, discussion, conclusion, and Figure 5 now state the validated common-denominator comparison without introducing new measurements or analyses.
 
 ## Forbidden-claim scan

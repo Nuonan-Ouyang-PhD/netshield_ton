@@ -70,13 +70,13 @@ We evaluate the design on a heterogeneous Raspberry Pi~5, Pi~4B, and
 Pi~3B+ testbed over Wi-Fi. With 128~KiB full and 16~KiB summary payloads,
 the low/mid/high budgets predict 0/1/3 simultaneous full-evidence actions
 under full remote coverage, matching every coordinated formal session.
-The synchronized independent controller instead enters a full/none
-period-two orbit. A 12-value offline sweep reproduces its formal operating
+A 12-value offline sweep reproduces the formal operating
 statistics, while a 20-seed phase sensitivity shows that synchronization,
 not decentralization alone, causes the failure: on a common denominator,
 desynchronized independence and coordination deliver 0.3352 and 0.3333
-timely full-core output, respectively, with coordination using 37.5\%
-fewer application bytes.
+in timely full-core output fraction, respectively (core results returned
+within 1~s of event creation), with coordination using 37.5\% fewer
+application bytes.
 
 The physical campaign contains 12 sessions, 216 accepted arms, and 58,320
 measured events. Timestamp reconstruction separates post-release service
@@ -106,6 +106,13 @@ a result locally, send a compact alert or summary, or upload richer
 evidence for core-side execution and correlation. These alternatives
 create different amounts of network demand and different completion
 paths.
+
+This is not a detector-performance paper. We hold classifier correctness
+constant and treat the frozen detector and its evidence action set as
+given. The contribution is at the evidence-service allocation layer:
+which combination of remote-evidence coverage and richness can be jointly
+sustained over a shared edge bottleneck, and how controller synchronization
+affects that operating point.
 
 This coupling changes the systems problem. Suppose three probes each
 decide independently that a 128~KiB full-evidence request is useful.
@@ -152,6 +159,11 @@ campaign to distinguish three phenomena: deterministic byte feasibility,
 controller-induced operating-point selection, and real-system timing
 variation.
 
+The physical campaign uses three heterogeneous probes. Scaling beyond
+$n=3$ is evaluated as discrete-event boundary conformance, not as physical
+performance validation; the distinction is stated explicitly in the
+limitations.
+
 We address four research questions:
 
 \begin{itemize}[leftmargin=1.25em]
@@ -168,7 +180,7 @@ Once an evidence tuple is byte-feasible, how do orchestration and
 wireless timing affect post-release and schedule-inclusive service
 attainment?
 
-\item \textbf{RQ4---Scaling and reproducibility:}
+\item \textbf{RQ4---Boundary conformance and reproducibility:}
 Does the finite-probe analytical boundary hold as the number of probes
 changes, and can the physical result chain be reconstructed from raw
 occurrence-level evidence?
@@ -176,23 +188,23 @@ occurrence-level evidence?
 
 The paper makes four contributions.
 
-First, we derive a \emph{coverage-conditioned evidence feasibility
-boundary}. For a shared budget $C$, full payload $B$, summary payload
-$S$, $m$ remotely represented probes, and $k$ full-evidence probes,
-feasibility is exactly characterized by
-$kB+(m-k)S\leq C$. Its normalized form yields a simple
-coverage--richness frontier.
+First, we identify and analytically characterize a
+\emph{synchronization-induced limit cycle} in independent
+queue-penalized control. Proposition~\ref{prop:cycle} gives sufficient
+conditions for synchronized identical probes to enter a deterministic
+full/none period-two orbit, and a 20-seed desynchronization counterfactual
+shows that removing phase coupling changes the long-run core-request
+fraction from $1/2$ to $2/3$ without controller state exchange.
 
-Second, we identify and analytically explain a
-\emph{symmetry-induced limit cycle} in synchronized independent
-queue-penalized control. A 12-value parameter sweep reproduces the
-formal operating point over more than four orders of magnitude in $v$,
-while a 20-seed desynchronization study shows that removing the shared
-phase substantially changes the independent operating point without
-introducing joint admission.
+Second, we derive the exact coverage--richness feasibility boundary
+$kB+(m-k)S\leq C$ as the deterministic byte constraint within which
+controller operating points must lie. Its normalized form exposes the
+trade-off between remote-evidence coverage and full-evidence richness.
 
 Third, we validate the analytical feasibility and overload boundaries
-on three heterogeneous physical Raspberry Pi probes. The formal
+on three heterogeneous physical Raspberry Pi probes and show that local
+safety filtering and shared-capacity admission are observationally
+equivalent under the common local constraints exercised here. The formal
 campaign contains 12 sessions, 216 accepted arms, and 58,320 measured
 events. The hardware campaign is used to characterize the deviations
 that the byte model cannot predict, in particular evidence completion
@@ -534,16 +546,25 @@ B-\frac{2B}{3}
 \end{equation}
 per probe after one service round.
 
+Under symmetric fair service, the corresponding residual for $n$
+synchronized probes requesting full evidence is
+\begin{equation}
+q^+(n,C)=B-\frac{C}{n},
+\qquad 0<C<nB.
+\label{eq:general_residual}
+\end{equation}
+
 \begin{proposition}[Symmetry-induced period-two orbit]
 \label{prop:cycle}
 Suppose synchronized probes have identical selector state and empty
 queues, choose \Hfull{} when $Q_i=0$, and a synchronized \Hfull{} round
-leaves residual queue $q^+$. If
+leaves residual queue $q^+(n,C)$. If
 \begin{equation}
-q^+>\max_{a:b(a)>0} q_a
+q^+(n,C)>\max_{a:b(a)>0} q_a
 \end{equation}
-and a zero-payload round provides enough service to drain $q^+$, then
-the synchronized controller enters the period-two orbit
+and $C\geq q^+(n,C)$ so that a zero-payload round provides enough service
+to drain the residual, then the synchronized controller enters the
+period-two orbit
 \begin{equation}
 \Hfull
 \rightarrow
@@ -562,8 +583,9 @@ The state returns to $Q_i=0$, at which point \Hfull{} again maximizes the
 frozen utility score. Symmetry makes all probes repeat the same sequence.
 \end{proof}
 
-This proposition is a diagnosis of the frozen independent controller,
-not a statement that decentralized control must oscillate.
+These are sufficient conditions under the stated symmetric-service model,
+not a claim that decentralized control must oscillate or that the
+conditions are necessary in every implementation.
 
 \subsection{Joint Admission and Optional Safety Filtering}
 
@@ -575,10 +597,13 @@ admission stage. All policies use the same downstream shared service.
 The safety filter is intentionally not part of
 Theorem~\ref{thm:frontier}. The theorem characterizes the network byte
 region; a local filter can additionally reject an action for
-device-specific constraints. In the present formal campaign, the
-low-capacity safety predicate and the shared-capacity admission stage
-ultimately select the same final summary mix, so the experiment does
-not establish an independent performance advantage for the filter.
+device-specific constraints. Its contribution here is an auditable
+local-feasibility interface that separates device constraints from the
+shared admission stage. In the present campaign, the low-capacity safety
+predicate and the shared-capacity admission stage ultimately select the
+same final summary mix. This observational equivalence under the common
+probe constraints is a finding, not an independent end-to-end performance
+improvement; heterogeneous local constraints remain outside this study.
 
 % ============================================================
 \section{Experimental Methodology}
@@ -638,6 +663,16 @@ These budgets regulate application payload service. They must not be
 interpreted as measured physical 1/2/3-Mbit/s Wi-Fi links.
 
 \subsection{Methods}
+
+Six methods span the design space from fixed baselines to learned and
+filtered coordinated control (Table~\ref{tab:methods}). Methods A--C are
+fixed-action baselines that isolate the cost of each evidence level.
+Method D is the independent queue-penalized controller whose synchronized
+limit cycle is analyzed in Section~\ref{sec:model}. Methods E and F add
+joint shared-capacity admission, with F additionally passing requests
+through a local safety filter before the same admission stage. All six use
+the identical downstream shared service and frozen detector/evidence
+action set.
 
 \begin{table*}[t]
 \centering
@@ -851,6 +886,7 @@ excess bytes.
 \subsection{RQ2: The Formal Independent Baseline Is a Synchronized
 Limit Cycle}
 
+\paragraph{Physical observation.}
 At mid capacity, every formal \IQPG{} arm contains exactly 135
 \Hfull{} and 135 \Hnone{} measured actions. The core-required fraction
 is therefore exactly
@@ -868,6 +904,10 @@ of magnitude above the largest $v=1$ positive-payload queue threshold
 of approximately 260.4~B. Hence all probes switch to \Hnone{} together.
 The following zero-payload round can drain the residual queue, restoring
 the state in which \Hfull{} again has the highest utility.
+
+\paragraph{Offline sensitivity analyses (non-physical).}
+The following parameter sweep and desynchronization analysis replay the
+frozen controller in software without new hardware measurements.
 
 \begin{figure*}[t]
 \centering
@@ -1056,8 +1096,11 @@ These findings also delimit the meaning of the primary SLO:
 the 1-s metric is a \emph{post-release service SLO}, not a complete
 schedule-to-result response deadline.
 
-\subsection{RQ4: Scaling Conforms to the Integer Boundary and the
-Hardware Result Chain Is Reconstructable}
+\subsection{RQ4: Boundary Conformance and Reproducibility}
+
+\paragraph{Discrete-event boundary conformance.}
+The scaling result validates the byte-feasibility boundary in software,
+not physical timing or queue behavior at larger fleet sizes.
 
 For the summary-preserving case, define
 \[
@@ -1247,6 +1290,9 @@ collapsing them into a single ``bandwidth saving'' score.
 The formal hardware testbed uses three probes. The multi-$n$ study is a
 discrete-event conformance test of the analytical boundary and must not
 be interpreted as physical performance validation at 8, 16, or 32 nodes.
+The synchronization-induced limit cycle is physically observed only at
+$n=3$; its persistence at larger $n$ follows from the sufficient condition
+in Proposition~\ref{prop:cycle} and remains to be physically validated.
 
 \textbf{Desynchronization is a software sensitivity.}
 The phase-randomized independent baseline is not a new Pi experiment.

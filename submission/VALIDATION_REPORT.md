@@ -8,7 +8,7 @@ Overall status: **PASS**
   validation files use clean first-submission names without revision numbers or
   dates.
 - Internal development labels were removed from the manuscript and Supplementary
-  title. The approved submission revisions add the common-denominator RQ2
+  title. The approved editorial changes add the common-denominator RQ2
   comparison, the device-level nominal-anchor reconstruction, the CICIoT2023
   and Sommer--Paxson references, and the current journal name.
 - No tool attribution or generated-content label appears in the submission.
@@ -35,9 +35,8 @@ Overall status: **PASS**
 - Supplementary material: 24 US Letter pages.
 - Undefined citations/references: 0.
 - Missing figures/files: 0.
-- Overfull horizontal boxes: 0. IEEEtran emits a 0.68pt vertical balance
-  warning on the final bibliography page; rendered inspection found no
-  clipping, overlap, or missing content.
+- Overfull boxes: 0. The final build has only non-fatal underfull-box notices;
+  rendered inspection found no clipping, overlap, or missing content.
 - Fatal errors: 0.
 
 ## Artifact checks
