@@ -10,7 +10,8 @@ Overall status: **PASS**
 - Internal development labels were removed from the manuscript and Supplementary
   title. The approved editorial changes add the common-denominator RQ2
   comparison, the device-level nominal-anchor reconstruction, the CICIoT2023
-  and Sommer--Paxson references, and the current journal name.
+  and Sommer--Paxson references, the corrected aggregate drain condition in
+  Proposition 2, and the current journal name.
 - No tool attribution or generated-content label appears in the submission.
 - IEEE Transactions on Networking format check: 10-point two-column layout;
   13 manuscript pages are within the journal's typical 16-page submission

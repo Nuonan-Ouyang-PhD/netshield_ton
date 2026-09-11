@@ -562,8 +562,14 @@ leaves residual queue $q^+(n,C)$. If
 \begin{equation}
 q^+(n,C)>\max_{a:b(a)>0} q_a
 \end{equation}
-and $C\geq q^+(n,C)$ so that a zero-payload round provides enough service
-to drain the residual, then the synchronized controller enters the
+and the aggregate residual satisfies
+\begin{equation}
+nq^+(n,C)\leq C
+\qquad\text{equivalently}\qquad
+C\geq\frac{nB}{2},
+\end{equation}
+so that one zero-payload round provides enough total service to drain the
+residual, then the synchronized controller enters the
 period-two orbit
 \begin{equation}
 \Hfull
@@ -576,11 +582,13 @@ period-two orbit
 \end{proposition}
 
 \begin{proof}
-After the synchronized \Hfull{} round, $Q_i=q^+$ exceeds every threshold
-in~\eqref{eq:threshold}; hence every positive-payload action scores below
-\Hnone{}. With no new payload, the next service round drains $q^+$.
-The state returns to $Q_i=0$, at which point \Hfull{} again maximizes the
-frozen utility score. Symmetry makes all probes repeat the same sequence.
+After the synchronized \Hfull{} round, each probe has
+$Q_i=q^+(n,C)$, which exceeds every threshold in~\eqref{eq:threshold};
+hence every positive-payload action scores below \Hnone{}. The aggregate
+residual is $nq^+(n,C)$, so the total-service condition drains it in the
+next zero-payload round. The state returns to $Q_i=0$, at which point
+\Hfull{} again maximizes the frozen utility score. Symmetry makes all
+probes repeat the same sequence.
 \end{proof}
 
 These are sufficient conditions under the stated symmetric-service model,
@@ -904,6 +912,16 @@ of magnitude above the largest $v=1$ positive-payload queue threshold
 of approximately 260.4~B. Hence all probes switch to \Hnone{} together.
 The following zero-payload round can drain the residual queue, restoring
 the state in which \Hfull{} again has the highest utility.
+
+The aggregate drain condition explains all three formal regimes. At low
+capacity ($\rho=C/(3B)=1/3$), the post-full aggregate residual is $2B>C$,
+so no clean period-two orbit is possible; the observed D mix is 1,656
+\Hnone{}, 792 M-SUMMARY, and 792 H-FULL actions. At mid capacity
+($\rho=2/3$), the condition holds and D produces exactly 1,620 H-FULL
+and 1,620 H-NONE actions. At high capacity ($\rho=1$), $q^+=0$ and the
+strict threshold condition fails, so all 3,240 D actions are H-FULL. The
+sufficient condition therefore predicts the qualitative behavior of all
+three formal regimes without changing any measured result.
 
 \paragraph{Offline sensitivity analyses (non-physical).}
 The following parameter sweep and desynchronization analysis replay the
@@ -1403,7 +1421,7 @@ queueing, and service timeliness under a shared edge bottleneck.
 % ============================================================
 \balance
 \begin{thebibliography}{99}
-\setlength{\itemsep}{-0.01em}
+\setlength{\itemsep}{-0.20em}
 
 \bibitem{raza2013svelte}
 S. Raza, L. Wallgren, and T. Voigt,

@@ -7,6 +7,7 @@ Status: **PASS**
 - The abstract, RQ1--RQ4, contributions, claim boundary, system model, theorem, propositions, methodology, results, numerical tables, figures, discussion, limitations, provenance, and conclusions use the validated scientific content and the common-denominator RQ2 interpretation.
 - Internal revision labels were removed from the manuscript and Supplementary title for clean first-submission presentation.
 - Figure 5 was rebuilt to show conditional rates and common-denominator timely full-core output separately; the plotted values are the already validated software-sensitivity values.
+- Proposition 2 now uses the aggregate drain condition $nq^+(n,C)\\leq C$, equivalently $C\\geq nB/2$; the added Low/Mid/High interpretation is explanatory and does not alter measured results.
 - No Raspberry Pi execution, simulation, replay, or statistical analysis was run.
 
 ## Permitted changes
