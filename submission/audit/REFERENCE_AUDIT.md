@@ -1,226 +1,39 @@
-# NetShield ToN Reference Audit
+# Reference Audit
 
 Status: **PASS**
 
-The manuscript includes 11 recent references published in 2024--2026 and
-30 bibliography entries in total. Metadata was checked against
-IEEE Xplore or USENIX proceedings records and cross-checked with DBLP or
-Crossref where available. No ResearchGate record was used as the sole source.
+The manuscript contains 29 citation keys and 29 bibliography entries. Every bibliography entry is cited and every citation key resolves. Recent additions were checked against publisher, conference, DOI-registry, or DBLP records; historical entries retain the journal/conference name under which they were originally published.
 
-Publication-quality labels use the CCF seventh-edition venue lists. The CCF
-networking list identifies TON, TMC, INFOCOM, and NSDI as CCF-A; the CCF
-network and information security list identifies TIFS and USENIX Security as
-CCF-A.
+| Key | Verification record | Status |
+|---|---|---|
+| `raza2013svelte` | https://doi.org/10.1016/j.adhoc.2013.04.014 | Verified |
+| `miettinen2017iotsentinel` | https://doi.org/10.1109/ICDCS.2017.283 | Verified |
+| `meidan2018nbaiot` | https://doi.org/10.1109/MPRV.2018.03367731 | Verified |
+| `mirsky2018kitsune` | NDSS 2018 proceedings | Verified |
+| `neto2023ciciot` | https://doi.org/10.3390/s23135941 | Verified |
+| `sommer2010closedworld` | https://doi.org/10.1109/SP.2010.25 | Verified |
+| `yang2025openset` | https://doi.org/10.1109/TIFS.2025.3546849 | Verified |
+| `mirnajafizadeh2024isdc` | https://www.usenix.org/conference/usenixsecurity24/presentation/mirnajafizadeh | Verified; pp. 5161--5178 |
+| `oqaily2024chainpatrol` | https://www.usenix.org/conference/usenixsecurity24/presentation/oqaily | Verified; pp. 3441--3458 |
+| `mao2017mec` | https://doi.org/10.1109/COMST.2017.2745201 | Verified |
+| `mach2017mec` | https://doi.org/10.1109/COMST.2017.2682318 | Verified |
+| `zhao2024cur` | https://doi.org/10.1109/INFOCOM52122.2024.10621190 | Verified; INFOCOM 2024, pp. 411--420 |
+| `hao2024edgetimer` | https://doi.org/10.1109/INFOCOM52122.2024.10621305 | Verified; INFOCOM 2024, pp. 671--680 |
+| `li2025oacr2` | https://doi.org/10.1109/TMC.2025.3548767 | Verified; TMC 24(8), pp. 7360--7376 |
+| `demers1989fair` | https://doi.org/10.1145/75246.75248 | Verified |
+| `parekh1993gps` | https://doi.org/10.1109/90.234856 | Verified |
+| `tassiulas1992` | https://doi.org/10.1109/9.182479 | Verified |
+| `neely2010` | Morgan & Claypool, *Stochastic Network Optimization with Application to Communication and Queueing Systems*, 2010 | Verified |
+| `huang2024lyapunovbandit` | https://doi.org/10.1109/TNET.2024.3374755 | Verified; IEEE/ACM ToN 32(4), pp. 3034--3044 |
+| `crankshaw2017clipper` | https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw | Verified |
+| `shen2019nexus` | https://doi.org/10.1145/3341301.3359658 | Verified |
+| `gujarati2020clockwork` | https://www.usenix.org/conference/osdi20/presentation/gujarati | Verified; pp. 443--462 |
+| `crankshaw2020inferline` | https://doi.org/10.1145/3419111.3421285 | Verified |
+| `khare2025superserve` | https://www.usenix.org/conference/nsdi25/presentation/khare | Verified; pp. 739--758 |
+| `shisher2024timely` | https://doi.org/10.1109/TNET.2024.3408673 | Verified; IEEE/ACM ToN 32(5), pp. 3824--3839 |
+| `ari2026goal` | https://doi.org/10.1109/TON.2026.3670099 | Verified; IEEE Transactions on Networking 34, pp. 4011--4025 |
+| `alshiekh2018shielding` | https://doi.org/10.1609/aaai.v32i1.11797 | Verified |
+| `wabersich2021filter` | https://doi.org/10.1016/j.automatica.2021.109597 | Verified |
+| `ouyang2026sok` | https://doi.org/10.1007/978-981-92-3018-1_7 | Verified |
 
-- CCF networking list: https://www.ccf.org.cn/Academic_Evaluation/CN/
-- CCF network and information security list: https://www.ccf.org.cn/Academic_Evaluation/NIS/
-
-## Added references
-
-### `neto2023ciciot`
-
-- Exact title: CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment
-- Authors: E. C. P. Neto et al.
-- Venue: Sensors
-- Year: 2023
-- Volume: 23
-- Issue: 13
-- Article: 5941
-- DOI: 10.3390/s23135941
-- Official verification: https://www.unb.ca/cic/datasets/iotdataset-2023.html
-- Publication quality: peer-reviewed dataset paper
-- Cited in: Abstract, methodology, and detector/replay limitations
-- Relevance: Formal source citation for the CICIoT2023-derived frozen feature-vector workload.
-
-### `sommer2010outside`
-
-- Exact title: Outside the Closed World: On Using Machine Learning for Network Intrusion Detection
-- Authors: Robin Sommer; Vern Paxson
-- Venue: IEEE Symposium on Security and Privacy
-- Year: 2010
-- Pages: 305--316
-- DOI: 10.1109/SP.2010.25
-- Official verification: https://doi.org/10.1109/SP.2010.25
-- Publication quality: IEEE security and privacy conference paper
-- Cited in: Detector and replay limitations
-- Relevance: Supports the closed-world/generalisation limitation for the frozen detector evaluation.
-
-### `yang2025openset`
-
-- Exact title: A Lightweight and Dynamic Open-Set Intrusion Detection for Industrial Internet of Things
-- Authors: Xueji Yang; Fei Tong; Fang Jiang; Guang Cheng
-- Venue: IEEE Transactions on Information Forensics and Security
-- Year: 2025
-- Volume: 20
-- Issue: N/A (no issue listed in the IEEE record)
-- Pages: 2930--2943
-- DOI: 10.1109/TIFS.2025.3546849
-- Official verification: https://ieeexplore.ieee.org/document/10908210/
-- Cross-check: https://dblp.org/rec/journals/tifs/YangTJC25
-- Publication quality: CCF-A
-- Cited in: Related Work / Lightweight IoT Intrusion Detection
-- Relevance: Recent resource-conscious IIoT work that combines open-set detection with lightweight dynamic updates. It supports the stated open-world limitation without implying classifier superiority by NetShield.
-
-### `mirnajafizadeh2024isdc`
-
-- Exact title: Enhancing Network Attack Detection with Distributed and In-Network Data Collection System
-- Authors: Seyed Mohammad Mehdi Mirnajafizadeh; Ashwin Raam Sethuram; David Mohaisen; DaeHun Nyang; Rhongho Jang
-- Venue: 33rd USENIX Security Symposium (USENIX Security 24)
-- Year: 2024
-- Volume: N/A
-- Issue: N/A
-- Pages: 5161--5178
-- DOI: N/A (none assigned in the USENIX proceedings record)
-- Official verification: https://www.usenix.org/conference/usenixsecurity24/presentation/mirnajafizadeh
-- Publication quality: CCF-A
-- Cited in: Related Work / Security Data Collection and Evidence Overhead
-- Relevance: ISDC treats defense-data collection and constrained in-network resources as a systems bottleneck. This is directly related to NetShield's evidence-collection control point.
-
-### `oqaily2024chainpatrol`
-
-- Exact title: ChainPatrol: Balancing Attack Detection and Classification with Performance Overhead for Service Function Chains Using Virtual Trailers
-- Authors: Momen Oqaily; Hinddeep Purohit; Yosr Jarraya; Lingyu Wang; Boubakr Nour; Makan Pourzandi; Mourad Debbabi
-- Venue: 33rd USENIX Security Symposium (USENIX Security 24)
-- Year: 2024
-- Volume: N/A
-- Issue: N/A
-- Pages: 3441--3458
-- DOI: N/A (none assigned in the USENIX proceedings record)
-- Official verification: https://www.usenix.org/conference/usenixsecurity24/presentation/oqaily
-- Publication quality: CCF-A
-- Cited in: Related Work / Security Data Collection and Evidence Overhead
-- Relevance: ChainPatrol explicitly evaluates security visibility and classification against traffic and delay overhead, complementing NetShield's evidence coverage-richness trade-off.
-
-### `zhao2024curcoedge`
-
-- Exact title: Cur-CoEdge: Curiosity-Driven Collaborative Request Scheduling in Edge-Cloud Systems
-- Authors: Yunfeng Zhao; Chao Qiu; Xiaoyun Shi; Xiaofei Wang; Dusit Niyato; Victor C. M. Leung
-- Venue: IEEE INFOCOM 2024
-- Year: 2024
-- Volume: N/A
-- Issue: N/A
-- Pages: 411--420
-- DOI: 10.1109/INFOCOM52122.2024.10621190
-- Official verification: https://ieeexplore.ieee.org/document/10621190/
-- Cross-check: https://dblp.org/rec/conf/infocom/ZhaoQSWNL24
-- Publication quality: CCF-A
-- Cited in: Related Work / Edge Offloading and Shared Network Control
-- Relevance: Cur-CoEdge coordinates request scheduling across edge-cloud resources. NetShield differs because its selected security action creates the offered evidence load before admission.
-
-### `hao2024edgetimer`
-
-- Exact title: EdgeTimer: Adaptive Multi-Timescale Scheduling in Mobile Edge Computing with Deep Reinforcement Learning
-- Authors: Yijun Hao; Shusen Yang; Fang Li; Yifan Zhang; Shibo Wang; Xuebin Ren
-- Venue: IEEE INFOCOM 2024
-- Year: 2024
-- Volume: N/A
-- Issue: N/A
-- Pages: 671--680
-- DOI: 10.1109/INFOCOM52122.2024.10621305
-- Official verification: https://ieeexplore.ieee.org/document/10621305/
-- Cross-check: https://dblp.org/rec/conf/infocom/00010F24
-- Publication quality: CCF-A
-- Cited in: Related Work / Edge Offloading and Shared Network Control
-- Relevance: EdgeTimer adapts scheduling timescales in MEC. It motivates timing-aware scheduling context while remaining distinct from NetShield's evidence-admission semantics.
-
-### `li2025oacr2`
-
-- Exact title: OACR²: Online Admission Control and Resource Reservation for 5G Slice Networks With Deep Reinforcement Learning
-- Authors: Fang Li; Yijun Hao; Shusen Yang; Peng Zhao
-- Venue: IEEE Transactions on Mobile Computing
-- Year: 2025
-- Volume: 24
-- Issue: 8
-- Pages: 7360--7376
-- DOI: 10.1109/TMC.2025.3548767
-- Official verification: https://ieeexplore.ieee.org/document/10915540/
-- Registry cross-check: https://doi.org/10.1109/TMC.2025.3548767
-- DBLP cross-check: https://dblp.org/rec/journals/tmc/LiHYZ25
-- Publication quality: CCF-A
-- Cited in: Related Work / Edge Offloading and Shared Network Control
-- Relevance: OACR2 jointly addresses online admission and resource reservation. NetShield instead admits security actions whose choice determines the offered load and evidence richness.
-
-### `shisher2024timely`
-
-- Exact title: Timely Communications for Remote Inference
-- Authors: Md Kamran Chowdhury Shisher; Yin Sun; I-Hong Hou
-- Venue: IEEE/ACM Transactions on Networking
-- Year: 2024
-- Volume: 32
-- Issue: 5
-- Pages: 3824--3839
-- DOI: 10.1109/TNET.2024.3408673
-- Official verification: https://ieeexplore.ieee.org/document/10559951/
-- Cross-check: https://dblp.org/rec/journals/ton/ShisherSH24
-- Publication quality: CCF-A
-- Cited in: Related Work / Deadline-Aware Inference Serving and Admission
-- Relevance: The work links feature freshness and scheduling to remote-inference quality. NetShield instead controls evidence coverage and richness before shared-service admission.
-
-### `ari2026goal`
-
-- Exact title: Goal-Oriented Status Updating for Real-Time Remote Inference Over Networks With Two-Way Delay
-- Authors: Çağrı Arı; Md Kamran Chowdhury Shisher; Yin Sun; Elif Uysal
-- Venue: IEEE Transactions on Networking
-- Year: 2026
-- Volume: 34
-- Issue: N/A (no issue listed in the IEEE record)
-- Pages: 4011--4025
-- DOI: 10.1109/TON.2026.3670099
-- Official verification: https://ieeexplore.ieee.org/document/11426757/
-- Cross-check: https://dblp.org/rec/journals/ton/AriSSU26
-- Publication quality: CCF-A
-- Cited in: Related Work / Deadline-Aware Inference Serving and Admission
-- Relevance: The paper jointly considers packet freshness, packet length, transmission timing, and two-way delay for remote inference. This is communication-oriented context rather than an identical evidence-admission problem.
-
-### `khare2025superserve`
-
-- Exact title: SuperServe: Fine-Grained Inference Serving for Unpredictable Workloads
-- Authors: Alind Khare; Dhruv Garg; Sukrit Kalra; Snigdha Grandhi; Ion Stoica; Alexey Tumanov
-- Venue: 22nd USENIX Symposium on Networked Systems Design and Implementation (NSDI 25)
-- Year: 2025
-- Volume: N/A
-- Issue: N/A
-- Pages: 739--758
-- DOI: N/A (none assigned in the USENIX proceedings record)
-- Official verification: https://www.usenix.org/conference/nsdi25/presentation/khare
-- Publication quality: CCF-A
-- Cited in: Related Work / Deadline-Aware Inference Serving and Admission
-- Relevance: SuperServe uses fine-grained inference serving to handle unpredictable workloads under latency and accuracy targets. NetShield acts upstream by selecting the security evidence request itself.
-
-### `wu2026fastserve`
-
-- Exact title: FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference
-- Authors: Bingyang Wu; Yinmin Zhong; Zili Zhang; Shengyu Liu; Fangyue Liu; Yuanhang Sun; Gang Huang; Xuanzhe Liu; Xin Jin
-- Venue: 23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)
-- Year: 2026
-- Volume: N/A
-- Issue: N/A
-- Pages: 57--74
-- DOI: N/A (none assigned in the USENIX proceedings record)
-- Official verification: https://www.usenix.org/conference/nsdi26/presentation/wu-bingyang
-- Publication quality: CCF-A
-- Cited in: Related Work / Deadline-Aware Inference Serving and Admission
-- Relevance: FastServe provides low-latency preemptive scheduling for already-defined LLM inference jobs. It is related SLO-aware serving context, not the same control problem as evidence generation and admission.
-
-### `ruan2026libra`
-
-- Exact title: Libra: Flexible Request Partitioning and Scheduling for Serving Unbalanced and Dynamic LLM Workloads
-- Authors: Chaoyi Ruan; Yinhe Chen; Dongqi Tian; Yandong Shi; Yongji Wu; Jialin Li; Cheng Li
-- Venue: 23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)
-- Year: 2026
-- Volume: N/A
-- Issue: N/A
-- Pages: 1243--1258
-- DOI: N/A (none assigned in the USENIX proceedings record)
-- Official verification: https://www.usenix.org/conference/nsdi26/presentation/ruan-libra
-- Publication quality: CCF-A
-- Cited in: Related Work / Deadline-Aware Inference Serving and Admission
-- Relevance: Libra partitions and schedules dynamic requests under strict SLOs. NetShield controls evidence semantics and byte demand before the transport-and-core service.
-
-## Verification conclusion
-
-All 11 additions have complete, source-supported metadata for the fields that
-apply to their publication type. Conference volume/issue fields and USENIX DOI
-fields are marked N/A rather than invented. The two IEEE continuous-volume
-records for which Xplore does not list an issue are also marked N/A. No
-unverified bibliographic field is presented as known.
+Current target-journal naming in the manuscript is **IEEE Transactions on Networking**. Historical references published before the journal rename retain **IEEE/ACM Transactions on Networking** where applicable.

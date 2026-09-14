@@ -1,0 +1,2 @@
+n,p,capacity_full_equivalents,expected_requests_per_round,expected_timely_full_per_round,conditional_timely_fraction,timely_full_generated_fraction,observed_desync_conditional_mean,observed_desync_common_mean
+3,0.6666666666666666,2,1.9999999999999998,1.1111111111111112,0.5555555555555557,0.3703703703703704,0.5027777777777778,0.3351851851851852

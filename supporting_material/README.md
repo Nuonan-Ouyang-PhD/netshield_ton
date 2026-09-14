@@ -7,6 +7,8 @@ needed to read the submission PDFs.
   index, validators, configuration snapshot, and integrity manifest.
 - `methodology_repair/` — executable offline replay/simulation, fixed seeds,
   result tables, run metadata, and hashes.
+- `crfa_hardware/` — path-free CRFA hardware-extension summaries, event/service
+  ledgers, timing reconstruction, protocol, failure provenance, and hashes.
 - `evidence_snapshot/` — machine-readable evidence and number provenance used
   to validate the displayed results.
 - `archive/` — historical material retained for traceability and not used by

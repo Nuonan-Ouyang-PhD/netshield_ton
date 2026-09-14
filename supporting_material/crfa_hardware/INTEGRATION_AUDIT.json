@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "baseline_archive": "NetShield_ToN_Submission_Candidate_20260914_FINAL.zip",
+  "baseline_archive_sha256": "d362cb1990c13b7d2b3d60d6a07a37bf76f6f683320ff3491ca367e1e8b0878d",
+  "incoming_archive_sha256": "0eb24e709a969524dcba3ca7f60a32ee836eb912e16785fc6ad6261c886a8a91",
+  "frozen_file_count": 54,
+  "evidence_file_count": 28,
+  "table_file_count": 22,
+  "source_invariants": {
+    "abstract_byte_identical": true,
+    "existing_theory_from_rate_balance_to_joint_admission_identical": true,
+    "limitations_byte_identical": true,
+    "bibliography_byte_identical": true,
+    "results_numerical_tokens_unchanged_excluding_analytical_caption": true,
+    "supplementary_existing_empirical_sections_identical": true
+  },
+  "figure_label_checks": {
+    "fig1_feasibility_frontier.pdf": {
+      "change": "tick label rounding correction",
+      "all_vector_drawings_unchanged": true,
+      "drawing_count": 323
+    },
+    "fig4_v_sensitivity.pdf": {
+      "change": "shortened clipped legend",
+      "all_vector_drawings_unchanged": true,
+      "drawing_count": 124
+    },
+    "fig6_timing_anchors_revised.pdf": {
+      "change": "shortened and centered clipped y-axis text; caption retains denominator",
+      "all_nonlabel_content_stream_bytes_unchanged": true,
+      "vector_geometry_outside_label_unchanged": true,
+      "raster_pixels_outside_20pt_left_strip_unchanged_at_216dpi": true
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 | 项 | 值 |
 |---|---|
-| 仓库 | `netshield-real-experiments`（本地路径 `/Users/nuonanouyang/ToN/NetShield_v0.4.2/netshield-real-experiments`） |
+| 仓库 | `netshield-real-experiments`（controlled local worktree; path intentionally omitted） |
 | 分支 | `fix/v0.4.7-formal-gates` |
 | **统计基线 Commit** | **`a24b90936bae3e53b8bf18026fcd4c2f545b39f4`**（`a24b909`） |
 | **统计基线 Tag** | **`v0.4.7-analysis-rev2-session-level`**（annotated，指向同一 commit，未移动） |

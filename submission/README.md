@@ -23,4 +23,4 @@ level in [`REPRODUCIBILITY.md`](../REPRODUCIBILITY.md).
 They distinguish the public CICIoT2023 source and offline analyses from the
 controlled raw evidence of the 216-arm physical campaign.
 
-The manuscript has 13 pages and the supplementary material has 24 pages.
+The manuscript has 13 pages and the supplementary material has 28 pages.

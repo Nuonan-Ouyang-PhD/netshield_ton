@@ -1,0 +1,818 @@
+{
+  "accepted": [
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S01_G_low_a02",
+      "session_id": "F12_S01"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S01_G_mid_a01",
+      "session_id": "F12_S01"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S01_G_high_a01",
+      "session_id": "F12_S01"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S02_G_low_a02",
+      "session_id": "F12_S02"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S02_G_mid_a01",
+      "session_id": "F12_S02"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S02_G_high_a02",
+      "session_id": "F12_S02"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S03_G_low_a01",
+      "session_id": "F12_S03"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S03_G_mid_a02",
+      "session_id": "F12_S03"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S03_G_high_a01",
+      "session_id": "F12_S03"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S04_G_low_a02",
+      "session_id": "F12_S04"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S04_G_mid_a01",
+      "session_id": "F12_S04"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S04_G_high_a02",
+      "session_id": "F12_S04"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S05_G_low_a01",
+      "session_id": "F12_S05"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S05_G_mid_a02",
+      "session_id": "F12_S05"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S05_G_high_a01",
+      "session_id": "F12_S05"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S06_G_low_a02",
+      "session_id": "F12_S06"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S06_G_mid_a01",
+      "session_id": "F12_S06"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S06_G_high_a02",
+      "session_id": "F12_S06"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S07_G_low_a01",
+      "session_id": "F12_S07"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S07_G_mid_a02",
+      "session_id": "F12_S07"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S07_G_high_a01",
+      "session_id": "F12_S07"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S08_G_low_a02",
+      "session_id": "F12_S08"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S08_G_mid_a02",
+      "session_id": "F12_S08"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S08_G_high_a02",
+      "session_id": "F12_S08"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S09_G_low_a01",
+      "session_id": "F12_S09"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S09_G_mid_a02",
+      "session_id": "F12_S09"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S09_G_high_a01",
+      "session_id": "F12_S09"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S10_G_low_a02",
+      "session_id": "F12_S10"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S10_G_mid_a01",
+      "session_id": "F12_S10"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S10_G_high_a02",
+      "session_id": "F12_S10"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S11_G_low_a01",
+      "session_id": "F12_S11"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S11_G_mid_a02",
+      "session_id": "F12_S11"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S11_G_high_a01",
+      "session_id": "F12_S11"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S12_G_low_a02",
+      "session_id": "F12_S12"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S12_G_mid_a01",
+      "session_id": "F12_S12"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S12_G_high_a02",
+      "session_id": "F12_S12"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification_record": "INFRASTRUCTURE_RECLASSIFICATION_F12_S01_G_low_a01.json",
+      "initial_status": "stopped_correctness_or_unclassified",
+      "reason": "P3 SSH transport timeout; see infrastructure reclassification record",
+      "run_id": "F12_S01_G_low_a01",
+      "session_id": "F12_S01",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "accepted_without_hardware_rerun": true,
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S01_G_low_a02",
+      "session_id": "F12_S01",
+      "status": "accepted",
+      "validator_recovery_record": "POST_RUN_VALIDATOR_RECOVERY_F12_S01_G_low_a02.json"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S01_G_mid_a01",
+      "session_id": "F12_S01",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S01_G_high_a01",
+      "session_id": "F12_S01",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "7d5846dba2e6c409df14f6722f51598be57f29438051082061a5c62b2f27cf61",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S02_G_low_a01",
+      "session_id": "F12_S02",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S02_G_low_a02",
+      "session_id": "F12_S02",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S02_G_mid_a01",
+      "session_id": "F12_S02",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "8df83c2ca797232d479dc912c531aac3cb95cf10ac48a19299451bbc12cec363",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S02_G_high_a01",
+      "session_id": "F12_S02",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S02_G_high_a02",
+      "session_id": "F12_S02",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S03_G_low_a01",
+      "session_id": "F12_S03",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "1aa97a169be15152d84daf466902f2e58f109143a1c4a9c0316302a1163221f1",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S03_G_mid_a01",
+      "session_id": "F12_S03",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S03_G_mid_a02",
+      "session_id": "F12_S03",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S03_G_high_a01",
+      "session_id": "F12_S03",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "94889b35405f5aeda734c1c5d8ffacd24e12d07b47ba1e1dd72bec7930c143c3",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S04_G_low_a01",
+      "session_id": "F12_S04",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S04_G_low_a02",
+      "session_id": "F12_S04",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S04_G_mid_a01",
+      "session_id": "F12_S04",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "addc211d4fc5796d598865e1733ba4d97bb2ca74b0713b42531348ddc86d906e",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S04_G_high_a01",
+      "session_id": "F12_S04",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S04_G_high_a02",
+      "session_id": "F12_S04",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S05_G_low_a01",
+      "session_id": "F12_S05",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "dafe838df2db1fb3dea1abda500a122e6a4204fd08944c24c9a90e7efdf529be",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S05_G_mid_a01",
+      "session_id": "F12_S05",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S05_G_mid_a02",
+      "session_id": "F12_S05",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S05_G_high_a01",
+      "session_id": "F12_S05",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "a2999bd29f0235eb204fdf2d5d5ea2b464141f48cca1571bfda5fc3f88e58bf4",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S06_G_low_a01",
+      "session_id": "F12_S06",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S06_G_low_a02",
+      "session_id": "F12_S06",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S06_G_mid_a01",
+      "session_id": "F12_S06",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "bbef41b59b203ac801efe4aa8461305ba01e885f9ccc5a51a22b91bd150332ce",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S06_G_high_a01",
+      "session_id": "F12_S06",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S06_G_high_a02",
+      "session_id": "F12_S06",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S07_G_low_a01",
+      "session_id": "F12_S07",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "bb73fbc447552e744e2fb95368273edf596188efa78ea54679bf4e13724532c4",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S07_G_mid_a01",
+      "session_id": "F12_S07",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S07_G_mid_a02",
+      "session_id": "F12_S07",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S07_G_high_a01",
+      "session_id": "F12_S07",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "b2ae2bf1550a8df44ae876005e6ca331f88e8d1db2aa7924a60907168a4f3856",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S08_G_low_a01",
+      "session_id": "F12_S08",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S08_G_low_a02",
+      "session_id": "F12_S08",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "runner_classified_infrastructure",
+      "detail": "pre-arm hardware gate failed: F12_S08_G_mid_a01",
+      "run_id": "F12_S08_G_mid_a01",
+      "session_id": "F12_S08",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S08_G_mid_a02",
+      "session_id": "F12_S08",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "cf60be2cdad0a52d53f1397a8d8cf96d1d4045cf093a31618d935c4428d6c671",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S08_G_high_a01",
+      "session_id": "F12_S08",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S08_G_high_a02",
+      "session_id": "F12_S08",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S09_G_low_a01",
+      "session_id": "F12_S09",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "e731da24942b5c8a88dc03c45810ae58a83e5bc1cb3f0fdfb43a2a3606e7b644",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S09_G_mid_a01",
+      "session_id": "F12_S09",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S09_G_mid_a02",
+      "session_id": "F12_S09",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S09_G_high_a01",
+      "session_id": "F12_S09",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "7fc8daec01eb994c2babd9061d08f28ff2738ac42a7bcf143ce9f4785bcf8227",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S10_G_low_a01",
+      "session_id": "F12_S10",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S10_G_low_a02",
+      "session_id": "F12_S10",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S10_G_mid_a01",
+      "session_id": "F12_S10",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "68bb4e49e992179bf8eba015392452c6949c9012f696c17d70793b95a391258b",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S10_G_high_a01",
+      "session_id": "F12_S10",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S10_G_high_a02",
+      "session_id": "F12_S10",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "run_id": "F12_S11_G_low_a01",
+      "session_id": "F12_S11",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "01f9520fe9daf1e0e649249562134888c98023c49e5016dd2045ac7304ab4349",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S11_G_mid_a01",
+      "session_id": "F12_S11",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "mid",
+      "run_id": "F12_S11_G_mid_a02",
+      "session_id": "F12_S11",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "run_id": "F12_S11_G_high_a01",
+      "session_id": "F12_S11",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "low",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "ea771fe072eec5d6b1a8abb27ab1c3dead1c9189f1331ed0db98fba860bb1758",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S12_G_low_a01",
+      "session_id": "F12_S12",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "low",
+      "run_id": "F12_S12_G_low_a02",
+      "session_id": "F12_S12",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "mid",
+      "run_id": "F12_S12_G_mid_a01",
+      "session_id": "F12_S12",
+      "status": "accepted"
+    },
+    {
+      "attempt": "a01",
+      "capacity": "high",
+      "classification": "infrastructure_ssh_transport_failure",
+      "detail": "nonzero process exit: P3",
+      "evidence": [
+        {
+          "exit_code": 255,
+          "log_sha256": "303537b0e1d40c36464cbe9c02efbeacdc8f7f0f8404fefa8f8e9328158ff9d6",
+          "markers": [
+            "Timeout, server "
+          ],
+          "role": "P3"
+        }
+      ],
+      "run_id": "F12_S12_G_high_a01",
+      "session_id": "F12_S12",
+      "status": "excluded_infrastructure"
+    },
+    {
+      "attempt": "a02",
+      "capacity": "high",
+      "run_id": "F12_S12_G_high_a02",
+      "session_id": "F12_S12",
+      "status": "accepted"
+    }
+  ]
+}

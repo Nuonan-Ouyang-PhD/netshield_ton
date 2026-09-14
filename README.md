@@ -84,5 +84,8 @@ experiment is started by any repository command.
 - [`scripts/`](scripts/) — standard-library verification commands.
 - [`supporting_material/`](supporting_material/) — path-free audit inputs,
   sensitivity outputs, and historical supporting material retained for review.
+- [`supporting_material/crfa_hardware/`](supporting_material/crfa_hardware/) —
+  path-free CRFA hardware-extension results, protocol, timing reconstruction,
+  and provenance.
 - [`RIGHTS_AND_ACCESS.md`](RIGHTS_AND_ACCESS.md) — access and redistribution
   boundary.

@@ -1,30 +1,37 @@
 \documentclass[10pt,onecolumn]{IEEEtran}
-\usepackage{amsmath,amssymb,booktabs,longtable,array,pdflscape,url,hyperref}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,pdflscape,float,url,hyperref}
 \hypersetup{hidelinks}
 \newcommand{\Hnone}{\textsc{H-None}}
 \newcommand{\Hsummary}{\textsc{H-Summary}}
 \newcommand{\Hfull}{\textsc{H-Full}}
+\newcommand{\CRFA}{\textsc{CRFA}}
 \begin{document}
 \title{Supplementary Material: NetShield}
 \author{Nuonan Ouyang, Adrian Shatte, Zhigang Lu, Chao Chen, and Wei Xiang}
 \maketitle
 
 \section{Evidence Classification and Scope}
-The formal Raspberry Pi campaign contains 12 sessions and 216 accepted arms.
-Timing is reconstructed from accepted formal hardware timestamps; the
-parameter sweep and desynchronization study are offline software analyses,
-and the scaling study is discrete-event conformance. None is a new
-Raspberry Pi experiment. This supplementary build does not modify the
-frozen formal raw evidence.
+The primary Raspberry Pi campaign contains 12 sessions and 216 accepted
+arms. A separately frozen cyclic rotating full-admission (\CRFA{}) extension
+contains 36 accepted arms over the same 12 session/workload identities and
+three capacities. The primary schedule-anchor reconstruction is derived from
+accepted primary hardware timestamps; the CRFA timing reconstruction is
+derived independently from its 9,720 accepted hardware occurrences.
+Queue-weight replay, phase-randomized control, rotating-frontier software
+conformance, and multi-$n$ scaling are read-only offline analyses and do not
+modify either hardware evidence chain.
 
 \begin{table}[h]\centering\caption{Evidence classes.}\begin{tabular}{lll}\toprule
 Component & Evidence type & Permitted interpretation\\\midrule
-Formal campaign & Hardware & Three-Pi measurements\\
-Full-raw audit & Raw reconstruction & Accepted-arm traceability\\
-Parameter sweep & Offline replay & Frozen-selector sensitivity\\
-Desynchronization & Software sensitivity & Phase counterfactual\\
-Timing reconstruction & Raw reconstruction & Accepted-hardware timestamps\\
-Scaling study & Discrete-event conformance & Analytical boundary check\\\bottomrule
+Primary campaign & Hardware & Three-Pi A--F measurements\\
+CRFA extension & Hardware & Three-Pi rotating-frontier measurement\\
+Primary full-raw audit & Raw reconstruction & Accepted-arm traceability\\
+Queue-weight sweep & Offline replay & Frozen-selector sensitivity\\
+Phase randomization & Software sensitivity & Desynchronization counterfactual\\
+Primary schedule anchors & Hardware timestamp reconstruction & Post vs. nominal timing\\
+CRFA timing reconstruction & Hardware timestamp reconstruction & Frontier attenuation/timing\\
+Probe-count study & Discrete-event conformance & Analytical boundary check\\
+Rotating construction & Discrete-event conformance & Ideal byte-frontier construction\\\bottomrule
 \end{tabular}\end{table}
 
 \section{Frozen Action Table and I-QPG Thresholds}
@@ -36,24 +43,215 @@ H-NONE&0&0.768378&--\\ H-ALERT&256&0.835044&260.41\\ H-SUMMARY&16384&0.901711&8.
 \end{tabular}\end{table}
 
 \section{Theorem Derivations}
-For $m$ remotely represented probes and $k$ full-evidence probes, payload is $mS+k(B-S)$. Hence one-round feasibility is
+For $m$ remotely represented probes and $k$ full-evidence probes, payload is
+$mS+k(B-S)$. Hence one-round feasibility is
 \[kB+(m-k)S\le C,\]
 and, for $C\ge mS$,
 \[k^*(C,m)=\min\left\{m,\left\lfloor\frac{C-mS}{B-S}\right\rfloor\right\}.\]
-With $\rho=C/(nB)$, $\sigma=S/B$, $r=m/n$, and $f=k/n$, the continuous frontier is $\sigma r+(1-\sigma)f\le\rho$. For synchronized fixed-full overload, conservation gives $Q_\Sigma(T)=T(nB-C)$. At mid capacity the frozen I-QPG state alternates between H-FULL and H-NONE because the post-full queue exceeds every positive-payload threshold and the zero-payload round drains the residual.
+With $\rho=C/(nB)$, $\sigma=S/B$, $r=m/n$, and $f=k/n$, the continuous
+frontier is $\sigma r+(1-\sigma)f\le\rho$.
+
+If non-selected probes may send zero remote payload, payload for $k$ full
+requests is minimized by setting $m=k$, so the unrestricted full-evidence
+byte frontier is
+\[K_{\rm full}^{\max}=\min\{n,\lfloor C/B\rfloor\}.\]
+Provided $C\geq nS$, requiring all probes to remain remotely represented gives
+\[K_{\rm all}^{\max}=\left[\left\lfloor\frac{C-nS}{B-S}\right\rfloor\right]_0^n.\]
+If $C<nS$, the all-summary baseline is itself infeasible; clipping the count
+to zero does not make universal coverage feasible.
+For the formal $n=3$, $B=128$~KiB, $S=16$~KiB system, unrestricted versus
+all-probe counts are $(1,0)$, $(2,1)$, and $(3,3)$ at low, mid, and high
+capacity. Thus universal per-round coverage costs one full-evidence slot at
+low and mid capacity.
+
+For total admitted bytes $A_t$ released at the start of round $t$, an
+idealized preemptive fluid server with common relative deadline $D$ rounds
+satisfies the demand condition
+\[\sum_{\tau=s}^{t}A_\tau\le C(t-s+D),\qquad s\le t.\]
+$D=1$ reduces to per-round feasibility. Dividing the $s=1$ case by $T$ gives
+the long-run load condition
+\[\limsup_{T\to\infty}\frac{1}{T}\sum_{t=1}^{T}A_t\leq C.\]
+The latter is a load-admissibility condition, not a deterministic bounded-
+delay guarantee for arbitrary burst processes.
+
+For synchronized fixed-full overload from empty queues with $nB>C$,
+work-conserving service removes $\min\{Q_\Sigma(t)+nB,C\}=C$ per round,
+giving $Q_\Sigma(T)=T(nB-C)$. At mid capacity, the post-full per-probe queue
+is $B/3=43{,}690.\overline{6}$~B, or approximately 42.7~KiB. This exceeds
+every positive-payload threshold; the next H-NONE round drains the residual,
+producing the frozen I-QPG full/none alternation.
+
+In the reduced H-FULL/H-NONE desynchronized regime, if aggregate backlog is
+rate-stable and the server is asymptotically saturated, flow conservation
+gives
+\[p^*=\min(1,C/(nB))=\min(1,\rho).\]
+The phase-randomized software study matches $1/3$, $2/3$, and $1$ at the
+three capacities.
+
+Finally, with $K=K_{\rm full}^{\max}$, selecting probes
+$\mathcal S_t=\{(tK+j)\bmod n:j=0,\ldots,K-1\}$ attains the unrestricted
+byte frontier every round. Its period is $n/\gcd(n,K)$, and each probe is
+selected $K/\gcd(n,K)$ times per period.
+
+
+\section{Analytical Extensions for Deployment}
+\label{sec:supp_deployment}
+These extensions derive planning consequences of the one-round byte model.
+They are not new hardware measurements, fitted arrival models, or guarantees
+of physical deadline attainment. MB denotes $10^6$ bytes; KiB and MiB denote
+$2^{10}$ and $2^{20}$ bytes. The integer boundaries remain the operational
+reference for the three-probe measurements.
+
+\subsection{Probabilistic Requests and Capacity Planning}
+\label{sec:supp_probabilistic}
+Assume empty incoming queues, fixed $0<S<B$, and a budget $C\geq nS$ that
+can first reserve summaries for all $n$ probes. Within a round, each probe
+independently requests a full upload with common probability $p\in[0,1]$;
+otherwise it requests a summary. Independence across rounds is not needed
+for the following marginal per-round calculation. Let
+\begin{equation}
+J\sim\operatorname{Binomial}(n,p),\qquad
+h(C)=\min\left\{n,\left\lfloor\frac{C-nS}{B-S}\right\rfloor\right\}.
+\label{eq:supp_h}
+\end{equation}
+Under a count-maximizing summary-preserving admission rule, the admitted
+full count is $J_{\rm adm}=\min\{J,h(C)\}$. Consequently,
+\begin{align}
+P_{\rm deg}(C)
+&=\Pr\{J>h(C)\}
+=\sum_{j=h(C)+1}^{n}\binom{n}{j}p^j(1-p)^{n-j},
+\label{eq:supp_pdeg}\\
+\mathbb E[J_{\rm adm}]
+&=\sum_{j=0}^{n}\min\{j,h(C)\}\binom{n}{j}p^j(1-p)^{n-j}.
+\label{eq:supp_expected_admission}
+\end{align}
+Here $P_{\rm deg}$ is the probability that a round needs at least one
+full-to-summary downgrade, not a per-request loss probability. The expected
+number of downgraded requests is $np-\mathbb E[J_{\rm adm}]$. Non-requesting
+and downgraded probes still retain summary evidence. Both equations concern
+admitted bytes, not returned core results.
+
+For a target $\epsilon\in[0,1)$, define the upper-tail quantile
+\begin{equation}
+q_\epsilon=\min\{q\in\{0,\ldots,n\}:\Pr(J>q)\leq\epsilon\}.
+\label{eq:supp_quantile}
+\end{equation}
+The minimum budget within this model that preserves all summaries and
+satisfies $P_{\rm deg}\leq\epsilon$ is
+\begin{equation}
+\boxed{C_\epsilon=nS+(B-S)q_\epsilon.}
+\label{eq:supp_capacity}
+\end{equation}
+Indeed, $h(C_\epsilon)=q_\epsilon$. Any smaller budget either fails the
+summary baseline (when $q_\epsilon=0$) or admits fewer than $q_\epsilon$ full
+requests, contradicting quantile minimality. Since $h(C)$ is non-decreasing,
+expected admitted richness is also non-decreasing in $C$.
+
+\paragraph{Illustrative calculation, not an empirical result}
+With the paper's $n=3$, $B=131{,}072$~B and $S=16{,}384$~B, suppose
+independently $p=2/3$ and choose $\epsilon=1/3$. Then
+$\Pr(J>1)=20/27$ but $\Pr(J>2)=8/27$, giving $q_\epsilon=2$ and
+$C_\epsilon=278{,}528$~B (272~KiB). At this budget,
+$\mathbb E[J_{\rm adm}]=46/27$ and the expected downgrade count is $8/27$
+per round. The planning budget differs from the hardware mid budget of
+256~KiB because it reserves a summary for the third probe. The numerical
+choice $p=2/3$ does not establish independence of the QPG traces or identify
+this planning rule with CRFA, which assigns H-NONE to non-selected probes.
+
+For a large-$n$ interpretation, hold $B,S,p$ and normalized capacity
+$\rho=C_n/(nB)$ fixed, with $\rho\geq\sigma=S/B$. Then
+\begin{equation}
+\frac{\mathbb E[J_{\rm adm}]}{n}
+\longrightarrow
+\min\left\{p,\min\left(1,\frac{\rho-\sigma}{1-\sigma}\right)\right\}.
+\label{eq:supp_large_n}
+\end{equation}
+This follows because $J/n\to p$ in probability, $h(C_n)/n$ converges to the
+clipped capacity term, and the normalized admitted count is bounded by one.
+For $\rho<\sigma$, universal summary coverage is infeasible rather than a
+zero-richness feasible point. With correlated within-round requests, the
+binomial tail is not justified; the same quantile construction requires the
+actual joint request-count distribution. Queueing, security utility, and
+physical timing remain outside this planning calculation.
+
+\subsection{Heterogeneous Payloads: Summary Baseline and Upgrade Costs}
+\label{sec:supp_heterogeneous}
+Fix the set $\mathcal M$ of probes required to retain remote evidence, with
+$0<S_i<B_i$ for every $i\in\mathcal M$. Let
+\begin{equation}
+S_{\mathcal M}=\sum_{i\in\mathcal M}S_i,\quad
+d_i=B_i-S_i>0,\quad R=C-S_{\mathcal M}.
+\label{eq:supp_hetero_baseline}
+\end{equation}
+If $R<0$, the prescribed coverage set is infeasible. Otherwise, upgrading
+$\mathcal F\subseteq\mathcal M$ to full evidence is feasible exactly when
+\begin{equation}
+S_{\mathcal M}+\sum_{i\in\mathcal F}d_i\leq C.
+\label{eq:supp_hetero_constraint}
+\end{equation}
+For a pure full-count objective (equal positive value per upgrade), sort
+$d_{(1)}\leq\cdots\leq d_{(m)}$, where $m=|\mathcal M|$. The optimum is
+\begin{equation}
+k_{\rm het}^{\star}
+=\max\left\{k\in\{0,\ldots,m\}:\sum_{j=1}^{k}d_{(j)}\leq R\right\}.
+\label{eq:supp_hetero_count}
+\end{equation}
+Any set of $k$ upgrades costs at least the sum of the $k$ smallest costs,
+which proves feasibility and optimality of this count rule. When payloads
+are homogeneous, it reduces to
+$\min\{m,\lfloor(C-mS)/(B-S)\rfloor\}$ for $C\geq mS$.
+
+For general nonnegative values $w_i$, the formulation is instead
+\begin{equation}
+\max_{x_i\in\{0,1\}}\sum_{i\in\mathcal M}w_i x_i
+\quad\text{subject to}\quad
+\sum_{i\in\mathcal M}d_i x_i\leq R,
+\label{eq:supp_knapsack}
+\end{equation}
+a 0/1 knapsack problem. Equal value is not equal value density. With
+$R=3$ and cost/value pairs $(2,2)$ and $(3,3)$, both densities equal one,
+but choosing the cheaper upgrade yields value 2 while choosing the other
+yields value 3. Thus equal density does not justify an increasing-cost greedy
+rule for the weighted problem. No heterogeneous-payload hardware validation
+or security-value optimum is claimed here; the scope is a fixed coverage set
+with separable values and no additional fairness constraints.
+
+\subsection{Continuous Exchange Rate versus Discrete Feasibility}
+\label{sec:supp_continuous}
+In the continuous relaxation, $0\leq f\leq r\leq1$ and
+$\sigma r+(1-\sigma)f\leq\rho$. Along any non-degenerate feasible segment
+of the active budget line,
+\begin{equation}
+\frac{\mathrm dr}{\mathrm df}=-\frac{1-\sigma}{\sigma}.
+\label{eq:supp_exchange_rate}
+\end{equation}
+This is a local coverage--richness exchange rate, not an integer scheduling
+rule. With $\sigma=1/8$, its magnitude is seven. The full-coverage boundary
+point $r=1$, $f=(\rho-\sigma)/(1-\sigma)$ applies only for
+$\sigma\leq\rho\leq1$; for $\rho>1$, $(r,f)=(1,1)$ is already maximal
+although the byte budget is slack.
+
+Discrete Pareto points can likewise leave unused capacity. At $n=3$ and
+$C=B$ with $S=B/8$, the all-summary allocation $(m,k)=(3,0)$ costs only
+$3S=3B/8$. It nevertheless cannot increase $k$ while retaining $m=3$,
+since one full upload plus two summaries costs $B+2S>B$. It is therefore
+undominated in the integer coverage/count ordering despite its slack byte
+budget. For the hardware testbed, the integer slot price and CRFA selection
+schedule, rather than a continuous Pareto assertion, govern the feasible
+operating points.
 
 \begin{landscape}
-\section{Complete V-Sweep Results}
-The $v=1$ identity gate covers 36 accepted D cells and four deterministic checks per cell. Low-capacity cycle/action composition changes with $v$; no all-$v$ cycle-identity claim is made.
+\section{Complete Queue-Weight Sweep Results}
+The $v=1$ identity gate covers 36 accepted physical D cells and four deterministic checks per cell. Low-capacity cycle/action composition changes with $v$; no all-$v$ cycle-identity claim is made.
 \scriptsize\input{tables/v_sweep_complete.tex}\end{landscape}
 
 \begin{landscape}
-\section{Complete Desynchronization Sensitivity}
+\section{Complete Phase-Randomization Sensitivity}
 Probe phases are independently assigned from fixed seeds. Probes exchange neither action nor queue state, and no joint admission is introduced.
 \scriptsize\input{tables/desync_complete.tex}\end{landscape}
 
 \begin{landscape}
-\section{Complete Nominal-Deadline Reconstruction}
+\section{Complete Schedule-Anchor Reconstruction}
 Post-release latency is result return minus actual event creation. Nominal latency is result return minus scheduled release. The 1-s quantity in the main paper is a post-release service SLO, not a complete schedule-to-result deadline.
 \tiny\input{tables/nominal_deadline_complete.tex}\end{landscape}
 
@@ -63,19 +261,178 @@ Independent nominal clocks, the three-probe barrier, unequal first-iteration wai
 \small\input{tables/release_lateness.tex}\end{landscape}
 
 \begin{landscape}
-\section{Finite-n Scaling Conformance}
+\section{Finite-$n$ Scaling Conformance}
 This is discrete-event conformance, not a 32-probe hardware scalability experiment.
 \small\input{tables/scaling_complete.tex}\end{landscape}
 
+
+\section{Common-Denominator Controller Comparison}
+The main paper's mid-capacity comparison divides on-time full-core results by
+all 270 generated measured events. It is derived directly from the frozen
+phase-sensitivity CSV rather than from conditional coverage alone.
+\begin{table}[h]\centering\caption{Mid-capacity common-denominator software sensitivity.}
+\input{tables/rq2_mid_common_denominator.tex}
+\end{table}
+The coordinated policy uses 37.5\% fewer application bytes than the phase-
+randomized independent policy (14.7456 versus 23.59296 MB) while producing
+0.3333 versus 0.3352 timely full results per generated event.
+
+\section{Independence Approximation}
+At mid capacity, an independent Bernoulli request model with $p=2/3$ gives
+$P(J=1)=6/27$, $P(J=2)=12/27$, and $P(J=3)=8/27$. If a 2$B$ service budget
+finishes all requests for $J\leq2$ and none for $J=3$, the expected conditional
+timely fraction is $5/9\approx0.5556$ and the common timely-full fraction is
+$10/27\approx0.3704$. The phase-randomized simulator gives 0.5028 and 0.3352,
+respectively. The Bernoulli calculation is an independence approximation, not
+a proved upper bound.
+
+\section{Rotating-Frontier Software Conformance}
+The cyclic construction uses the same 1-ms integer service accounting as the
+phase study. It admits exactly $K=\lfloor C/B\rfloor$ full requests per round
+and zero payload from the other probes.
+\begin{table}[h]\centering\caption{Idealized rotating-frontier conformance.}
+\begin{tabular}{lrrrr}\toprule
+Capacity & $K$ & Full fraction & Timely full / generated & Fair period\\\midrule
+Low & 1 & 0.3333 & 0.3333 & 3\\
+Mid & 2 & 0.6667 & 0.6667 & 3\\
+High & 3 & 1.0000 & 1.0000 & 1\\\bottomrule
+\end{tabular}\end{table}
+There are zero simulated shared-cap violations. This discrete-event check
+was completed before the separately frozen Raspberry Pi extension and is
+retained only as a conformance check on the cyclic byte-allocation rule; the
+physical results are reported separately below.
+
+\section{CRFA Hardware Frontier Extension}
+The separately frozen CRFA campaign tests the same cyclic construction on the
+three physical probes without changing the primary A--F campaign. Twelve
+matched session/workload identities are executed at each capacity, yielding
+36 accepted arms. Across 55 indexed attempts, 19 attempts are excluded for
+predefined infrastructure failures; all excluded attempts are retained in the
+attempt index, timing outcomes are never acceptance criteria, and partial
+attempts are not stitched into accepted arms. The accepted extension contains
+9,720 measured occurrences and 10,620 reconstructed shared-service rounds.
+All frozen event-identity, action/payload, final-drain, raw-reconstruction,
+and shared-cap gates pass, with zero shared-cap violations.
+
+\begin{table}[h]
+\centering
+\caption{CRFA physical attainment of the unrestricted full-evidence byte frontier. The C-QPG column uses the session-matched primary hardware result; paired intervals are descriptive 95\% session-bootstrap intervals.}
+\label{tab:supp_crfa_hardware}
+\input{tables/crfa_hardware_summary.tex}
+\end{table}
+
+At low, mid, and high capacity, CRFA produces 0.3056, 0.6327, and 0.9660
+timely full-core results per generated event, corresponding to 91.7\%, 94.9\%,
+and 96.6\% of the byte frontier. Every selected full-evidence result is
+eventually returned; the residual to the byte frontier is therefore
+post-release timing loss rather than loss of selected evidence. At mid
+capacity, CRFA produces 2,050 timely full-core results from 3,240 generated
+occurrences, compared with 952 for session-matched C-QPG. The paired mean
+difference is $+0.3389$ with 95\% session-bootstrap interval
+$[0.3306,0.3478]$. At high capacity, where universal coverage no longer costs
+a full-evidence slot, CRFA--C-QPG is $-0.0037$ with interval
+$[-0.0133,0.0046]$.
+
+These results are not a universal dominance claim. CRFA assigns H-NONE to
+non-selected probes and therefore exchanges same-round remote coverage for
+more full-evidence opportunities. C-QPG instead preserves at least summary
+evidence for every probe in every round.
+
+\section{CRFA Per-Device Admission Fairness}
+The cyclic construction equalizes full-evidence opportunity counts exactly,
+while the physical post-release timing of those opportunities remains device
+dependent.
+\begin{table}[h]
+\centering
+\caption{CRFA per-device admission opportunity and post-release timing.}
+\label{tab:supp_crfa_fairness}
+\input{tables/crfa_device_fairness.tex}
+\end{table}
+Across the 12 accepted sessions, each probe receives 360, 720, and 1,080
+full-evidence opportunities at low, mid, and high capacity, respectively. The
+maximum inter-selection interval is three, two, and one measured rounds. At
+mid capacity, conditional post-release on-time fractions for selected full
+events are 0.9153, 0.9319, and 1.0000 for P1, P2, and P3. Thus deterministic
+admission fairness does not imply identical physical timing.
+
+\section{CRFA Per-Device Timing Reconstruction}
+\begin{table}[h]
+\centering
+\caption{CRFA selected-full timing by device. Nominal on-time refers to the schedule-inclusive anchor; post-release on-time uses actual event creation.}
+\label{tab:supp_crfa_timing}
+\input{tables/crfa_timing_by_device.tex}
+\end{table}
+P1 and P2 have zero nominal-anchor timely full results at all three
+capacities in the CRFA extension, whereas P3 is essentially fully nominally
+on time. The aggregate CRFA nominal timely-full fractions on the common
+generated-event denominator are 0.1111, 0.2222, and 0.3330 at low, mid, and
+high capacity, versus post-release values of 0.3056, 0.6327, and 0.9660. This
+reproduces the schedule-anchor asymmetry seen in the primary campaign and
+reinforces the scope of the primary 1-s quantity as a post-release service
+SLO.
+
+\section{CRFA Per-Session Results}
+\small
+\begin{table}[h]
+\centering
+\caption{CRFA session-level timely full-core output and frontier attainment.}
+\label{tab:supp_crfa_sessions}
+\input{tables/crfa_session_summary.tex}
+\end{table}
+\normalsize
+
+\section{Hardware Timing Anchor Summary}
+\begin{table}[H]\centering\caption{Accepted hardware core-required timing by probe.}
+\input{tables/anchor_summary_by_device.tex}
+\end{table}
+P1 and P2 have zero nominal-anchor on-time coverage when all accepted
+core-required occurrences are pooled by device. P1's median release offset is
+about 1.97 s and therefore exceeds the 1-s service horizon before post-release
+service time is added. The exact OS/network cause of the recurring proposal
+arrival order remains unknown.
+
 \section{Accepted and Excluded Attempts}
-Accepted attempts are S01-a01, S02-a01, S03-a02, S04-a02, S05-a01, S06-a01, S07-a02, and S08--S12-a01. S03-a01, S04-a01, and S07-a01 are excluded infrastructure attempts and are not stitched into accepted sessions.
+For the primary A--F campaign, accepted attempts are S01-a01, S02-a01,
+S03-a02, S04-a02, S05-a01, S06-a01, S07-a02, and S08--S12-a01. S03-a01,
+S04-a01, and S07-a01 are excluded infrastructure attempts and are not
+stitched into accepted sessions.
+
+The CRFA extension indexes 55 attempts for 36 planned arms. Thirty-six arms
+are accepted and 19 attempts are excluded under the frozen infrastructure
+rules, predominantly SSH transport failures plus a pre-arm hardware-gate
+failure. The accepted and excluded lineage is preserved in the extension
+attempt index. Timing or favorable scientific outcomes are not retry criteria.
 
 \section{Detector and Replay Limitations}
-The workload is frozen CICIoT2023-derived feature-vector replay, not packet replay or an uncontrolled deployment. The formal occurrence set excludes Recon-PortScan, and exact feature-vector overlap exists across frozen partitions. Perfect correctness on the formal occurrences is therefore a controlled diagnostic rather than an IDS-superiority result.
+The workload is frozen CICIoT2023-derived feature-vector replay, not packet replay or an uncontrolled deployment. The dataset is cited in the main paper. The formal occurrence set excludes Recon-PortScan, and exact feature-vector overlap exists across frozen partitions. Perfect correctness on the formal occurrences is therefore a controlled diagnostic rather than an IDS-superiority result.
 
-\section{Raw Audit and Analysis Validation}
-The full-raw audit rebuilt 216/216 accepted arms and 58,320 measured events with zero raw-to-metric mismatch and zero shared-cap violation across 63,720 service rounds. Its verdict is PASS\_WITH\_ISSUES because the raw bundle lacks direct artifacts for the S03-a01 SSD incident and the S07 pre-hardware launcher abort. The supplementary analyses pass validation with 432 parameter-sweep rows, 240 desynchronization rows, 648 timing-reconstruction rows, and 20 scaling rows, with zero retained failures.
+\section{Raw Audit and Offline-Analysis Verdicts}
+The primary full-raw audit rebuilt 216/216 accepted arms and 58,320 measured
+events with zero raw-to-metric mismatch and zero shared-cap violation across
+63,720 service rounds. Its historical verdict remains
+\texttt{PASS\_WITH\_ISSUES} because the raw bundle lacks direct artifacts
+for the S03-a01 SSD incident and the S07 pre-hardware launcher abort; the
+CRFA extension does not alter that disclosure.
+
+The separately archived CRFA evidence reconstructs 36/36 accepted arms,
+9,720 measured occurrences, and 10,620 shared-service rounds. Its frozen
+identity, action/payload, final-drain, reconstruction, and cap gates pass, and
+no shared-cap violation is observed. Across the two hardware campaigns this
+corresponds to 252 accepted arms, 68,040 measured occurrences, and 74,340
+reconstructed shared-service rounds, with zero observed shared-cap violations.
+
+The read-only offline analyses contain 432 queue-weight rows, 240 phase-
+sensitivity rows, 648 primary schedule-anchor rows, and 20 multi-$n$ scaling
+rows. The rotating software-conformance table remains a separate discrete-
+event check and is not relabelled as hardware evidence.
 
 \section{Artifact Access}
-Machine-readable CSV/JSON sources, number provenance, claim audit, build report, validation report, and SHA-256 manifest accompany this supplementary PDF. Third-party dataset redistribution rights remain outside the scope of this package.
+Machine-readable CSV/JSON sources, including the CRFA arm/capacity/session
+summaries, occurrence ledger, service audit, fairness table, timing
+reconstruction, matched comparisons, attempt index, number provenance, claim
+audit, build report, validation report, and SHA-256 manifest accompany this
+supplementary PDF. The CRFA primary archive and integrity-checked mirror reside
+on the same user-authorized external physical volume and therefore do not
+constitute independent physical backups. Third-party dataset redistribution
+rights remain outside the scope of this package.
 \end{document}

@@ -1,0 +1,10 @@
+capacity,method,generated_events,core_required_events_mean,core_required_fraction,on_time_full_results_mean,timely_full_generated_fraction,conditional_on_time_fraction,payload_bytes_mean,payload_MB_decimal,bytes_per_on_time_full
+high,central_coordinated,270,270.0,1.0,270.0,1.0,1.0,35389440.0,35.38944,131072.0
+high,desynchronized_independent,270,270.0,1.0,270.0,1.0,1.0,35389440.0,35.38944,131072.0
+high,synchronized_independent,270,270.0,1.0,270.0,1.0,1.0,35389440.0,35.38944,131072.0
+low,central_coordinated,270,0.0,0.0,0.0,0.0,,4423680.0,4.42368,
+low,desynchronized_independent,270,90.0,0.3333333333333333,0.0,0.0,0.0,11796480.0,11.79648,
+low,synchronized_independent,270,66.0,0.24444444444444444,0.0,0.0,0.0,9191424.0,9.191424,
+mid,central_coordinated,270,90.0,0.3333333333333333,90.0,0.3333333333333333,1.0,14745600.0,14.7456,163840.0
+mid,desynchronized_independent,270,180.0,0.6666666666666666,90.5,0.3351851851851852,0.5027777777777778,23592960.0,23.59296,260695.6906077348
+mid,synchronized_independent,270,135.0,0.5,0.0,0.0,0.0,17694720.0,17.69472,

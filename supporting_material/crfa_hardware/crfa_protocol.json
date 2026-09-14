@@ -1,0 +1,48 @@
+{
+  "schema": "netshield-crfa-hardware-extension-1",
+  "method_id": "G",
+  "method_name": "Cyclic Rotating Full Admission",
+  "method_short": "CRFA",
+  "sessions": ["F12_S01", "F12_S02", "F12_S03", "F12_S04", "F12_S05", "F12_S06", "F12_S07", "F12_S08", "F12_S09", "F12_S10", "F12_S11", "F12_S12"],
+  "devices": ["P1", "P2", "P3"],
+  "device_index": {"P1": 0, "P2": 1, "P3": 2},
+  "n": 3,
+  "full_payload_bytes": 131072,
+  "summary_payload_bytes": 16384,
+  "capacities": {
+    "low": {"bytes_per_round": 131072, "k_full": 1, "full_per_device_measured": 30, "none_per_device_measured": 60, "full_total_measured": 90, "payload_bytes_measured": 11796480, "fair_period_rounds": 3, "max_consecutive_unselected_rounds": 2},
+    "mid": {"bytes_per_round": 262144, "k_full": 2, "full_per_device_measured": 60, "none_per_device_measured": 30, "full_total_measured": 180, "payload_bytes_measured": 23592960, "fair_period_rounds": 3, "max_consecutive_unselected_rounds": 1},
+    "high": {"bytes_per_round": 393216, "k_full": 3, "full_per_device_measured": 90, "none_per_device_measured": 0, "full_total_measured": 270, "payload_bytes_measured": 35389440, "fair_period_rounds": 1, "max_consecutive_unselected_rounds": 0}
+  },
+  "warmup_rounds": 5,
+  "measured_rounds_per_device": 90,
+  "max_drain_rounds": 200,
+  "planned_accepted_arms": 36,
+  "rotation": {
+    "session_offset": "(session_number - 1) mod 3",
+    "global_round_index_includes_warmup": true,
+    "start_index": "(session_offset + round_index * k_full) mod 3",
+    "selected_indices": "(start_index + j) mod 3 for j=0..k_full-1",
+    "selected_action": "H_FULL",
+    "unselected_action": "H_NONE"
+  },
+  "primary_outcome": "on_time_full_core_results / 270",
+  "frontier_fraction": {"low": 0.3333333333333333, "mid": 0.6666666666666666, "high": 1.0},
+  "timing": {
+    "post_release_latency": "t_result - t_created_probe",
+    "nominal_latency": "t_result - t_scheduled_release",
+    "slo_ms": 1000,
+    "primary_anchor": "post_release"
+  },
+  "hard_gates": [
+    "exact measured event count",
+    "exact action mix by device and capacity",
+    "exact generated measured payload bytes",
+    "zero shared-cap violations",
+    "final queue bytes zero after drain",
+    "no duplicate or missing measured event keys",
+    "raw-to-validator semantic identity",
+    "frozen historical methods and raw evidence unchanged"
+  ],
+  "timing_outcomes_are_acceptance_gates": false
+}
