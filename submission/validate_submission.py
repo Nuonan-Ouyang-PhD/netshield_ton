@@ -25,7 +25,7 @@ citation_keys: set[str] = set()
 for group in re.findall(r"\\cite\{([^}]+)\}", manuscript):
     citation_keys.update(key.strip() for key in group.split(","))
 
-require(len(bibliography_keys) == 29, "expected 29 bibliography entries")
+require(len(bibliography_keys) == 35, "expected 35 bibliography entries")
 require(citation_keys == bibliography_keys, "citation/bibliography mismatch")
 require((ROOT / "netshield_manuscript.pdf").is_file(), "missing netshield_manuscript.pdf")
 require((ROOT / "netshield_supplementary.pdf").is_file(), "missing netshield_supplementary.pdf")
@@ -34,7 +34,7 @@ require("neto2023ciciot" in bibliography_keys, "missing CICIoT2023 citation")
 require("sommer2010closedworld" in bibliography_keys, "missing Sommer-Paxson citation")
 require("IEEE Transactions on Networking" in manuscript,
         "current target journal name is missing")
-require(len(list((ROOT / "figures").glob("*.pdf"))) == 7, "expected seven figures")
+require(len(list((ROOT / "figures").glob("*.pdf"))) == 8, "expected eight figures")
 require(len([p for p in (ROOT / "tables").iterdir() if p.is_file()]) == 22,
         "expected twenty-two table/data files")
 
@@ -51,4 +51,4 @@ for path in ROOT.rglob("*"):
         require("version" not in name and not re.search(r"20\d{6}", name),
                 f"non-clean filename: {path.relative_to(ROOT)}")
 
-print("PASS: clean naming, 30 cited references, expected files, and claim scan")
+print("PASS: clean naming, 35 cited references, expected files, and claim scan")

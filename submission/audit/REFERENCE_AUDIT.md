@@ -1,39 +1,86 @@
-# Reference Audit
+# Reference audit — 15 September 2026 revision
 
-Status: **PASS**
+## Scope
 
-The manuscript contains 29 citation keys and 29 bibliography entries. Every bibliography entry is cited and every citation key resolves. Recent additions were checked against publisher, conference, DOI-registry, or DBLP records; historical entries retain the journal/conference name under which they were originally published.
+The revised main manuscript has **35 unique, cited bibliography entries**: the
+29 original entries are preserved, with six focused additions. Entries are
+ordered by first citation. The citation-resolution check is separate from
+source verification: a resolving citation does not by itself verify a paper.
 
-| Key | Verification record | Status |
-|---|---|---|
-| `raza2013svelte` | https://doi.org/10.1016/j.adhoc.2013.04.014 | Verified |
-| `miettinen2017iotsentinel` | https://doi.org/10.1109/ICDCS.2017.283 | Verified |
-| `meidan2018nbaiot` | https://doi.org/10.1109/MPRV.2018.03367731 | Verified |
-| `mirsky2018kitsune` | NDSS 2018 proceedings | Verified |
-| `neto2023ciciot` | https://doi.org/10.3390/s23135941 | Verified |
-| `sommer2010closedworld` | https://doi.org/10.1109/SP.2010.25 | Verified |
-| `yang2025openset` | https://doi.org/10.1109/TIFS.2025.3546849 | Verified |
-| `mirnajafizadeh2024isdc` | https://www.usenix.org/conference/usenixsecurity24/presentation/mirnajafizadeh | Verified; pp. 5161--5178 |
-| `oqaily2024chainpatrol` | https://www.usenix.org/conference/usenixsecurity24/presentation/oqaily | Verified; pp. 3441--3458 |
-| `mao2017mec` | https://doi.org/10.1109/COMST.2017.2745201 | Verified |
-| `mach2017mec` | https://doi.org/10.1109/COMST.2017.2682318 | Verified |
-| `zhao2024cur` | https://doi.org/10.1109/INFOCOM52122.2024.10621190 | Verified; INFOCOM 2024, pp. 411--420 |
-| `hao2024edgetimer` | https://doi.org/10.1109/INFOCOM52122.2024.10621305 | Verified; INFOCOM 2024, pp. 671--680 |
-| `li2025oacr2` | https://doi.org/10.1109/TMC.2025.3548767 | Verified; TMC 24(8), pp. 7360--7376 |
-| `demers1989fair` | https://doi.org/10.1145/75246.75248 | Verified |
-| `parekh1993gps` | https://doi.org/10.1109/90.234856 | Verified |
-| `tassiulas1992` | https://doi.org/10.1109/9.182479 | Verified |
-| `neely2010` | Morgan & Claypool, *Stochastic Network Optimization with Application to Communication and Queueing Systems*, 2010 | Verified |
-| `huang2024lyapunovbandit` | https://doi.org/10.1109/TNET.2024.3374755 | Verified; IEEE/ACM ToN 32(4), pp. 3034--3044 |
-| `crankshaw2017clipper` | https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw | Verified |
-| `shen2019nexus` | https://doi.org/10.1145/3341301.3359658 | Verified |
-| `gujarati2020clockwork` | https://www.usenix.org/conference/osdi20/presentation/gujarati | Verified; pp. 443--462 |
-| `crankshaw2020inferline` | https://doi.org/10.1145/3419111.3421285 | Verified |
-| `khare2025superserve` | https://www.usenix.org/conference/nsdi25/presentation/khare | Verified; pp. 739--758 |
-| `shisher2024timely` | https://doi.org/10.1109/TNET.2024.3408673 | Verified; IEEE/ACM ToN 32(5), pp. 3824--3839 |
-| `ari2026goal` | https://doi.org/10.1109/TON.2026.3670099 | Verified; IEEE Transactions on Networking 34, pp. 4011--4025 |
-| `alshiekh2018shielding` | https://doi.org/10.1609/aaai.v32i1.11797 | Verified |
-| `wabersich2021filter` | https://doi.org/10.1016/j.automatica.2021.109597 | Verified |
-| `ouyang2026sok` | https://doi.org/10.1007/978-981-92-3018-1_7 | Verified |
+This round checked the relevance and bibliographic sources for the six additions
+below. It did **not** re-fetch all 29 inherited entries. The historical audit is
+retained in `audit_history/integrated_20260914/REFERENCE_AUDIT.md` as history,
+not a claim that its checks were repeated on this date. No arbitrary reference
+count target was used, and no unrelated Kubernetes/K3s citations were added.
 
-Current target-journal naming in the manuscript is **IEEE Transactions on Networking**. Historical references published before the journal rename retain **IEEE/ACM Transactions on Networking** where applicable.
+## `zhang2021emp`
+
+EMP: Edge-assisted multi-vehicle perception (2021). DOI: `10.1145/3447993.3483242`.
+
+**Use in this paper:** Compare data-partition/upload decisions with evidence representation constraints.
+
+**Verification basis:** ACM indexed publication record gives 25 October 2021; author paper confirms method and author list. The delayed MobiCom 2021 conference was held in 2022; use canonical proceedings publication year 2021.
+
+- https://dl.acm.org/doi/10.1145/3447993.3483242
+- https://feng-qian.github.io/paper/emp_mobicom21.pdf
+
+## `zhu2024harbor`
+
+Boosting collaborative vehicular perception on the edge with vehicle-to-vehicle communication (2024). DOI: `10.1145/3666025.3699328`.
+
+**Use in this paper:** Compare V2V-assisted collaborative perception and heterogeneous connectivity with coverage-constrained evidence admission.
+
+**Verification basis:** Author PDF: title, nine authors, SenSys 2024, first page 141, last page 154, DOI; first and last pages visually inspected.
+
+- https://feng-qian.github.io/paper/harbor_sensys24.pdf
+- https://dl.acm.org/doi/10.1145/3666025.3699328
+
+## `nishio2019fedcs`
+
+Client selection for federated learning with heterogeneous resources in mobile edge (2019). DOI: `10.1109/ICC.2019.8761315`.
+
+**Use in this paper:** Contrast communication/computation-aware client selection with the evidence-coverage objective, not with training convergence.
+
+**Verification basis:** Author arXiv record confirms authors, abstract, ICC 2019 journal reference, and published DOI. IEEE-published literature confirms pp. 1-7.
+
+- https://arxiv.org/abs/1804.08333
+- https://ieeexplore.ieee.org/document/8761315
+
+## `kadota2019aoi`
+
+Scheduling algorithms for optimizing age of information in wireless networks with throughput constraints (2019). DOI: `10.1109/TNET.2019.2918736`.
+
+**Use in this paper:** Locate freshness/throughput scheduling and explicitly distinguish selection gaps from AoI guarantees.
+
+**Verification basis:** MIT institutional manuscript record confirms authors, journal 27(4), year and DOI; author publication list confirms pp. 1359-1372.
+
+- https://dspace.mit.edu/entities/publication/bae10e2d-2db9-44c5-b812-9571e39e8e41
+- https://abhishek-sinha-tifr.github.io/Abhishek_Sinha_resume.pdf
+
+## `hou2009qos`
+
+A theory of QoS for wireless (2009). DOI: `10.1109/INFCOM.2009.5061954`.
+
+**Use in this paper:** Acknowledge prior deadline-and-reliability feasibility and timely-delivery work.
+
+**Verification basis:** Original author paper confirms authors and joint delay/delivery-ratio/channel-reliability formulation; first page visually inspected. INFOCOM 2009 bibliographic metadata are indexed as pp. 486-494. Direct DOI/publisher fetch was unavailable, so this is not claimed as a successful DOI-registry verification.
+
+- https://soihub.org/site/assets/files/4411/supplemental_communication_kumar_pr_theory-of-qos-infocom.pdf
+- https://ieeexplore.ieee.org/document/5061954/
+
+## `baruah1990feasibility`
+
+Algorithms and complexity concerning the preemptive scheduling of periodic, real-time tasks on one processor (1990). DOI: `10.1007/BF01995675`.
+
+**Use in this paper:** Attribute the established processor-demand tool used in the common-deadline byte-service specialization.
+
+**Verification basis:** Springer publisher record confirms authors, title, volume 2, pp. 301-324, year, DOI and preemptive feasibility context.
+
+- https://link.springer.com/article/10.1007/BF01995675
+
+## Access limitations
+
+Direct fetches of several publisher/DOI endpoints were blocked; verification used
+accessible author papers, institutional records and publisher-indexed records as
+specified above. Failed Crossref API requests are not represented as successful
+registry checks. No third-party paper PDF has been bundled with this submission.

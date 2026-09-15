@@ -21,6 +21,8 @@ NetShield submission.
 Dataset and reproducibility instructions are maintained at the repository
 level in [`REPRODUCIBILITY.md`](../REPRODUCIBILITY.md).
 They distinguish the public CICIoT2023 source and offline analyses from the
-controlled raw evidence of the 216-arm physical campaign.
+controlled raw evidence of the 216-arm physical campaign. The path-free CRFA
+hardware result layer is published separately under
+`../supporting_material/crfa_hardware/`; private raw arms are not included.
 
-The manuscript has 13 pages and the supplementary material has 28 pages.
+The manuscript has 14 pages and the supplementary material has 29 pages.

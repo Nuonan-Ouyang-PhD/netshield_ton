@@ -1,5 +1,5 @@
 \documentclass[10pt,onecolumn]{IEEEtran}
-\usepackage{amsmath,amssymb,booktabs,longtable,array,pdflscape,float,url,hyperref}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,pdflscape,float,url,graphicx,hyperref}
 \hypersetup{hidelinks}
 \newcommand{\Hnone}{\textsc{H-None}}
 \newcommand{\Hsummary}{\textsc{H-Summary}}
@@ -435,4 +435,68 @@ supplementary PDF. The CRFA primary archive and integrity-checked mirror reside
 on the same user-authorized external physical volume and therefore do not
 constitute independent physical backups. Third-party dataset redistribution
 rights remain outside the scope of this package.
+
+\clearpage
+\section{Notation Index}
+\label{sec:supp_notation}
+The main paper defines symbols where they enter the model. This index
+collects them by role; quantities with units of bytes are payload or service
+accounting quantities. The summary size $S$ and cumulative service $S(T)$
+are distinct despite sharing the letter.
+
+{\small
+\begin{longtable}{@{}p{0.25\textwidth}p{0.70\textwidth}@{}}
+\caption{Notation index for the main model and supplementary planning extensions.}
+\label{tab:supp_notation}\\
+\toprule Symbol & Meaning and units \\
+\midrule
+\endfirsthead
+\toprule Symbol & Meaning and units \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$n;\ i,t$ & Probe count; probe index and coordination-round index. \\
+$m,k;\ r,f$ & Remotely represented/full counts; normalized fractions $r=m/n$, $f=k/n$. \\
+$B,S;\ C(t),C$ & Full/summary payload bytes; varying or constant shared bytes per round. \\
+$\rho,\sigma$ & Normalized capacity $C/(nB)$ and summary/full ratio $S/B$. \\
+$k^\star(C,m)$ & Maximum full count while representing a fixed number $m$ of probes. \\
+$K_{\rm full}^{\max},K$ & Unrestricted maximum full count; $K$ is shorthand for this count. \\
+$K_{\rm all}^{\max},\Pi_{\rm cov}$ & Maximum full count with all probes represented; full-slot coverage price. \\
+$a_i(t);\ b(a),u(a)$ & Admitted action; payload in bytes and frozen utility score. \\
+$Q_i(t),Q_\Sigma(T)$ & Per-probe and aggregate queued bytes. \\
+$g_i(t),S(T)$ & Per-probe service grant; cumulative aggregate bytes served through $T$. \\
+$v,\psi_i(a,t),q_a$ & Utility weight, queue-penalized score, and positive-payload queue threshold. \\
+$A_t,D$ & Aggregate admitted bytes in round $t$; common relative deadline in rounds. \\
+$\mathcal F_{\rm same},\mathcal F_D,\mathcal F_{\rm rate}$ & Feasible sets for same-round, finite-deadline, and long-run load conditions. \\
+$p,p^\star$ & Full-request fraction and its conditional saturated-regime value. In the independent-request planning model, $p$ is the Bernoulli request probability. \\
+$\mathcal S_t,T_{\rm fair}$ & Rotating selected set and cycle period $n/\gcd(n,K)$. \\
+$L_{\rm post},L_{\rm nom}$ & Result-return latency from actual creation or planned release, in seconds. \\
+$t_{\rm created},t_{\rm scheduled},t_{\rm return}$ & Event creation, scheduled-release, and result-return timestamps. \\
+$\Delta$ & Descriptive paired CRFA--C-QPG difference in timely-full/generated output. \\
+$C_{\min}(k)$ & Minimum byte budget for $k$ full uploads while preserving all $n$ summaries as a baseline. \\
+$J,h(C),J_{\rm adm}$ & Random full-request count, summary-preserving full capacity, and admitted full count. \\
+$P_{\rm deg},\epsilon,q_\epsilon,C_\epsilon$ & Probability of any downgrade, its target, request-count quantile, and planning budget. \\
+$\mathcal M,\mathcal F$ & Fixed remotely represented set and its full-upgrade subset. \\
+$S_i,B_i,d_i,R$ & Per-probe payload bytes, upgrade cost $d_i=B_i-S_i$, and residual budget. \\
+$w_i,x_i,k_{\rm het}^\star$ & Upgrade value, binary choice, and maximum count for equal-valued heterogeneous upgrades. \\
+\end{longtable}
+}
+
+\section{Extended Mechanism Trace}
+\label{sec:supp_cycle}
+Figure~\ref{fig:supp_cycle} preserves the complete archived 16-round frozen
+$v=1$ mid-capacity replay illustration. The main paper uses only its first
+eight rounds to explain the period-two mechanism; the separate weight sweep
+addresses parameter robustness. No hardware traces, replay outcomes, or
+summary data were regenerated for this presentation change.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/fig3_iqpg_cycle.pdf}
+\caption{Full archived I-QPG period-two illustration. F denotes H-FULL and
+N denotes H-NONE; values and action order are unchanged from the integrated
+submission candidate.}
+\label{fig:supp_cycle}
+\end{figure}
+
 \end{document}
