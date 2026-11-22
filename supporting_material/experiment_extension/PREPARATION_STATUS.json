@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "methodology_revision_base": "e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5",
-  "overall_status": "RETAINED_RECORD_REVIEW_INTEGRATED_TARGETED_EXPERIMENTS_INCOMPLETE",
-  "validation_report": "FORMAL_INTEGRATION_VERIFICATION.json",
+  "overall_status": "LOCAL_FOLLOWUP_REPORTED_CHECKER_REPAIRED_PRIVATE_RERUN_AND_TARGETED_EXPERIMENTS_PENDING",
+  "validation_report": "FOLLOWUP_VERIFICATION.json",
   "existing_frozen_scientific_files_rechecked": 120,
   "new_physical_hardware_execution": false,
   "stages": {
@@ -11,25 +11,43 @@
     "matched_binary_evidence_value_scorer": "VALIDATED_ON_SYNTHETIC_FIXTURES",
     "conditional_hardware_plan_generator": "VALIDATED_ON_SYNTHETIC_FIXTURES",
     "deployed_private_runtime_allocator_inspection": "LOCAL_REVIEW_REPORTS_AFFECTED_ARCHIVED_RUNTIME",
-    "primary_campaign_primitive_ledger_reaudit": "PARTIAL_WINDOW_EVENT_REVIEW_COMPLETE_CHUNK_AND_INFLIGHT_PENDING",
-    "actual_encoder_model_adapter_and_content_inventory": "HISTORICAL_CONTENT_REVIEW_AND_PILOT_INTERFACE_DIAGNOSTIC_COMPLETE_FORMAL_ADAPTER_PENDING",
+    "primary_campaign_primitive_ledger_reaudit": "LOCAL_REVIEW_REPORTED_REPAIRED_CHECKER_PRIVATE_RERUN_PENDING_CHUNK_AND_EPOCH_GAPS_RETAINED",
+    "actual_encoder_model_adapter_and_content_inventory": "NINE_INPUT_INTERFACE_AND_896_ROW_CONTENT_DIAGNOSTICS_REPORTED_FORMAL_QUALIFIED_STUDY_PENDING",
     "held_out_actual_content_value_ablation": "BLOCKED_SPLIT_OVERLAP_AND_PARENT_CAPTURE_LINEAGE",
     "allocator_hardware_comparison": "APPLICABLE_BLOCKED_THREE_PROBE_QUALIFICATION",
     "causal_shared_stage_controller_calibration_and_hardware_comparison": "BLOCKED_THREE_PROBE_QUALIFICATION_AND_CAUSAL_CONTROLLER_CALIBRATION",
-    "manuscript_integration_of_new_empirical_results": "RETAINED_RECORD_FINDINGS_INTEGRATED_NO_NEW_FORMAL_EXPERIMENT"
+    "manuscript_integration_of_new_empirical_results": "RETAINED_RECORD_FINDINGS_INTEGRATED_NO_NEW_FORMAL_EXPERIMENT",
+    "model_export_and_training_file_provenance": "LOCAL_REPORT_MATCHES_EXPORT_SOURCE_MODELS_AND_TRAIN_VALIDATION_DIGESTS",
+    "rounded_signature_audit": "LOCAL_FULL_SCAN_REPORTED_PUBLIC_AGGREGATE_FRACTIONS_RECOMPUTED_COMPLETE_NEIGHBOUR_QUALIFICATION_PENDING",
+    "private_record_checker_repair": "SYNTHETIC_REGRESSION_TESTED_PRIVATE_REEXECUTION_PENDING"
   },
-  "scope": "The supplied local review and exported audit records are integrated. This workspace reaggregates derived reports, not the 1,512 private source logs or model/corpus. The interface diagnostic uses nine archived observations and 27 representation rows, with no efficacy labels or measured transport times. New physical and independent held-out experiments remain incomplete.",
+  "scope": "This state distinguishes the private follow-up reported at dc5269c from the subsequent public source/PDF review and synthetic checker regression. The local report adds model/provenance checks, rounded overlap and a 896-row diagnostic. Its private raw qualification output, corpus/model artifacts and row-level diagnostic predictions are not reopened in the current review. The repaired checker still requires a fresh private run. New physical and independent held-out experiments remain incomplete.",
   "local_record_review_base": "75a29eda2105b926ab00699b138037e50b13eb9e",
   "prior_preparation_fixture_tests_passed": 35,
   "real_model_interface_diagnostic_reported": true,
-  "current_workspace_detector_model_execution": true,
+  "current_workspace_detector_model_execution": false,
   "latest_private_followup": "FOLLOWUP_STATUS.md",
   "new_formal_detection_experiment_executed": false,
   "reported_device_qualification": "P1 reachable at prior preflight. P2/P3 names failed resolution and configured historical interface addresses timed out in follow-up.",
-  "current_preparation_and_reconciliation_fixture_tests_passed": 42,
+  "current_preparation_and_reconciliation_fixture_tests_passed": 53,
   "retained_methodology_and_contention_tests_passed": 27,
   "current_submission_pages": {
     "manuscript": 14,
     "supplementary": 33
-  }
+  },
+  "latest_private_followup_base": "dc5269c4864e2c4416d6ce6d8390d741bbaad20b",
+  "latest_public_review": "FOLLOWUP_REVIEW.md",
+  "reported_private_diagnostic_model_execution": true,
+  "reported_private_content_diagnostic_observations": 896,
+  "reported_private_content_diagnostic_predictions": 2688,
+  "reported_private_content_diagnostic_per_level_confusion": {
+    "TP": 768,
+    "TN": 128,
+    "FP": 0,
+    "FN": 0
+  },
+  "reported_private_runtime_manifests_checked": 864,
+  "reported_private_allocator_comparison_cases": 22638,
+  "repaired_checker_executed_on_private_records": false,
+  "private_record_qualification_fixture_tests_passed": 11
 }

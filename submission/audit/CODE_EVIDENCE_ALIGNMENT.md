@@ -2,6 +2,14 @@
 
 ## Audit stages and current interpretation
 
+The latest follow-up is reviewed in
+[`FOLLOWUP_REVIEW.md`](../../supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
+It covers the reported `dc5269c` private-record qualification, model-training
+provenance work, rounded overlap and 896-row content diagnostic, followed by
+a separately tested checker repair. The nine-observation stage below remains
+a historical record; its construction-based agreement explanation does not
+apply to the later Gaussian/Bernoulli consumer's empirical results.
+
 The methodological review below is retained as the historical baseline. A
 subsequent supplied archive, `TON_EXT_AUDIT_20261122_avIClI`, adds a report of
 local private-runtime inspection, arm-level outputs from a private-record

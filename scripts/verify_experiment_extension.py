@@ -43,6 +43,7 @@ def main() -> int:
         ("evidence_value_scoring", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "evidence_value/tests"), "-p", "test_*.py", "-v"]),
         ("hardware_plan_generation", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "hardware"), "-p", "test_*.py", "-v"]),
         ("exported_record_reconciliation_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "formal_record_reconciliation"), "-p", "test_*.py", "-v"]),
+        ("private_record_qualification_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "private_record_qualification/tests"), "-p", "test_*.py", "-v"]),
         ("supplied_record_exports", [sys.executable, str(EXTENSION / "formal_record_reconciliation/reconcile.py"), "verify-public"]),
         ("frozen_science_and_prior_reconstruction", [sys.executable, "scripts/verify_methodology_revision.py"]),
     ]
@@ -78,7 +79,7 @@ def main() -> int:
         "sources_unchanged_during_verification": stable,
         "source_sha256": before,
         "checks": checks,
-        "interpretation": "This verifies preparation/reconciliation tools, checks supplied path-free audit exports, and preserves prior public evidence. It does not reopen private source logs, run models or hardware, or establish detection gain or physical safety.",
+        "interpretation": "This verifies preparation/reconciliation tools and the repaired private-record checker on synthetic fixtures, checks supplied path-free audit exports, and preserves prior public evidence. It does not reopen private source logs, rescore the reported 896-row diagnostic, run models or hardware, or establish detection gain or physical safety.",
     }
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

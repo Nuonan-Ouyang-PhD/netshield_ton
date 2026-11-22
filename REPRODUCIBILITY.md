@@ -155,10 +155,35 @@ The supplied records reproduce 63,720 warm-up/measured/drain service rounds,
 58,320 measured events and 10,848 B of unallocated demanded service. Reported
 timely returns pool all six methods and three capacities. The model-interface
 diagnostic is neither a new physical campaign nor a held-out detection study.
-Archived cross-split feature overlap and unresolved capture/model-training
-lineage remain explicit eligibility gaps. The current paper incorporates
+At this stage, archived cross-split feature overlap and unresolved capture/model-training
+lineage remained explicit eligibility gaps. The paper incorporated
 these findings without replacing the frozen hardware results. See the
 [integration audit](submission/audit/FORMAL_RECORD_INTEGRATION.md).
+
+### Level 2c — Subsequent private follow-up and checker repair
+
+Commit `dc5269c` reports additional private deployment/window checks, a link
+from the portable model export to source models and training/validation file
+digests, a rounded whole-corpus overlap scan, and an offline 896-row content
+diagnostic. The rounded counts, diagnostic code, protocol text, runtime patch
+and narrative status are public. The underlying raw scan output, model and
+training provenance artifacts, diagnostic consumer and 2,688 prediction rows,
+and runtime comparison receipt are not included in the public checkout.
+
+The public review can recalculate the rounded fractions and inspect the
+algorithms; it cannot independently rescore the private diagnostic. All three
+representations were reported correct on the selected file prefixes, with
+zero observed full-minus-alert difference. Capture/episode independence and a
+qualified new test split remain unresolved. See
+[`FOLLOWUP_REVIEW.md`](supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
+
+The original private-record checker is retained under
+`experiment_extension/private_record_qualification/legacy/`.
+The active checker now rejects erroneous or incomplete recorded fields rather
+than returning success after merely counting errors. Its new tests use
+synthetic fixtures. A fresh execution on the retained private records is
+required before attributing a new qualification result to the repaired checker;
+the previous local result is not retroactively relabeled.
 
 ### Level 3 — Manuscript build
 

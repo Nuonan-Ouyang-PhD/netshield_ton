@@ -466,9 +466,10 @@ Test & 1,147,055 & Training or validation & 497,391 & 43.36\% \\
 \end{table}
 
 The raw corpus lists 18/6/7 source files in training/validation/test, but file
-membership alone does not establish independent capture sessions. Binding
-these splits to the deployed model's actual training inputs, qualifying
-capture or episode groups, and auditing near duplicates remain incomplete.
+membership alone does not establish independent capture sessions. A later
+local follow-up reports model-export and training/validation-file digest
+bindings and a rounded-signature scan (Section~\ref{sec:private_followup}).
+Independent parent captures and a qualified test split remain unresolved.
 Consequently, these data do not supply an independent estimate of a
 full-evidence accuracy gain. The overlap audit concerns detector evaluation;
 it does not change the accepted payload counts or return-time measurements.
@@ -778,7 +779,8 @@ source groups and paired outcomes from the specified representation and
 detector pipelines.
 
 \section{Private-record and archived-corpus follow-up}
-For all 216 accepted arms, each of the four runtime manifests matched the
+\label{sec:private_followup}
+A local follow-up reports that, for all 216 accepted arms, each of the four runtime manifests matched the
 archived package-tree digest, and each deployment record matched all three
 model weights. Each probe had all 295 window indices and all 90 measured
 origins. In all 63,720 rounds, the three reported caps equalled the configured

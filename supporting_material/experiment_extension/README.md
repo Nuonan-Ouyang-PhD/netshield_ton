@@ -6,6 +6,21 @@ and the complete Chinese [`CODEX_HANDOFF_CN.md`](CODEX_HANDOFF_CN.md).
 
 ## Current progress
 
+The latest local follow-up is recorded in [`FOLLOWUP_STATUS.md`](FOLLOWUP_STATUS.md)
+at `dc5269c`; the public review and subsequent checker repair are described in
+[`FOLLOWUP_REVIEW.md`](FOLLOWUP_REVIEW.md). The local report adds deployment and
+window checks, model-export/training-file provenance, rounded feature matching,
+and a 896-row descriptive content diagnostic. Those diagnostic outcomes do not
+establish an independent held-out effect. New physical arms remain zero.
+
+The repaired [`private-record checker`](private_record_qualification/README.md)
+has synthetic regression coverage and must be rerun on the private originals.
+Its predecessor is retained exactly; a repair is not a finding of corruption
+in the historical data. The earlier 216-arm exported reconciliation remains
+unchanged and does not automatically cover the new follow-up artifacts.
+
+### Earlier integration stage
+
 The subsequent [`FORMAL_RECORD_REVIEW.md`](FORMAL_RECORD_REVIEW.md) reports
 local archived-runtime inspection, primary window/event checks, raw-split
 feature overlap and a nine-input model-interface diagnostic. The
@@ -21,7 +36,8 @@ current evidence scope rather than treating every stage as unexecuted.
 The published methodological revision starts at
 `e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5` on review PR #3. Its 120 model
 runs, public selector reconstruction and CRFA export audit remain separate
-from the unexecuted content-value and physical extensions prepared here.
+from the descriptive diagnostic and still-incomplete qualified content-value
+and physical extensions prepared here.
 
 ## Tools that run without private inputs
 

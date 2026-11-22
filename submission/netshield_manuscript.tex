@@ -1143,8 +1143,9 @@ to the service metric. The dataset is CICIoT2023-derived
 ~\cite{neto2023ciciot}; the formal occurrence set excludes Recon-PortScan,
 and the archived raw splits contain exact feature matches for 19.09\% of
 validation rows against training and 43.36\% of test rows against training
-or validation. This audit does not reconstruct the deployed model's training
-inputs. Detector correctness remains a controlled replay condition;
+or validation. A later local provenance check links the portable export to
+source-model and training/validation file digests, without establishing
+independent parent captures. Detector correctness remains a controlled replay condition;
 independent generalization requires qualified capture lineage and held-out
 evaluation~\cite{sommer2010closedworld,yang2025openset}.
 
@@ -1231,8 +1232,9 @@ sizes. Full bundles add the features consumed by core inference. Thus the
 utility ordering in Table~\ref{tab:actions} is an engineering preference;
 the measured byte levels do not establish a detection-value hierarchy.
 A new interface diagnostic on nine archived observations verifies encoding
-and model execution only. In a separate offline diagnostic, all three new
-encoders yielded the correct binary decision on the same 896 archived rows.
+and model execution only. In a separate offline diagnostic, a common consumer
+returned the correct binary decision for all three new representations on
+the same 896 archived rows.
 Those rows are file prefixes from an overlapping split. Rounding each
 feature to three significant digits produced training or validation matches
 for 709,971 of 1,147,055 test rows. A matched ablation still needs representations
@@ -1359,7 +1361,7 @@ allocations are feasible and how closely physical service realizes them.
 
 % ============================================================
 % Native IEEEtran reference break for the current final-page pagination.
-\IEEEtriggeratref{17}
+\IEEEtriggeratref{15}
 \begin{thebibliography}{99}
 
 \bibitem{shisher2024timely}

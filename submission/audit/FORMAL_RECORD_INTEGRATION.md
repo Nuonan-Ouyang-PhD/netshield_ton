@@ -1,5 +1,13 @@
 # Formal-record and content-interface integration audit
 
+This report preserves the integration completed at `b0ec63b` from the earlier
+supplied archive. The then-prospective content protocol was subsequently
+reported executed as a descriptive diagnostic at `dc5269c`; the later evidence
+and checker repair are documented in
+[`FOLLOWUP_REVIEW.md`](../../supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
+Statements below about absent follow-up outcomes describe this earlier stage,
+not the current overall project status.
+
 ## Scope and audit stages
 
 This note integrates the supplied `TON_EXT_AUDIT_20261122_avIClI` archive with

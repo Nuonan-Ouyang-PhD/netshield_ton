@@ -21,6 +21,11 @@ IEEE Transactions on Networking manuscript.
   The primary window/event review, raw-split overlap and model-interface
   diagnostic are distinct from the still-unexecuted hardware and held-out
   content-value extensions.
+- Continue from the reported private follow-up at `dc5269c` with
+  [`FOLLOWUP_REVIEW.md`](supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
+  It separates the 896-row descriptive content diagnostic and rounded-overlap
+  scan from independent held-out efficacy, and documents the subsequent
+  private-record checker repair and its remaining local rerun requirement.
 
 ## Methodology correction
 
