@@ -1,5 +1,12 @@
 # PDF build and visual verification
 
+The follow-up PDFs were rebuilt with TeX Live 2026, three passes each.
+The current metadata records 14 and 33 pages, zero overfull boxes and
+zero unresolved references. The pages containing the follow-up counts
+(main p. 13 and supplement p. 33) were rendered and inspected.
+
+## Previous integration build
+
 Both current source documents were rebuilt successfully with the genuine
 IEEEtran class. The current PDFs in `submission/` correspond to the source hashes
 recorded in [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json).

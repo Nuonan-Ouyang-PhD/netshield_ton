@@ -28,9 +28,9 @@ controlled raw evidence of the 216-arm physical campaign. The path-free CRFA
 hardware result layer is published separately under
 `../supporting_material/crfa_hardware/`; private raw arms are not included.
 
-The current manuscript has 14 pages and the supplementary material has 32
+The current manuscript has 14 pages and the supplementary material has 33
 pages. The current methodology report supersedes the historical validation
 claims for the earlier delivery. Software upload completion and hardware
 core-result return now have explicit separate definitions; the supplement
 includes corrected allocator sensitivity, shared-service counterexamples,
-and an evidence-value protocol that remains unexecuted.
+and a file-prefix content diagnostic. Independent held-out efficacy is pending.

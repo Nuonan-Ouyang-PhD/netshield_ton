@@ -13,7 +13,7 @@
     "deployed_private_runtime_allocator_inspection": "LOCAL_REVIEW_REPORTS_AFFECTED_ARCHIVED_RUNTIME",
     "primary_campaign_primitive_ledger_reaudit": "PARTIAL_WINDOW_EVENT_REVIEW_COMPLETE_CHUNK_AND_INFLIGHT_PENDING",
     "actual_encoder_model_adapter_and_content_inventory": "HISTORICAL_CONTENT_REVIEW_AND_PILOT_INTERFACE_DIAGNOSTIC_COMPLETE_FORMAL_ADAPTER_PENDING",
-    "held_out_actual_content_value_ablation": "BLOCKED_SPLIT_OVERLAP_AND_UNRESOLVED_CAPTURE_MODEL_TRAINING_LINEAGE",
+    "held_out_actual_content_value_ablation": "BLOCKED_SPLIT_OVERLAP_AND_PARENT_CAPTURE_LINEAGE",
     "allocator_hardware_comparison": "APPLICABLE_BLOCKED_THREE_PROBE_QUALIFICATION",
     "causal_shared_stage_controller_calibration_and_hardware_comparison": "BLOCKED_THREE_PROBE_QUALIFICATION_AND_CAUSAL_CONTROLLER_CALIBRATION",
     "manuscript_integration_of_new_empirical_results": "RETAINED_RECORD_FINDINGS_INTEGRATED_NO_NEW_FORMAL_EXPERIMENT"
@@ -22,9 +22,10 @@
   "local_record_review_base": "75a29eda2105b926ab00699b138037e50b13eb9e",
   "prior_preparation_fixture_tests_passed": 35,
   "real_model_interface_diagnostic_reported": true,
-  "current_workspace_detector_model_execution": false,
+  "current_workspace_detector_model_execution": true,
+  "latest_private_followup": "FOLLOWUP_STATUS.md",
   "new_formal_detection_experiment_executed": false,
-  "reported_device_qualification": "At the supplied local review, P1 was reachable and historical P2/P3 names failed resolution. Device availability was not retested from this workspace.",
+  "reported_device_qualification": "P1 reachable at prior preflight. P2/P3 names failed resolution and configured historical interface addresses timed out in follow-up.",
   "current_preparation_and_reconciliation_fixture_tests_passed": 42,
   "retained_methodology_and_contention_tests_passed": 27,
   "current_submission_pages": {

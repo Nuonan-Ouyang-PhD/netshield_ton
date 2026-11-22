@@ -1231,7 +1231,11 @@ sizes. Full bundles add the features consumed by core inference. Thus the
 utility ordering in Table~\ref{tab:actions} is an engineering preference;
 the measured byte levels do not establish a detection-value hierarchy.
 A new interface diagnostic on nine archived observations verifies encoding
-and model execution only. A matched ablation still needs representations
+and model execution only. In a separate offline diagnostic, all three new
+encoders yielded the correct binary decision on the same 896 archived rows.
+Those rows are file prefixes from an overlapping split. Rounding each
+feature to three significant digits produced training or validation matches
+for 709,971 of 1,147,055 test rows. A matched ablation still needs representations
 from the same independent held-out episodes, a fixed downstream model and
 threshold, and measured outcomes alongside bytes and return latency. The
 Supplementary Evidence-Value Evaluation Protocol separates historical
