@@ -12,6 +12,9 @@ needed to read the submission PDFs.
   audit, independent ledger reconstruction and frozen-input identity checks.
 - `contention_validation/` — executed deterministic shared-service/stage-delay
   counterexamples with event/service records, plus an unexecuted detection-value protocol.
+- `experiment_extension/` — tested input discovery/freezing, paired binary-task
+  scoring and conditional physical-study planning, with a complete Codex
+  handoff; preparation and fixtures are not new research measurements.
 - `crfa_hardware/` — path-free CRFA hardware-extension summaries, event/service
   ledgers, timing reconstruction, protocol, failure provenance, and hashes.
 - `evidence_snapshot/` — machine-readable evidence and number provenance used

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "UNQUALIFIED_TEMPLATE_NOT_EVIDENCE",
+  "facts": {
+    "private_runtime_identity_verified": null,
+    "frozen_inputs_verified": null,
+    "launcher_and_anchors_frozen": null,
+    "window_counts_compatible": null,
+    "event_and_service_logging_verified": null,
+    "attempt_recording_verified": null,
+    "fresh_campaign_registry_checked": null,
+    "deployed_allocator_affected": null,
+    "allocator_only_patch_verified": null,
+    "actual_backlog_and_core_state_verified": null,
+    "calibration_disjoint_and_frozen": null,
+    "controller_causal_and_implemented": null,
+    "pilot_completed_and_formal_freeze_recorded": null,
+    "pilot_report_retained": null
+  },
+  "evidence": {
+    "runtime_inventory": {"path": null, "sha256": null},
+    "input_manifest": {"path": null, "sha256": null},
+    "launcher_anchor_review": {"path": null, "sha256": null},
+    "window_compatibility_review": {"path": null, "sha256": null},
+    "instrumentation_audit": {"path": null, "sha256": null},
+    "attempt_protocol": {"path": null, "sha256": null},
+    "campaign_registry_review": {"path": null, "sha256": null},
+    "deployed_allocator_inspection": {"path": null, "sha256": null},
+    "allocator_patch_audit": {"path": null, "sha256": null},
+    "backlog_core_fixture_audit": {"path": null, "sha256": null},
+    "calibration_freeze": {"path": null, "sha256": null},
+    "controller_source_and_causality_audit": {"path": null, "sha256": null},
+    "formal_freeze": {"path": null, "sha256": null},
+    "pilot_report": {"path": null, "sha256": null}
+  },
+  "notes": "Replace nulls only after checking actual private runtime and retained local evidence. A true fact without a readable artifact and matching SHA-256 does not qualify a run. Do not commit private paths, addresses, credentials or controlled data."
+}

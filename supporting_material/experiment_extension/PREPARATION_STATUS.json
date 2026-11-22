@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "methodology_revision_base": "e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5",
+  "overall_status": "OFFLINE_PREPARATION_COMPLETE_REAL_EXPERIMENTS_NOT_EXECUTED",
+  "validation_report": "OFFLINE_VERIFICATION.json",
+  "new_fixture_tests_passed": 35,
+  "existing_frozen_scientific_files_rechecked": 120,
+  "new_detector_model_execution": false,
+  "new_physical_hardware_execution": false,
+  "stages": {
+    "public_methodology_correction_and_export_reconstruction": "COMPLETED_AND_RECHECKED",
+    "asset_discovery_and_input_identity_tools": "VALIDATED_ON_SYNTHETIC_FIXTURES",
+    "matched_binary_evidence_value_scorer": "VALIDATED_ON_SYNTHETIC_FIXTURES",
+    "conditional_hardware_plan_generator": "VALIDATED_ON_SYNTHETIC_FIXTURES",
+    "deployed_private_runtime_allocator_inspection": "PENDING_LOCAL_PRIVATE_INPUTS",
+    "primary_campaign_primitive_ledger_reaudit": "PENDING_EXISTING_PRIVATE_RECORDS",
+    "actual_encoder_model_adapter_and_content_inventory": "PENDING_LOCAL_PRIVATE_INPUTS",
+    "held_out_actual_content_value_ablation": "NOT_EXECUTED",
+    "allocator_hardware_comparison": "CONDITIONAL_NOT_EXECUTED",
+    "causal_shared_stage_controller_calibration_and_hardware_comparison": "CONDITIONAL_NOT_EXECUTED",
+    "manuscript_integration_of_new_empirical_results": "PENDING_REAL_RESULTS"
+  },
+  "scope": "Preparation tools and a complete handoff are delivered. Passing fixtures and matching hashes do not establish model execution, dataset independence, physical timing, or safety. Only the public checkout was available for source discovery in this workspace."
+}

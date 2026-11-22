@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "DRAFT_NOT_FROZEN",
+  "study": null,
+  "campaign_id": null,
+  "formal_blocks": null,
+  "order_seed": null,
+  "include_mid_control": null,
+  "protocol_sha256": null,
+  "planner_source_sha256": null,
+  "raw_schema_sha256": null,
+  "condition_order_sha256": null,
+  "sample_size_rule_sha256": null,
+  "pilot_campaign_id": null,
+  "pilot_report_sha256": null,
+  "qualification_evidence_sha256": {},
+  "notes": "After real prerequisites and the independent pilot are complete, bind exact fields from the prospective formal plan and every required verified qualification artifact except this receipt itself. Set status FROZEN_FOR_FORMAL_EXECUTION only when the external campaign registry records this receipt before any formal run. This is not a successful qualification or an execution record."
+}

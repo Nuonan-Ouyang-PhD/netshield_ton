@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "UNFROZEN_TEMPLATE_NOT_A_SAMPLE_SIZE_DECISION",
+  "study": null,
+  "rule": "fixed_complete_blocks",
+  "formal_blocks": null,
+  "rationale": null,
+  "pilot_campaign_id": null,
+  "pilot_report_sha256": null,
+  "formal_outcome_peeking_for_stopping": false,
+  "independent_unit": "fresh_physical_complete_condition_block",
+  "notes": "Choose formal_blocks and document the precision/feasibility rationale from a separate pilot before viewing formal outcomes. This template has no default n. A scheduling seed is not an independent scientific replicate."
+}

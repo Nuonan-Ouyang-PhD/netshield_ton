@@ -13,6 +13,9 @@ IEEE Transactions on Networking manuscript.
   [`METHODOLOGY_REVIEW_CN.md`](METHODOLOGY_REVIEW_CN.md)
 - Follow the current source-to-evidence mapping:
   [`submission/audit/CODE_EVIDENCE_ALIGNMENT.md`](submission/audit/CODE_EVIDENCE_ALIGNMENT.md)
+- Continue the targeted experiment extension with the complete
+  [`Codex handoff`](supporting_material/experiment_extension/CODEX_HANDOFF_CN.md)
+  and [`offline preparation tools`](supporting_material/experiment_extension/README.md).
 
 ## Methodology correction
 
