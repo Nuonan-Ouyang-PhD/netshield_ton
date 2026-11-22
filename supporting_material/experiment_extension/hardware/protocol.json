@@ -38,9 +38,11 @@
     "primary_backlog_stratum": "first_measured_generation_batch",
     "secondary_stratum": "all_measured_generation_batches",
     "policies": ["isolated_precheck_new_bytes", "backlog_aware_bytes", "causal_shared_stage"],
-    "calibration_capture_batches": [["P1"], ["P2"], ["P3"], ["P1", "P2", "P3"]],
+    "calibration_capture_batches": [[], ["P1"], ["P2"], ["P3"], ["P1", "P2"], ["P1", "P3"], ["P2", "P3"], ["P1", "P2", "P3"]],
+    "calibration_design_revision": 2,
+    "calibration_request_semantics": "All three probes generate real requests in every condition; stage_capture_devices selects forced H_FULL recipients and every other probe takes its real H_NONE fallback. The empty subset retains three generated events.",
     "calibration_policy": "instrumented_fixed_full_capture",
-    "controller_status": "NOT_IMPLEMENTED_PRIVATE_RUNTIME_AND_DISJOINT_CALIBRATION_REQUIRED",
+    "controller_status": "PUBLIC_CANDIDATE_AND_PRIVATE_RUNTIME_HOOKS_PRESENT_CURRENT_RUNTIME_QUALIFICATION_AND_DISJOINT_PHYSICAL_CALIBRATION_REQUIRED",
     "formal_latency_inputs": "Frozen from independent calibration/pilot; no future test completion times or same-model oracle values.",
     "claim_boundary": "Diagnostic admission mechanisms, not a rerun of summary-preserving S-CQPG; modeled or empirical latency estimates are not hard physical safety bounds."
   },

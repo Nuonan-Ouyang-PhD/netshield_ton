@@ -83,6 +83,13 @@ simply because a freshly compiled PDF differs. Supplied binary checksums apply
 to the delivered binaries; current source/PDF correspondence is recorded by the
 new build metadata.
 
+When publishing a rebuilt candidate, copy that fresh build directory's
+`build_metadata.json` to `submission/audit/PDF_BUILD_METADATA.json`, update
+the existing entries in `submission/SHA256SUMS.txt` from the actual current
+files, and run `scripts/verify_methodology_revision.py` as well. Retain the
+fresh logs and visual review. Do not leave a new PDF paired with a previous
+build's metadata.
+
 ## Inspect the result
 
 ```bash

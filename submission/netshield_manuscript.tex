@@ -1143,9 +1143,11 @@ to the service metric. The dataset is CICIoT2023-derived
 ~\cite{neto2023ciciot}; the formal occurrence set excludes Recon-PortScan,
 and the archived raw splits contain exact feature matches for 19.09\% of
 validation rows against training and 43.36\% of test rows against training
-or validation. A later local provenance check links the portable export to
-source-model and training/validation file digests, without establishing
-independent parent captures. Detector correctness remains a controlled replay condition;
+or validation. Later provenance checks link the portable export to
+source-model and training/validation digests and match all 5,141,673 frozen
+rows to 31 unlabelled per-PCAP feature CSVs by source group and row number.
+The parent acquisition relationships among PCAP segments remain unresolved.
+Detector correctness remains a controlled replay condition;
 independent generalization requires qualified capture lineage and held-out
 evaluation~\cite{sommer2010closedworld,yang2025openset}.
 
@@ -1291,9 +1293,9 @@ rejects an action that is independently feasible under the shared network
 budget. The safety filter is therefore an implementation/audit interface in
 this paper, not an independently proven performance layer.
 Its isolated latency estimate also omits multi-probe contention and backlog;
-a shared-service feasibility screen needs both and must be validated with
-processing and return-time measurements before making a physical deadline
-claim.
+the artifact supplies a separate RC1 shared-stage candidate with queue and
+remaining-deadline inputs. Its software checks are distinct from the pending
+independent calibration and physical evaluation of processing and return time.
 
 \textbf{Evidence value.}
 The experiment measures coverage, richness, byte demand, and timeliness, not
@@ -1361,7 +1363,7 @@ allocations are feasible and how closely physical service realizes them.
 
 % ============================================================
 % Native IEEEtran reference break for the current final-page pagination.
-\IEEEtriggeratref{15}
+\IEEEtriggeratref{14}
 \begin{thebibliography}{99}
 
 \bibitem{shisher2024timely}

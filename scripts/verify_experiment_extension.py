@@ -25,8 +25,9 @@ def digest(path: Path) -> str:
 
 def source_identities() -> dict:
     paths = sorted(EXTENSION.rglob("*.py")) + [Path(__file__)]
-    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation", EXTENSION / "retained_review"):
+    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation", EXTENSION / "retained_review", EXTENSION / "stage_adapter", EXTENSION / "source_lineage"):
         paths.extend(sorted(directory.rglob("*.json")))
+    paths.append(EXTENSION / "SOURCE_ROW_TRACE.json")
     return {path.relative_to(ROOT).as_posix(): digest(path) for path in paths}
 
 
@@ -45,6 +46,9 @@ def main() -> int:
         ("exported_record_reconciliation_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "formal_record_reconciliation"), "-p", "test_*.py", "-v"]),
         ("private_record_qualification_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "private_record_qualification/tests"), "-p", "test_*.py", "-v"]),
         ("retained_review_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "retained_review"), "-p", "test_*.py", "-v"]),
+        ("source_lineage_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "source_lineage"), "-p", "test_*.py", "-v"]),
+        ("stage_candidate_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "stage_adapter/tests"), "-p", "test_*.py", "-v"]),
+        ("public_source_row_trace", [sys.executable, str(EXTENSION / "source_lineage/prepare_capture_split.py"), "verify-public"]),
         ("retained_review_public_summary", [sys.executable, str(EXTENSION / "retained_review/verify_export.py")]),
         ("supplied_record_exports", [sys.executable, str(EXTENSION / "formal_record_reconciliation/reconcile.py"), "verify-public"]),
         ("frozen_science_and_prior_reconstruction", [sys.executable, "scripts/verify_methodology_revision.py"]),
@@ -55,7 +59,7 @@ def main() -> int:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
         matches = re.findall(r"Ran (\d+) tests?", result.stderr)
         tests = sum(int(value) for value in matches)
-        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports", "retained_review_public_summary"})
+        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports", "retained_review_public_summary", "public_source_row_trace"})
         checks.append({
             "name": name,
             "status": "PASS" if passed else "FAIL",
@@ -81,7 +85,7 @@ def main() -> int:
         "sources_unchanged_during_verification": stable,
         "source_sha256": before,
         "checks": checks,
-        "interpretation": "This verifies preparation/reconciliation tools and the repaired private-record checker on synthetic fixtures, checks supplied path-free audit exports, and preserves prior public evidence. It does not reopen private source logs, rescore the reported 896-row diagnostic, run models or hardware, or establish detection gain or physical safety.",
+        "interpretation": "This verifies preparation/reconciliation, lineage-input and stage-candidate tools on synthetic fixtures, checks supplied path-free audit exports and the public source-row trace counts, and preserves prior scientific evidence. It does not reopen private logs or the 5,141,673 source rows, reexecute the private stage runtime, rescore the 896-row diagnostic, run models or hardware, or establish detection gain or physical safety.",
     }
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

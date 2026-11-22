@@ -36,7 +36,7 @@ class HardwarePlanTests(unittest.TestCase):
         self.assertEqual(len(planner.conditions_for(self.protocol, "allocator", "pilot", False)), 2)
         self.assertEqual(len(planner.conditions_for(self.protocol, "allocator", "pilot", True)), 4)
         self.assertEqual(len(planner.conditions_for(self.protocol, "shared_stage", "pilot", False)), 6)
-        self.assertEqual(len(planner.conditions_for(self.protocol, "shared_stage", "calibration", False)), 8)
+        self.assertEqual(len(planner.conditions_for(self.protocol, "shared_stage", "calibration", False)), 16)
         for mutation in ("float_capacity", "wrong_backlog", "wrong_window_count"):
             with self.subTest(mutation=mutation):
                 protocol = copy.deepcopy(self.protocol)
@@ -54,7 +54,7 @@ class HardwarePlanTests(unittest.TestCase):
             self.draft(campaign_id="NSF12_CRFA_20260913")
 
     def test_complete_crossover_cycles_balance_every_position_and_directed_pair(self):
-        for size in (2, 4, 6, 8):
+        for size in (2, 4, 6, 16):
             with self.subTest(size=size):
                 names = [f"C{i}" for i in range(size)]
                 conditions = [{"condition_id": name} for name in names]
@@ -66,6 +66,26 @@ class HardwarePlanTests(unittest.TestCase):
                     self.assertEqual(Counter(order[position] for order in schedules), Counter({name: 2 for name in names}))
                 pairs = Counter(pair for order in schedules for pair in zip(order, order[1:]))
                 self.assertEqual(pairs, Counter({(a, b): 2 for a in names for b in names if a != b}))
+
+    def test_calibration_covers_every_selection_without_dropping_fallback_probes(self):
+        conditions = planner.conditions_for(self.protocol, "shared_stage", "calibration", False)
+        expected = {(), ("P1",), ("P2",), ("P3",), ("P1", "P2"),
+                    ("P1", "P3"), ("P2", "P3"), ("P1", "P2", "P3")}
+        self.assertEqual(len({row["condition_id"] for row in conditions}), 16)
+        for backlog in (0, 131072):
+            rows = [row for row in conditions if row["backlog_bytes"] == backlog]
+            self.assertEqual({tuple(row["stage_capture_devices"]) for row in rows}, expected)
+            self.assertTrue(all(row["candidate_probes"] == ["P1", "P2", "P3"] for row in rows))
+        plan, order, _ = self.draft(phase="calibration")
+        self.assertEqual(len(order), 16)
+        self.assertTrue(all(row["planned_new_measured_occurrences"] == 270 for row in order))
+        self.assertEqual(sorted(row["planned_forced_full_requests"] for row in order),
+                         sorted([0, 90, 90, 90, 180, 180, 180, 270] * 2))
+        self.assertEqual(plan["physical_arms_executed"], 0)
+        incomplete = copy.deepcopy(self.protocol)
+        incomplete["shared_stage"]["calibration_capture_batches"].remove(["P1", "P2"])
+        with self.assertRaises(planner.PlanError):
+            planner.validate_protocol(incomplete)
 
     def test_partial_cycles_report_partial_balance_without_inventing_replicates(self):
         plan, order, qualification = self.draft(blocks=5)

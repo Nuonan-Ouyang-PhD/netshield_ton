@@ -469,6 +469,8 @@ The raw corpus lists 18/6/7 source files in training/validation/test, but file
 membership alone does not establish independent capture sessions. A later
 local follow-up reports model-export and training/validation-file digest
 bindings and a rounded-signature scan (Section~\ref{sec:private_followup}).
+The source-row trace below identifies the original CSV and row for every
+frozen sample (Section~\ref{sec:source_row_stage}).
 Independent parent captures and a qualified test split remain unresolved.
 Consequently, these data do not supply an independent estimate of a
 full-evidence accuracy gain. The overlap audit concerns detector evaluation;
@@ -811,5 +813,34 @@ distinct feature vectors, and 863 distinct rounded vectors. Among these
 896 rows, 366 matched the training or validation set exactly and 544
 matched under rounding. All three predictions were present for every row.
 Parent-capture independence and transport timing remain unqualified.
+
+\subsection{Source-Row Trace and Shared-Stage Implementation Status}
+\label{sec:source_row_stage}
+The subsequent local trace matches all 39 ordered feature values for
+5,141,673 frozen rows to 31 original unlabelled per-PCAP feature CSVs.
+The 18/6/7 training/validation/test source groups contain
+2,998,132/996,486/1,147,055 rows. The retained export binds each original
+CSV digest to its labelled counterpart and matched-row count. These are
+source coordinates; the acquisition identities and boundaries that relate
+numbered PCAP segments to their parent recordings remain unresolved.
+Distinct CSV identities therefore cannot by themselves establish independent
+episodes.
+
+A separate RC1 runtime adapter supplies a prospective shared-stage policy.
+The initial local receipt records nine synthetic coordinator
+\texttt{submit/decide} cases and one direct admission-function check.
+Its source and receipt are retained separately from later input-validation
+and calibration-scope revisions. These checks exercise implementation logic,
+not measured service times. The candidate considers existing FIFO work and
+rechecks earlier reservations whenever another request is added.
+
+The revised prospective calibration crosses all eight selected-probe subsets
+(including the empty subset) with backlog 0/$B$, giving 16 conditions.
+All three probes generate requests in every condition and nonselected probes
+execute the actual H-NONE fallback. Per-condition profiles require disjoint
+physical measurements; uncovered states cannot inherit assumed timing values.
+The pilot/formal comparison remains the three admission policies crossed
+with two initial backlog levels. No new physical arm, calibrated deadline
+guarantee or independent content-value outcome is supplied by this adapter.
 
 \end{document}

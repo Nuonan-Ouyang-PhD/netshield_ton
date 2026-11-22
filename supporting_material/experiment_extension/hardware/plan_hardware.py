@@ -85,7 +85,10 @@ def validate_protocol(protocol: dict) -> None:
             "initial core executing/complete-job queues must be empty and verified")
     require(type(shared["initial_core_executing_jobs"]) is type(shared["initial_core_queued_complete_jobs"]) is int,
             "initial core counts must be integers")
-    require(shared.get("calibration_capture_batches") == [["P1"], ["P2"], ["P3"], ["P1", "P2", "P3"]], "stage-capture population changed")
+    require(shared.get("calibration_capture_batches") ==
+            [[], ["P1"], ["P2"], ["P3"], ["P1", "P2"], ["P1", "P3"], ["P2", "P3"], ["P1", "P2", "P3"]],
+            "stage calibration must cover every selected subset, including fallback-only and pairs")
+    require(shared.get("calibration_design_revision") == 2, "stage calibration design revision")
     require(protocol.get("execution", {}).get("planner_executes_hardware") is False, "planner must never execute hardware")
 
 
@@ -113,17 +116,21 @@ def conditions_for(protocol: dict, study: str, phase: str, include_mid_control: 
             policies = [shared["calibration_policy"]] if phase == "calibration" else shared["policies"]
             for population in populations:
                 for policy in policies:
-                    conditions.append({
-                        "condition_id": f"B{backlog}_{'_'.join(population)}_{policy}",
+                    condition = {
+                        "condition_id": f"B{backlog}_{'_'.join(population) or 'NONE'}_{policy}",
                         "capacity": "mid", "capacity_bytes_per_round": 262144,
                         "allocator_variant": "frozen_audited_shared_service", "policy": policy,
-                        "candidate_probes": population, "requested_action": "H_FULL",
+                        "candidate_probes": shared["candidate_probes"], "requested_action": "H_FULL",
                         "unselected_action": "H_NONE", "backlog_fixture": "one_time_first_measured_batch",
                         "backlog_bytes": backlog, "backlog_by_probe_bytes": shared["backlog_by_probe_bytes"][str(backlog)],
                         "initial_core_executing_jobs": 0, "initial_core_queued_complete_jobs": 0,
                         "primary_stratum": shared["primary_backlog_stratum"],
                         "secondary_stratum": shared["secondary_stratum"],
-                    })
+                    }
+                    if phase == "calibration":
+                        condition["stage_capture_devices"] = population
+                        condition["capture_scope"] = "forced_selected_subset_with_three_real_requests_and_unselected_fallbacks"
+                    conditions.append(condition)
     return conditions
 
 
@@ -342,8 +349,10 @@ def make_plan(protocol_path: Path, *, study: str, phase: str, blocks: int, order
                     "capacity": condition["capacity"], "capacity_bytes_per_round": condition["capacity_bytes_per_round"],
                     "policy": condition["policy"], "allocator_variant": condition["allocator_variant"],
                     "candidate_probes": ",".join(condition["candidate_probes"]),
+                    "stage_capture_devices": ",".join(condition.get("stage_capture_devices", [])) if phase == "calibration" else "not_applicable",
                     "warmup_rounds": protocol["warmup_rounds"], "measured_rounds": protocol["measured_rounds"],
                     "planned_new_measured_occurrences": len(condition["candidate_probes"]) * protocol["measured_rounds"],
+                    "planned_forced_full_requests": len(condition["stage_capture_devices"]) * protocol["measured_rounds"] if phase == "calibration" else "policy_decides",
                     "initial_backlog_bytes": condition.get("backlog_bytes", "frozen_runtime_initialization"),
                     "primary_stratum": condition["primary_stratum"], "order_seed": order_seed,
                 })

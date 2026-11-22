@@ -14,19 +14,19 @@ IEEE Transactions on Networking manuscript.
 - Follow the current source-to-evidence mapping:
   [`submission/audit/CODE_EVIDENCE_ALIGNMENT.md`](submission/audit/CODE_EVIDENCE_ALIGNMENT.md)
 - Continue the targeted experiment extension with the complete
-  [`Codex handoff`](supporting_material/experiment_extension/CODEX_HANDOFF_CN.md)
+  [`one-pass Codex execution instructions`](supporting_material/experiment_extension/COMPLETE_LOCAL_EXECUTION_CN.md)
   and [`offline preparation tools`](supporting_material/experiment_extension/README.md).
 - Review the subsequent retained-record findings and their integration in
   [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
   The primary window/event review, raw-split overlap and model-interface
   diagnostic are distinct from the still-unexecuted hardware and held-out
   content-value extensions.
-- Continue from the private rerun and diagnostic reconciliation at `9cc64ed`
-  with the [current public review](supporting_material/experiment_extension/retained_review/PUBLIC_REVIEW.md)
-  and [retained counts and input hashes](supporting_material/experiment_extension/retained_review/).
-  The repaired checker rerun and 896-row reconciliation are complete within
-  their stated scope. Independent held-out efficacy and new physical
-  comparisons remain dependent on acquisition lineage and testbed access.
+- Read the [consolidated completion status](supporting_material/experiment_extension/COMPLETION_STATUS_CN.md).
+  The repaired private rerun, 896-row reconciliation and full source-row trace
+  are completed within their stated scopes. The shared-stage candidate and
+  per-condition calibration tooling are supplied. Independent held-out
+  efficacy and physical comparisons still require real acquisition evidence,
+  qualified independent inputs and testbed access.
 
 ## Methodology correction
 

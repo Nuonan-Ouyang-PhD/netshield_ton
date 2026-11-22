@@ -1,13 +1,65 @@
 # PDF build and visual verification
 
-The subset-overlap update uses pdfTeX 1.40.29 (TeX Live 2026), three
-passes per document. The main and supplementary PDFs have 14 and 33 pages.
-Current source and PDF digests are in PDF_BUILD_METADATA.json. Both final
-logs passed the build checks for unresolved references and overfull boxes.
+## Current consolidated source-row and stage-candidate integration
 
-## Previous build: follow-up wording alignment, 2026-11-22
+Starting revision: 72cc05df530727a48f89f4ed99b05da1c4c3fbe0. Both current
+source documents were rebuilt with scripts/build_submission.sh, using the
+genuine IEEEtran class and three successful pdfLaTeX passes per document.
+The real engine was pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian);
+shell escape was disabled. The repository metadata and both PDFs are
+byte-identical to this fresh build's outputs.
 
-These are the current outputs of the actual three-pass rebuild after aligning
+| Document | Pages | Source SHA-256 | PDF SHA-256 |
+|---|---:|---|---|
+| Main | 14 | c272cd883428e244fdb1f289838c9c74c93ed9c0f2ef367b901cf69ed43e768b | bb361cc2779cd93f1a23214b6b1f458965da310fef96ad6048198bd695d9dae9 |
+| Supplement | 34 | 46e73c0ccf71d0f290167f64f89d5c5bbe79118bd73947d1da9b97c01b9f4be1 | 7e6b49e32b70590f577d37c6978801e882f764d2c82fee1481277dfb98907e80 |
+
+Both final logs and all six pass outputs were read. There were zero overfull
+boxes, missing-character messages or unresolved references/citations. The
+12 main and 13 supplementary input sets independently reconstructed from the
+fresh .fls records match the current files and
+[PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json). The actual IEEEtran class
+SHA-256 remains da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7.
+Nonfatal notices remain recorded in the metadata.
+
+### Current visual coverage
+
+All 48 pages were rendered with Poppler at 150 dpi and actually reviewed in
+six contact sheets. Main pages 12, 13 and 14 and supplementary page 34 were
+also inspected at full resolution. These cover the new source-row trace,
+shared-stage implementation scope, prospective calibration description and
+bibliography pagination. The final main-paper reference break is at item 14:
+items 1–13 and 14–35 occupy the two columns on page 14, with all 35 entries
+complete. The supplement's added section occupies page 34.
+
+No clipping, overlap, missing glyphs or out-of-page content blocks were
+observed; rotation-aware bounds checks covered all 48 pages. The first build
+showed that the previous manual reference break would add an unnecessary
+15th main page. The final three-pass rebuild and visual review use the
+corrected reference break above. No scientific result or figure was changed
+to compress the document.
+
+This is document integration and actual build/visual QA. It does not add a
+physical arm, a private-model run, or an independent held-out outcome.
+
+## Historical supplied subset-overlap build: 9cc64ed
+
+The supplied TeX Live 2026 / pdfTeX 1.40.29 artifacts had 14 main and 33
+supplementary pages. Their PDF identities were
+77f7ac03b8934a1c128e98f89504f32a318ff6eb55de9a29dda434161ad2309a
+and 04cc6a5d87f6faad0ca2222b891a48934ee98849be00a0be164fc91dc232204e.
+The public review at a936fe8 checked those input/source/output identities
+and rendered all 47 pages; it did not independently obtain that private
+build's fresh compiler logs. That review is retained in
+[PUBLIC_REVIEW.md](../../supporting_material/experiment_extension/retained_review/PUBLIC_REVIEW.md).
+It is separate from the current fresh build and 48-page visual inspection.
+
+The historical sections below describe their own identified artifacts.
+Their past checks do not substitute for the current build and inspection.
+
+## Historical build: follow-up wording alignment at b8a978b
+
+These were the outputs of the actual three-pass rebuild at b8a978b after aligning
 the manuscript's provenance and content-diagnostic descriptions with the later
 local follow-up. The build used `scripts/build_submission.sh`; its fresh logs
 identify `pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)`.
@@ -19,9 +71,9 @@ identify `pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)`.
 
 ### Actual build and input verification
 
-Both repository PDFs are byte-identical to the fresh build outputs. The
-repository [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json) is also
-byte-identical to that build's metadata. The current source hashes are
+The PDFs at b8a978b were byte-identical to that build's fresh outputs. Its
+[metadata](https://github.com/Nuonan-Ouyang-PhD/netshield_ton/blob/b8a978bd7606657e157c1eb3394ddf32d5ff912e/submission/audit/PDF_BUILD_METADATA.json)
+was likewise byte-identical. The source hashes at that revision were
 `caabe1f4fb7d994ffac29c4c7cd725f4228c9842d75e052827b0fae54c2da5e4`
 (main) and
 `6ada3d4ba81e05a496e91eefb52363607a0d3f47ec377d427c2ef1d6f0875580`
@@ -30,7 +82,7 @@ byte-identical to that build's metadata. The current source hashes are
 The verification read both fresh `.fls` recorder files, both final compiler
 logs, and all six pass-output files. The recorder-derived sets of 12 main and
 13 supplementary repository inputs and every input hash match the metadata
-and current files. The actual IEEEtran class loaded by the compiler has
+and that revision's files. The actual IEEEtran class loaded by the compiler has
 SHA-256 `da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7`.
 Each of the three passes per document completed successfully. Shell escape
 was disabled. Both final logs contain zero fatal errors, missing-character
@@ -39,7 +91,7 @@ nonfatal font-shape, bookmark, float and shell-escape notices are recorded in
 the metadata; the zero-overfull result is not a claim that every warning was
 removed.
 
-### Visual verification of the current outputs
+### Visual verification of the b8a978b outputs
 
 All 47 pages of the wording-alignment candidate were rendered with Poppler at
 150 dpi and reviewed in six contact sheets. Main pages 12, 13 and 14 and
@@ -60,7 +112,7 @@ page has a fresh visual check. No clipping, overlapping text, cropped table,
 missing glyph, or broken reference flow was observed. Fresh rotation-aware
 checks found zero content blocks outside any of the 47 final page boundaries.
 
-The current verification concerns document compilation and presentation. It
+That verification concerned document compilation and presentation. It
 does not constitute a new hardware experiment, detector-efficacy result, or
 independent reopening of private raw records. The two earlier reviews below
 are retained with their own artifact identities and do not substitute for this

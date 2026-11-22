@@ -2,13 +2,29 @@
 
 ## Audit stages and current interpretation
 
-The latest follow-up is reviewed in
-[`FOLLOWUP_REVIEW.md`](../../supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
-It covers the reported `dc5269c` private-record qualification, model-training
-provenance work, rounded overlap and 896-row content diagnostic, followed by
-a separately tested checker repair. The nine-observation stage below remains
-a historical record; its construction-based agreement explanation does not
-apply to the later Gaussian/Bernoulli consumer's empirical results.
+The current consolidated status is
+[`COMPLETION_STATUS_CN.md`](../../supporting_material/experiment_extension/COMPLETION_STATUS_CN.md).
+The repaired private rerun and retained 896-row reconciliation are complete
+within their stated scope. The subsequent source-row trace and shared-stage
+candidate are distinguished from the still-unexecuted physical and qualified
+held-out studies. Earlier `FOLLOWUP_REVIEW.md` and the nine-observation stage
+below remain historical records; the nine-input construction-based agreement
+explanation does not apply to the later Gaussian/Bernoulli consumer's
+empirical diagnostic results.
+
+| Current artifact | Completed work | Remaining scope |
+|---|---|---|
+| [Retained review](../../supporting_material/experiment_extension/retained_review/) | Repaired checker execution receipt and 896-row preservation/pairing/subset reconciliation | Recorded-field scope; no newly acquired hardware or independent efficacy estimate |
+| [Source row trace](../../supporting_material/experiment_extension/SOURCE_ROW_TRACE.json) | Reported local matching of 5,141,673 rows to 31 original CSVs; public totals agree with 18/6/7 source groups and previous split denominators | Private rows are not republished; CSV/row coordinates do not identify independent parent acquisitions |
+| [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Initial private synthetic adapter receipt, current candidate source, calibration builder and public regression coverage | Current private runtime qualification, physical calibration, pilot and formal comparison remain required |
+| [Capture mapping preparation](../../supporting_material/experiment_extension/source_lineage/README.md) | Executable mapping/evidence/split consistency checks | Actual parent evidence, sufficient independent groups, feature qualification and model fitting remain required |
+
+The main paper reports the completed row trace, and the supplement separates
+the initial nine coordinator-path checks plus one direct-function check from
+later candidate revisions. The prospective calibration now covers all eight
+forced-full subsets crossed with backlog 0/B while retaining three real
+requests and H-NONE fallbacks per condition. Pilot/formal still compare six
+policy/backlog conditions. No physical outcome is inferred from this design.
 
 The methodological review below is retained as the historical baseline. A
 subsequent supplied archive, `TON_EXT_AUDIT_20261122_avIClI`, adds a report of

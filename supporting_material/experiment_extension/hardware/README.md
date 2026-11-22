@@ -3,8 +3,11 @@
 **Status: no physical experiment has been executed by this package.** The
 planner writes `PLANNED_NOT_EXECUTED`, an order table, prerequisite checks and
 hashes. It has no SSH, network, deployment or hardware-running functionality.
-The private runtime, source/model/input bundle, physical stage measurements
-and deployable shared-stage controller are not supplied here.
+The private runtime, source/model/input bundle and physical stage measurements
+are not supplied here. The [shared-stage candidate and runtime hooks](../stage_adapter/README.md)
+are supplied; the current version still needs qualification against the actual
+private runtime, independent physical calibration and a pilot. Follow the
+[complete local execution instructions](../COMPLETE_LOCAL_EXECUTION_CN.md).
 
 These are separate supplemental campaigns. Do not overwrite the accepted
 216-arm primary campaign, 36-arm CRFA extension, their raw archives, or their
@@ -79,10 +82,10 @@ the plan.
 
 ## A. Conditional allocator regression
 
-First inspect the **deployed private runtime**, its actual allocator call
-sites and the exact build used on the probes/core. The public historical
-offline simulator's integer remainder bug does not by itself prove that the
-physical runtime is affected.
+The retained review already confirms the affected archived RC1 allocator and
+preserves original/corrected receipts. Reuse those records when the exact
+runtime identity matches; requalify a materially changed deployment. The
+public historical offline simulator alone would not establish this fact.
 
 If the deployed allocator is unaffected, retain the inspected source hash
 and regression evidence. Set `deployed_allocator_affected=false` only in a
@@ -176,12 +179,23 @@ is measured, not reset to make the result cleaner.
 ### Separate stage calibration
 
 `--study shared_stage --phase calibration` creates a distinct stage-capture
-grid: one candidate on P1, P2 or P3, or candidates on all three, each with
-backlog 0/B. These **eight capture conditions** characterize single-probe and
-shared behavior; they are not eight controller comparisons. They use an
-instrumented fixed-full capture path, so calibration does not require the
-new controller to be already implemented. No timely-result acceptance gate
-is used to select calibration observations.
+grid: every subset of forced H-FULL recipients (empty, the three singletons,
+the three pairs, and all three), each with backlog 0/B. These **16 capture
+conditions** cover fallback-only, single, pair and full-batch behavior.
+All three probes generate real requests in every condition. The separate
+`stage_capture_devices` field chooses H-FULL recipients; every other probe
+executes its real H-NONE fallback. Thus even an empty selected subset has
+270 generated measured events per arm, with zero forced-full requests.
+`condition_order.csv` records both counts. Calibration uses the instrumented
+capture path and is separate from the six pilot/formal controller comparisons.
+No timely-result acceptance gate is used to select calibration observations.
+
+This prospective revision replaces the earlier eight-condition draft before
+any physical calibration was executed. It closes the missing pair/fallback
+coverage; the initial adapter's synthetic receipt is retained as history.
+Use the current adapter's profile builder to bind per-condition observations,
+scope and source identities. Unmeasured combinations cannot be certified by
+copying a value from a different subset.
 
 This is a proposed capture matrix, not proof that calibration is sufficient
 or a requirement to treat every batch as an independent sample. Choose its
@@ -199,7 +213,7 @@ not be deployed under a claim of validated physical safety.
 
 The planner uses an even-order Williams crossover design. It randomizes the
 condition relabeling and row order within each design cycle, keeping each
-condition exactly once per block. For complete cycles of 2, 4, 6 or 8 blocks
+condition exactly once per block. For complete cycles of 2, 4, 6 or 16 blocks
 (matching the number of conditions), every condition occupies each order
 position equally often and every directed adjacent pair appears equally
 often **within blocks**.

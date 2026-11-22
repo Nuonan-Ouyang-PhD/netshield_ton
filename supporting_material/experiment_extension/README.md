@@ -2,22 +2,24 @@
 
 This directory prepares the next **real** experiments without manufacturing
 new hardware or detection results. Start with [`PROTOCOL.md`](PROTOCOL.md)
-and the complete Chinese [`CODEX_HANDOFF_CN.md`](CODEX_HANDOFF_CN.md).
+and the single complete Chinese
+[`COMPLETE_LOCAL_EXECUTION_CN.md`](COMPLETE_LOCAL_EXECUTION_CN.md).
 
 ## Current progress
 
-The latest local follow-up is recorded in [`FOLLOWUP_STATUS.md`](FOLLOWUP_STATUS.md)
-at `dc5269c`; the public review and subsequent checker repair are described in
-[`FOLLOWUP_REVIEW.md`](FOLLOWUP_REVIEW.md). The local report adds deployment and
-window checks, model-export/training-file provenance, rounded feature matching,
-and a 896-row descriptive content diagnostic. Those diagnostic outcomes do not
-establish an independent held-out effect. New physical arms remain zero.
+The private rerun and 896-row reconciliation were completed at `9cc64ed` and
+reviewed at `a936fe8`; see [`retained_review/`](retained_review/). The repaired
+checker has a fresh `PASS_RECORDED_FIELDS_ONLY` receipt. The subsequent
+`72cc05d` trace matches 5,141,673 frozen feature rows to 31 original per-PCAP
+CSVs and supplies an initial RC1 shared-stage adapter with a ten-case
+synthetic receipt. The current consolidated work is recorded in
+[`COMPLETION_STATUS_CN.md`](COMPLETION_STATUS_CN.md).
 
-The repaired [`private-record checker`](private_record_qualification/README.md)
-has synthetic regression coverage and must be rerun on the private originals.
-Its predecessor is retained exactly; a repair is not a finding of corruption
-in the historical data. The earlier 216-arm exported reconciliation remains
-unchanged and does not automatically cover the new follow-up artifacts.
+Continue from those completed records. They do not need to be rerun for a
+status update. The current stage source and per-condition calibration path
+need qualification on the actual private runtime, and new physical arms
+remain zero. Parent acquisition relationships and enough independent data
+for a qualified new split remain separate requirements.
 
 ### Earlier integration stage
 
@@ -47,6 +49,8 @@ and physical extensions prepared here.
 | `freeze_inputs.py` | Freeze and later verify named input bytes without copying private contents or absolute paths | Scientific adequacy, genuine pre-outcome registration, or actual model/hardware execution |
 | `evidence_value/score_evidence_value.py` | Validate and score matched binary-task representation outcomes, grouping, missingness and optional measured deadlines | Execution of real encoders/models; that adaptation must run on qualified local inputs |
 | `hardware/plan_hardware.py` | Produce reproducible calibration/pilot/formal plans, order diagnostics and qualification records | SSH/device execution or implementation of a real shared-stage controller |
+| `stage_adapter/stage_admission.py` and `build_profile.py` | Candidate shared-stage admission and calibration-profile construction from identified observations | Physical calibration or private runtime qualification merely by importing the code |
+| `source_lineage/prepare_capture_split.py` | Check the public trace counts and bind declared parent mappings/splits to evidence files | Semantic proof of parent identity, statistical independence, training, or leakage qualification |
 | `../../scripts/verify_experiment_extension.py` | Run synthetic fixture tests and recheck the frozen public scientific artifacts | New empirical evidence or qualification of private materials |
 
 ## One verification command
@@ -118,5 +122,6 @@ runtime.
 Private runtime, model, data, machine identities and primitive hardware logs
 remain in their authorized local storage. Review and publish only permitted
 code, path-free aggregates and reports. Keep the 252 historical hardware
-arms and previous scientific outputs immutable. Current manuscript/PDF
-changes are deferred until new qualified measurements actually exist.
+arms and previous scientific outputs immutable. The manuscript and PDFs
+reflect completed audits and current implementation scope; further numerical
+performance claims require actual qualified measurements.

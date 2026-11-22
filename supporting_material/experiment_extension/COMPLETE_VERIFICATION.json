@@ -1,0 +1,341 @@
+{
+  "additional_validation": {
+    "repository_validators": {
+      "count": 4,
+      "status": "PASS",
+      "stdout": "PASS: clean naming, 35 cited references, expected files, and claim scan\nPASS: V1.3 submission hashes, evidence, provenance, citations, claims, and privacy scan\nPASS: manifest, 12 sessions, 216 validators, 12 packages, and privacy scan\nPASS: frozen V1.3 hashes (original driver in legacy/), 1343 retained rows, scope guards, and privacy scan\n"
+    },
+    "retained_tests": {
+      "count": 27,
+      "output": "test_crfa_requires_every_measured_service_occurrence_once (test_ledger_audit.LedgerMutationTests.test_crfa_requires_every_measured_service_occurrence_once) ... ok\ntest_crfa_result_deadline_flags_are_reconstructed (test_ledger_audit.LedgerMutationTests.test_crfa_result_deadline_flags_are_reconstructed) ... ok\ntest_forged_zero_violation_flags_do_not_hide_extra_service (test_ledger_audit.LedgerMutationTests.test_forged_zero_violation_flags_do_not_hide_extra_service) ... ok\ntest_genuine_saved_software_and_crfa_runs_pass (test_ledger_audit.LedgerMutationTests.test_genuine_saved_software_and_crfa_runs_pass) ... ok\ntest_missing_and_duplicate_software_service_are_rejected (test_ledger_audit.LedgerMutationTests.test_missing_and_duplicate_software_service_are_rejected) ... ok\ntest_software_upload_result_and_deadline_flags_are_reconstructed (test_ledger_audit.LedgerMutationTests.test_software_upload_result_and_deadline_flags_are_reconstructed) ... ok\ntest_backlog_alone_can_already_exceed_one_round (test_simulation_primitives.AdmissionAndEndpointTests.test_backlog_alone_can_already_exceed_one_round) ... ok\ntest_backlog_changes_admission_feasibility (test_simulation_primitives.AdmissionAndEndpointTests.test_backlog_changes_admission_feasibility) ... ok\ntest_both_models_report_upload_endpoints_with_distinct_resolutions (test_simulation_primitives.AdmissionAndEndpointTests.test_both_models_report_upload_endpoints_with_distinct_resolutions) ... ok\ntest_import_does_not_require_private_inputs (test_simulation_primitives.AdmissionAndEndpointTests.test_import_does_not_require_private_inputs) ... ok\ntest_isolated_precheck_is_not_shared_link_certificate (test_simulation_primitives.AdmissionAndEndpointTests.test_isolated_precheck_is_not_shared_link_certificate) ... ok\ntest_task_a_deduplicates_unused_seed_identities (test_simulation_primitives.AdmissionAndEndpointTests.test_task_a_deduplicates_unused_seed_identities) ... ok\ntest_upload_deadline_boundary_is_inclusive (test_simulation_primitives.AdmissionAndEndpointTests.test_upload_deadline_boundary_is_inclusive) ... ok\ntest_exhaustive_integer_conservation_and_max_min_fairness (test_simulation_primitives.IntegerServiceTests.test_exhaustive_integer_conservation_and_max_min_fairness) ... ok\ntest_invalid_byte_inputs_fail_explicitly (test_simulation_primitives.IntegerServiceTests.test_invalid_byte_inputs_fail_explicitly) ... ok\ntest_residual_bytes_are_not_lost (test_simulation_primitives.IntegerServiceTests.test_residual_bytes_are_not_lost) ... ok\ntest_rotated_residual_priority_balances_three_intervals (test_simulation_primitives.IntegerServiceTests.test_rotated_residual_priority_balances_three_intervals) ... ok\ntest_saturation_redistributes_unused_shares (test_simulation_primitives.IntegerServiceTests.test_saturation_redistributes_unused_shares) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.548s\n\nOK\ntest_backlog_breaks_new_bytes_only_condition (test_contention_validation.ModelCounterexamples.test_backlog_breaks_new_bytes_only_condition) ... ok\ntest_backlog_over_one_round_admits_no_new_work (test_contention_validation.ModelCounterexamples.test_backlog_over_one_round_admits_no_new_work) ... ok\ntest_compute_and_serial_core_are_not_upload_completion (test_contention_validation.ModelCounterexamples.test_compute_and_serial_core_are_not_upload_completion) ... ok\ntest_deadline_reservation_rechecks_shared_pipeline (test_contention_validation.ModelCounterexamples.test_deadline_reservation_rechecks_shared_pipeline) ... ok\ntest_exact_byte_boundary_is_inclusive_without_overheads (test_contention_validation.ModelCounterexamples.test_exact_byte_boundary_is_inclusive_without_overheads) ... ok\ntest_heterogeneous_core_runs_in_arrival_order_without_overlap (test_contention_validation.ModelCounterexamples.test_heterogeneous_core_runs_in_arrival_order_without_overlap) ... ok\ntest_idle_service_is_not_banked (test_contention_validation.ModelCounterexamples.test_idle_service_is_not_banked) ... ok\ntest_three_isolated_safe_uploads_exceed_shared_deadline (test_contention_validation.ModelCounterexamples.test_three_isolated_safe_uploads_exceed_shared_deadline) ... ok\ntest_unmodeled_extra_latency_invalidates_a_model_deadline_pass (test_contention_validation.ModelCounterexamples.test_unmodeled_extra_latency_invalidates_a_model_deadline_pass) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.064s\n\nOK\n",
+      "status": "PASS"
+    }
+  },
+  "baseline_retained_artifacts_unchanged": {
+    "supporting_material/experiment_extension/SOURCE_ROW_TRACE.json": "f544ffd6782f538020820ef2f9e1b9c668c9fdddb040a58b8c816518c93623a0",
+    "supporting_material/experiment_extension/retained_review/allocator_corrected.json": "c60978a071e8ca18e130bfd4dc89d2cf33d24cf15dd799c1964f98326aec5cd1",
+    "supporting_material/experiment_extension/retained_review/allocator_original.json": "b8a9ae64fc5a7b9360d7db41957e024056e65ba385006ec1e7290a2802218337",
+    "supporting_material/experiment_extension/retained_review/diagnostic_review.json": "06973a565ba8dd785d6ba947b233440f247a97ae3f5cedf8ae70620d2e117135",
+    "supporting_material/experiment_extension/retained_review/qualification_summary.json": "f3b7a39ab03dc010509ab79a6d97931554c0f6d5704d9d06a5981a2abcc7baea",
+    "supporting_material/experiment_extension/stage_adapter/stage_test.json": "50b93125ecf22a9047c01e6fe2fa6458ed879d87990e167bac2a917c8efbc09f",
+    "supporting_material/experiment_extension/trace_feature_rows.py": "f69cf44a028eaaaf8cc8a890c92e68ee3839307f1f7867df25bb0fc7a9593da6"
+  },
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension",
+        "-p",
+        "test_discover_assets.py",
+        "-v"
+      ],
+      "name": "asset_discovery",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_cli_does_not_overwrite_prior_inventory (test_discover_assets.AssetDiscoveryTests.test_cli_does_not_overwrite_prior_inventory) ... ok\ntest_duplicate_root_names_and_invalid_limits_rejected (test_discover_assets.AssetDiscoveryTests.test_duplicate_root_names_and_invalid_limits_rejected) ... ok\ntest_hash_limits_missing_roots_and_truncation_are_explicit (test_discover_assets.AssetDiscoveryTests.test_hash_limits_missing_roots_and_truncation_are_explicit) ... ok\ntest_secrets_symlinks_and_data_values_are_not_exported (test_discover_assets.AssetDiscoveryTests.test_secrets_symlinks_and_data_values_are_not_exported) ... ok\ntest_source_is_parsed_never_executed_and_reports_candidates_not_verdicts (test_discover_assets.AssetDiscoveryTests.test_source_is_parsed_never_executed_and_reports_candidates_not_verdicts) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.070s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 5,
+      "tool_elapsed_seconds": 0.192
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension",
+        "-p",
+        "test_freeze_inputs.py",
+        "-v"
+      ],
+      "name": "input_freezing",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_missing_extra_duplicate_and_symlink_inputs_rejected (test_freeze_inputs.FreezeInputTests.test_missing_extra_duplicate_and_symlink_inputs_rejected) ... ok\ntest_roundtrip_changed_input_and_no_overwrite (test_freeze_inputs.FreezeInputTests.test_roundtrip_changed_input_and_no_overwrite) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 2,
+      "tool_elapsed_seconds": 0.09
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/evidence_value/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "evidence_value_scoring",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_byte_accounting_partial_costs_and_unobserved_result_timestamps_fail (test_score_evidence_value.EvidenceValueTests.test_byte_accounting_partial_costs_and_unobserved_result_timestamps_fail) ... ok\ntest_duplicate_group_and_source_feature_leakage_fail_but_encoded_duplicates_do_not (test_score_evidence_value.EvidenceValueTests.test_duplicate_group_and_source_feature_leakage_fail_but_encoded_duplicates_do_not) ... ok\ntest_duplicate_json_keys_and_nonfinite_protocol_numbers_fail_closed (test_score_evidence_value.EvidenceValueTests.test_duplicate_json_keys_and_nonfinite_protocol_numbers_fail_closed) ... ok\ntest_duplicate_or_missing_representation_rows_fail (test_score_evidence_value.EvidenceValueTests.test_duplicate_or_missing_representation_rows_fail) ... ok\ntest_equal_group_estimand_differs_from_pooled_occurrence_weighting (test_score_evidence_value.EvidenceValueTests.test_equal_group_estimand_differs_from_pooled_occurrence_weighting) ... ok\ntest_inclusive_deadline_and_one_nanosecond_late (test_score_evidence_value.EvidenceValueTests.test_inclusive_deadline_and_one_nanosecond_late) ... ok\ntest_incomplete_followup_bounds_then_mature_miss (test_score_evidence_value.EvidenceValueTests.test_incomplete_followup_bounds_then_mature_miss) ... ok\ntest_information_only_missing_values_are_bounded_and_unknown_costs_stay_null (test_score_evidence_value.EvidenceValueTests.test_information_only_missing_values_are_bounded_and_unknown_costs_stay_null) ... ok\ntest_information_phase_cannot_accept_transport_fields (test_score_evidence_value.EvidenceValueTests.test_information_phase_cannot_accept_transport_fields) ... ok\ntest_missing_feature_hashes_report_audit_coverage_not_no_leakage (test_score_evidence_value.EvidenceValueTests.test_missing_feature_hashes_report_audit_coverage_not_no_leakage) ... ok\ntest_no_interval_with_one_independent_group_and_undefined_metrics_are_null (test_score_evidence_value.EvidenceValueTests.test_no_interval_with_one_independent_group_and_undefined_metrics_are_null) ... ok\ntest_pooled_confusion_denominators_and_exact_provenance (test_score_evidence_value.EvidenceValueTests.test_pooled_confusion_denominators_and_exact_provenance) ... ok\ntest_protocol_hash_artifact_hash_unknown_schema_and_bootstrap_override_fail (test_score_evidence_value.EvidenceValueTests.test_protocol_hash_artifact_hash_unknown_schema_and_bootstrap_override_fail) ... ok\ntest_same_clock_result_order_horizon_and_simulated_time_guards (test_score_evidence_value.EvidenceValueTests.test_same_clock_result_order_horizon_and_simulated_time_guards) ... ok\ntest_synthetic_cli_opt_in_and_no_output_on_schema_failure (test_score_evidence_value.EvidenceValueTests.test_synthetic_cli_opt_in_and_no_output_on_schema_failure) ... ok\ntest_terminal_rejection_stays_in_denominator_before_deadline (test_score_evidence_value.EvidenceValueTests.test_terminal_rejection_stays_in_denominator_before_deadline) ... ok\ntest_threshold_output_and_nonfinite_scores_rejected (test_score_evidence_value.EvidenceValueTests.test_threshold_output_and_nonfinite_scores_rejected) ... ok\ntest_truth_source_hash_split_and_artifact_identity_mismatches_fail (test_score_evidence_value.EvidenceValueTests.test_truth_source_hash_split_and_artifact_identity_mismatches_fail) ... ok\ntest_unknown_horizon_is_not_imputed_to_deadline (test_score_evidence_value.EvidenceValueTests.test_unknown_horizon_is_not_imputed_to_deadline) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.280s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 19,
+      "tool_elapsed_seconds": 0.413
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/hardware",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "hardware_plan_generation",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_boolean_attestations_without_valid_artifact_hashes_do_not_qualify (test_plan_hardware.HardwarePlanTests.test_boolean_attestations_without_valid_artifact_hashes_do_not_qualify) ... ok\ntest_calibration_covers_every_selection_without_dropping_fallback_probes (test_plan_hardware.HardwarePlanTests.test_calibration_covers_every_selection_without_dropping_fallback_probes) ... ok\ntest_complete_crossover_cycles_balance_every_position_and_directed_pair (test_plan_hardware.HardwarePlanTests.test_complete_crossover_cycles_balance_every_position_and_directed_pair) ... ok\ntest_existing_plan_or_evidence_directory_is_never_overwritten (test_plan_hardware.HardwarePlanTests.test_existing_plan_or_evidence_directory_is_never_overwritten) ... ok\ntest_fixed_study_matrices_and_invalid_numerical_configuration (test_plan_hardware.HardwarePlanTests.test_fixed_study_matrices_and_invalid_numerical_configuration) ... ok\ntest_formal_plan_binds_exact_rule_pilot_protocol_and_review_artifacts (test_plan_hardware.HardwarePlanTests.test_formal_plan_binds_exact_rule_pilot_protocol_and_review_artifacts) ... ok\ntest_formal_schedule_seed_and_optional_control_cannot_change_after_freeze (test_plan_hardware.HardwarePlanTests.test_formal_schedule_seed_and_optional_control_cannot_change_after_freeze) ... ok\ntest_partial_cycles_report_partial_balance_without_inventing_replicates (test_plan_hardware.HardwarePlanTests.test_partial_cycles_report_partial_balance_without_inventing_replicates) ... ok\ntest_raw_contract_keeps_clock_domains_and_attempts_explicit (test_plan_hardware.HardwarePlanTests.test_raw_contract_keeps_clock_domains_and_attempts_explicit) ... ok\ntest_unaffected_private_allocator_requires_evidence_and_schedules_no_runs (test_plan_hardware.HardwarePlanTests.test_unaffected_private_allocator_requires_evidence_and_schedules_no_runs) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.017s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 10,
+      "tool_elapsed_seconds": 0.181
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/formal_record_reconciliation",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "exported_record_reconciliation_tests",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_exact_public_accepted_reruns_and_missing_duplicate_wrong_cohort (test_reconcile.ReconciliationTests.test_exact_public_accepted_reruns_and_missing_duplicate_wrong_cohort) ... ok\ntest_export_roundtrip_is_pathfree_and_does_not_overwrite (test_reconcile.ReconciliationTests.test_export_roundtrip_is_pathfree_and_does_not_overwrite) ... ok\ntest_optional_counter_zero_and_nonzero_anomalies_are_retained_not_filtered (test_reconcile.ReconciliationTests.test_optional_counter_zero_and_nonzero_anomalies_are_retained_not_filtered) ... ok\ntest_public_verification_checks_cohort_and_math_even_after_product_hash_update (test_reconcile.ReconciliationTests.test_public_verification_checks_cohort_and_math_even_after_product_hash_update) ... ok\ntest_source_registry_must_cover_every_role_without_exporting_paths (test_reconcile.ReconciliationTests.test_source_registry_must_cover_every_role_without_exporting_paths) ... ok\ntest_split_overlap_counts_and_interface_pairs_are_not_efficacy (test_reconcile.ReconciliationTests.test_split_overlap_counts_and_interface_pairs_are_not_efficacy) ... ok\ntest_unknown_shape_negative_boolean_identity_and_counter_constraints_fail (test_reconcile.ReconciliationTests.test_unknown_shape_negative_boolean_identity_and_counter_constraints_fail) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.107s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 7,
+      "tool_elapsed_seconds": 0.203
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/private_record_qualification/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "private_record_qualification_tests",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_both_original_counter_errors_fail_and_are_retained (test_qualify_private_records.QualificationTests.test_both_original_counter_errors_fail_and_are_retained) ... ok\ntest_capacity_failure_cannot_be_disabled_by_optimized_python (test_qualify_private_records.QualificationTests.test_capacity_failure_cannot_be_disabled_by_optimized_python) ... ok\ntest_cohort_empty_duplicate_missing_extra_and_wrong_attempt (test_qualify_private_records.QualificationTests.test_cohort_empty_duplicate_missing_extra_and_wrong_attempt) ... ok\ntest_duplicate_event_and_wrong_explicit_identity_fail (test_qualify_private_records.QualificationTests.test_duplicate_event_and_wrong_explicit_identity_fail) ... ok\ntest_import_does_not_read_argv_or_private_runtime (test_qualify_private_records.QualificationTests.test_import_does_not_read_argv_or_private_runtime) ... ok\ntest_missing_windows_and_missing_required_time_fail (test_qualify_private_records.QualificationTests.test_missing_windows_and_missing_required_time_fail) ... ok\ntest_noninteger_and_negative_bytes_are_rejected (test_qualify_private_records.QualificationTests.test_noninteger_and_negative_bytes_are_rejected) ... ok\ntest_opaque_keys_do_not_assume_a_crfa_grammar_or_global_namespace (test_qualify_private_records.QualificationTests.test_opaque_keys_do_not_assume_a_crfa_grammar_or_global_namespace) ... ok\ntest_pending_bytes_and_missing_return_are_not_success (test_qualify_private_records.QualificationTests.test_pending_bytes_and_missing_return_are_not_success) ... ok\ntest_queue_receipt_and_negative_return_arithmetic_fail (test_qualify_private_records.QualificationTests.test_queue_receipt_and_negative_return_arithmetic_fail) ... ok\ntest_valid_baseline_and_legacy_bytes (test_qualify_private_records.QualificationTests.test_valid_baseline_and_legacy_bytes) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 2.393s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 11,
+      "tool_elapsed_seconds": 2.484
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/retained_review",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "retained_review_tests",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_current_public_snapshot_and_explicit_unique_scope (test_verify_export.ExportVerificationTests.test_current_public_snapshot_and_explicit_unique_scope) ... ok\ntest_duplicate_name_with_seven_rows_is_rejected (test_verify_export.ExportVerificationTests.test_duplicate_name_with_seven_rows_is_rejected) ... ok\ntest_extra_duplicate_group_preserving_overlap_totals_is_rejected (test_verify_export.ExportVerificationTests.test_extra_duplicate_group_preserving_overlap_totals_is_rejected) ... ok\ntest_impossible_exported_distinct_counts_are_rejected (test_verify_export.ExportVerificationTests.test_impossible_exported_distinct_counts_are_rejected) ... ok\ntest_negative_bucket_counts_cannot_cancel (test_verify_export.ExportVerificationTests.test_negative_bucket_counts_cannot_cancel) ... ok\ntest_negative_or_noninteger_confusion_counts_are_rejected (test_verify_export.ExportVerificationTests.test_negative_or_noninteger_confusion_counts_are_rejected) ... ok\ntest_optimized_python_cannot_disable_rejection (test_verify_export.ExportVerificationTests.test_optimized_python_cannot_disable_rejection) ... ok\ntest_rounded_containment_checks_keep_inclusive_split_meaning (test_verify_export.ExportVerificationTests.test_rounded_containment_checks_keep_inclusive_split_meaning) ... ok\ntest_unknown_confusion_key_and_changed_pooled_result_are_rejected (test_verify_export.ExportVerificationTests.test_unknown_confusion_key_and_changed_pooled_result_are_rejected) ... ok\ntest_within_file_unique_bounds_are_checked (test_verify_export.ExportVerificationTests.test_within_file_unique_bounds_are_checked) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.138s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 10,
+      "tool_elapsed_seconds": 0.233
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/source_lineage",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "source_lineage_tests",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_current_public_trace_matches_retained_denominators (test_prepare_capture_split.CaptureMappingTests.test_current_public_trace_matches_retained_denominators) ... ok\ntest_fixture_opt_in_and_fresh_output_are_required (test_prepare_capture_split.CaptureMappingTests.test_fixture_opt_in_and_fresh_output_are_required) ... ok\ntest_incomplete_duplicate_or_unknown_source_mapping_is_rejected (test_prepare_capture_split.CaptureMappingTests.test_incomplete_duplicate_or_unknown_source_mapping_is_rejected) ... ok\ntest_insufficient_or_mismatched_parent_inventory_is_rejected (test_prepare_capture_split.CaptureMappingTests.test_insufficient_or_mismatched_parent_inventory_is_rejected) ... ok\ntest_invalid_source_counts_and_duplicate_hashes_are_rejected (test_prepare_capture_split.CaptureMappingTests.test_invalid_source_counts_and_duplicate_hashes_are_rejected) ... ok\ntest_missing_or_altered_evidence_is_rejected (test_prepare_capture_split.CaptureMappingTests.test_missing_or_altered_evidence_is_rejected) ... ok\ntest_one_parent_cannot_be_assigned_to_two_splits (test_prepare_capture_split.CaptureMappingTests.test_one_parent_cannot_be_assigned_to_two_splits) ... ok\ntest_shared_parent_stays_one_group_and_scope_is_explicit (test_prepare_capture_split.CaptureMappingTests.test_shared_parent_stays_one_group_and_scope_is_explicit) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.009s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 8,
+      "tool_elapsed_seconds": 0.102
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "supporting_material/experiment_extension/stage_adapter/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "name": "stage_candidate_tests",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "test_capacity_and_existing_queue_are_reserved (test_stage_admission.AdmissionTests.test_capacity_and_existing_queue_are_reserved) ... ok\ntest_expired_old_work_rejects_new_work_without_erasing_old_bytes (test_stage_admission.AdmissionTests.test_expired_old_work_rejects_new_work_without_erasing_old_bytes) ... ok\ntest_identity_prefix_and_typed_clock_corruptions_are_rejected (test_stage_admission.AdmissionTests.test_identity_prefix_and_typed_clock_corruptions_are_rejected) ... ok\ntest_loader_binds_bytes_and_freezes_runtime_envelopes (test_stage_admission.AdmissionTests.test_loader_binds_bytes_and_freezes_runtime_envelopes) ... ok\ntest_optimized_python_does_not_disable_snapshot_checks (test_stage_admission.AdmissionTests.test_optimized_python_does_not_disable_snapshot_checks) ... ok\ntest_prior_reservation_is_rechecked_for_every_new_request (test_stage_admission.AdmissionTests.test_prior_reservation_is_rechecked_for_every_new_request) ... ok\ntest_profile_coverage_identity_and_fixture_isolation (test_stage_admission.AdmissionTests.test_profile_coverage_identity_and_fixture_isolation) ... ok\ntest_uncalibrated_organic_backlog_rejects_new_requests (test_stage_admission.AdmissionTests.test_uncalibrated_organic_backlog_rejects_new_requests) ... ok\ntest_zero_slack_and_core_residence_reduce_admission (test_stage_admission.AdmissionTests.test_zero_slack_and_core_residence_reduce_admission) ... ok\ntest_actual_backlog_wrong_batch_and_clock_epoch_are_rejected (test_stage_admission.CaptureTests.test_actual_backlog_wrong_batch_and_clock_epoch_are_rejected) ... ok\ntest_complete_first_batch_grid_uses_only_same_clock_durations (test_stage_admission.CaptureTests.test_complete_first_batch_grid_uses_only_same_clock_durations) ... ok\ntest_fallback_only_cost_is_retained_and_budgeted (test_stage_admission.CaptureTests.test_fallback_only_cost_is_retained_and_budgeted) ... ok\ntest_missing_condition_or_missing_job_is_not_silently_dropped (test_stage_admission.CaptureTests.test_missing_condition_or_missing_job_is_not_silently_dropped) ... ok\ntest_slow_observations_are_retained_in_component_maxima (test_stage_admission.CaptureTests.test_slow_observations_are_retained_in_component_maxima) ... ok\ntest_unqualified_plan_unmapped_fields_or_changed_raw_artifact_are_rejected (test_stage_admission.CaptureTests.test_unqualified_plan_unmapped_fields_or_changed_raw_artifact_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.260s\n\nOK\n",
+      "stdout": "",
+      "tests_run": 15,
+      "tool_elapsed_seconds": 0.401
+    },
+    {
+      "command": [
+        "python3",
+        "supporting_material/experiment_extension/source_lineage/prepare_capture_split.py",
+        "verify-public"
+      ],
+      "name": "public_source_row_trace",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"PUBLIC_SOURCE_TRACE_COUNTS_CONSISTENT\",\n  \"source_files\": 31,\n  \"split_source_files\": {\n    \"train\": 18,\n    \"validation\": 6,\n    \"test\": 7\n  },\n  \"split_rows\": {\n    \"train\": 2998132,\n    \"validation\": 996486,\n    \"test\": 1147055\n  },\n  \"total_rows\": 5141673,\n  \"source_trace_sha256\": \"f544ffd6782f538020820ef2f9e1b9c668c9fdddb040a58b8c816518c93623a0\",\n  \"private_feature_rows_rechecked\": false,\n  \"parent_capture_mapping_qualified\": false,\n  \"scope\": \"Exported counts and hash formats/uniqueness; original/labelled CSV bytes and private frozen rows not opened.\"\n}\n",
+      "tests_run": 0,
+      "tool_elapsed_seconds": 0.046
+    },
+    {
+      "command": [
+        "python3",
+        "supporting_material/experiment_extension/retained_review/verify_export.py"
+      ],
+      "name": "retained_review_public_summary",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "PASS: published source identities, cohort arithmetic and seven group summaries; distinct-vector values checked for bounds, not recomputed from private features\n",
+      "tests_run": 0,
+      "tool_elapsed_seconds": 0.031
+    },
+    {
+      "command": [
+        "python3",
+        "supporting_material/experiment_extension/formal_record_reconciliation/reconcile.py",
+        "verify-public"
+      ],
+      "name": "supplied_record_exports",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "{\"mode\": \"verify-public\", \"reported_anomaly_status\": \"PASS\", \"scope\": \"exported-review reconciliation, not raw re-audit\", \"status\": \"EXPORTED_REPORT_RECONCILED\", \"totals\": {\"arms\": 216, \"core_event_stages\": 47880, \"core_required\": 24012, \"duplicate_core_windows\": 0, \"duplicate_events\": 0, \"final_queue_bytes\": 0, \"generated\": 58320, \"missing_return\": 0, \"negative_latency\": 0, \"queue_residuals\": 0, \"receipt_cap_excess_rounds\": 0, \"receipt_disagreements\": 0, \"returned_core\": 24012, \"returned_late_core\": 9596, \"rounds\": 63720, \"timely_core\": 14416, \"timely_per_generated\": 0.24718792866941014, \"timely_per_required\": 0.6003664834249542, \"unallocated_demanded_bytes\": 10848, \"unmatched_core_windows\": 0, \"window_order_errors\": 0}}\n",
+      "tests_run": 0,
+      "tool_elapsed_seconds": 0.05
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/verify_methodology_revision.py"
+      ],
+      "name": "frozen_science_and_prior_reconstruction",
+      "return_code": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "PASS: 120 frozen file hashes, 14 formal blocks, 21 labeled equations, unchanged abstract, 36 reproducible public selector cases, 120 software runs independently reconstructed, 10,620 CRFA service rounds / 9,720 occurrences, and source-matched manuscript/supplement PDFs\n",
+      "tests_run": 0,
+      "tool_elapsed_seconds": 0.877
+    }
+  ],
+  "current_pdf_review": {
+    "full_resolution_main_pages": [
+      12,
+      13,
+      14
+    ],
+    "full_resolution_supplement_pages": [
+      34
+    ],
+    "main_pages": 14,
+    "metadata_sha256": "5ecd9d4308d8dc04de34d11b610827fc483a53653f760494b5193d7b50ba7369",
+    "out_of_page_blocks": 0,
+    "rendered_and_reviewed_pages": 48,
+    "supplementary_pages": 34
+  },
+  "current_private_stage_adapter_execution": {
+    "executed": false,
+    "prospective_cases": 26
+  },
+  "detector_models_executed": false,
+  "interpretation": "This verifies preparation/reconciliation, lineage-input and stage-candidate tools on synthetic fixtures, checks supplied path-free audit exports and the public source-row trace counts, and preserves prior scientific evidence. It does not reopen private logs or the 5,141,673 source rows, reexecute the private stage runtime, rescore the 896-row diagnostic, run models or hardware, or establish detection gain or physical safety.",
+  "new_fixture_tests": 87,
+  "new_physical_arms": 0,
+  "new_scientific_experiments_executed": false,
+  "physical_devices_used": false,
+  "reviewed_baseline_commit": "72cc05df530727a48f89f4ed99b05da1c4c3fbe0",
+  "schema_version": 1,
+  "source_sha256": {
+    "scripts/verify_experiment_extension.py": "ae27535117f308a54b7c6f8fc8438c472ab1ec805f22e926d98444924d4331d6",
+    "supporting_material/experiment_extension/SOURCE_ROW_TRACE.json": "f544ffd6782f538020820ef2f9e1b9c668c9fdddb040a58b8c816518c93623a0",
+    "supporting_material/experiment_extension/audit_retained_diagnostic.py": "7c0326cee6ab34a532d0c864fa875b6697bd4ce4f25311cd0c8b4cafdb31ff34",
+    "supporting_material/experiment_extension/check_model_interface.py": "c564ecfcdc54fba6166541d4c87e991a47af9ed0ed13eb74695fa63b643ef50b",
+    "supporting_material/experiment_extension/check_split_overlap.py": "27231498d5f5df8cb7c53ba705029e8ade11b3282fe760f1dae414de3c907676",
+    "supporting_material/experiment_extension/content_diagnostic.py": "5324454a9411c9109cfcf4cf9e140a784bd22e7debe2905c048252ef9713c9b9",
+    "supporting_material/experiment_extension/discover_assets.py": "69f8d5a1ffd4df0212e93d786653490f02ebdc820af96213cec92661f8a839d1",
+    "supporting_material/experiment_extension/evidence_value/score_evidence_value.py": "d56835ac340042d35785036f41cdbfb5ff3aa165e6a22d7fcd82188ea6749084",
+    "supporting_material/experiment_extension/evidence_value/tests/test_score_evidence_value.py": "a446b35253de43c8188f55885b621755d687e9282f6bc44fab3c61ca9217278f",
+    "supporting_material/experiment_extension/formal_record_reconciliation/reconcile.py": "6b795fd3234b9e31a6ae5cd27ab3309421535b5747ff61276341febbc7bca640",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/INTERFACE_SUMMARY.json": "aaaa836396b170cf739e6443e68144e4f711192ec30c881f0d95429719d7e0e3",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/RECONCILIATION.json": "5d7c75aeb2225058495d5e633ce8ed4a58d6455ca85a68942c8bbe3755aeb3b6",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/SPLIT_COUNTS.json": "8269763158570bd1b7fce0c871476bddcbd4f5063b6e4cabce99d438bb1e366a",
+    "supporting_material/experiment_extension/formal_record_reconciliation/test_reconcile.py": "4768eb4a8a2535ba341176f20862ad46d16dabb5ad8542d63589a31ef066b1bb",
+    "supporting_material/experiment_extension/freeze_inputs.py": "cdcf0e2ceb63612e92dcb17377bc3df5031900ce18b8761b38d0a7f4ce6c782d",
+    "supporting_material/experiment_extension/hardware/formal_freeze_template.json": "4f5bb3899343c2cb53143c4e736d915ae3cc38410adef0887b0c2dbe5025d80b",
+    "supporting_material/experiment_extension/hardware/plan_hardware.py": "c4e17766d83a4b8101d01fb9ff2ab60113307144bb7399651e4c6be7ba5f1b74",
+    "supporting_material/experiment_extension/hardware/protocol.json": "8e6f5726b56b19bc3c21255e32444828cb15f32ed5af2ecff694973500f7bc72",
+    "supporting_material/experiment_extension/hardware/qualification_template.json": "2479fbfa1a221c38bb123eaefa49ae0b57694ce0d08fb30e152c99b22732fd91",
+    "supporting_material/experiment_extension/hardware/raw_ledger_schema.json": "660e20cb0709eafd9d5dc5cd66b7a87ee4c9a01d1a9a1b4cf00d73454c6eefd3",
+    "supporting_material/experiment_extension/hardware/recheck_allocator.py": "3dcdaf5e30e201f397755e06746acb9d13dcd485f7d5a2fed87c8279e9287bd3",
+    "supporting_material/experiment_extension/hardware/sample_size_rule_template.json": "7fb90ea1e59669ec629c584d319476bec46458865c341d889abf369d191917df",
+    "supporting_material/experiment_extension/hardware/test_plan_hardware.py": "c146400e4476ba7f94ffebac3995aee00a57a982147909ac025ddc51d6a513ed",
+    "supporting_material/experiment_extension/hardware/test_stage_runtime_adapter.py": "d0e6fbc2da87bf276a83111820da0a6da91dab5236e1f2e413cb1f4754a15637",
+    "supporting_material/experiment_extension/private_record_qualification/legacy/qualify_private_records_dc5269c.py": "5b193c43e476df783837b51b49d40750222dd8acb3723ada16cd89f8ce81affd",
+    "supporting_material/experiment_extension/private_record_qualification/tests/test_qualify_private_records.py": "cc147ff35b88a9f5e7c8998fb140c7275965cbe89fbda5acdcba25fba8e9b17e",
+    "supporting_material/experiment_extension/qualify_private_records.py": "7b65c5520d3853876764b70d8ffc65b7ce645a58096a54d852753b045b0ecb8d",
+    "supporting_material/experiment_extension/retained_review/allocator_corrected.json": "c60978a071e8ca18e130bfd4dc89d2cf33d24cf15dd799c1964f98326aec5cd1",
+    "supporting_material/experiment_extension/retained_review/allocator_original.json": "b8a9ae64fc5a7b9360d7db41957e024056e65ba385006ec1e7290a2802218337",
+    "supporting_material/experiment_extension/retained_review/diagnostic_review.json": "06973a565ba8dd785d6ba947b233440f247a97ae3f5cedf8ae70620d2e117135",
+    "supporting_material/experiment_extension/retained_review/qualification_summary.json": "f3b7a39ab03dc010509ab79a6d97931554c0f6d5704d9d06a5981a2abcc7baea",
+    "supporting_material/experiment_extension/retained_review/test_verify_export.py": "fdf4c637f1586fc13e27e631e6482d847aa1057661df8f780c699ccaf1f1dd3e",
+    "supporting_material/experiment_extension/retained_review/verify_export.py": "10c147dd688d0acc2e5b3787de4c1897e0326475b5f1caa899a590782b4b09a7",
+    "supporting_material/experiment_extension/review_formal_records.py": "85ae801b44e534659d29f6ac2f9986553625d788265ccffc473fd2d4fecbd7ce",
+    "supporting_material/experiment_extension/source_lineage/prepare_capture_split.py": "7da6191a37a2f665dc4860fa5c4f8ac0a54f99300fa850dce9268516e63b86ec",
+    "supporting_material/experiment_extension/source_lineage/test_prepare_capture_split.py": "ddfb2595a1dfbb2dce5aef3066cac77c13899a6a878036fa36db1aecf001984c",
+    "supporting_material/experiment_extension/stage_adapter/build_profile.py": "2d89d1980404417efae1078e38a6a76173486c516e5f65ea0cfad49683f79197",
+    "supporting_material/experiment_extension/stage_adapter/legacy/stage_admission_72cc05d.py": "c93c6cd4acf145f92a200ad2c267c556ac6cc6b928d487d134b6bb3737459039",
+    "supporting_material/experiment_extension/stage_adapter/legacy/stage_test_72cc05d.json": "50b93125ecf22a9047c01e6fe2fa6458ed879d87990e167bac2a917c8efbc09f",
+    "supporting_material/experiment_extension/stage_adapter/legacy/test_stage_runtime_adapter_72cc05d.py": "fb71e42b6de5388b67a10149f0a8d9417c9d1815d8c809bad0039741083b5804",
+    "supporting_material/experiment_extension/stage_adapter/stage_admission.py": "9eea2ec16819dbcf1195a80347d787ba4b07d5ce280eb01c44e71aea2e656b9f",
+    "supporting_material/experiment_extension/stage_adapter/stage_test.json": "50b93125ecf22a9047c01e6fe2fa6458ed879d87990e167bac2a917c8efbc09f",
+    "supporting_material/experiment_extension/stage_adapter/tests/test_stage_admission.py": "e9467e3618b8805508f5dbdfcc46a8917d380c18a268f651e60a95b6911e66e3",
+    "supporting_material/experiment_extension/test_discover_assets.py": "c30bb2e0713877df1558a46595f2bbb819936a516729fda03a57570a36b73cdb",
+    "supporting_material/experiment_extension/test_freeze_inputs.py": "e41cbe67c9a38483242e8c873b5245f20dba9ece441382a6a33e8bed294d19ac",
+    "supporting_material/experiment_extension/trace_feature_rows.py": "f69cf44a028eaaaf8cc8a890c92e68ee3839307f1f7867df25bb0fc7a9593da6"
+  },
+  "sources_unchanged_during_verification": true,
+  "standalone_submission_manifest": {
+    "entries": 48,
+    "sha256": "54bc97dedf941cc8eb676ba111212e39fab9fc339b72c1231f77ac40ba39d2a9"
+  },
+  "status": "OFFLINE_PREPARATION_VALIDATED",
+  "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION"
+}
