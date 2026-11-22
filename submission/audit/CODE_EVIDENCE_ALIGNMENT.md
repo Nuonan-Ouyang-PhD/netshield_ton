@@ -1,5 +1,7 @@
 # Code–evidence alignment audit
 
+The supplementary transport counts aggregate the four case receipts in [TRANSPORT_RECHECK.json](../../supporting_material/experiment_extension/TRANSPORT_RECHECK.json). The 1,080-event denominator covers measured generations; the 1,010 segment receipts and 530 returns include all service rounds. These are private loopback checks.
+
 ## Audit stages and current interpretation
 
 The two private 26-condition receipts bind the earlier and instrumented runtime trees separately. Four loopback transports exercised the probe-to-Core path with synthetic workload and accelerated pacing. Physical calibration and treatment comparisons have zero new arms.

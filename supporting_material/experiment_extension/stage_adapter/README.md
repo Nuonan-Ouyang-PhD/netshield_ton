@@ -179,3 +179,16 @@ row matches to 31 source CSVs. That file/row identity is distinct from parent
 capture/episode grouping. Complete the remaining lineage qualification
 through the updated one-pass execution instructions; never assume numbered
 PCAP fragments are independent acquisitions.
+
+
+### Assemble an independently calibrated profile
+
+After a complete physical calibration, run the following on the private evidence volume.
+The reviewed map supplies the adapter identity, runtime tree, field definitions and
+frozen margin. The command reconstructs each completed attempt from raw files and
+checks its plan binding and field identities before building the profile.
+
+```sh
+python3 assemble_calibration.py --plan "$PLAN" --campaign "$CAMPAIGN" \
+  --review "$REVIEWED_MAP" --margin-ns "$MARGIN_NS" --output "$NEW_PROFILE_DIR"
+```

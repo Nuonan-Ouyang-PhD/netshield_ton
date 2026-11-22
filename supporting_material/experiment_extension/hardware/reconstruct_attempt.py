@@ -12,6 +12,8 @@ import tarfile
 from collections import defaultdict
 from pathlib import Path
 
+from plan_hardware import digest
+
 ROLES = ("P1", "P2", "P3")
 
 
@@ -64,6 +66,38 @@ def add_range(covered, start, end):
     return sum(b - a for a, b in covered) - previous
 
 
+def verify_receipts(frame, received_ranges):
+    """Rebuild receiver-side coverage separately from sender-side queue debits."""
+    sent = list(frame["sent_segments"])
+    for ack in frame["receipt_ack"]["segments"]:
+        key = ack["event_key"]
+        length = ack["segment_bytes_received"]
+        replay = ack.get("duplicate_finalize") is True
+        matches = [
+            i
+            for i, s in enumerate(sent)
+            if (s["event_key"], s["event_id"], s["length"], s["total_bytes"])
+            == (key, ack["event_id"], length, ack["event_total_bytes"])
+            and (s["offset"] == ack.get("offset") or (replay and "offset" not in ack))
+        ]
+        require(matches, "Core receipt does not identify a sent segment")
+        segment = sent.pop(matches[0])
+        covered = received_ranges[key]
+        total = segment["total_bytes"]
+        if replay:
+            require(covered == [(0, total)], "cached receipt before full reception")
+        start = segment["offset"]
+        unique = add_range(covered, start, start + length)
+        received = sum(b - a for a, b in covered)
+        require(
+            ack["unique_bytes_added"] == unique
+            and ack["event_bytes_received"] == received
+            and ack["complete"] is (received == total),
+            "event receipt coverage mismatch",
+        )
+    return len(sent)
+
+
 def reconstruct(root, out):
     out.mkdir()
     receipt = json.loads((root / "started.json").read_bytes())
@@ -82,6 +116,46 @@ def reconstruct(root, out):
     ids.update(schema_version=1, attempt_id=attempt)
     sources = {}
     core_root = root / "core" / attempt
+    fixture = (row["campaign_id"], attempt) in {
+        ("TON_EXT_STAGE_LOOPBACK_ONLY", "LOCAL_FIXTURE"),
+        ("TON_EXT_ALLOC_LOOPBACK_ONLY", "LOCAL_FIXTURE"),
+    }
+    if not fixture:
+        deployment = json.loads((root / "deployment_verified.json").read_bytes())
+        preflight = json.loads((root / "preflight/PREFLIGHT_RESULT.json").read_bytes())
+        require(
+            set(deployment["roles"]) == set(ROLES)
+            and preflight["status"] == "PASS"
+            and all(preflight["probes"][d]["identity"] is True for d in ROLES),
+            "three-probe qualification",
+        )
+        members = deployment["members"]
+        require(
+            digest(root / "deployment.tar") == deployment["archive_sha256"],
+            "deployment archive identity changed",
+        )
+        with tarfile.open(root / "deployment.tar") as tar:
+            path = "artifacts/portable_models/runtime_identity_manifest.json"
+            manifest_bytes = tar.extractfile(path).read()
+            require(
+                hashlib.sha256(manifest_bytes).hexdigest()
+                == members[path]
+                == receipt["runtime_manifest_sha256"],
+                "runtime identity changed",
+            )
+            tree = json.loads(manifest_bytes)["package_tree_sha256"]
+        core_manifest = json.loads((core_root / "manifest.json").read_bytes())
+        require(
+            core_manifest["role"] == "core"
+            and core_manifest["run_id"] == attempt
+            and core_manifest["session_id"] == row["session_id"]
+            and core_manifest["config"]["experiment_id"] == row["campaign_id"]
+            and core_manifest["config"]["synthetic"] is False
+            and core_manifest["software"]["package_tree_sha256"] == tree
+            and core_manifest["actions_sha256"] == members["actions.json"]
+            and core_manifest["config_sha256"] == members["config.json"],
+            "Core observed deployment identity",
+        )
     core = read_lines(
         (core_root / "core_windows.jsonl").read_bytes(), "core_windows", sources
     )
@@ -99,10 +173,17 @@ def reconstruct(root, out):
     initial = [r for r in core if r["record_type"] == "stage_initial_state"]
     completed = {}
     sends = {}
+    first_sends = {}
+    core_epochs = {r["core_clock_id"] for r in core if "core_clock_id" in r}
+    require(
+        len(core_epochs) == 1 and all(core_epochs),
+        "missing or changing Core clock identity",
+    )
     for r in core:
         if r["record_type"] == "results_dispatched":
             for key in r["keys"]:
-                sends.setdefault(key, r)
+                sends[(key, r["device_id"], r["window_index"])] = r
+                first_sends.setdefault(key, r)
         if r["record_type"] == "core_window":
             for job in r["completed_events"]:
                 if job.get("core_inference_complete") and not job.get(
@@ -116,7 +197,38 @@ def reconstruct(root, out):
     info, total_grant, total_service = {}, defaultdict(int), defaultdict(int)
     totals = defaultdict(int)
     for role in ROLES:
+        if not fixture:
+            collection = json.loads((root / (role + "_collection.json")).read_bytes())
+            require(
+                collection["status"] == "collected"
+                and digest(root / (role + ".tar")) == collection["sha256"],
+                "probe raw archive identity",
+            )
         with tarfile.open(root / (role + ".tar")) as archive:
+            if not fixture:
+                probe = json.load(archive.extractfile(f"raw/{attempt}/manifest.json"))
+                plans = [
+                    v
+                    for n, v in members.items()
+                    if n.startswith("window_plans/")
+                    and n.endswith("/" + role + ".jsonl")
+                ]
+                observed = json.loads(
+                    (root / "preflight" / (role + ".json")).read_bytes()
+                )
+                require(
+                    probe["role"] == "probe"
+                    and probe["device_id"] == role
+                    and probe["session_id"] == row["session_id"]
+                    and probe["software"]["hostname"]
+                    == observed["data"]["hostname"]["stdout"].strip()
+                    and probe["software"]["package_tree_sha256"] == tree
+                    and probe["config"] == core_manifest["config"]
+                    and probe["config_sha256"] == members["config.json"]
+                    and probe["actions_sha256"] == members["actions.json"]
+                    and plans == [probe["source_plan_sha256"]],
+                    "probe observed deployment identity",
+                )
 
             def load(name):
                 member = archive.getmember(f"raw/{attempt}/{name}")
@@ -173,6 +285,7 @@ def reconstruct(root, out):
         known = {e["event_key"]: e for e in ledger}
         require(len(known) == 95, "event keys not unique")
         ranges = defaultdict(list)
+        received_ranges = defaultdict(list)
         submitted = defaultdict(list)
         before = 0
         epoch = status["origin_clock_id"]
@@ -242,10 +355,8 @@ def reconstruct(root, out):
                 wire_payload == p["application_payload_bytes"],
                 "actual payload vs frame",
             )
-            ack = f["receipt_ack"]
-            require(
-                sum(v["unique_bytes_added"] for v in ack["segments"]) == used,
-                "Core unique receipts disagree",
+            totals["sent_segments_without_receipt"] += verify_receipts(
+                f, received_ranges
             )
             totals["service_above_grant_device_rounds"] += int(used > grant)
             after = p["queue_bytes"]
@@ -289,10 +400,25 @@ def reconstruct(root, out):
             created = e["created_probe_monotonic_ns"]
             result = e["result_received_monotonic_ns"] if e["requires_core"] else None
             core_job, core_ref = completed.get(key, ({}, None))
-            sent = sends.get(key, {})
+            sent = first_sends.get(key, {})
+            receipt_frame = None
             if result is not None:
+                sent = sends.get((key, role, e["result_received_window_index"]), {})
+                receipt_frame = frames[e["result_received_window_index"],]
                 require(
-                    key in sends
+                    receipt_frame["result_ns"] == result
+                    and any(
+                        item["event_key"] == key
+                        and item.get("core_inference_complete") is True
+                        and item.get("core_prediction") == e["core_prediction"]
+                        and item.get("application_payload_sha256")
+                        == e["payload_sha256"]
+                        for item in receipt_frame["result_ack"]["completed_results"]
+                    ),
+                    "result does not match originating probe's received frame",
+                )
+                require(
+                    sent
                     and core_job.get("contract_hash_ok")
                     and core_job.get("application_payload_sha256")
                     == e["payload_sha256"],
@@ -324,14 +450,25 @@ def reconstruct(root, out):
             if i == 5:
                 strata.append("first_measured_generation_batch")
             fragments = submitted[key]
-            if e["cancelled_discarded_bytes"] == 0:
-                require(
-                    e["payload_bytes"]
-                    == e["unique_payload_received_bytes"]
-                    + e["queued_remaining_bytes"]
-                    + e["inflight_payload_bytes"],
-                    "event byte disposition mismatch",
+            require(
+                sum(b - a for a, b in received_ranges[key])
+                == e["unique_payload_received_bytes"],
+                "final ledger differs from event-specific Core receipts",
+            )
+            balances = [
+                e[k]
+                for k in (
+                    "unique_payload_received_bytes",
+                    "queued_remaining_bytes",
+                    "inflight_payload_bytes",
+                    "cancelled_discarded_bytes",
                 )
+            ]
+            require(
+                all(type(n) is int and n >= 0 for n in balances)
+                and sum(balances) == e["payload_bytes"],
+                "event byte disposition mismatch",
+            )
             result_row = dict(
                 ids,
                 record_type="event",
@@ -395,6 +532,7 @@ def reconstruct(root, out):
                         p["_src"],
                         core_ref,
                         sent.get("_src"),
+                        receipt_frame["_src"] if receipt_frame else None,
                         status_sha,
                     ]
                     if r

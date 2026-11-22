@@ -837,6 +837,14 @@ deadline or queue boundary cases. The clocks, queue inputs and timing profile
 in this check were synthetic. The candidate considers existing FIFO work and
 rechecks earlier reservations whenever another request is added.
 
+Four retained loopback runs generated 1,080 measured events in total.
+Across all rounds, independent reconstruction matched all 1,010 segment
+receipts to their event identities and byte ranges, and all 530 Core
+returns to the corresponding result frames on the originating probe.
+Changing a single segment offset or a result-receipt timestamp in separate
+test copies caused reconstruction to fail. All four runs used one host
+and accelerated pacing.
+
 The revised prospective calibration crosses all eight selected-probe subsets
 (including the empty subset) with backlog 0/$B$, giving 16 conditions.
 All three probes generate requests in every condition and nonselected probes

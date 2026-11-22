@@ -1295,8 +1295,9 @@ this paper, not an independently proven performance layer.
 Its isolated latency estimate also omits multi-probe contention and backlog;
 the artifact supplies a separate RC1 shared-stage candidate with queue and
 remaining-deadline inputs. On a private RC1 copy, all 26 synthetic conditions exercised the coordinator
-barrier and decision path. Processing and return times still require
-independent physical calibration.
+barrier and decision path. Loopback checks also matched each returned Core
+result to its originating probe receipt (see the supplementary material).
+Processing and return times still require independent physical calibration.
 
 \textbf{Evidence value.}
 The experiment measures coverage, richness, byte demand, and timeliness, not

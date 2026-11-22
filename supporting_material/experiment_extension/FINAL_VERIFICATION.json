@@ -1,7 +1,7 @@
 {
   "status": "OFFLINE_PREPARATION_VALIDATED",
   "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
-  "new_fixture_tests": 89,
+  "new_fixture_tests": 90,
   "sources_unchanged_during_verification": true,
   "source_sha256": {
     "scripts/verify_experiment_extension.py": "ae27535117f308a54b7c6f8fc8438c472ab1ec805f22e926d98444924d4331d6",
@@ -28,10 +28,10 @@
     "supporting_material/experiment_extension/hardware/qualification_template.json": "2479fbfa1a221c38bb123eaefa49ae0b57694ce0d08fb30e152c99b22732fd91",
     "supporting_material/experiment_extension/hardware/raw_ledger_schema.json": "660e20cb0709eafd9d5dc5cd66b7a87ee4c9a01d1a9a1b4cf00d73454c6eefd3",
     "supporting_material/experiment_extension/hardware/recheck_allocator.py": "3dcdaf5e30e201f397755e06746acb9d13dcd485f7d5a2fed87c8279e9287bd3",
-    "supporting_material/experiment_extension/hardware/reconstruct_attempt.py": "217fa793e5efa00488eff09aecdf251ab3a4c95a50309df4ba3b6b94ce03398d",
+    "supporting_material/experiment_extension/hardware/reconstruct_attempt.py": "b99c7cd10b53150af759225f78cb5518752ebde90fe146c6c89097d544444af1",
     "supporting_material/experiment_extension/hardware/sample_size_rule_template.json": "7fb90ea1e59669ec629c584d319476bec46458865c341d889abf369d191917df",
     "supporting_material/experiment_extension/hardware/summarize_blocks.py": "d841604142f07a6fdc64aefc4117008ee2fd087a372dc26670008b37f4447267",
-    "supporting_material/experiment_extension/hardware/test_extension_transport.py": "af1f685a69afd307ff719fc8887e85ace71384df68acf7f5ef61f4812fa2da29",
+    "supporting_material/experiment_extension/hardware/test_extension_transport.py": "080bcdb9e5f4d15938bfdf7b1772e7b1ba7f53881ca65fa6880e74a3da41ffd1",
     "supporting_material/experiment_extension/hardware/test_plan_hardware.py": "c146400e4476ba7f94ffebac3995aee00a57a982147909ac025ddc51d6a513ed",
     "supporting_material/experiment_extension/hardware/test_private_transport.py": "32d487f2ff77e0747651af691a2448cd988b7c9a4a76ea60d2faee18031ec0b2",
     "supporting_material/experiment_extension/hardware/test_stage_runtime_adapter.py": "d0e6fbc2da87bf276a83111820da0a6da91dab5236e1f2e413cb1f4754a15637",
@@ -47,6 +47,7 @@
     "supporting_material/experiment_extension/review_formal_records.py": "85ae801b44e534659d29f6ac2f9986553625d788265ccffc473fd2d4fecbd7ce",
     "supporting_material/experiment_extension/source_lineage/prepare_capture_split.py": "7da6191a37a2f665dc4860fa5c4f8ac0a54f99300fa850dce9268516e63b86ec",
     "supporting_material/experiment_extension/source_lineage/test_prepare_capture_split.py": "ddfb2595a1dfbb2dce5aef3066cac77c13899a6a878036fa36db1aecf001984c",
+    "supporting_material/experiment_extension/stage_adapter/assemble_calibration.py": "1da84bc439b992d779b0b4c65cfa4f5ad03fcbc28b853e0861e81096c265f489",
     "supporting_material/experiment_extension/stage_adapter/build_profile.py": "2d89d1980404417efae1078e38a6a76173486c516e5f65ea0cfad49683f79197",
     "supporting_material/experiment_extension/stage_adapter/final_runtime_26.json": "aa8d64e1cac7fc2780ac1e64a581e6aad5b141a426c6f7497ed29d43f00424e6",
     "supporting_material/experiment_extension/stage_adapter/legacy/stage_admission_72cc05d.py": "c93c6cd4acf145f92a200ad2c267c556ac6cc6b928d487d134b6bb3737459039",
@@ -60,7 +61,7 @@
     "supporting_material/experiment_extension/test_freeze_inputs.py": "e41cbe67c9a38483242e8c873b5245f20dba9ece441382a6a33e8bed294d19ac",
     "supporting_material/experiment_extension/trace_feature_rows.py": "f69cf44a028eaaaf8cc8a890c92e68ee3839307f1f7867df25bb0fc7a9593da6"
   },
-  "private_validation_receipt_sha256": "6d30110e69715d9a6e8cd02e3b774ecc24dff183f09dfcc341e127164faf1bf7",
+  "private_validation_receipt_sha256": "92c6d8a0de0f6718c723b7e2f8ff63ac89ecd54c234c19dcc590d9270730f066",
   "checks": [
     {
       "name": "asset_discovery",
@@ -84,7 +85,7 @@
       "name": "hardware_plan_generation",
       "status": "PASS",
       "return_code": 0,
-      "tests_run": 12
+      "tests_run": 13
     },
     {
       "name": "exported_record_reconciliation_tests",
@@ -143,9 +144,9 @@
   ],
   "repository_verification": {
     "validate_submission": "PASS: clean naming, 35 cited references, expected files, and claim scan",
+    "verify_campaign_audit": "PASS: manifest, 12 sessions, 216 validators, 12 packages, and privacy scan",
     "verify_methodology": "PASS: frozen V1.3 hashes (original driver in legacy/), 1343 retained rows, scope guards, and privacy scan",
     "verify_methodology_revision": "PASS: 120 frozen file hashes, 14 formal blocks, 21 labeled equations, unchanged abstract, 36 reproducible public selector cases, 120 software runs independently reconstructed, 10,620 CRFA service rounds / 9,720 occurrences, and source-matched manuscript/supplement PDFs",
-    "verify_submission": "PASS: V1.3 submission hashes, evidence, provenance, citations, claims, and privacy scan",
-    "verify_campaign_audit": "PASS: manifest, 12 sessions, 216 validators, 12 packages, and privacy scan"
+    "verify_submission": "PASS: V1.3 submission hashes, evidence, provenance, citations, claims, and privacy scan"
   }
 }

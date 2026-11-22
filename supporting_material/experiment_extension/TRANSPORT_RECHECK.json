@@ -1,0 +1,137 @@
+{
+  "base": "ac72d121432117e2e25c43ddbb8bb6c0c82b9f00",
+  "case_receipts": {
+    "zero": {
+      "counts": {
+        "sent_segments": 180,
+        "core_segment_receipts": 180,
+        "matched_core_returns_all_rounds": 180,
+        "generated_measured": 270,
+        "absent_segment_receipts": 0
+      },
+      "archive_identity": {
+        "P1": "1b2399ab346e5941eea8ad06d48e870fcd760bbcb5777526151f19594bfa0701",
+        "P2": "b281cd741de40b658258b20ad3440f4f013f55ab318c1cf40645e3bb43da06c2",
+        "P3": "2f888d695b90ce00dbfeafbda2d6c4472698727ea0dc23792a0f7061743ebf2a"
+      },
+      "retained_outcomes_match": true,
+      "rebuild_sha256": {
+        "admission.jsonl": "c2f8cd7c3651eaed59380ae5970080c1e05b02991754b8fa49e5adf75170eb79",
+        "chunks.jsonl": "4cc99c0bfdfe58bf0f6d131497a46444a96000df5251989e96cfd546a8d48668",
+        "events.jsonl": "6cefb5d112577c806446f2bcf827ff34fd9140a6d456f4dec6fa9f13f0e8fa30",
+        "service.jsonl": "eca4014dd8bbba64905ac55a94e3473597bf8c2bf85f4615b7545604b3a09d82",
+        "sources.json": "891831060cd8a6f29aa4d26e3df68a9529bfa1bda797676e1d20228ad425b995",
+        "summary.json": "0733fa0993157d480e53cad2b0ea1e82a3cac68409b9f03350639275e327983c",
+        "timing_by_stratum.json": "a8a8c39d40e5ae4a58c60aeabbc595ef996284ac4db1cafbb6aa276f41f408d6"
+      },
+      "schema_records_verified": 857
+    },
+    "tail": {
+      "counts": {
+        "sent_segments": 185,
+        "core_segment_receipts": 185,
+        "matched_core_returns_all_rounds": 182,
+        "generated_measured": 270,
+        "absent_segment_receipts": 0
+      },
+      "archive_identity": {
+        "P1": "94032d2b3e94f1bfa2edad1d1781106215346be52bac30979bd0a51501764589",
+        "P2": "5ce2616e40b6b8c6d25dbcf29bb9e63469aa34cfaed164899862da18542ee08e",
+        "P3": "afc123adfc89615516120f1adec82d5ea1b010c534eea356ef19dcb6e7aca387"
+      },
+      "retained_outcomes_match": true,
+      "rebuild_sha256": {
+        "admission.jsonl": "9b95f33ba649f87c3cea4f88f520489ba8c399190ae174214a53fc7e80da379f",
+        "chunks.jsonl": "67676ddf5b5fe08eb70ed4bbd1f9fb5e68a46adf8345921ca313bac955578731",
+        "events.jsonl": "6e8975132366c2b3512e884f73db3cc35c7306d0b12588be2f8b380332c32cd7",
+        "service.jsonl": "6d00ab3507b7afcf60dcb9b32a76dcaeca3d5839bf5067981751b1a3c61a56f1",
+        "sources.json": "3aa2a5389fc77087dc94b31b3cdd32286efd82eb9100a71e0cf2fdcb0db2f9c3",
+        "summary.json": "f8b3584cad008d6ffdb72cd3caff260f52e43e19e6cabeca1ca0acf98fe43a16",
+        "timing_by_stratum.json": "f6d241c7ae1cc79ad07a1a1103e5fa56711d9498f13f032f9e6c1398966f305a"
+      },
+      "schema_records_verified": 862
+    },
+    "old": {
+      "counts": {
+        "sent_segments": 357,
+        "core_segment_receipts": 357,
+        "matched_core_returns_all_rounds": 72,
+        "generated_measured": 270,
+        "absent_segment_receipts": 0
+      },
+      "archive_identity": {
+        "P1": "380a8773f3183717c18545314af2029442a386fecd1a1df00d826239506739fa",
+        "P2": "ae70345e831f77a41a35da521edab9bcfe902019de7476c71d7a1a5813ae9c77",
+        "P3": "cb0ed48db913af0f275daa99b809be25435c21c69c7f4d1dc713d1821c1b9eda"
+      },
+      "retained_outcomes_match": true,
+      "rebuild_sha256": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "chunks.jsonl": "89d7be06c263428cabbe2db94e1d4a713c8be5b7189ba71b7e50947bcd2e06d9",
+        "events.jsonl": "50d3310324c4a0db76cff78876aaa31704dba24beb89067abfcb9a4f446e9779",
+        "service.jsonl": "1ef5aae836969b4ed82d71ceb9c49a45521d4e4fedb6ed11840a904d0d9e67c3",
+        "sources.json": "a0e81402d80043c4119e69fa913bb388e9eda3bf849ff58b64911cd519d9b1c5",
+        "summary.json": "c60d4a39bd176a1c3c1397c99ff1bcb71c2af81e423faefce3303659f9f88bfc",
+        "timing_by_stratum.json": "ce507f96fa7368b1404ffd71f8811221da3013d309c452635ab809fae3efa9a5"
+      },
+      "schema_records_verified": 939
+    },
+    "fixed": {
+      "counts": {
+        "sent_segments": 288,
+        "core_segment_receipts": 288,
+        "matched_core_returns_all_rounds": 96,
+        "generated_measured": 270,
+        "absent_segment_receipts": 0
+      },
+      "archive_identity": {
+        "P1": "a15ca886592aad6177ecb0104f8bd3ec031236be82a783ad8281396fe50e902c",
+        "P2": "8fb2e1e41024873dd93945c51c31389b6ee11bf57601d05552d26e5f1d15e1de",
+        "P3": "e6ba7ca7292a6eb1f1dcb010b82b5f9b93138574b492d7fd938ab383a3d20365"
+      },
+      "retained_outcomes_match": true,
+      "rebuild_sha256": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "chunks.jsonl": "2e90c9f7d2d9611781fb4ef60c8845570dd9d6fee4cd0c97e5de6457ba020669",
+        "events.jsonl": "c346d1b4134fed48cad3441f4475a1c75e3717f786700ede4573c0c0032722d3",
+        "service.jsonl": "891f45b4699ec2e0f175edb522a17c92aca1d8046d4a9380f809d0a78e9f8368",
+        "sources.json": "cea86629ccf09ca9e078ff603b6903444d99823aa074517adb7eb5f7f0b9302a",
+        "summary.json": "f61f390ccb9c94cc90ee75b672c5a3f4d541e6a5ed48125aeee560b6c1f5a243",
+        "timing_by_stratum.json": "082500031d069f2a540c64c73af664cba50fcde4595639915b74537d7de4fd21"
+      },
+      "schema_records_verified": 870
+    }
+  },
+  "negative_controls": {
+    "offset": {
+      "scope": "altered_copy_of_loopback_input_only",
+      "rejected": true,
+      "diagnostic": "ValueError: Core receipt does not identify a sent segment"
+    },
+    "result_ns": {
+      "scope": "altered_copy_of_loopback_input_only",
+      "rejected": true,
+      "diagnostic": "ValueError: result does not match originating probe's received frame"
+    }
+  },
+  "ntp_service_active": true,
+  "ntp_synchronized": false,
+  "p2": {
+    "dns_failed": 3,
+    "tcp_timeout": 3
+  },
+  "p3": {
+    "dns_failed": 1,
+    "tcp_timeout": 1
+  },
+  "physical_attempts": 0,
+  "physical_calibration_conditions": 0,
+  "independent_acquisitions": null,
+  "additional_download_inventory": {
+    "csv_files": 309,
+    "provider_pdf_sha256": "76d79460e416b88a28e9db3573255ea5fb5fca836fc2e3d3f794a4df2b9e7e98"
+  },
+  "profile_from_blocked_plan": "rejected_before_reading_observations",
+  "reconstruction_source_sha256": "b99c7cd10b53150af759225f78cb5518752ebde90fe146c6c89097d544444af1",
+  "connection_receipt_sha256": "0815886a07f211d7057491fa5480a9b927a1170bd8b1bf69bd467a4f9d8a5dfd"
+}
