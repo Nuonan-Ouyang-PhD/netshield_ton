@@ -2,7 +2,7 @@
   "schema_version": 1,
   "methodology_revision_base": "e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5",
   "overall_status": "PRIVATE_RECHECK_AND_DIAGNOSTIC_RECONCILIATION_EXECUTED_PHYSICAL_AND_HELD_OUT_STUDIES_BLOCKED",
-  "validation_report": "FOLLOWUP_VERIFICATION.json",
+  "validation_report": "RETAINED_REVIEW_VERIFICATION.json",
   "existing_frozen_scientific_files_rechecked": 120,
   "new_physical_hardware_execution": false,
   "stages": {
@@ -19,24 +19,25 @@
     "manuscript_integration_of_new_empirical_results": "RETAINED_RECORD_FINDINGS_INTEGRATED_NO_NEW_FORMAL_EXPERIMENT",
     "model_export_and_training_file_provenance": "LOCAL_REPORT_MATCHES_EXPORT_SOURCE_MODELS_AND_TRAIN_VALIDATION_DIGESTS",
     "rounded_signature_audit": "LOCAL_FULL_SCAN_REPORTED_PUBLIC_AGGREGATE_FRACTIONS_RECOMPUTED_COMPLETE_NEIGHBOUR_QUALIFICATION_PENDING",
-    "private_record_checker_repair": "PRIVATE_REEXECUTION_PASS_RECORDED_FIELDS_ONLY"
+    "private_record_checker_repair": "PRIVATE_REEXECUTION_PASS_RECORDED_FIELDS_ONLY",
+    "retained_diagnostic_preservation_and_subset_reconciliation": "COMPLETED_RETAINED_PRIVATE_OUTPUTS_PUBLIC_GROUP_COUNTS_AND_IDENTITIES_CHECKED"
   },
   "scope": "Fresh private scan from b8a978b using the repository default accepted index. Retained predictions and selected rows reconciled. See retained_review for public hashes and group counts. Historical raw-audit limitations remain.",
   "local_record_review_base": "75a29eda2105b926ab00699b138037e50b13eb9e",
   "prior_preparation_fixture_tests_passed": 35,
   "real_model_interface_diagnostic_reported": true,
   "current_workspace_detector_model_execution": false,
-  "latest_private_followup": "FOLLOWUP_STATUS.md",
+  "latest_private_followup": "retained_review/README.md",
   "new_formal_detection_experiment_executed": false,
   "reported_device_qualification": "P1 reachable at prior preflight. P2/P3 names failed resolution and configured historical interface addresses timed out in follow-up.",
-  "current_preparation_and_reconciliation_fixture_tests_passed": 53,
+  "current_preparation_and_reconciliation_fixture_tests_passed": 63,
   "retained_methodology_and_contention_tests_passed": 27,
   "current_submission_pages": {
     "manuscript": 14,
     "supplementary": 33
   },
-  "latest_private_followup_base": "dc5269c4864e2c4416d6ce6d8390d741bbaad20b",
-  "latest_public_review": "FOLLOWUP_REVIEW.md",
+  "latest_private_followup_base": "9cc64edf8520c7d15e8fb95724be754d35597171",
+  "latest_public_review": "retained_review/PUBLIC_REVIEW.md",
   "reported_private_diagnostic_model_execution": true,
   "reported_private_content_diagnostic_observations": 896,
   "reported_private_content_diagnostic_predictions": 2688,
@@ -49,5 +50,16 @@
   "reported_private_runtime_manifests_checked": 864,
   "reported_private_allocator_comparison_cases": 22638,
   "repaired_checker_executed_on_private_records": true,
-  "private_record_qualification_fixture_tests_passed": 11
+  "private_record_qualification_fixture_tests_passed": 11,
+  "prior_validation_report": "FOLLOWUP_VERIFICATION.json",
+  "prior_private_followup": "FOLLOWUP_STATUS.md",
+  "prior_private_followup_base": "dc5269c4864e2c4416d6ce6d8390d741bbaad20b",
+  "prior_public_review": "FOLLOWUP_REVIEW.md",
+  "reported_private_diagnostic_exact_overlap_rows": 366,
+  "reported_private_diagnostic_rounded_overlap_rows_including_exact": 544,
+  "reported_private_diagnostic_unique_exact_vectors": 895,
+  "reported_private_diagnostic_unique_rounded_vectors": 863,
+  "public_allocator_ordered_result_digests_reproduced": true,
+  "current_pdf_review_pages": 47,
+  "public_retained_review_fixture_tests_passed": 10
 }

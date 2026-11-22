@@ -25,7 +25,7 @@ def digest(path: Path) -> str:
 
 def source_identities() -> dict:
     paths = sorted(EXTENSION.rglob("*.py")) + [Path(__file__)]
-    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation"):
+    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation", EXTENSION / "retained_review"):
         paths.extend(sorted(directory.rglob("*.json")))
     return {path.relative_to(ROOT).as_posix(): digest(path) for path in paths}
 
@@ -44,6 +44,8 @@ def main() -> int:
         ("hardware_plan_generation", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "hardware"), "-p", "test_*.py", "-v"]),
         ("exported_record_reconciliation_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "formal_record_reconciliation"), "-p", "test_*.py", "-v"]),
         ("private_record_qualification_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "private_record_qualification/tests"), "-p", "test_*.py", "-v"]),
+        ("retained_review_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "retained_review"), "-p", "test_*.py", "-v"]),
+        ("retained_review_public_summary", [sys.executable, str(EXTENSION / "retained_review/verify_export.py")]),
         ("supplied_record_exports", [sys.executable, str(EXTENSION / "formal_record_reconciliation/reconcile.py"), "verify-public"]),
         ("frozen_science_and_prior_reconstruction", [sys.executable, "scripts/verify_methodology_revision.py"]),
     ]
@@ -53,7 +55,7 @@ def main() -> int:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
         matches = re.findall(r"Ran (\d+) tests?", result.stderr)
         tests = sum(int(value) for value in matches)
-        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports"})
+        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports", "retained_review_public_summary"})
         checks.append({
             "name": name,
             "status": "PASS" if passed else "FAIL",

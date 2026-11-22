@@ -31,3 +31,28 @@ file-level identities; independent parent acquisition IDs, episode boundaries
 and a verified mapping to the feature rows remain unavailable. Formal
 content, measured timely-correct output and physical controller validation
 remain pending.
+
+## Public verification and continuation
+
+The [public review](PUBLIC_REVIEW.md) records which earlier pending items are
+now closed and distinguishes the exported private findings from the checks
+reproduced with public inputs. Continue with the updated
+[Codex handoff](../CODEX_HANDOFF_CN.md); the fresh private checker run and the
+retained 896-row reconciliation do not need to be repeated for a documentation
+update.
+
+From the repository root:
+
+```bash
+python3 supporting_material/experiment_extension/retained_review/verify_export.py
+python3 -m unittest discover -s supporting_material/experiment_extension/retained_review -p 'test_*.py' -v
+```
+
+The verifier checks the exact seven-group cohort, nonnegative integer counts,
+denominators, pooled outcomes, signature-count bounds and the necessary
+exact-to-rounded inclusion relations, as well as the published source/index
+identities. The 895/863 global distinct counts are exported private scan
+findings: their bounds can be checked here, but the cross-group feature-vector
+intersections cannot be reconstructed from these anonymized summaries alone.
+The regression inputs are synthetic mutations of the public summaries and
+are not additional scientific observations.

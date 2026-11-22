@@ -1,55 +1,58 @@
 # 给本地 Codex 的完整执行指令：NetShield ToN 定向补实验
 
-## 当前继续位置：dc5269c 本地 follow-up 及其后检查器修复
+## 当前继续位置：9cc64ed 私有重审与诊断对账已完成
 
-从 PR #3 的 `fix/methodology-evidence-20261122` 最新版本继续。`dc5269c`
-标识本轮本地执行报告，不是后续检查器修复的最终 HEAD；记录实际取得的 commit
-和工作树状态。先读 [FOLLOWUP_STATUS.md](FOLLOWUP_STATUS.md)、
-[FOLLOWUP_REVIEW.md](FOLLOWUP_REVIEW.md)、
+从 PR #3 的 `fix/methodology-evidence-20261122` 最新版本继续。`9cc64ed`
+保留了从 `b8a978b` 执行的真实私有重审、诊断对账与新 PDF；其后公开核验修复
+另有提交，记录实际取得的 commit 和工作树状态。先读
+[retained_review/README.md](retained_review/README.md)、
+[retained_review/PUBLIC_REVIEW.md](retained_review/PUBLIC_REVIEW.md)、
 [private_record_qualification/README.md](private_record_qualification/README.md)
-和 [PREPARATION_STATUS.json](PREPARATION_STATUS.json)。保留已集成的论文与 PDF。
+和 [PREPARATION_STATUS.json](PREPARATION_STATUS.json)。此前的
+`FOLLOWUP_STATUS.md`、`FOLLOWUP_REVIEW.md` 是较早阶段记录，不是当前待办清单。
+保留已集成的论文与 PDF。
 
 ### 已完成工作的准确状态
 
-- 本地报告已检查 216 accepted arms 的 864 runtime manifests、63,720 服务轮
-  和 58,320 measured origins，并报告容量、grant 及终态字节账检查通过。
-  这推进了原始记录审计；逐 chunk、远端逐文件部署回执和逐事件 boot epoch
-  仍有缺口，原 `PASS_WITH_ISSUES` 继续有效。
+- 修复版 checker 已使用默认公开 accepted index，在全新路径重审真实私有记录，
+  结果为 `PASS_RECORDED_FIELDS_ONLY`：216 arms、864 manifests、63,720 服务轮、
+  58,320 measured origins。24,012 个需要 Core 的事件全部返回，其中14,416按时、
+  9,596迟到。公开摘要的 checker/index 身份与计数已核对。旧报告与旧检查器保留；
+  不再把这次重跑列为 pending。逐 chunk、远端逐文件部署回执和逐事件 boot epoch
+  仍有缺口，历史 `PASS_WITH_ISSUES` 没有被覆盖。
 - 本地报告已将 portable export 关联到三个源模型、训练清单及 train/validation
   文件，并核对31个源特征 CSV。不要再把这项工作写成完全未开始；需要保留
   可核查的对应记录，不能把文件哈希一致当成 capture/episode 相互独立。
 - 三位有效数字整向量同桶匹配已报告为 validation `282390/996486`、test
   `709971/1147055`，包含 exact duplicates。它会漏掉跨舍入边界的近邻，不能
   宣称完成全面 near-duplicate qualification，也不能把总体比例套到896行子集。
-- 新内容诊断在七个测试文件的前128行上报告896个观测、2688条预测，每种表示
+- 新内容诊断在七个测试文件的前128行上保留896个观测、2688条预测，每种表示
   为768 TP、128 TN、0 FP/FN。它使用 light bit 与训练拟合的共同 NB consumer，
   不同于先前九输入 heavy-model 接口诊断。新结果的零差是所选样本上的观察，
   不是由构造保证，也不证明总体等效或 full 无信息价值。
-- `CONTENT_PROTOCOL.md` 的同一 hash 已保存在前一阶段审计中；它现在有本地
-  执行报告，不能继续标为未执行草案。完整 run freeze 与逐行预测/consumer
-  仍需作为执行产物保留。正式独立 held-out 与通信约束实验尚未完成。
-- corrected runtime allocator 的22638组合一致性是已有本地离线执行报告。
-  它不替代 old/corrected 物理配对。P2/P3资格失败，本轮新增物理臂为0。
+- consumer、occurrences、predictions、逐文件结果和原 overlap 已逐字节保全，
+  实际输入、模型、协议和源码哈希已关联。对账核对了896个唯一事件、三种表示
+  一一配对与原始 test 文件前缀。该子集366行与 train/validation 精确匹配，
+  544行按三位有效数字匹配，后者包含前者；子集有895个不同精确向量、863个
+  不同舍入向量。这些是行/向量计数，不是独立 capture 数。已有保全与子集审计
+  不再列为 pending。回溯哈希不能补证初次执行的时间或完整事前冻结。
+- `CONTENT_PROTOCOL.md` 的同一 hash 已保存在更早阶段；诊断已有执行及对账，
+  不能继续标为未执行草案。正式独立 held-out 与通信约束实验尚未完成。
+- corrected runtime allocator 的22638组合一致性已有实际回执。公开函数重算
+  original/corrected 的有序结果流，也分别匹配两份 case digest。它不替代
+  old/corrected 物理配对。P1已返回身份，P2/P3资格失败，新增物理臂仍为0。
 
 ### 立即继续的工作
 
-1. **用修复后的 checker 重新审查同一批私有原始记录。** 原
-   `qualify_private_records.py` 即使累加到字节错误仍可 exit 0，且 `python -O`
-   会关闭其 assert。原版已经按字节保留在 `private_record_qualification/legacy/`；合成反例并不说明历史
-   数据真的有这些错误。按新 README 在全新输出路径执行当前版本，保留
-   PASS/FAIL/PENDING 的真实结果与输入哈希；不要覆盖本地旧报告或将旧运行
-   改标为新版本通过。缺字段、未完成返回或缺失记录不得用预期值补齐。
-2. **保全并导出已执行诊断的证据。** 保留 consumer.json、occurrences.jsonl、
-   predictions.jsonl、results.json、输入/模型/协议/源码身份及真实命令记录。
-   核对唯一事件、三种表示的一一配对、每文件128行与各文件结果，并给出896行
-   子集本身的 exact/rounded overlap 状态。公开时仅输出适当脱敏的组级计数和
-   哈希；私有路径、特征、模型保持私有。已有结果不因缺少公开导出而假称重做。
-   同样保留 allocator 比较 runner、前后runtime hash和实际通过数。
-3. **继续恢复三探针实验资格。** 根据实际已有配置核查供电、网络、名字解析及
+1. **使用当前公开入口验证交接版本。** 执行下方统一验证命令及
+   `python3 supporting_material/experiment_extension/retained_review/verify_export.py`。
+   已完成的私有重审和896行对账无需为更新文档再次运行。若输入或检查器发生
+   实质变化，再使用新输出路径重新资格检查；保留原始产物和两代报告。
+2. **继续恢复三探针实验资格。** 根据实际已有配置核查供电、网络、名字解析及
    SSH，记录真实连接结果；不猜地址、不把超时直接解释成设备已关机。条件满足
    后按下方协议执行 allocator 配对；shared-stage 先做可部署的 causal controller、
    独立 calibration 和 pilot，再冻结正式块数。保留原launcher/时间锚以隔离效应。
-4. **建立合格内容实验的输入。** 优先追溯父capture/episode与实际训练样本，建立
+3. **建立合格内容实验的输入。** 优先追溯父capture/episode与实际训练样本，建立
    独立的新划分并审计重复。仅删掉已命中的测试行不足以证明独立；不能根据
    是否出现full优势挑测试子集。先固定表示与消费者、阈值、主比较、独立组
    和统计规则，再进行真正的paired content实验及通信约束输出测量。
