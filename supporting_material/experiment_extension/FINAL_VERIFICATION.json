@@ -1,17 +1,21 @@
 {
   "status": "OFFLINE_PREPARATION_VALIDATED",
   "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
-  "new_fixture_tests": 90,
+  "new_fixture_tests": 95,
   "sources_unchanged_during_verification": true,
+  "synthetic_model_fit_and_inference_test_passed": true,
+  "research_models_executed": false,
   "source_sha256": {
-    "scripts/verify_experiment_extension.py": "ae27535117f308a54b7c6f8fc8438c472ab1ec805f22e926d98444924d4331d6",
+    "scripts/verify_experiment_extension.py": "4a3e18c3785c85864315b751423b66fe13b5911d57bfe75aee2cc258ff8178eb",
     "supporting_material/experiment_extension/SOURCE_ROW_TRACE.json": "f544ffd6782f538020820ef2f9e1b9c668c9fdddb040a58b8c816518c93623a0",
     "supporting_material/experiment_extension/audit_retained_diagnostic.py": "7c0326cee6ab34a532d0c864fa875b6697bd4ce4f25311cd0c8b4cafdb31ff34",
     "supporting_material/experiment_extension/check_model_interface.py": "c564ecfcdc54fba6166541d4c87e991a47af9ed0ed13eb74695fa63b643ef50b",
     "supporting_material/experiment_extension/check_split_overlap.py": "27231498d5f5df8cb7c53ba705029e8ade11b3282fe760f1dae414de3c907676",
     "supporting_material/experiment_extension/content_diagnostic.py": "5324454a9411c9109cfcf4cf9e140a784bd22e7debe2905c048252ef9713c9b9",
     "supporting_material/experiment_extension/discover_assets.py": "69f8d5a1ffd4df0212e93d786653490f02ebdc820af96213cec92661f8a839d1",
+    "supporting_material/experiment_extension/evidence_value/run_content_study.py": "b1389a4859bfdf2e45e03a9273659b9f238e1740ae008f43ec517d430a1ec7e9",
     "supporting_material/experiment_extension/evidence_value/score_evidence_value.py": "d56835ac340042d35785036f41cdbfb5ff3aa165e6a22d7fcd82188ea6749084",
+    "supporting_material/experiment_extension/evidence_value/tests/test_content_study.py": "345e82ca343e0ddfb04e90abb0f4ae3d9c7cedfc2dc5515982fcd0f844a2ccf0",
     "supporting_material/experiment_extension/evidence_value/tests/test_score_evidence_value.py": "a446b35253de43c8188f55885b621755d687e9282f6bc44fab3c61ca9217278f",
     "supporting_material/experiment_extension/formal_record_reconciliation/reconcile.py": "6b795fd3234b9e31a6ae5cd27ab3309421535b5747ff61276341febbc7bca640",
     "supporting_material/experiment_extension/formal_record_reconciliation/results/INTERFACE_SUMMARY.json": "aaaa836396b170cf739e6443e68144e4f711192ec30c881f0d95429719d7e0e3",
@@ -61,7 +65,7 @@
     "supporting_material/experiment_extension/test_freeze_inputs.py": "e41cbe67c9a38483242e8c873b5245f20dba9ece441382a6a33e8bed294d19ac",
     "supporting_material/experiment_extension/trace_feature_rows.py": "f69cf44a028eaaaf8cc8a890c92e68ee3839307f1f7867df25bb0fc7a9593da6"
   },
-  "private_validation_receipt_sha256": "92c6d8a0de0f6718c723b7e2f8ff63ac89ecd54c234c19dcc590d9270730f066",
+  "private_validation_receipt_sha256": "9ff74ea2493b77ec9d564216fff6a4d431cb403c47e011007f3bea5e058f2f78",
   "checks": [
     {
       "name": "asset_discovery",
@@ -79,7 +83,7 @@
       "name": "evidence_value_scoring",
       "status": "PASS",
       "return_code": 0,
-      "tests_run": 19
+      "tests_run": 24
     },
     {
       "name": "hardware_plan_generation",

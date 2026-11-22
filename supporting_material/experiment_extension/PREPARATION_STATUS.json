@@ -38,7 +38,7 @@
     "manuscript": 14,
     "supplementary": 34
   },
-  "latest_private_followup_base": "ac72d121432117e2e25c43ddbb8bb6c0c82b9f00",
+  "latest_private_followup_base": "c9a7bdcd603b84124725480673a61aa30165e227",
   "latest_public_review": "HARDWARE_CLOSEOUT_CN.md",
   "reported_private_diagnostic_model_execution": true,
   "reported_private_content_diagnostic_observations": 896,
@@ -78,5 +78,7 @@
   "prospective_calibration_conditions_per_block": 16,
   "prospective_pilot_formal_conditions_per_block": 6,
   "reported_source_rows_traced": 5141673,
-  "reported_source_csv_count": 31
+  "reported_source_csv_count": 31,
+  "content_runner_status": "INFORMATION_ONLY_FIT_ENCODERS_CONSUMER_AND_SCORER_EXECUTED_ON_SYNTHETIC_FIXTURE",
+  "current_device_and_content_check": "DEVICE_AND_CONTENT_CHECK.json"
 }

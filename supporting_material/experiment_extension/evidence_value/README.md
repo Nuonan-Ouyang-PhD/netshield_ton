@@ -1,7 +1,6 @@
 # Evidence-value scoring for an actual alert / summary / full ablation
 
-This directory prepares an executable **scoring and input-validation step** for a
-future real experiment. It does not train a detector, run an encoder, contact a
+The standalone scorer provides the **scoring and input-validation step**. It does not train a detector, run an encoder, contact a
 Raspberry Pi, generate research observations, or assert that the experiment has
 been completed. The tests create clearly labelled `SYNTHETIC_FIXTURE` data only
 inside temporary directories and delete them afterward.
@@ -333,3 +332,76 @@ undefined metrics, one-group interval suppression, and fail-closed CLI output.
 CLI refuses `data_origin=SYNTHETIC_FIXTURE`; with it, output remains labelled
 `SYNTHETIC_FIXTURE`, and synthetic transport fields must say `time_source=SYNTHETIC_FIXTURE`
 rather than `measured`. The flag is not part of a real experiment command.
+
+## Run the training and inference adapter
+
+The separate `run_content_study.py` command implements the information-only
+lane. It requires Python 3.10+ and NumPy (tested with 2.3.5). Start with a
+reviewed acquisition register and parent split as described in
+`../source_lineage/README.md`. The register must establish the parent, source
+boundaries and independence; the mapping checker verifies the supplied bytes
+and assignments. The archived 31 CSV identities alone do not meet this
+requirement. Keep the register, features, fit artifacts and prediction logs
+on the private research volume.
+
+Freeze a JSON run specification before fitting. Fields are:
+
+| Field | Value |
+| --- | --- |
+| `study_id` | Independent study identifier |
+| `dataset_directory` | Directory with the frozen dataset manifest and its three archived JSONL streams |
+| `trace`, `mapping`, `split_assignment` | File paths resolved from the spec directory |
+| `provenance_sha256` | Object keyed by those three field names with their reviewed file digests |
+| `frozen_inputs_sha256` | Digests of `dataset_manifest.json`, `train.jsonl`, `validation.jsonl` and `test.jsonl` from the verified frozen source export |
+
+The test module provides a complete executable example of the source and spec
+formats. Archived stream names locate retained rows. All model splits come
+from the new parent assignments. The adapter verifies file hashes, source
+identity, row coordinates, source labels, feature width and trace counts.
+New acquisitions require their own reviewed source evidence and frozen export.
+Use a fresh output directory, including after an interrupted run.
+
+```sh
+python3 supporting_material/experiment_extension/evidence_value/run_content_study.py \
+  /path/to/frozen/run_spec.json /path/to/new/private/run
+```
+
+The primary endpoint is full minus alert correct predictions per generated
+occurrence, weighted equally by test capture. Every eligible test row enters
+all three levels. A second contrast compares full and summary. The paired
+bootstrap uses 2,000 draws, seed 20261122. Binary labels 0 and 1 represent
+benign and attack. The overlap tables cover all split pairs, using exact
+ordered vectors and three-significant-digit signatures. A shared signature
+stops the run before fitting and leaves the match records for review.
+Rounding can miss neighbours across bin boundaries. Both labels must occur in
+each split and the test split must contain at least two parent captures.
+
+The light logistic fit uses train-only standardization and 32 full-batch
+gradient updates from zero, step 0.05 and L2 coefficient 0.0001 on the
+weights. At logit zero the alert bit is positive. The common consumer fits
+class priors, a Laplace-smoothed Bernoulli alert likelihood and diagonal
+Gaussian feature likelihoods with a population variance floor of 1e-8.
+Summary appends the first four features in frozen order; full appends all 39.
+A common decision threshold maximizes balanced accuracy across the three
+equally represented validation encodings over 0.25, 0.50 and 0.75. Ties
+prefer the threshold closest to 0.5 and then the smaller one. These are
+prospective adapter settings. The archived diagnostic used its original fit
+and fixed threshold.
+
+The adapter writes its inventories before inference, freezes numerical models,
+encoders, threshold and protocol, and submits predictions to the existing
+scorer. Private artifacts include a SQLite row index, the actual concatenated
+payloads, per-call byte offsets and monotonic durations, predictions, scores
+and file digests. Alert/summary/full use 1/33/313 unpadded application bytes.
+A failed inference keeps its occurrence and status. Timing recorded inside
+this process measures computation. Physical timely correctness requires the
+separate measured transport protocol and actual probe clocks. The existing
+scorer loads inventories into RAM; size the host for the complete qualified
+cohort before execution.
+
+To exercise the adapter on explicitly synthetic data:
+
+```sh
+python3 -m unittest discover -s supporting_material/experiment_extension/evidence_value/tests \
+  -p test_content_study.py -v
+```

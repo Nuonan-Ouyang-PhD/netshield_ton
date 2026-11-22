@@ -824,7 +824,11 @@ CSV digest to its labelled counterpart and matched-row count. These are
 source coordinates; the acquisition identities and boundaries that relate
 numbered PCAP segments to their parent recordings remain unresolved.
 Distinct CSV identities therefore cannot by themselves establish independent
-episodes.
+episodes. The accompanying software can refit the alert encoder and a
+common consumer on a capture-level training split, choose a common threshold
+on validation data, and score all three encodings for each held-out row.
+We checked this path with synthetic inputs. Its application to independent
+captures still requires a verified mapping from each segment to its parent.
 
 A separate RC1 runtime adapter supplies a prospective shared-stage policy.
 The initial local receipt records nine synthetic coordinator

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Verify preparation, supplied audit exports, and retained scientific artifacts.
 
-No network, device access, model training, experiment launch or result
-fabrication is performed. All new test data are temporary synthetic fixtures.
+The content-runner tests fit and call models on synthetic fixtures. All new test data are temporary synthetic fixtures.
 """
 from __future__ import annotations
 
@@ -80,12 +79,13 @@ def main() -> int:
         "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
         "new_scientific_experiments_executed": False,
         "physical_devices_used": False,
-        "detector_models_executed": False,
+        "synthetic_model_fit_and_inference_test_passed": next(c["status"] == "PASS" for c in checks if c["name"] == "evidence_value_scoring"),
+        "research_models_executed": False,
         "new_fixture_tests": sum(check["tests_run"] for check in checks),
         "sources_unchanged_during_verification": stable,
         "source_sha256": before,
         "checks": checks,
-        "interpretation": "This verifies preparation/reconciliation, lineage-input and stage-candidate tools on synthetic fixtures, checks supplied path-free audit exports and the public source-row trace counts, and preserves prior scientific evidence. It does not reopen private logs or the 5,141,673 source rows, reexecute the private stage runtime, rescore the 896-row diagnostic, run models or hardware, or establish detection gain or physical safety.",
+        "interpretation": "This verifies preparation/reconciliation, lineage-input and stage-candidate tools on synthetic fixtures, checks supplied path-free audit exports and the public source-row trace counts, and preserves prior scientific evidence. It does not reopen private logs or the 5,141,673 source rows, reexecute the private stage runtime, rescore the 896-row diagnostic, run models on research data or use hardware, or establish detection gain or physical safety.",
     }
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
