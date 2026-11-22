@@ -1,0 +1,695 @@
+{
+  "software": {
+    "cap_violations_reconstructed": 0,
+    "events": 1668,
+    "inputs_sha256": {
+      "EVENT_LEDGER.csv": "7fd632bb56f8527bd63e7d3ec3f85668988dddce5835197ec7a8756022cf788c",
+      "RUN_SUMMARY.csv": "2e43f8a9444a0a05ca733a96ec53b867715fb51f8142fad42207e6894ca2b002",
+      "SERVICE_LEDGER.csv": "7088ee1a84fc29cb858f14b4a90b820c28336e6db9e6eaf3b429f962b9cdaee0"
+    },
+    "interpretation": "Independent accounting checks on simulated records; does not validate injected latency assumptions against hardware.",
+    "nonempty_service_rounds_reconstructed": 167,
+    "per_run_reconstructed": {
+      "n03_high_empty_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 1,
+        "timely_upload": 2
+      },
+      "n03_high_empty_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n03_high_empty_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 1,
+        "timely_upload": 2
+      },
+      "n03_high_empty_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 1,
+        "timely_upload": 2
+      },
+      "n03_high_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n03_high_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_empty_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 3,
+        "timely_upload": 3
+      },
+      "n03_high_empty_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 3,
+        "timely_upload": 3
+      },
+      "n03_high_empty_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 3,
+        "timely_upload": 3
+      },
+      "n03_high_empty_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 3,
+        "timely_upload": 3
+      },
+      "n03_high_half_round_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_half_round_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_half_round_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_high_half_round_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_high_half_round_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_low_empty_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_empty_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_low_empty_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_low_empty_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_low_empty_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_low_half_round_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_low_half_round_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_low_half_round_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_empty_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_empty_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n03_mid_empty_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n03_mid_empty_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_empty_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n03_mid_half_round_assumed_heterogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 0,
+        "timely_upload": 1
+      },
+      "n03_mid_half_round_assumed_heterogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_mid_half_round_assumed_heterogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_half_round_assumed_heterogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 0,
+        "timely_upload": 1
+      },
+      "n03_mid_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 3,
+        "selected": 0
+      },
+      "n03_mid_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_half_round_zero__backlog_aware": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_half_round_zero__deadline_reservation": {
+        "requested": 3,
+        "selected": 1,
+        "timely_result": 1,
+        "timely_upload": 1
+      },
+      "n03_mid_half_round_zero__isolated_precheck": {
+        "requested": 3,
+        "selected": 3,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n03_mid_half_round_zero__new_bytes_only": {
+        "requested": 3,
+        "selected": 2,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 0,
+        "timely_upload": 5
+      },
+      "n08_mid_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 8,
+        "selected": 4,
+        "timely_result": 4,
+        "timely_upload": 4
+      },
+      "n08_mid_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 8,
+        "selected": 8,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 0,
+        "timely_upload": 5
+      },
+      "n08_mid_empty_zero__backlog_aware": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 5,
+        "timely_upload": 5
+      },
+      "n08_mid_empty_zero__deadline_reservation": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 5,
+        "timely_upload": 5
+      },
+      "n08_mid_empty_zero__isolated_precheck": {
+        "requested": 8,
+        "selected": 8,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_empty_zero__new_bytes_only": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 5,
+        "timely_upload": 5
+      },
+      "n08_mid_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 8,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n08_mid_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 8,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n08_mid_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 8,
+        "selected": 8,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_half_round_zero__backlog_aware": {
+        "requested": 8,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n08_mid_half_round_zero__deadline_reservation": {
+        "requested": 8,
+        "selected": 2,
+        "timely_result": 2,
+        "timely_upload": 2
+      },
+      "n08_mid_half_round_zero__isolated_precheck": {
+        "requested": 8,
+        "selected": 8,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n08_mid_half_round_zero__new_bytes_only": {
+        "requested": 8,
+        "selected": 5,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 0,
+        "timely_upload": 10
+      },
+      "n16_mid_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 16,
+        "selected": 7,
+        "timely_result": 7,
+        "timely_upload": 7
+      },
+      "n16_mid_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 16,
+        "selected": 16,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 0,
+        "timely_upload": 10
+      },
+      "n16_mid_empty_zero__backlog_aware": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 10,
+        "timely_upload": 10
+      },
+      "n16_mid_empty_zero__deadline_reservation": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 10,
+        "timely_upload": 10
+      },
+      "n16_mid_empty_zero__isolated_precheck": {
+        "requested": 16,
+        "selected": 16,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_empty_zero__new_bytes_only": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 10,
+        "timely_upload": 10
+      },
+      "n16_mid_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 16,
+        "selected": 5,
+        "timely_result": 0,
+        "timely_upload": 5
+      },
+      "n16_mid_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 16,
+        "selected": 0
+      },
+      "n16_mid_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 16,
+        "selected": 16,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_half_round_zero__backlog_aware": {
+        "requested": 16,
+        "selected": 5,
+        "timely_result": 5,
+        "timely_upload": 5
+      },
+      "n16_mid_half_round_zero__deadline_reservation": {
+        "requested": 16,
+        "selected": 5,
+        "timely_result": 5,
+        "timely_upload": 5
+      },
+      "n16_mid_half_round_zero__isolated_precheck": {
+        "requested": 16,
+        "selected": 16,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n16_mid_half_round_zero__new_bytes_only": {
+        "requested": 16,
+        "selected": 10,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_empty_assumed_homogeneous__backlog_aware": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_empty_assumed_homogeneous__deadline_reservation": {
+        "requested": 32,
+        "selected": 11,
+        "timely_result": 11,
+        "timely_upload": 11
+      },
+      "n32_mid_empty_assumed_homogeneous__isolated_precheck": {
+        "requested": 32,
+        "selected": 32,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_empty_assumed_homogeneous__new_bytes_only": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_empty_zero__backlog_aware": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 21,
+        "timely_upload": 21
+      },
+      "n32_mid_empty_zero__deadline_reservation": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 21,
+        "timely_upload": 21
+      },
+      "n32_mid_empty_zero__isolated_precheck": {
+        "requested": 32,
+        "selected": 32,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_empty_zero__new_bytes_only": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 21,
+        "timely_upload": 21
+      },
+      "n32_mid_half_round_assumed_homogeneous__backlog_aware": {
+        "requested": 32,
+        "selected": 10,
+        "timely_result": 0,
+        "timely_upload": 10
+      },
+      "n32_mid_half_round_assumed_homogeneous__deadline_reservation": {
+        "requested": 32,
+        "selected": 0
+      },
+      "n32_mid_half_round_assumed_homogeneous__isolated_precheck": {
+        "requested": 32,
+        "selected": 32,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_half_round_assumed_homogeneous__new_bytes_only": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_half_round_zero__backlog_aware": {
+        "requested": 32,
+        "selected": 10,
+        "timely_result": 10,
+        "timely_upload": 10
+      },
+      "n32_mid_half_round_zero__deadline_reservation": {
+        "requested": 32,
+        "selected": 10,
+        "timely_result": 10,
+        "timely_upload": 10
+      },
+      "n32_mid_half_round_zero__isolated_precheck": {
+        "requested": 32,
+        "selected": 32,
+        "timely_result": 0,
+        "timely_upload": 0
+      },
+      "n32_mid_half_round_zero__new_bytes_only": {
+        "requested": 32,
+        "selected": 21,
+        "timely_result": 0,
+        "timely_upload": 0
+      }
+    },
+    "runs": 120,
+    "scope": "software-only service/event ledger reconstruction",
+    "service_segments": 1637,
+    "status": "PASS"
+  }
+}

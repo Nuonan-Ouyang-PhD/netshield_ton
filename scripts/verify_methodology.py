@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Verify the committed path-free V1.3 methodology-repair review package."""
+"""Verify frozen V1.3 outputs and the explicitly archived original driver.
+
+The active driver was corrected after methodological review. The original
+manifest is unchanged: its original driver entry resolves to the byte-exact
+legacy copy. New-source semantics are checked by the revision tests/audit.
+"""
 
 from __future__ import annotations
 
@@ -19,6 +24,7 @@ EXPECTED_ROWS = {
     "RELEASE_LATENESS_DIAGNOSTIC.csv": 3,
     "SCALING_RESULTS.csv": 20,
 }
+NEW_TOP_LEVEL_FILES = {"simulation_primitives.py", "CORRECTIONS.md"}
 
 
 def fail(message: str) -> None:
@@ -33,13 +39,17 @@ def main() -> None:
     listed: set[Path] = set()
     for line in (PACKAGE / "SHA256SUMS.txt").read_text(encoding="utf-8").splitlines():
         expected, name = line.split("  ", 1)
-        path = PACKAGE / name
-        listed.add(path)
+        logical_path = PACKAGE / name
+        listed.add(logical_path)
+        path = (PACKAGE / "legacy/run_methodology_repair_v1_3.py"
+                if Path(name).name == "run_methodology_repair.py" else logical_path)
         if not path.is_file() or sha256(path) != expected:
             fail(f"SHA-256 mismatch: {name}")
 
     actual = {path for path in PACKAGE.iterdir() if path.is_file()}
     actual.remove(PACKAGE / "SHA256SUMS.txt")
+    for name in NEW_TOP_LEVEL_FILES:
+        actual.discard(PACKAGE / name)
     if listed != actual:
         fail("manifest file list does not match methodology repair contents")
 
@@ -67,7 +77,7 @@ def main() -> None:
             if forbidden.search(path.read_text(encoding="utf-8", errors="ignore")):
                 fail(f"private host/path token in {path.relative_to(ROOT)}")
 
-    print("PASS: V1.3 hashes, 1343 result rows, scope guards, and privacy scan")
+    print("PASS: frozen V1.3 hashes (original driver in legacy/), 1343 retained rows, scope guards, and privacy scan")
 
 
 if __name__ == "__main__":

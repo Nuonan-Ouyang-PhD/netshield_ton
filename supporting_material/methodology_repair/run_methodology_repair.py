@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Independent ToN V1.3 methodology-repair analyses.
+"""Corrected software analyses; frozen V1.3 outputs remain historical inputs.
 
-This program treats the accepted V1.2 campaign, protocol, action table, and
-runtime source as read-only inputs.  It never contacts Raspberry Pis and never
-writes outside its own output directory (plus the sibling final ZIP).
+Tasks A/B report payload-upload completion only.  They do not simulate or
+measure full core-result return.  Task C reconstructs returned-result timing
+from private hardware ledgers.  Importing this module requires no private
+paths: configure_actions() supports explicit public/synthetic test fixtures.
+The complete private-input workflow writes a new output directory and ZIP.
 """
 
 from __future__ import annotations
@@ -15,6 +17,7 @@ import math
 import os
 import platform
 import random
+import shutil
 import sys
 import traceback
 import zipfile
@@ -22,6 +25,17 @@ from collections import Counter, deque
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+try:
+    from .simulation_primitives import (
+        admission_budget, isolated_latency_ms, same_round_upload_feasible,
+        upload_on_time, waterfill,
+    )
+except ImportError:  # Direct execution from this directory.
+    from simulation_primitives import (
+        admission_budget, isolated_latency_ms, same_round_upload_feasible,
+        upload_on_time, waterfill,
+    )
 
 
 HERE = Path(__file__).resolve().parent
@@ -34,18 +48,14 @@ def required_path(name: str) -> Path:
     return Path(value).expanduser().resolve()
 
 
-AUDIT = required_path("TON_AUDIT_ROOT")
-RAW_ROOT = AUDIT / "extracted_sessions"
-PROTOCOL = AUDIT / "protocol"
-AUDIT_RESULTS = AUDIT / "results"
-RUNTIME = required_path("TON_RUNTIME_ROOT")
-RAW_ZIP = required_path("TON_RAW_ZIP")
-ZIP_PATH = Path(
-    os.environ.get(
-        "TON_OUTPUT_ZIP",
-        str(HERE.parent.parent / "methodology_repair_results.zip"),
-    )
-).expanduser().resolve()
+AUDIT: Path | None = None
+RAW_ROOT: Path | None = None
+PROTOCOL: Path | None = None
+AUDIT_RESULTS: Path | None = None
+RUNTIME: Path | None = None
+RAW_ZIP: Path | None = None
+OUTPUT: Path | None = None
+ZIP_PATH: Path | None = None
 
 DEVICES = ("P1", "P2", "P3")
 CAPACITY_BPS = {"low": 1048576, "mid": 2097152, "high": 3145728}
@@ -130,6 +140,8 @@ def quantile(values: list[float], q: float) -> float | None:
 
 
 def action_table() -> list[dict[str, Any]]:
+    if PROTOCOL is None:
+        raise RuntimeError("configure_private_inputs() is required to read the retained action table")
     raw = read_json(PROTOCOL / "inputs" / "actions.json")["actions"]
     return [
         {
@@ -146,20 +158,59 @@ def action_table() -> list[dict[str, Any]]:
     ]
 
 
-ACTIONS = action_table()
-ACTION_BY_ID = {row["id"]: row for row in ACTIONS}
+ACTIONS: list[dict[str, Any]] = []
+ACTION_BY_ID: dict[str, dict[str, Any]] = {}
+ACTION_IDS: tuple[str, ...] = ()
 
 
-def is_safe(action: dict[str, Any], device: str, capacity_bps: int) -> bool:
+def configure_actions(actions: list[dict[str, Any]]) -> None:
+    """Set an explicit action table; input provenance belongs in run metadata."""
+    global ACTIONS, ACTION_BY_ID, ACTION_IDS
+    if not actions or len({action["id"] for action in actions}) != len(actions):
+        raise ValueError("actions must be nonempty with unique ids")
+    ACTIONS = [dict(action) for action in actions]
+    ACTION_BY_ID = {row["id"]: row for row in ACTIONS}
+    ACTION_IDS = tuple(row["id"] for row in ACTIONS)
+
+
+def configure_private_inputs() -> None:
+    """Load retained inputs only for a requested complete rerun."""
+    global AUDIT, RAW_ROOT, PROTOCOL, AUDIT_RESULTS, RUNTIME, RAW_ZIP, OUTPUT, ZIP_PATH
+    AUDIT = required_path("TON_AUDIT_ROOT")
+    RAW_ROOT = AUDIT / "extracted_sessions"
+    PROTOCOL = AUDIT / "protocol"
+    AUDIT_RESULTS = AUDIT / "results"
+    RUNTIME = required_path("TON_RUNTIME_ROOT")
+    RAW_ZIP = required_path("TON_RAW_ZIP")
+    default_output = HERE.parent / "methodology_corrected_runs" / datetime.now(timezone.utc).strftime("run_%Y%m%dT%H%M%S_%fZ")
+    OUTPUT = Path(os.environ.get("TON_OUTPUT_DIR", str(default_output))).expanduser().resolve()
+    ZIP_PATH = Path(os.environ.get("TON_OUTPUT_ZIP", str(OUTPUT.with_suffix(".zip")))).expanduser().resolve()
+    if OUTPUT == HERE or OUTPUT.is_relative_to(HERE) or any(OUTPUT.is_relative_to(p) for p in (AUDIT, RUNTIME)):
+        raise ValueError("TON_OUTPUT_DIR must be separate from frozen inputs and the methodology snapshot")
+    if ZIP_PATH.is_relative_to(HERE) or any(ZIP_PATH.is_relative_to(p) for p in (AUDIT, RUNTIME)):
+        raise ValueError("TON_OUTPUT_ZIP must be separate from frozen inputs and the methodology snapshot")
+    if ZIP_PATH.is_relative_to(OUTPUT):
+        raise ValueError("TON_OUTPUT_ZIP must be outside TON_OUTPUT_DIR")
+    if OUTPUT.exists() or ZIP_PATH.exists():
+        raise FileExistsError("Use a new output directory and ZIP path; existing results are never overwritten")
+    configure_actions(action_table())
+    OUTPUT.mkdir(parents=True)
+
+
+def passes_isolated_latency_precheck(action: dict[str, Any], device: str, capacity_bps: int) -> bool:
+    """Optimistic single-device screening; does not account for shared contention."""
     compute = float(action["compute_ms"][device])
     core_raw = action["core_ms"]
     core = float(core_raw[device] if isinstance(core_raw, dict) else core_raw)
-    network = action["payload"] * 8 / capacity_bps * 1000.0 if action["payload"] else 0.0
-    return compute + core + network <= 1000.0
+    if capacity_bps <= 0 or capacity_bps % 8:
+        raise ValueError("capacity_bps must be positive and divisible by eight")
+    return isolated_latency_ms(action["payload"], capacity_bps // 8, compute_ms=compute, core_ms=core) <= 1000.0
 
 
 def select_local(device: str, capacity_bps: int, v: float, queue_bytes: int, safe_only: bool) -> dict[str, Any]:
-    pool = [action for action in ACTIONS if (not safe_only or is_safe(action, device, capacity_bps))]
+    if not ACTIONS:
+        raise RuntimeError("Call configure_actions() with an explicit action table first")
+    pool = [action for action in ACTIONS if (not safe_only or passes_isolated_latency_precheck(action, device, capacity_bps))]
     if not pool:
         pool = [action for action in ACTIONS if action["evidence"] == "none"] or ACTIONS
     return max(pool, key=lambda action: v * action["utility"] - queue_bytes * action["payload"] / 1_000_000.0)
@@ -174,7 +225,7 @@ def degradation_key(action: dict[str, Any]) -> tuple[int, int, int]:
 
 
 def degrade(current: dict[str, Any], device: str, capacity_bps: int, safe_only: bool) -> dict[str, Any]:
-    pool = [action for action in ACTIONS if (not safe_only or is_safe(action, device, capacity_bps))]
+    pool = [action for action in ACTIONS if (not safe_only or passes_isolated_latency_precheck(action, device, capacity_bps))]
     lower = [action for action in pool if degradation_key(action) < degradation_key(current)]
     if not lower:
         fallback = [action for action in pool if action["evidence"] == "none"]
@@ -198,10 +249,16 @@ def priority(seed: int, window: int, devices: tuple[str, ...]) -> list[str]:
 
 def joint_admit(
     chosen: dict[str, dict[str, Any]], capacity_bytes: int, capacity_bps: int,
-    safe_only: bool, seed: int, window: int,
+    safe_only: bool, seed: int, window: int, existing_queues: dict[str, int],
 ) -> dict[str, dict[str, Any]]:
+    """Degrade new payloads to a backlog-reserved application byte budget.
+
+    This does not certify detector/core/result-return deadlines.  Existing
+    backlog above capacity is reported separately by the simulation.
+    """
     chosen = dict(chosen)
-    while sum(action["payload"] for action in chosen.values()) > capacity_bytes:
+    available = admission_budget(capacity_bytes, existing_queues)
+    while sum(action["payload"] for action in chosen.values()) > available:
         options: list[tuple[float, str, dict[str, Any]]] = []
         for device, current in chosen.items():
             replacement = degrade(current, device, capacity_bps, safe_only)
@@ -210,7 +267,7 @@ def joint_admit(
                 loss = max(0.0, current["utility"] - replacement["utility"])
                 options.append((loss / released, device, replacement))
         if not options:
-            break
+            raise ValueError("No degradation satisfies the backlog-reserved upload budget")
         minimum = min(item[0] for item in options)
         tied = [item for item in options if item[0] == minimum]
         if len(tied) == 1:
@@ -221,32 +278,6 @@ def joint_admit(
             _, victim, replacement = max(tied, key=lambda item: position[item[1]])
         chosen[victim] = replacement
     return chosen
-
-
-def waterfill(demands: dict[str, int], cap: int) -> dict[str, int]:
-    devices = sorted(demands)
-    remaining = int(cap)
-    grants: dict[str, int] = {}
-    unserved = [device for device in devices if demands[device] > 0]
-    while remaining > 0 and unserved:
-        share = remaining // len(unserved)
-        if share == 0:
-            break
-        progressed = False
-        for device in list(unserved):
-            want = demands[device] - grants.get(device, 0)
-            give = min(want, share, remaining)
-            if give > 0:
-                grants[device] = grants.get(device, 0) + give
-                remaining -= give
-                progressed = True
-            if grants.get(device, 0) >= demands[device]:
-                unserved.remove(device)
-        if not progressed:
-            break
-    for device in devices:
-        grants.setdefault(device, 0)
-    return grants
 
 
 def consume_fifo(queue: deque[dict[str, Any]], amount: int, completion_marker: int) -> list[dict[str, Any]]:
@@ -267,9 +298,6 @@ def action_mix(counter: Counter[str]) -> dict[str, int]:
     return {action: int(counter.get(action, 0)) for action in ACTION_IDS}
 
 
-ACTION_IDS = tuple(action["id"] for action in ACTIONS)
-
-
 def detect_period(sequence: list[tuple[Any, ...]], max_period: int = 30) -> tuple[int | None, int | None, int]:
     """Find the earliest exact suffix cycle with at least three repeats."""
     for start in range(min(31, len(sequence))):
@@ -281,6 +309,7 @@ def detect_period(sequence: list[tuple[Any, ...]], max_period: int = 30) -> tupl
 
 
 def simulate_synchronous(method: str, capacity: str, seed: int, v: float) -> dict[str, Any]:
+    """Round-granularity upload model; completion is conservatively at round end."""
     cap = CAPACITY_BYTES[capacity]
     bps = CAPACITY_BPS[capacity]
     queues = {device: deque() for device in DEVICES}
@@ -293,12 +322,16 @@ def simulate_synchronous(method: str, capacity: str, seed: int, v: float) -> dic
     trajectory: list[dict[str, int]] = []
     signatures: list[tuple[Any, ...]] = []
     cap_violations = 0
+    overfull_backlog_rounds = 0
+    upload_infeasible_rounds = 0
 
     for window in range(WINDOWS):
         safe_only = method == "shielded_coordinated"
         chosen = {device: select_local(device, bps, v, qbytes[device], safe_only) for device in DEVICES}
         if method in {"central_coordinated", "shielded_coordinated"}:
-            chosen = joint_admit(chosen, cap, bps, safe_only, seed, window)
+            chosen = joint_admit(chosen, cap, bps, safe_only, seed, window, existing_queues=qbytes)
+        overfull_backlog_rounds += int(sum(qbytes.values()) > cap)
+        upload_infeasible_rounds += int(not same_round_upload_feasible(qbytes, {d: a["payload"] for d, a in chosen.items()}, cap))
         measured = window >= WARMUP
         for device, action in chosen.items():
             if measured:
@@ -307,20 +340,20 @@ def simulate_synchronous(method: str, capacity: str, seed: int, v: float) -> dic
             if action["payload"]:
                 item = {
                     "remaining": action["payload"], "action": action["id"],
-                    "origin": window, "measured": measured, "core": action["execution"] == "core",
+                    "origin_tick": window * TICKS_PER_SECOND, "measured": measured, "core": action["execution"] == "core",
                 }
                 queues[device].append(item)
                 qbytes[device] += action["payload"]
                 if measured and item["core"]:
                     full_events += 1
-        grants = waterfill(qbytes, cap)
+        grants = waterfill(qbytes, cap, tie_offset=window)
         if sum(grants.values()) > cap:
             cap_violations += 1
         for device in DEVICES:
-            completed = consume_fifo(queues[device], grants[device], window)
+            completed = consume_fifo(queues[device], grants[device], (window + 1) * TICKS_PER_SECOND)
             qbytes[device] -= grants[device]
             for item in completed:
-                if item["measured"] and item["core"] and item["completion"] == item["origin"]:
+                if item["measured"] and item["core"] and upload_on_time(item["origin_tick"], item["completion"], DEADLINE_TICKS):
                     timely_full += 1
         max_queue = max(max_queue, *qbytes.values())
         trajectory.append(dict(qbytes))
@@ -329,9 +362,9 @@ def simulate_synchronous(method: str, capacity: str, seed: int, v: float) -> dic
 
     drain = 0
     while any(qbytes.values()) and drain < MAX_DRAIN_WINDOWS:
-        grants = waterfill(qbytes, cap)
+        grants = waterfill(qbytes, cap, tie_offset=WINDOWS + drain)
         for device in DEVICES:
-            consume_fifo(queues[device], grants[device], WINDOWS + drain)
+            consume_fifo(queues[device], grants[device], (WINDOWS + drain + 1) * TICKS_PER_SECOND)
             qbytes[device] -= grants[device]
         drain += 1
     period, start, repeats = detect_period(signatures)
@@ -341,37 +374,59 @@ def simulate_synchronous(method: str, capacity: str, seed: int, v: float) -> dic
         "payload_bytes": payload,
         "queue_trajectory_bytes": trajectory,
         "max_queue_bytes": max_queue,
-        "post_release_on_time_core_result_coverage": None if full_events == 0 else timely_full / full_events,
+        "upload_on_time_fraction_of_core_required": None if full_events == 0 else timely_full / full_events,
         "core_required_events": full_events,
-        "on_time_core_results": timely_full,
+        "on_time_core_required_uploads": timely_full,
+        "completion_endpoint": "payload_upload_only",
+        "completion_resolution_ms": 1000,
+        "completion_quantization": "round_end_upper_bound",
+        "deadline_origin": "modeled_payload_release_at_round_start",
+        "deadline_ms": 1000,
+        "includes_detector_compute_core_inference_or_wifi_jitter": False,
         "detected_period_windows": period,
         "period_start_measured_window": start,
         "complete_period_repeats": repeats,
         "drain_windows_used": drain,
         "final_queue_bytes": sum(qbytes.values()),
-        "shared_cap_violations": cap_violations,
+        "allocator_cap_check_failures": cap_violations,
+        "cap_check_scope": "implementation_invariant_only",
+        "preexisting_backlog_exceeds_capacity_rounds": overfull_backlog_rounds,
+        "same_round_upload_infeasible_rounds": upload_infeasible_rounds,
+        "admission_policy": "backlog_reserved_upload_budget" if method in {"central_coordinated", "shielded_coordinated"} else "independent_no_joint_admission",
+        "shield_precheck_scope": "isolated_service_only" if method == "shielded_coordinated" else "not_used",
     }
 
 
 def task_a(session_schedule: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """One deterministic case per (v, capacity), with session labels as metadata.
+
+    The independent synchronized controller never consults the seed.  The
+    twelve historical session labels therefore do not define replicates.
+    """
     rows: list[dict[str, Any]] = []
     for v in V_VALUES:
         for capacity in CAPACITY_BPS:
-            for session in session_schedule:
-                base = {
-                    "status": "PASS", "v": v, "capacity": capacity,
-                    "session_id": session["session_id"], "seed": session["seed"],
-                    "method": "synchronized_independent_dpp_offline_replay",
-                }
-                try:
-                    base.update(simulate_synchronous("synchronized_independent", capacity, session["seed"], v))
-                except Exception as exc:  # retain every failed run
-                    base.update(status="FAIL", error=repr(exc), traceback=traceback.format_exc())
-                rows.append(base)
+            base = {
+                "status": "PASS", "v": v, "capacity": capacity,
+                "case_id": f"v{v}_{capacity}",
+                "experimental_unit": "deterministic_parameter_case",
+                "evaluations_per_case": 1,
+                "independent_random_replicates": 0,
+                "seed_affects_decisions": False,
+                "formal_session_ids": [session["session_id"] for session in session_schedule],
+                "formal_seed_labels": [session["seed"] for session in session_schedule],
+                "method": "synchronized_independent_dpp_corrected_service_simulation",
+            }
+            try:
+                base.update(simulate_synchronous("synchronized_independent", capacity, 0, v))
+            except Exception as exc:  # retain every failed case
+                base.update(status="FAIL", error=repr(exc), traceback=traceback.format_exc())
+            rows.append(base)
     return rows
 
 
 def annotate_formal_v1_identity(v_rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Compare corrected service with frozen hardware; equality is not a gate."""
     aggregate = read_json(AUDIT_RESULTS / "REBUILT_AGGREGATE_EVENT_METRICS.json")
     reference = {
         (item["session"], item["capacity"]): item
@@ -381,30 +436,34 @@ def annotate_formal_v1_identity(v_rows: list[dict[str, Any]]) -> dict[str, Any]:
     for row in v_rows:
         if row.get("status") != "PASS" or row["v"] != 1:
             continue
-        item = reference[(row["session_id"], row["capacity"])]
-        metrics = item["metrics"]
-        raw_max_queue = max(
-            phase["sampled_max_queue_bytes"]
-            for probe in item["window_diagnostics"]["per_probe"].values()
-            for phase in probe.values()
-        )
-        expected_core_fraction = metrics["core"]["required"] / metrics["n_generated"]
-        nonzero_mix = {key: value for key, value in row["action_counts"].items() if value}
-        row["formal_v1_action_mix_match"] = nonzero_mix == metrics["action_mix"]
-        row["formal_v1_payload_match"] = row["payload_bytes"] == metrics["payload_generated_bytes"]
-        row["formal_v1_core_fraction_match"] = math.isclose(row["core_required_fraction"], expected_core_fraction, abs_tol=1e-15)
-        row["formal_v1_queue_max_match"] = row["max_queue_bytes"] == raw_max_queue
-        row["formal_v1_hardware_post_release_coverage_reference"] = metrics["core"]["on_time_rate"]
-        row["formal_v1_hardware_coverage_exact_match_expected"] = False
-        checks.extend([
-            row["formal_v1_action_mix_match"], row["formal_v1_payload_match"],
-            row["formal_v1_core_fraction_match"], row["formal_v1_queue_max_match"],
-        ])
+        comparisons = []
+        for session_id in row["formal_session_ids"]:
+            item = reference[(session_id, row["capacity"])]
+            metrics = item["metrics"]
+            raw_max_queue = max(
+                phase["sampled_max_queue_bytes"]
+                for probe in item["window_diagnostics"]["per_probe"].values()
+                for phase in probe.values()
+            )
+            comparison = {
+                "session_id": session_id,
+                "action_mix_match": {key: value for key, value in row["action_counts"].items() if value} == metrics["action_mix"],
+                "payload_match": row["payload_bytes"] == metrics["payload_generated_bytes"],
+                "core_fraction_match": math.isclose(row["core_required_fraction"], metrics["core"]["required"] / metrics["n_generated"], abs_tol=1e-15),
+                "queue_max_match": row["max_queue_bytes"] == raw_max_queue,
+                "hardware_post_release_coverage_reference": metrics["core"]["on_time_rate"],
+            }
+            comparisons.append(comparison)
+            checks.extend(comparison[key] for key in ("action_mix_match", "payload_match", "core_fraction_match", "queue_max_match"))
+        row["formal_v1_descriptive_comparisons"] = comparisons
+        row["formal_v1_exact_match_required"] = False
     return {
-        "cells_checked": sum(row.get("v") == 1 and row.get("status") == "PASS" for row in v_rows),
+        "cells_checked": len(checks) // 4,
         "checks_per_cell": 4,
         "all_match": all(checks) and bool(checks),
         "failed_checks": sum(not value for value in checks),
+        "exact_match_required": False,
+        "scope": "descriptive_comparison_only_corrected_allocator_differs_from_frozen_service",
     }
 
 
@@ -414,6 +473,7 @@ def phase_map(seed: int) -> dict[str, int]:
 
 
 def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, Any]:
+    """One-millisecond payload-upload model with an application byte bucket."""
     cap = CAPACITY_BYTES[capacity]
     bps = CAPACITY_BPS[capacity]
     phases = phase_map(seed) if method == "desynchronized_independent" else {device: 0 for device in DEVICES}
@@ -429,16 +489,18 @@ def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, A
     timely_full = 0
     max_queue = 0
     cap_violations = 0
+    overfull_backlog_batches = 0
+    upload_infeasible_batches = 0
     last_arrival = max(arrivals)
     final_tick = last_arrival + MAX_DRAIN_WINDOWS * TICKS_PER_SECOND
     drain_complete_tick: int | None = None
 
     for tick in range(final_tick + 1):
         if tick % TICKS_PER_SECOND == 0:
-            # The frozen allocator may leave fewer than n bytes unused at the
-            # end of a one-second round.  Within the round, however, sub-tick
-            # integer remainders must carry forward or 1 ms discretisation
-            # would invent systematic capacity loss.
+            # This models a one-second application byte bucket, not physical
+            # Wi-Fi: unused intra-bucket credit carries to later arrivals and
+            # resets at the bucket boundary. Integer residual service is now
+            # work conserving whenever backlog exists.
             service_credit = 0
             allocated_in_bucket = 0
         batch = arrivals.get(tick, [])
@@ -449,7 +511,9 @@ def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, A
                 chosen[device] = select_local(device, bps, 1.0, qbytes[device], safe_only)
             if method in {"central_coordinated", "shielded_coordinated"}:
                 # Coordinated baselines have a synchronized batch by design.
-                chosen = joint_admit(chosen, cap, bps, method == "shielded_coordinated", seed, batch[0][1])
+                chosen = joint_admit(chosen, cap - allocated_in_bucket, bps, method == "shielded_coordinated", seed, batch[0][1], existing_queues=qbytes)
+            overfull_backlog_batches += int(sum(qbytes.values()) > cap - allocated_in_bucket)
+            upload_infeasible_batches += int(not same_round_upload_feasible(qbytes, {d: a["payload"] for d, a in chosen.items()}, cap - allocated_in_bucket))
             for device, window in batch:
                 action = chosen[device]
                 measured = window >= WARMUP
@@ -470,7 +534,7 @@ def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, A
         # Exactly cap bytes are made available per 1000 ticks, without rounding drift.
         allowance = ((tick + 1) * cap // TICKS_PER_SECOND) - (tick * cap // TICKS_PER_SECOND)
         service_credit += allowance
-        grants = waterfill(qbytes, service_credit)
+        grants = waterfill(qbytes, service_credit, tie_offset=tick)
         granted = sum(grants.values())
         service_credit -= granted
         allocated_in_bucket += granted
@@ -480,7 +544,7 @@ def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, A
             completed = consume_fifo(queues[device], grants[device], tick + 1)
             qbytes[device] -= grants[device]
             for item in completed:
-                if item["measured"] and item["core"] and item["completion"] - item["origin_tick"] <= DEADLINE_TICKS:
+                if item["measured"] and item["core"] and upload_on_time(item["origin_tick"], item["completion"], DEADLINE_TICKS):
                     timely_full += 1
         max_queue = max(max_queue, *qbytes.values())
         if tick >= last_arrival and not any(qbytes.values()):
@@ -496,12 +560,23 @@ def simulate_tick_baseline(method: str, capacity: str, seed: int) -> dict[str, A
         "core_required_fraction": full_events / (MEASURED * len(DEVICES)),
         "payload_bytes": payload,
         "max_queue_bytes": max_queue,
-        "post_release_on_time_core_result_coverage": None if full_events == 0 else timely_full / full_events,
+        "upload_on_time_fraction_of_core_required": None if full_events == 0 else timely_full / full_events,
         "core_required_events": full_events,
-        "on_time_core_results": timely_full,
+        "on_time_core_required_uploads": timely_full,
+        "completion_endpoint": "payload_upload_only",
+        "completion_resolution_ms": 1,
+        "completion_quantization": "tick_end_upper_bound",
+        "deadline_origin": "modeled_payload_release_tick",
+        "deadline_ms": 1000,
+        "includes_detector_compute_core_inference_or_wifi_jitter": False,
         "drain_ticks_used": drain_ticks,
         "final_queue_bytes": sum(qbytes.values()),
-        "shared_cap_violations": cap_violations,
+        "allocator_cap_check_failures": cap_violations,
+        "cap_check_scope": "implementation_invariant_only",
+        "preexisting_backlog_exceeds_remaining_bucket_batches": overfull_backlog_batches,
+        "remaining_bucket_upload_infeasible_batches": upload_infeasible_batches,
+        "admission_policy": "backlog_reserved_upload_budget" if method in {"central_coordinated", "shielded_coordinated"} else "independent_no_joint_admission",
+        "shield_precheck_scope": "isolated_service_only" if method == "shielded_coordinated" else "not_used",
     }
 
 
@@ -514,7 +589,11 @@ def task_b() -> list[dict[str, Any]]:
     for seed in DESYNC_SEEDS:
         for capacity in CAPACITY_BPS:
             for method in methods:
-                row = {"status": "PASS", "seed": seed, "capacity": capacity, "method": method, "v": 1.0}
+                row = {
+                    "status": "PASS", "seed": seed, "capacity": capacity, "method": method, "v": 1.0,
+                    "seed_role": "arrival_phase" if method == "desynchronized_independent" else ("unused_deterministic_identity" if method == "synchronized_independent" else "joint_admission_tie_break"),
+                    "independent_random_replication_claimed": method == "desynchronized_independent",
+                }
                 try:
                     row.update(simulate_tick_baseline(method, capacity, seed))
                 except Exception as exc:  # retain every failed run
@@ -689,7 +768,8 @@ def task_d() -> list[dict[str, Any]]:
                     theory_simulation_match=theoretical == simulated,
                     admitted_payload_bytes=demand,
                     aggregate_grant_bytes=sum(grants.values()),
-                    shared_cap_violation=sum(grants.values()) > cap,
+                    allocator_cap_check_failed=sum(grants.values()) > cap,
+                    cap_check_scope="implementation_invariant_only",
                 )
             except Exception as exc:
                 row.update(status="FAIL", error=repr(exc), traceback=traceback.format_exc())
@@ -707,7 +787,7 @@ def compact_summary(rows: list[dict[str, Any]], group_fields: tuple[str, ...], m
     output = []
     for key, values in sorted(groups.items(), key=lambda item: str(item[0])):
         item = {field: value for field, value in zip(group_fields, key)}
-        item.update(n=len(values), mean=sum(values) / len(values), minimum=min(values), maximum=max(values))
+        item.update(row_count=len(values), mean=sum(values) / len(values), minimum=min(values), maximum=max(values))
         output.append(item)
     return output
 
@@ -718,86 +798,42 @@ def build_report(
     release_finding: dict[str, Any], scaling_rows: list[dict[str, Any]],
     formal_v1_identity: dict[str, Any],
 ) -> str:
-    failures = {
-        "A": sum(row.get("status") != "PASS" for row in v_rows),
-        "B": sum(row.get("status") != "PASS" for row in desync_rows),
-        "C": sum(row.get("status") != "PASS" for row in nominal_rows),
-        "D": sum(row.get("status") != "PASS" for row in scaling_rows),
-    }
+    failures = sum(row.get("status") != "PASS" for row in v_rows + desync_rows + nominal_rows + scaling_rows)
+    invariant_failures = sum(row.get("allocator_cap_check_failures", 0) for row in v_rows + desync_rows)
     scaling_match = all(row.get("theory_simulation_match") is True for row in scaling_rows if row.get("status") == "PASS")
-    v_summary = compact_summary(v_rows, ("v", "capacity"), "core_required_fraction")
-    b_summary = compact_summary(desync_rows, ("method", "capacity"), "core_required_fraction")
-    nominal_delta = []
-    for row in nominal_rows:
-        if row.get("status") == "PASS" and row.get("core_required_events", 0):
-            nominal_delta.append(float(row["post_release_on_time_coverage"]) - float(row["nominal_on_time_coverage"]))
     lines = [
-        "# ToN V1.3 Methodology Repair Validation Report",
-        "",
-        f"Generated UTC: `{utc_now()}`",
-        "",
-        "## Scope and evidence boundary",
-        "",
-        "The accepted V1.2 raw evidence, protocol, actions, runtime source, manuscript, GitHub, Overleaf, and Raspberry Pis were not modified. Tasks A, B, and D are offline replay/simulation results; only Task C is a reconstruction from measured formal raw timestamps. Simulated deadline coverage must not be described as a new hardware measurement.",
-        "",
-        "## Run completeness",
-        "",
-        f"- Task A: {len(v_rows)} planned rows, {failures['A']} retained failures.",
-        f"- Task B: {len(desync_rows)} planned rows (20 fixed seeds x 3 capacities x 4 methods), {failures['B']} retained failures.",
-        f"- Task C: {len(nominal_rows)} planned session/method/capacity/device rows, {failures['C']} retained failures.",
-        f"- Task D: {len(scaling_rows)} planned n/rho rows, {failures['D']} retained failures; theory/simulation all-match={scaling_match}.",
-        "",
-        "## Task A — v sensitivity",
-        "",
-        "The exact frozen objective `v*utility - queue_bytes*payload_bytes/1,000,000`, frozen action order, and exact integer max-min allocator were replayed for all 12 formal seeds. `queue_trajectory_bytes` contains every generation-window post-service queue for P1/P2/P3. Period detection is exact and automatic: it reports the earliest suffix (within the first 30 measured windows) repeated at least three times.",
-        "",
-        f"The v=1 replay was checked against all {formal_v1_identity['cells_checked']} accepted formal D session-capacity cells for exact nonzero action mix, payload bytes, core fraction, and sampled max queue: all-match={formal_v1_identity['all_match']}, failed checks={formal_v1_identity['failed_checks']}. Hardware post-release coverage is retained as a reference column but is not an identity criterion: the service replay has no Pi runtime/network jitter and exact equality is not expected.",
-        "",
-        "Core-required-fraction ranges by v/capacity:",
-        "",
-        "```json",
-        json.dumps(v_summary, indent=2, sort_keys=True),
-        "```",
-        "",
-        "## Task B — desynchronised independent baseline",
-        "",
-        "Each desynchronised probe uses a seed-fixed independent initial phase in [0,1) s. It observes only its own queue when selecting; there is no action/queue exchange and no joint admission. A 1 ms discrete-event clock makes exactly C/8 application bytes available per second (integer cumulative accounting) and applies the frozen deterministic max-min shared service to current queues. Synchronized independent, central coordinated, and shielded coordinated use the same simulator, workload count, action table, and service rule; coordinated methods alone use the frozen joint degradation rule.",
-        "",
-        "Shield safety uses the frozen deadline calculation under a nominal healthy state: retry delta 0, no thermal guard trigger, and no memory guard trigger. This is a software sensitivity baseline, not replayed hardware telemetry.",
-        "",
-        "Core-required-fraction ranges by method/capacity:",
-        "",
-        "```json",
-        json.dumps(b_summary, indent=2, sort_keys=True),
-        "```",
-        "",
-        "## Task C — nominal deadline reconstruction",
-        "",
-        "For core-required measured events, `post_release_latency=result_received-created_probe` and `nominal_latency=result_received-scheduled_release`. Missing results remain in the denominator and are not counted on time. Release-lateness quantiles use all measured events in each session/method/capacity/device cell.",
-        "",
-        f"Across cells with a core-required endpoint, post-release minus nominal coverage ranged from {min(nominal_delta) if nominal_delta else None} to {max(nominal_delta) if nominal_delta else None}.",
-        "",
-        f"Observed aggregate p50 ordering: `{release_finding['observed_p50_descending']}`; P1>P2>P3={release_finding['p1_gt_p2_gt_p3']}.",
-        "",
-        "The source/log-supported mechanism is recorded in `RELEASE_LATENESS_DIAGNOSTIC.csv`: independent per-probe nominal clocks are created before window 0; the core decision is a three-probe barrier; raw window-0 decision latency and window-1 release lateness expose unequal first-iteration waiting; and the probe loop sleeps relative to the completed iteration without absolute catch-up. The exact OS/network reason for the recurring proposal-arrival order and residual per-session variation are explicitly UNKNOWN.",
-        "",
-        "## Task D — scaling validation",
-        "",
-        "The independent simulator starts all n probes at H_FULL and repeatedly applies the frozen H_FULL-to-H_SUMMARY capacity degradation until total admitted payload fits C. For every requested n and rho, the simulated full count is compared with `clip_[0,n](floor((C-nS)/(B-S)))`, B=131072 and S=16384.",
-        "",
-        f"All {len(scaling_rows)} theory/simulation comparisons match: **{scaling_match}**.",
-        "",
-        "## Validation verdict",
-        "",
-        ("PASS — all planned runs are present, the v=1 formal identity gate passed, no shared-cap violation occurred, and scaling theory matches simulation."
-         if not any(failures.values()) and formal_v1_identity["all_match"] and scaling_match and all(row.get("shared_cap_violations", 0) == 0 for row in v_rows + desync_rows if row.get("status") == "PASS")
-         else "PASS_WITH_ISSUES — inspect retained FAIL rows or invariant fields before use."),
+        "# Corrected methodology simulation report", "",
+        f"Generated UTC: `{utc_now()}`", "",
+        "## Scope", "",
+        "Frozen V1.3 tables and accepted hardware records are read-only. Tasks A/B use the corrected work-conserving integer allocator, with residual-byte priority rotated each service interval. Coordinated admission reserves existing queue bytes before accepting new payloads. These changes define a corrected software model and are not a rerun of the physical campaign.", "",
+        "Tasks A/B end at **payload upload completion**. Detector computation, actual Wi-Fi delay, core inference/queuing, and result return are not modeled. Task A conservatively timestamps upload completion at the end of each 1000 ms round; Task B uses the end of each 1 ms tick. Both use inclusive elapsed upload time <= 1000 ms, but their time resolutions and service models are not identical.", "",
+        "The shield's isolated latency precheck is an optimistic screening calculation; backlog-reserved byte admission is a separate condition and neither is a full-result deadline certificate. Shared-link/core contention experiments are reported separately.", "",
+        "## Experimental units", "",
+        f"- Task A: {len(v_rows)} deterministic (v, capacity) cases. The 12 formal session/seed identities are metadata, not independent replicates.",
+        f"- Task B: {len(desync_rows)} rows. Only the desynchronized method randomizes phases; synchronized-independent seeds are unused, and coordinated seeds only choose tie-breaking identities. Rows are not automatically independent repetitions.",
+        f"- Task C: {len(nominal_rows)} timestamp-reconstruction rows from retained hardware ledgers.",
+        f"- Task D: {len(scaling_rows)} deterministic scaling-conformance cases.", "",
+        "## Implementation checks and historical comparison", "",
+        f"Allocator cap-check failures: {invariant_failures}. This checks a simulator invariant, not independently measured link capacity. Raw service evidence requires an external-ledger reconstruction.",
+        f"Scaling theory matches: {scaling_match}; retained failed rows: {failures}.",
+        "The v=1 historical comparison below is descriptive: the corrected residual-byte allocator may change queues and subsequent threshold decisions. Equality with frozen service is not a validation gate.", "",
+        "```json", json.dumps(formal_v1_identity, indent=2, sort_keys=True), "```", "",
+        "## Task A deterministic case summary", "",
+        "```json", json.dumps(compact_summary(v_rows, ("v", "capacity"), "core_required_fraction"), indent=2, sort_keys=True), "```", "",
+        "## Task B descriptive row summary", "",
+        "```json", json.dumps(compact_summary(desync_rows, ("method", "capacity"), "upload_on_time_fraction_of_core_required"), indent=2, sort_keys=True), "```", "",
+        "## Hardware timing reconstruction", "",
+        "Task C alone uses result_received - created_probe (post-release) and result_received - scheduled_release (nominal) for core-required measured events. Missing returned results remain in the denominator. It does not replace raw per-service-byte accounting.",
+        f"Release-lateness finding: {json.dumps(release_finding, sort_keys=True)}", "",
+        "## Verdict", "",
+        "PASS — corrected software cases and implementation checks completed." if not failures and not invariant_failures and scaling_match else "PASS_WITH_ISSUES — inspect failed cases and invariant fields.",
         "",
     ]
     return "\n".join(lines)
 
 
 def main() -> int:
+    configure_private_inputs()
     started = utc_now()
     failures: list[dict[str, Any]] = []
     session_schedule = read_json(PROTOCOL / "inputs" / "SESSION_SCHEDULE.json")
@@ -805,20 +841,20 @@ def main() -> int:
 
     v_rows = task_a(session_schedule)
     formal_v1_identity = annotate_formal_v1_identity(v_rows)
-    write_csv(HERE / "V_SWEEP_RESULTS.csv", v_rows)
+    write_csv(OUTPUT / "V_SWEEP_RESULTS.csv", v_rows)
     desync_rows = task_b()
-    write_csv(HERE / "DESYNC_BASELINE_RESULTS.csv", desync_rows)
+    write_csv(OUTPUT / "DESYNC_BASELINE_RESULTS.csv", desync_rows)
     nominal_rows, diagnostics, release_finding = task_c(accepted, session_schedule)
-    write_csv(HERE / "NOMINAL_DEADLINE_RESULTS.csv", nominal_rows)
-    write_csv(HERE / "RELEASE_LATENESS_DIAGNOSTIC.csv", diagnostics)
+    write_csv(OUTPUT / "NOMINAL_DEADLINE_RESULTS.csv", nominal_rows)
+    write_csv(OUTPUT / "RELEASE_LATENESS_DIAGNOSTIC.csv", diagnostics)
     scaling_rows = task_d()
-    write_csv(HERE / "SCALING_RESULTS.csv", scaling_rows)
+    write_csv(OUTPUT / "SCALING_RESULTS.csv", scaling_rows)
 
     for task, rows in (("A", v_rows), ("B", desync_rows), ("C", nominal_rows), ("D", scaling_rows)):
         for row in rows:
             if row.get("status") != "PASS":
                 failures.append({"task": task, **row})
-    write_json(HERE / "FAILED_RUNS.json", failures)
+    write_json(OUTPUT / "FAILED_RUNS.json", failures)
 
     source_files = {
         "raw_zip": RAW_ZIP,
@@ -833,9 +869,15 @@ def main() -> int:
         "frozen_probe_source": RUNTIME / "netshield" / "probe.py",
         "frozen_core_source": RUNTIME / "netshield" / "core.py",
         "analysis_script": Path(__file__).resolve(),
+        "simulation_primitives": HERE / "simulation_primitives.py",
+        "historical_script": HERE / "legacy" / "run_methodology_repair_v1_3.py",
     }
     metadata = {
-        "schema": "ton_v1_3_methodology_repair_run_metadata_v1",
+        "schema": "ton_corrected_upload_simulation_v2",
+        "historical_outputs_replaced": False,
+        "completion_endpoint_tasks_a_b": "payload_upload_only",
+        "allocator_residual_policy": "sorted_active_devices_rotated_by_service_interval",
+        "cap_checks": "implementation_invariants_not_measurements",
         "started_utc": started,
         "completed_utc": utc_now(),
         "command": [sys.executable, str(Path(__file__).resolve())],
@@ -853,7 +895,7 @@ def main() -> int:
             "github_modified": False,
             "overleaf_modified": False,
         },
-        "task_a": {"v_values": V_VALUES, "capacities_bps": CAPACITY_BPS, "formal_session_seeds": [item["seed"] for item in session_schedule]},
+        "task_a": {"v_values": V_VALUES, "capacities_bps": CAPACITY_BPS, "case_count": len(V_VALUES) * len(CAPACITY_BPS), "experimental_unit": "deterministic_parameter_case", "seed_affects_decisions": False, "formal_session_seeds_are_identity_labels": [item["seed"] for item in session_schedule]},
         "task_b": {
             "seeds": DESYNC_SEEDS, "ticks_per_second": TICKS_PER_SECOND,
             "phase_rule": "python random.Random(seed).sample(range(1000),3), mapped P1/P2/P3",
@@ -871,14 +913,14 @@ def main() -> int:
         "release_lateness_finding": release_finding,
         "formal_v1_replay_identity": formal_v1_identity,
     }
-    write_json(HERE / "RUN_METADATA.json", metadata)
+    write_json(OUTPUT / "RUN_METADATA.json", metadata)
     report = build_report(v_rows, desync_rows, nominal_rows, diagnostics, release_finding, scaling_rows, formal_v1_identity)
-    (HERE / "VALIDATION_REPORT.md").write_text(report, encoding="utf-8")
+    (OUTPUT / "VALIDATION_REPORT.md").write_text(report, encoding="utf-8")
 
     invariants_pass = (
-        formal_v1_identity["all_match"]
-        and all(row.get("theory_simulation_match") is True for row in scaling_rows if row.get("status") == "PASS")
-        and all(row.get("shared_cap_violations", 0) == 0 for row in v_rows + desync_rows if row.get("status") == "PASS")
+        all(row.get("theory_simulation_match") is True for row in scaling_rows if row.get("status") == "PASS")
+        and all(row.get("allocator_cap_check_failed") is False for row in scaling_rows if row.get("status") == "PASS")
+        and all(row.get("allocator_cap_check_failures", 0) == 0 for row in v_rows + desync_rows if row.get("status") == "PASS")
     )
     overall_pass = not failures and invariants_pass
     run_summary = {
@@ -889,22 +931,26 @@ def main() -> int:
         "task_c_rows": len(nominal_rows), "task_d_rows": len(scaling_rows),
         "retained_failures": len(failures), "invariants_pass": invariants_pass,
     }
-    (HERE / "run.log").write_text(json.dumps(run_summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (OUTPUT / "run.log").write_text(json.dumps(run_summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
-    hash_targets = sorted(path for path in HERE.iterdir() if path.is_file() and path.name != "SHA256SUMS.txt")
-    with (HERE / "SHA256SUMS.txt").open("w", encoding="utf-8") as stream:
+    (OUTPUT / "sources").mkdir()
+    for source in (Path(__file__).resolve(), HERE / "simulation_primitives.py"):
+        shutil.copy2(source, OUTPUT / "sources" / source.name)
+    (OUTPUT / "sources" / "legacy").mkdir()
+    shutil.copy2(HERE / "legacy" / "run_methodology_repair_v1_3.py", OUTPUT / "sources" / "legacy" / "run_methodology_repair_v1_3.py")
+    hash_targets = sorted(path for path in OUTPUT.rglob("*") if path.is_file() and path.name != "SHA256SUMS.txt")
+    with (OUTPUT / "SHA256SUMS.txt").open("w", encoding="utf-8") as stream:
         for path in hash_targets:
-            stream.write(f"{sha256(path)}  {path.name}\n")
+            stream.write(f"{sha256(path)}  {path.relative_to(OUTPUT).as_posix()}\n")
 
-    if ZIP_PATH.exists():
-        ZIP_PATH.unlink()
-    with zipfile.ZipFile(ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
-        for path in sorted(HERE.iterdir()):
+    ZIP_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(ZIP_PATH, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for path in sorted(OUTPUT.rglob("*")):
             if path.is_file():
-                archive.write(path, arcname=f"{HERE.name}/{path.name}")
+                archive.write(path, arcname=f"{OUTPUT.name}/{path.relative_to(OUTPUT).as_posix()}")
     print(json.dumps({
         "status": "PASS" if overall_pass else "PASS_WITH_ISSUES",
-        "output_directory": str(HERE), "zip": str(ZIP_PATH),
+        "output_directory": str(OUTPUT), "zip": str(ZIP_PATH),
         "zip_sha256": sha256(ZIP_PATH), "failures": len(failures),
     }, indent=2))
     return 0 if overall_pass else 2

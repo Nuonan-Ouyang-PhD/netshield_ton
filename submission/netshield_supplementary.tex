@@ -20,6 +20,12 @@ derived independently from its 9,720 accepted hardware occurrences.
 Queue-weight replay, phase-randomized control, rotating-frontier software
 conformance, and multi-$n$ scaling are read-only offline analyses and do not
 modify either hardware evidence chain.
+In these archived simulations, a completed full upload means that the last
+payload byte has left a modeled FIFO. Detector execution, physical wireless
+delay, core queueing/inference, and result return are not simulated. Only the
+hardware timestamp reconstructions support the term \emph{timely full-core
+result}. Historical CSV field names that mention core results in Tasks A/B
+are retained for provenance, with this corrected interpretation.
 
 \begin{table}[h]\centering\caption{Evidence classes.}\begin{tabular}{lll}\toprule
 Component & Evidence type & Permitted interpretation\\\midrule
@@ -243,11 +249,30 @@ operating points.
 \begin{landscape}
 \section{Complete Queue-Weight Sweep Results}
 The $v=1$ identity gate covers 36 accepted physical D cells and four deterministic checks per cell. Low-capacity cycle/action composition changes with $v$; no all-$v$ cycle-identity claim is made.
+There are 36 distinct configurations (12 weights and three capacities).
+Each is repeated under 12 formal session/seed labels in the 432-row archive.
+Synchronized independent selection does not use the seed: all 12 copies of
+each configuration have identical action and queue trajectories. These are
+deterministic identity checks against physical-session summaries, not 12
+independent simulation replicates. No confidence interval is computed from
+the duplicate rows. The historical allocator leaves an integer remainder
+smaller than the number of unsatisfied devices unused; the corrected
+work-conserving implementation and its separate results are identified in
+the Code--Evidence Alignment audit rather than substituted into these tables.
 \scriptsize\input{tables/v_sweep_complete.tex}\end{landscape}
 
 \begin{landscape}
 \section{Complete Phase-Randomization Sensitivity}
-Probe phases are independently assigned from fixed seeds. Probes exchange neither action nor queue state, and no joint admission is introduced.
+Three distinct probe phases are sampled uniformly without replacement from
+the 1-ms grid in $[0,1)$~s for each fixed seed. Probes exchange neither action
+nor queue state, and no joint admission is introduced.
+The ``On-time'' column is the fraction of full uploads whose last byte
+completes within 1,000~ms of modeled creation. The phase-randomized policy
+has 20 actual phase draws. Seed labels for deterministic comparator policies
+do not independently randomize their workload or service. Task A's
+origin-round predicate and Task B's elapsed-time predicate describe the same
+one-round upload deadline only for releases at the start of a round with
+zero processing overhead; neither measures a physical result-return deadline.
 \scriptsize\input{tables/desync_complete.tex}\end{landscape}
 
 \begin{landscape}
@@ -267,7 +292,7 @@ This is discrete-event conformance, not a 32-probe hardware scalability experime
 
 
 \section{Common-Denominator Controller Comparison}
-The main paper's mid-capacity comparison divides on-time full-core results by
+The main paper's mid-capacity software comparison divides on-time full-upload completions by
 all 270 generated measured events. It is derived directly from the frozen
 phase-sensitivity CSV rather than from conditional coverage alone.
 \begin{table}[h]\centering\caption{Mid-capacity common-denominator software sensitivity.}
@@ -275,13 +300,15 @@ phase-sensitivity CSV rather than from conditional coverage alone.
 \end{table}
 The coordinated policy uses 37.5\% fewer application bytes than the phase-
 randomized independent policy (14.7456 versus 23.59296 MB) while producing
-0.3333 versus 0.3352 timely full results per generated event.
+0.3333 versus 0.3352 timely full uploads per generated event. All values in
+this table are historical upload-only simulations, not measurements of
+detector-to-core-result latency.
 
 \section{Independence Approximation}
 At mid capacity, an independent Bernoulli request model with $p=2/3$ gives
 $P(J=1)=6/27$, $P(J=2)=12/27$, and $P(J=3)=8/27$. If a 2$B$ service budget
 finishes all requests for $J\leq2$ and none for $J=3$, the expected conditional
-timely fraction is $5/9\approx0.5556$ and the common timely-full fraction is
+timely-upload fraction is $5/9\approx0.5556$ and the common timely-full-upload fraction is
 $10/27\approx0.3704$. The phase-randomized simulator gives 0.5028 and 0.3352,
 respectively. The Bernoulli calculation is an independence approximation, not
 a proved upper bound.
@@ -292,15 +319,19 @@ phase study. It admits exactly $K=\lfloor C/B\rfloor$ full requests per round
 and zero payload from the other probes.
 \begin{table}[h]\centering\caption{Idealized rotating-frontier conformance.}
 \begin{tabular}{lrrrr}\toprule
-Capacity & $K$ & Full fraction & Timely full / generated & Fair period\\\midrule
+Capacity & $K$ & Full fraction & Timely upload / generated & Fair period\\\midrule
 Low & 1 & 0.3333 & 0.3333 & 3\\
 Mid & 2 & 0.6667 & 0.6667 & 3\\
 High & 3 & 1.0000 & 1.0000 & 1\\\bottomrule
 \end{tabular}\end{table}
-There are zero simulated shared-cap violations. This discrete-event check
-was completed before the separately frozen Raspberry Pi extension and is
-retained only as a conformance check on the cyclic byte-allocation rule; the
-physical results are reported separately below.
+The simulator clips service to its available credit, so zero simulated
+shared-cap violations is an implementation invariant, not an independent
+measurement of physical cap enforcement. This discrete-event check was
+completed before the separately frozen Raspberry Pi extension and is retained
+only as a conformance check on the cyclic byte-allocation rule. Hardware cap
+claims below come from the separately recorded service reconstruction;
+verifying that reconstruction from primitive grant records is a distinct
+audit task.
 
 \section{CRFA Hardware Frontier Extension}
 The separately frozen CRFA campaign tests the same cyclic construction on the
@@ -421,7 +452,8 @@ no shared-cap violation is observed. Across the two hardware campaigns this
 corresponds to 252 accepted arms, 68,040 measured occurrences, and 74,340
 reconstructed shared-service rounds, with zero observed shared-cap violations.
 
-The read-only offline analyses contain 432 queue-weight rows, 240 phase-
+The read-only offline analyses contain 432 queue-weight rows covering 36
+distinct deterministic configurations, 240 phase-
 sensitivity rows, 648 primary schedule-anchor rows, and 20 multi-$n$ scaling
 rows. The rotating software-conformance table remains a separate discrete-
 event check and is not relabelled as hardware evidence.
@@ -498,5 +530,132 @@ N denotes H-NONE; values and action order are unchanged from the integrated
 submission candidate.}
 \label{fig:supp_cycle}
 \end{figure}
+
+\section{Allocator-Correction Sensitivity}
+\label{sec:allocator_correction}
+The historical integer allocator stops when remaining service is smaller
+than the number of unsatisfied probes. A corrected work-conserving version
+distributes those residual bytes with round-rotating priority. A public
+reconstruction using the ten published payloads and six-decimal utility
+scores first reproduces all 36 historical configurations in action counts,
+core-request fractions, payload totals, and queue trajectories/maxima. It
+does not load the private full-precision action file or execute hardware.
+
+Changing only to the corrected allocation policy changes 24 of the 36
+queue trajectories and five action mixes. All changed mixes occur at low
+capacity, for $v\in\{1,3,10,30,100\}$. At $v=1$ and $v=3$, the measured-window
+full-request fraction changes from $66/270=0.2444$ to $90/270=1/3$, payload
+from 9,191,424 to 11,796,480~B, and detected state period from four to three
+rounds. At $v=10$ and $v=30$, full-request fractions change from 0.3000 and
+0.3222 to $1/3$. At $v=100$, the full-request fraction stays $1/3$ but the
+lower-evidence mix changes. Middle/high-capacity action counts are unchanged;
+middle-capacity byte trajectories still reflect residual-priority rotation.
+For example, at mid capacity and $v=1$, the full/none action cycle still
+repeats every two rounds, while the joint action-and-per-probe-queue
+signature repeats every six because residual-byte priority rotates across
+three probes. These two reported periods measure different state variables.
+
+Consequently, losing at most two service bytes in a three-probe round can
+change later threshold-based decisions. The small byte count does not imply
+an immaterial controller effect. The original sweep, plots, and hardware
+data remain historical observations of their frozen allocator; the corrected
+comparison is archived separately in the public selector audit. No corrected
+physical-run outcome or end-to-end latency is inferred from this replay.
+
+\section{Shared-Service Counterexamples}
+\label{sec:contention_validation}
+A separate corrected software experiment tests three sources of failure in
+an isolated action-level latency screen: simultaneous requests, pre-existing
+backlog, and processing/result-return stages. It contains 30 deterministic
+configurations evaluated with four admission rules, giving 120 model runs.
+The configurations cover $n=3$ at all three budgets with zero or half-round
+backlog and three delay profiles; $n=8,16,32$ use $\rho=2/3$, the same two
+backlog levels, and zero or homogeneous assumed delays. These are model
+cases, not independent hardware or statistical replicates.
+
+The model uses 1-ms ticks, a constant shared application-byte rate with
+unused idle service discarded, per-probe FIFO queues with integer max-min
+service, and one FIFO core. All new events are created at tick zero.
+Processing and extra uplink/return delays are declared sensitivity inputs,
+not measurements of Wi-Fi or the frozen detectors. Return traffic has a
+configured delay but no competing byte queue. Full config, event, service,
+and summary ledgers are retained in the contention-validation artifact.
+
+Table~\ref{tab:contention_counterexamples} gives exact middle-budget
+counterexamples with $B=131{,}072$~B and service rate
+$262{,}144$~B/s. ``Zero'' assigns zero delay to all non-upload stages.
+``Assumed'' assigns 40~ms detector time, 20~ms preprocessing, 15~ms extra
+uplink delay, 35~ms core execution, and 10~ms return delay per event. Existing
+backlog is ready at tick zero and retains its pending core work. The isolated
+screen admits each request against the entire link; new-only admission
+additionally bounds new bytes; backlog-aware admission also deducts existing
+queued bytes. The reservation rule greedily admits an event only if
+previewing this exact service/core model leaves every selected new result
+within 1,000~ms.
+
+\begin{table}[H]
+\centering
+\caption{Deterministic shared-service counterexamples. Times are maximum
+completion times among selected new events, in ms from creation; ``--''
+means no new event is admitted.}
+\label{tab:contention_counterexamples}
+\small
+\begin{tabular}{@{}lllr rr@{}}
+\toprule
+Backlog & Delays & Admission rule & Selected & Upload & Result \\
+\midrule
+0 & Zero & Isolated & 3 & 1500 & 1500 \\
+$B$ & Zero & New-only & 2 & 1500 & 1500 \\
+$B$ & Zero & Backlog-aware & 1 & 1000 & 1000 \\
+0 & Assumed & New-only & 2 & 1060 & 1155 \\
+0 & Assumed & Reservation & 1 & 560 & 620 \\
+$B$ & Assumed & Backlog-aware & 1 & 1000 & 1060 \\
+$B$ & Assumed & Reservation & 0 & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Thus three individually estimated 500-ms transfers can all require 1,500~ms
+under contention, and even a timely upload can return its result late.
+Reservation is an exact-model feasibility demonstration: it uses the same
+model for prediction and execution, fixed identifier order, and known stage
+delays. It establishes neither optimal admission count nor long-run fairness,
+and does not validate a physical safety guarantee under unmodeled jitter.
+The frozen hardware S-CQPG results remain unchanged.
+
+\section{Evidence-Value Evaluation Protocol}
+\label{sec:evidence_value_protocol}
+This section specifies an evaluation still needed to establish the value of
+the alert, summary, and full representations. It reports no new detector
+experiment. In the frozen campaign, scored correctness is identical across
+detector paths; fixed utility scores and evidence sizes therefore cannot
+identify a detection or incident-resolution improvement.
+
+A suitable ablation uses the same held-out attack episodes for every
+representation. The episode/source-capture split must precede feature
+selection, threshold tuning, and any representation design, with exact
+duplicates audited across splits. Each alert, summary, and full payload must
+contain a specified, reproducible subset or transformation of the same source
+evidence. Padding bytes cannot count as extra information, and ground-truth
+labels must not enter the transmitted representation or the decision rule.
+
+Two comparisons answer different questions. First, remove deadline loss and
+hold the downstream model and threshold fixed to measure the information
+retained by each representation. Second, use the same shared-link budgets,
+arrival streams, and result-return deadline to measure the joint effect of
+information loss and late or missing evidence. A separate, explicitly labeled
+experiment may train a model for each representation; it must use the same
+training/validation split and report the resulting model and compute changes.
+
+Report per-family recall, false-positive rate, precision and recall or AUPRC,
+calibration where probabilities are used, and delay for detection and
+incident localization together with payload bytes, return coverage, and
+conditional latency.
+For cross-probe correlation, predefine an episode-level decision and its
+required evidence before testing. Confidence intervals should resample
+independent capture sessions or attack episodes, not repeated feature vectors
+or simulation labels. The currently published summaries lack these paired
+content/outcome observations; completing this protocol requires the
+authorized source evidence, representation pipeline, and detector artifacts.
 
 \end{document}

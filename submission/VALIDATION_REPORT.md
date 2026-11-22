@@ -1,4 +1,13 @@
-# Validation report — 15 September 2026 revision
+# Validation status
+
+The current source, software audit, and PDF checks are reported in
+[METHODOLOGY_VALIDATION_REPORT.md](audit/METHODOLOGY_VALIDATION_REPORT.md) and
+[PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14
+and 32 pages. The report below describes the earlier 15 September delivery;
+its old `build/` paths are not commands for this repository and its pass
+counts must not be reported as newly executed checks.
+
+## Historical validation report — 15 September 2026 revision
 
 | Check family | Actual result | Scope |
 |---|---:|---|

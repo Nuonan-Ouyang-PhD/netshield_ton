@@ -2,8 +2,8 @@
 
 Dear Editor,
 
-Please consider our manuscript, “NetShield: Feasibility Boundaries and
-Shared-Bottleneck Evidence Admission for Multi-Probe IoT Edge Intrusion
+Please consider our manuscript, “NetShield: Timely Evidence Feasibility under
+Shared Bottlenecks for Multi-Probe Edge Intrusion
 Detection,” for publication in *IEEE Transactions on Networking*.
 
 The manuscript studies a networking problem at the intersection of edge

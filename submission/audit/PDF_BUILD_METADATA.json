@@ -1,0 +1,113 @@
+{
+  "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "ieeetran_sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7",
+  "passes_per_document": 3,
+  "shell_escape_enabled": false,
+  "documents": {
+    "netshield_manuscript": {
+      "source_sha256": "a841aa4c23d9add2a558ca30538cb2b7a743662fe396255af5a00de72662105e",
+      "pdf_sha256": "d07da233da1787adbbd75075fb6cd64271a563cab84d7bcf05aed2397fd11fe2",
+      "pages": 14,
+      "warning_lines": [
+        "Package epstopdf Warning: Shell escape feature is not enabled.",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined",
+        "LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined"
+      ],
+      "repository_input_sha256": {
+        "figures/fig1_feasibility_frontier.pdf": "c03289ab53bcc4435d0899c4bf8e0bd7872557849393330616f6a8504f06e161",
+        "figures/fig2_coverage_price.pdf": "1dcae41df7e119d2a5864bfa6d12121fbe35c34165f9f8a423404959e9e8545b",
+        "figures/fig3_iqpg_cycle_compact.pdf": "4656a4df4bfcee9207f9063622b5d58d88a549fb1192a34e28f8ea01fdb29b96",
+        "figures/fig4_v_sensitivity.pdf": "c78fdea5fab21effcf8055cf28bd4755dc87da24e5e0bb8c71c07db82f9d98d7",
+        "figures/fig5_crfa_frontier_attainment.pdf": "ca6620949f6b628f1c9e50c2549d02ebee7c616521bdad2791d84e19939e4d22",
+        "figures/fig6_timing_anchors_revised.pdf": "a541f623d88d9512a6e782914c0d56fcab264a9671868ebaf1d477c295fa742e",
+        "figures/fig7_scaling_conformance.pdf": "65c474af491e17ff260e7291f6a34fe57f9513ccb294fb3b0426c72fb3402cf8",
+        "netshield_manuscript.tex": "a841aa4c23d9add2a558ca30538cb2b7a743662fe396255af5a00de72662105e",
+        "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
+        "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
+        "tables/full_evidence_frontier.tex": "2f8442b5b645297d28320dd3d9ca8eab7b89b58432fe97895bbf54cb06e79a60",
+        "tables/rq2_mid_common_denominator.tex": "af415dc03f6660b25dc5c216de64e564ff90444b9095c03b167001fd4f652354"
+      },
+      "overfull_boxes": 0,
+      "unresolved_references_or_citations": 0
+    },
+    "netshield_supplementary": {
+      "source_sha256": "fe648b81d6c0aa65914e764fd62fa46efe2f9c3a566f5c4868a380b9ba9f6c46",
+      "pdf_sha256": "704aa59555d8ba0f2595930f1928107eb857cdf4a5350b03a7059d2ddb7ffda4",
+      "pages": 32,
+      "warning_lines": [
+        "Package epstopdf Warning: Shell escape feature is not enabled.",
+        "Package hyperref Warning: Token not allowed in a PDF string (Unicode):",
+        "Package hyperref Warning: Token not allowed in a PDF string (Unicode):",
+        "LaTeX Warning: `h' float specifier changed to `ht'."
+      ],
+      "repository_input_sha256": {
+        "figures/fig3_iqpg_cycle.pdf": "b320c739dd198b9065dc1a0f9bb691ed545272fea10d197e194895565823e8c0",
+        "netshield_supplementary.tex": "fe648b81d6c0aa65914e764fd62fa46efe2f9c3a566f5c4868a380b9ba9f6c46",
+        "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
+        "tables/crfa_device_fairness.tex": "7ad113e1cb9961eba5c464ebfa99bd0ef2f66d4f74a871c84759812a59c2e095",
+        "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
+        "tables/crfa_session_summary.tex": "1c2e8ee35d42f33fb903e86c7aa3b09b8a94af789acc89fc5a593d46f2621cb9",
+        "tables/crfa_timing_by_device.tex": "de9829ae02cc0e08217fed0570b8413ef89be2a842b8bf49f30cf5dfe0c15bfc",
+        "tables/desync_complete.tex": "bb3637a88657c2bb036302a99d05f15d9efd111eadaf716f1bac2f271482ebf0",
+        "tables/nominal_deadline_complete.tex": "332a7616b55590e29b9df319dd57ae4b73a7621bdf6024397f2b754123d7e595",
+        "tables/release_lateness.tex": "5bf13d0d7a5ab3ae72c79b7b97e6471edbb03e9f7af84f58c10e3393250a37ed",
+        "tables/rq2_mid_common_denominator.tex": "af415dc03f6660b25dc5c216de64e564ff90444b9095c03b167001fd4f652354",
+        "tables/scaling_complete.tex": "e14c1fbf046cfed0a796c29a4002a8aa2caafe7bb89304e1e5ea7f20c62d601b",
+        "tables/v_sweep_complete.tex": "fe086675903cacd46068b9f483c400b862dc227033262c3d3b29ff741014ff1f"
+      },
+      "overfull_boxes": 0,
+      "unresolved_references_or_citations": 0
+    }
+  },
+  "scope": "PDF build and log checks only; no simulation, hardware rerun, or raw-evidence audit",
+  "font_scope": "Imported figure fonts are retained; inspect pdffonts before archival-format claims",
+  "visual_quality_assurance": {
+    "page_rendering": "all 46 final pages rendered with PyMuPDF at 86.4 dpi",
+    "review": "All 46 page contact sheets visually inspected; main pages 1,9,14 and supplementary pages 31,32 inspected individually. Final layout fixes changed only main page14 and supplementary pages31,32, which were re-inspected.",
+    "outcome": "No clipping, overlaps, or missing glyphs observed in the reviewed renderings.",
+    "text_page_bounds": "rotation-aware bounds checked on every page; zero out-of-page text lines",
+    "documents": {
+      "netshield_manuscript": {
+        "page_count": 14,
+        "rendered_pages": 14,
+        "changed_pages_after_layout_fixes": [
+          14
+        ],
+        "out_of_page_text": [],
+        "nonembedded_imported_font_objects": 8,
+        "nonembedded_font_names": [
+          "Helvetica",
+          "Helvetica-Bold"
+        ],
+        "type3_font_objects": 3
+      },
+      "netshield_supplementary": {
+        "page_count": 32,
+        "rendered_pages": 32,
+        "changed_pages_after_layout_fixes": [
+          31,
+          32
+        ],
+        "out_of_page_text": [],
+        "nonembedded_imported_font_objects": 2,
+        "nonembedded_font_names": [
+          "Helvetica",
+          "Helvetica-Bold"
+        ],
+        "type3_font_objects": 0
+      }
+    }
+  },
+  "environment_recovery": {
+    "class": "genuine IEEEtran v1.8b",
+    "class_source": "https://tug.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran.cls",
+    "class_emulated_or_modified": false,
+    "tex_tree": "existing TeX Live 2025/dev/Debian package and font files",
+    "repair": "Local TEXMF search paths plus regenerated pdfLaTeX format and font maps; standard English hyphenation loaded from installed TeX files.",
+    "third_party_font_or_class_files_committed": false
+  }
+}

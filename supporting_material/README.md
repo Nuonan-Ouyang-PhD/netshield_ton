@@ -5,8 +5,13 @@ needed to read the submission PDFs.
 
 - `formal_campaign_audit/` — path-free campaign identity, accepted-attempt
   index, validators, configuration snapshot, and integrity manifest.
-- `methodology_repair/` — executable offline replay/simulation, fixed seeds,
-  result tables, run metadata, and hashes.
+- `methodology_repair/` — historical V1.3 outputs and exact archived source,
+  plus corrected active source; start with `CORRECTIONS.md` for version and
+  upload-endpoint semantics.
+- `methodology_validation/` — public selector reconstruction, duplicate-label
+  audit, independent ledger reconstruction and frozen-input identity checks.
+- `contention_validation/` — executed deterministic shared-service/stage-delay
+  counterexamples with event/service records, plus an unexecuted detection-value protocol.
 - `crfa_hardware/` — path-free CRFA hardware-extension summaries, event/service
   ledgers, timing reconstruction, protocol, failure provenance, and hashes.
 - `evidence_snapshot/` — machine-readable evidence and number provenance used

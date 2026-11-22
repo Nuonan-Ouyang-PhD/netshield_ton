@@ -78,6 +78,7 @@ python3 scripts/verify_campaign_audit.py
 python3 scripts/verify_methodology.py
 python3 scripts/verify_submission.py
 python3 submission/validate_submission.py
+python3 scripts/verify_methodology_revision.py
 ```
 
 These checks validate committed hashes, row counts, result identities, claim
@@ -86,22 +87,57 @@ do not claim that a physical experiment was rerun.
 
 ### Level 2 — Offline sensitivity, timing reconstruction, and scaling analysis
 
-The analysis package is self-contained for its offline analyses. It uses only the
-Python standard library, but it requires the separately retained audit/runtime
-inputs named in `RUN_METADATA.json`:
+The complete private-input analysis uses only the Python standard library but
+requires the separately retained audit/runtime inputs named in the historical
+`RUN_METADATA.json`. The corrected driver writes a new directory and cannot
+overwrite the frozen results. See the current
+[correction note](supporting_material/methodology_repair/CORRECTIONS.md):
 
 ```bash
 export TON_AUDIT_ROOT=/path/to/ToN_FullRaw_Audit_20260908
 export TON_RUNTIME_ROOT=/path/to/NSF12_20260906_RC1/runtime
 export TON_RAW_ZIP=/path/to/ToN_Raw_Sessions_12x_20260908_under512MB.zip
-python3 supporting_material/methodology_repair/run_methodology_repair.py \
-  > supporting_material/methodology_repair/run.log 2>&1
+export TON_OUTPUT_DIR=/path/to/new/corrected_results
+export TON_OUTPUT_ZIP=/path/to/new/corrected_results.zip
+python3 supporting_material/methodology_repair/run_methodology_repair.py
 ```
 
 The parameter sweep, desynchronization study, and scaling validation are
 offline replay/software simulation. Timing is reconstructed from accepted
 formal hardware records. The run
 metadata records seeds, environment, input SHA-256 values, and scope guards.
+
+The archived Task A labels do not represent independent stochastic runs:
+432 rows are 36 parameter configurations repeated under 12 identifiers. The
+corrected driver evaluates each configuration once. Task A/B software
+timeliness means last-byte upload completion, with different declared time
+resolutions; only Task C reconstructs the hardware result-return endpoint.
+
+### Level 2a — Public corrected models and independent ledger checks
+
+These commands require no private workload, action profile, or model:
+
+```bash
+python3 scripts/run_public_selector_audit.py
+python3 supporting_material/contention_validation/run_contention_validation.py
+python3 scripts/audit_service_ledgers.py \
+  --software supporting_material/contention_validation/results \
+  --crfa supporting_material/crfa_hardware
+python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s supporting_material/contention_validation -p 'test*.py' -v
+```
+
+The public selector reconstruction uses the rounded payload/utility table
+below and does not invent detector timings. The contention study uses
+explicitly assumed stage delays and a fixed-rate service model. Its 30
+deterministic cases are each run with four policies; neither case counts nor
+duplicate seed labels are treated as a sample size for confidence intervals.
+
+The independent auditor sums per-event or per-probe service rather than
+trusting a simulator's zero-violation counter. The CRFA audit covers the
+committed public export (10,620 service rounds and 9,720 occurrences); it
+does not reopen the primary campaign's private raw archive or measure NIC
+bytes. All frozen hardware evidence remains unchanged.
 
 ### Level 3 — Manuscript build
 
@@ -144,9 +180,14 @@ sum(grant_i(t)) <= C(t)
 Q_i(t+1) = max(0, Q_i(t) + payload_i(t) - grant_i(t))
 ```
 
-The exact selector, degradation, service, and seed rules used by the sensitivity
-analysis are implemented in
-[`supporting_material/methodology_repair/run_methodology_repair.py`](supporting_material/methodology_repair/run_methodology_repair.py).
+The source that generated the archived software outputs is retained in
+[`legacy/run_methodology_repair_v1_3.py`](supporting_material/methodology_repair/legacy/run_methodology_repair_v1_3.py).
+The corrected active implementation is
+[`run_methodology_repair.py`](supporting_material/methodology_repair/run_methodology_repair.py).
+They are intentionally not claimed to produce identical outputs: integer
+residual service changes the low-capacity closed-loop decisions. Corrected
+admission reserves all existing queued bytes before admitting new bytes;
+that byte condition alone does not reserve detector/core/return time.
 
 ## 5. Evidence and access boundary
 

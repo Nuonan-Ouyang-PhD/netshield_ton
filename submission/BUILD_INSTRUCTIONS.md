@@ -1,41 +1,103 @@
-# Building and checking the 15 September 2026 revision
+# Building and checking the current ToN submission
 
-Requirements: pdfLaTeX with IEEEtran and the standard packages used by the sources;
-Python 3.10+ with pandas and PyMuPDF. The inherited analytical checks use the Python
-standard library. No network, Pi hardware, private disk path or dataset download is
-required to compile or run the supplied checks.
+Run commands from the **repository root**, not from an older standalone ZIP.
+The current build command is `scripts/build_submission.sh`. Historical references
+to `build/rebuild.sh`, `build/validate_candidate.py`, and
+`BASELINE_FROZEN_SHA256SUMS.txt` describe an earlier standalone package and are not
+commands supplied by this checkout.
 
-From the package root, check the delivered files BEFORE rebuilding:
+## Requirements
+
+- Python 3.10+ for repository checks and build metadata.
+- A working pdfLaTeX installation with the **genuine IEEEtran class** and the
+  standard packages named in the two `.tex` preambles.
+- Times/URW and Computer Modern/AMS font metrics, outlines, and generated font maps.
+- Poppler (`pdfinfo`, `pdffonts`, `pdftoppm`) for optional font and visual inspection.
+
+A typical complete TeX Live installation works. On Debian/Ubuntu, the relevant
+package groups are `texlive-latex-base`, `texlive-latex-recommended`,
+`texlive-latex-extra`, `texlive-fonts-recommended`, and `texlive-publishers`.
+Install these through the operating system's package manager, or install the
+equivalent components through your existing TeX distribution.
+
+Check the actual installation before building:
 
 ```bash
-sha256sum -c SHA256SUMS.txt
-bash build/rebuild.sh
+kpsewhich IEEEtran.cls
+kpsewhich pdflatex.fmt
+kpsewhich pdftex.map
+kpsewhich ptmr7t.tfm
 ```
 
-On macOS, the first command can be `shasum -a 256 -c SHA256SUMS.txt`.
-PDF metadata and LaTeX log timestamps may change on rebuilding. The immutable
-scientific artifacts can be checked independently afterward:
+Each command must return a real file. If package files exist but these checks
+return nothing, repair the distribution's filename database, formats, and font
+maps; merely placing a renamed or emulated class beside the manuscript is not a
+valid repair. IEEEtran is available from its official
+[CTAN package](https://ctan.org/pkg/ieeetran).
+
+## Verify the delivered package
+
+Before rebuilding a supplied revision, run:
 
 ```bash
-shasum -a 256 -c BASELINE_FROZEN_SHA256SUMS.txt
+python3 submission/validate_submission.py
+python3 scripts/verify_submission.py
+python3 scripts/verify_campaign_audit.py
+python3 scripts/verify_methodology.py
 ```
 
-`build/rebuild.sh` makes three pdfLaTeX passes per document, copies root PDFs, then
-runs the inherited analytical checks, the maintained 84-check candidate validator,
-and the new 40-check revision validator. See `build/EDITORIAL_VALIDATOR_CHANGES.diff`
-for the small edits to the old validator (35 references; generalization scope now
-located in Limitations; a stricter zero-overfull-vbox condition). All numerical gates
-are unchanged. The old 13/28-page integration checker is historical and is not run.
+These checks validate the supplied source/evidence package and its frozen
+provenance. They do not execute Raspberry Pi experiments. Follow the repository's
+`REPRODUCIBILITY.md` for the separate corrected software experiments and raw-ledger
+audit workflow.
 
-Expected local result: main **14 pages**, supplement **29 pages**; abstract **229
-whitespace-delimited words**, one paragraph; **35 references**. First 28 supplementary
-pages are raster-identical to the supplied baseline in the tested environment.
+## Build current source
 
-`build/compact_cycle.py` is an optional regeneration tool for the short figure. It
-reads the archived figure, selects eight rounds and verifies line geometry; it does
-not execute a replay. Regeneration can change PDF metadata, so it is not run by the
-normal rebuild. The normal validator checks the delivered figure geometry directly.
+```bash
+bash scripts/build_submission.sh
+```
 
-`SOURCE_CHANGES.diff` compares this revision with INTEGRATED_20260914. Files under
-`audit_history/` describe prior deliveries; they are not current PASS reports. No
-standalone font files or third-party publication PDFs are distributed.
+The script creates a fresh temporary build directory, makes three pdfLaTeX
+passes per document, and stops if either final log contains an overfull box,
+missing character, or unresolved reference/citation. Only after **both** documents
+pass does it replace:
+
+- `submission/netshield_manuscript.pdf`
+- `submission/netshield_supplementary.pdf`
+
+Compilation uses `-no-shell-escape`. All supplied figures are already PDFs, so
+automatic EPS conversion is unnecessary. Logs, `.fls` input records, and
+`build_metadata.json` remain in the printed build directory. To choose its parent:
+
+```bash
+TON_PDF_BUILD_ROOT=/absolute/path/to/builds bash scripts/build_submission.sh
+```
+
+The metadata records the real engine version, IEEEtran class SHA-256, source/PDF
+hashes, page counts, and nonfatal warning lines. It reports only a successful
+document build; it is not evidence of a hardware run or a raw-data audit.
+
+PDF metadata, engine versions, fonts, and line breaking can change output hashes
+between installations. Do not regenerate frozen scientific evidence manifests
+simply because a freshly compiled PDF differs. Supplied binary checksums apply
+to the delivered binaries; current source/PDF correspondence is recorded by the
+new build metadata.
+
+## Inspect the result
+
+```bash
+pdfinfo submission/netshield_manuscript.pdf
+pdfinfo submission/netshield_supplementary.pdf
+pdffonts submission/netshield_manuscript.pdf
+pdffonts submission/netshield_supplementary.pdf
+```
+
+Render and inspect pages containing the introduction, equations, figures,
+longtables, references, and newly added supplementary sections. A successful
+compiler exit is insufficient for visual quality assurance.
+
+Imported historical figure PDFs retain their original font encodings and
+embedding choices, including some standard Helvetica and Type 3 fonts.
+The build does not silently rewrite these frozen scientific assets and does not
+claim PDF/A or universal font embedding. Any later production conversion should
+retain the source figures and independently verify the converted rendering.
