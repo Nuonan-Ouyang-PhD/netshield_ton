@@ -1,6 +1,11 @@
 # PDF build and visual verification
 
-## Current rebuilt PDFs: follow-up wording alignment, 2026-11-22
+The subset-overlap update uses pdfTeX 1.40.29 (TeX Live 2026), three
+passes per document. The main and supplementary PDFs have 14 and 33 pages.
+Current source and PDF digests are in PDF_BUILD_METADATA.json. Both final
+logs passed the build checks for unresolved references and overfull boxes.
+
+## Previous build: follow-up wording alignment, 2026-11-22
 
 These are the current outputs of the actual three-pass rebuild after aligning
 the manuscript's provenance and content-diagnostic descriptions with the later

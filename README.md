@@ -25,7 +25,7 @@ IEEE Transactions on Networking manuscript.
   [`FOLLOWUP_REVIEW.md`](supporting_material/experiment_extension/FOLLOWUP_REVIEW.md).
   It separates the 896-row descriptive content diagnostic and rounded-overlap
   scan from independent held-out efficacy, and documents the subsequent
-  private-record checker repair and its remaining local rerun requirement.
+  private-record checker repair. The [private rerun and diagnostic reconciliation](supporting_material/experiment_extension/retained_review/) give public counts and input hashes.
 
 ## Methodology correction
 

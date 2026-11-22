@@ -181,9 +181,10 @@ The original private-record checker is retained under
 `experiment_extension/private_record_qualification/legacy/`.
 The active checker now rejects erroneous or incomplete recorded fields rather
 than returning success after merely counting errors. Its new tests use
-synthetic fixtures. A fresh execution on the retained private records is
-required before attributing a new qualification result to the repaired checker;
-the previous local result is not retroactively relabeled.
+synthetic fixtures. A subsequent private execution from b8a978b qualified
+all 216 accepted arms for the recorded fields. Verify the public cohort
+arithmetic, checker identities and seven diagnostic group summaries with
+`python3 supporting_material/experiment_extension/retained_review/verify_export.py`.
 
 ### Level 3 — Manuscript build
 

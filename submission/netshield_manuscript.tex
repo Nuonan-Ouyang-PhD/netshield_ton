@@ -1235,9 +1235,9 @@ A new interface diagnostic on nine archived observations verifies encoding
 and model execution only. In a separate offline diagnostic, a common consumer
 returned the correct binary decision for all three new representations on
 the same 896 archived rows.
-Those rows are file prefixes from an overlapping split. Rounding each
-feature to three significant digits produced training or validation matches
-for 709,971 of 1,147,055 test rows. A matched ablation still needs representations
+Of these file-prefix rows, 366 matched training or validation features
+exactly; 544 matched after rounding to three significant digits, including
+the exact matches. A matched ablation still needs representations
 from the same independent held-out episodes, a fixed downstream model and
 threshold, and measured outcomes alongside bytes and return latency. The
 Supplementary Evidence-Value Evaluation Protocol separates historical
