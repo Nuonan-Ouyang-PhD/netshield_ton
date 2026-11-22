@@ -435,7 +435,43 @@ failure. The accepted and excluded lineage is preserved in the extension
 attempt index. Timing or favorable scientific outcomes are not retry criteria.
 
 \section{Detector and Replay Limitations}
-The workload is frozen CICIoT2023-derived feature-vector replay, not packet replay or an uncontrolled deployment. The dataset is cited in the main paper. The formal occurrence set excludes Recon-PortScan, and exact feature-vector overlap exists across frozen partitions. Perfect correctness on the formal occurrences is therefore a controlled diagnostic rather than an IDS-superiority result.
+The workload is frozen CICIoT2023-derived feature-vector replay, not packet
+replay or an uncontrolled deployment. The dataset is cited in the main paper.
+The formal occurrence set excludes Recon-PortScan. Perfect correctness on
+the formal occurrences is a controlled diagnostic rather than an
+IDS-superiority result.
+
+A subsequent audit of the archived v0.2.1 source splits hashes all 39 ordered
+feature values as big-endian binary64, normalizes signed zero, and excludes
+labels and source identifiers. Table~\ref{tab:raw_split_overlap} counts rows
+whose full feature signature occurs in an earlier split, rather than distinct
+duplicate signatures. Test matches are against the union of training and
+validation. This is an exact full-precision check, not a near-duplicate test.
+
+\begin{table}[H]
+\centering
+\caption{Exact feature overlap in the archived raw splits. The audit does
+not establish the deployed model's actual training-input lineage.}
+\label{tab:raw_split_overlap}
+\small
+\begin{tabular}{@{}lrlrr@{}}
+\toprule
+Split & Rows & Earlier splits & Matching rows & Fraction \\
+\midrule
+Training & 2,998,132 & None & -- & -- \\
+Validation & 996,486 & Training & 190,258 & 19.09\% \\
+Test & 1,147,055 & Training or validation & 497,391 & 43.36\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The raw corpus lists 18/6/7 source files in training/validation/test, but file
+membership alone does not establish independent capture sessions. Binding
+these splits to the deployed model's actual training inputs, qualifying
+capture or episode groups, and auditing near duplicates remain incomplete.
+Consequently, these data do not supply an independent estimate of a
+full-evidence accuracy gain. The overlap audit concerns detector evaluation;
+it does not change the accepted payload counts or return-time measurements.
 
 \section{Raw Audit and Offline-Analysis Verdicts}
 The primary full-raw audit rebuilt 216/216 accepted arms and 58,320 measured
@@ -445,6 +481,64 @@ events with zero raw-to-metric mismatch and zero shared-cap violation across
 for the S03-a01 SSD incident and the S07 pre-hardware launcher abort; the
 CRFA extension does not alter that disclosure.
 
+\subsection{Archived Runtime and Window-Record Review}
+\label{sec:formal_record_review}
+A subsequent local review reports that the 216 accepted deployment records
+share one package identity and that the archived runtime reproduces the
+reported package tree. The exported arm records retain that common identity;
+the export alone does not independently rehash the private runtime or verify
+the completeness of every deployed host manifest. Local source inspection
+traces coordinated admission through the shared allocator, payload generation
+and FIFO service on the probe, full-feature scoring at the core, and result
+receipt on the originating probe. It also reports the historical allocator's
+residual-byte stopping rule (Section~\ref{sec:allocator_correction}).
+
+The accepted index includes the S03, S04, and S07 reruns.
+Table~\ref{tab:formal_record_review} summarizes the derived arm-level audit.
+Its 63,720 rounds include warm-up, measured service, and drain; its 58,320
+event count includes measured occurrences only. Per-device, per-window core
+receipt counters agree with probe-reported service, and the queue recurrence
+and final backlog checks pass. The 10,848~B unused total sums the positive
+difference between the smaller of round budget and demand and the granted
+bytes. It therefore measures unallocated demanded service across all rounds.
+
+\begin{table}[H]
+\centering
+\caption{Accepted primary-campaign window and terminal-event review.
+Timing counts pool all six methods and three capacities.}
+\label{tab:formal_record_review}
+\small
+\begin{tabular}{@{}p{0.69\textwidth}r@{}}
+\toprule
+Audit quantity & Count or total \\
+\midrule
+Accepted arms & 216 \\
+Service rounds, including warm-up and drain & 63,720 \\
+Measured occurrences & 58,320 \\
+Probe-service/core-receipt counter mismatches & 0 \\
+Queue-recurrence residuals & 0 \\
+Final backlog & 0 B \\
+Rounds with core receipt exceeding the application budget & 0 \\
+Duplicate core-window or measured event keys & 0 \\
+Unallocated demanded service & 10,848 B \\
+Core-required measured occurrences & 24,012 \\
+Core-required occurrences with a return timestamp & 24,012 \\
+Core-required returns meeting the recorded deadline & 14,416 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reviewer compares originating-probe creation and return fields against
+each event's recorded deadline; the frozen configuration specifies 1~s.
+The export does not separately retain a deadline histogram or clock-epoch
+check. The pooled
+14,416/24,012 count is a reconstruction check, not a CRFA comparison or a new
+method-effect estimate. Coverage comprises application-window counters and
+terminal event records, not independent packet captures, per-chunk offset
+continuity, or in-flight byte accounting. No corrected-allocator hardware
+outcome or new causal shared-filter experiment is supplied by this review.
+
+\subsection{Other Frozen Evidence}
 The separately archived CRFA evidence reconstructs 36/36 accepted arms,
 9,720 measured occurrences, and 10,620 shared-service rounds. Its frozen
 identity, action/payload, final-drain, reconstruction, and cap gates pass, and
@@ -535,7 +629,11 @@ submission candidate.}
 \label{sec:allocator_correction}
 The historical integer allocator stops when remaining service is smaller
 than the number of unsatisfied probes. A corrected work-conserving version
-distributes those residual bytes with round-rotating priority. A public
+distributes those residual bytes with round-rotating priority. Local
+inspection of the archived deployed allocator reproduces grants of
+43,690~B to each of three 131,072~B demands at a 131,072~B budget, leaving
+2~B unused. This establishes the defect in the inspected runtime, without
+measuring the counterfactual hardware effect of its correction. A public
 reconstruction using the ten published payloads and six-decimal utility
 scores first reproduces all 36 historical configurations in action counts,
 core-request fractions, payload totals, and queue trajectories/maxima. It
@@ -625,11 +723,31 @@ The frozen hardware S-CQPG results remain unchanged.
 
 \section{Evidence-Value Evaluation Protocol}
 \label{sec:evidence_value_protocol}
-This section specifies an evaluation still needed to establish the value of
-the alert, summary, and full representations. It reports no new detector
-experiment. In the frozen campaign, scored correctness is identical across
-detector paths; fixed utility scores and evidence sizes therefore cannot
-identify a detection or incident-resolution improvement.
+\subsection{Observed Payload Semantics and Interface Diagnostic}
+In the inspected historical runtime, alerts and summaries carry the same
+event identifier, device identifier, and local score, padded to their
+configured sizes. The 131,072~B full bundle additionally contains a feature
+record with a label, window index, and feature vector; deterministic
+pseudorandom context and trailing zeros fill the remaining space. The core
+scorer consumes only the decoded features. Bundle labels, context, and
+padding are not inputs to that scoring call. Thus differing payload sizes do
+not by themselves establish differing detection information or utility.
+
+A separate interface diagnostic uses nine archived pilot input observations
+and decodes three newly defined representations per observation, yielding
+27 representation records. These diagnostic encoders send a predicted bit,
+a score, or the feature vector; they are not the historical alert/summary
+encoders. The bit and score come from the same heavy model that consumes the
+decoded full features, so equal predictions follow by construction. The
+records check encoding and model execution, contain no scored labels or
+measured service latencies, and do not constitute new three-probe hardware
+runs or held-out efficacy measurements.
+
+\subsection{Pending Paired Efficacy Evaluation}
+The frozen campaign has identical scored correctness across detector paths.
+Establishing the operational value of evidence therefore still requires a
+paired content/outcome evaluation with qualified independent inputs; fixed
+utility scores, payload sizes, and the interface diagnostic cannot supply it.
 
 A suitable ablation uses the same held-out attack episodes for every
 representation. The episode/source-capture split must precede feature
@@ -655,7 +773,8 @@ For cross-probe correlation, predefine an episode-level decision and its
 required evidence before testing. Confidence intervals should resample
 independent capture sessions or attack episodes, not repeated feature vectors
 or simulation labels. The currently published summaries lack these paired
-content/outcome observations; completing this protocol requires the
-authorized source evidence, representation pipeline, and detector artifacts.
+content/outcome observations; completing this protocol requires eligible
+source groups and paired outcomes from the specified representation and
+detector pipelines.
 
 \end{document}

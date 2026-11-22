@@ -9,7 +9,7 @@ recorded in [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json).
 | Document | Pages | pdfLaTeX passes | Overfull boxes | Unresolved references/citations |
 |---|---:|---:|---:|---:|
 | Main manuscript | 14 | 3 | 0 | 0 |
-| Supplementary material | 32 | 3 | 0 | 0 |
+| Supplementary material | 33 | 3 | 0 | 0 |
 
 The fresh build used `scripts/build_submission.sh`, with shell escape disabled.
 The script checks both final logs before replacing either PDF. The metadata
@@ -33,20 +33,21 @@ fatal TeX errors or missing-character messages.
 
 ## Visual verification
 
-All **46 final pages** were rendered. Contact sheets for every page were
-inspected, with individual enlarged inspection of the first manuscript page,
-its hardware/mechanism figure page, the bibliography, and the new supplementary
-counterexample/protocol pages. Rotation-aware text bounds were checked on all
-pages: **zero text lines extended beyond a page boundary**.
+All **47 final pages** were rendered with Poppler at 150 dpi. Contact sheets
+for every page were inspected, with enlarged inspection of manuscript pages
+7, 10–14 and supplementary pages 29, 30, 32 and 33. This covers the integrated
+runtime and content qualifications, the new exact-overlap and formal-record
+tables, the experiment protocols, and the bibliography. Rotation-aware bounds
+checks found **zero content blocks extending beyond a page boundary**.
 
-Two issues observed during the first build were corrected in source and then
-rebuilt: a long slash-separated phrase overflowed a supplementary paragraph;
-and the generic balancing package produced a 1.10-pt last-page vertical
-box overflow. The final source uses breakable prose and native IEEEtran
-bibliography splitting. Only main page 14 and supplementary pages 31–32
-changed in the final raster comparison with the already reviewed draft; all
-three were inspected again. No clipping, overlapping content, or missing glyphs
-was observed in the reviewed final renderings.
+The final source uses native IEEEtran bibliography splitting. The integration
+build initially left unequal bibliography columns; moving the explicit split
+from reference 19 to reference 17 reduced the final column-bottom difference
+from approximately 140 pt to 31.23 pt. The rebuilt page was inspected again.
+A full raster comparison with the already reviewed integration candidate found
+46 of 47 pages pixel-identical; only manuscript page 14 changed. No clipping,
+overlapping content, crowded audit table, or missing glyph was observed in the
+final renderings.
 
 ## Preserved font and evidence boundaries
 
@@ -65,5 +66,6 @@ citation/reference checks above.
 
 This report covers source-to-PDF construction and visual checks. It does not
 claim a hardware rerun, a new detector experiment, or a re-audit of private raw
-hardware data. Those evidence boundaries are recorded separately in the
-methodology validation report.
+hardware data. The integration of the supplied local audit and its evidence
+boundaries is recorded in
+[FORMAL_RECORD_INTEGRATION.md](FORMAL_RECORD_INTEGRATION.md).

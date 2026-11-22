@@ -1,6 +1,6 @@
 # Methodology validation report
 
-## Executed scope
+## First methodological revision — retained execution scope
 
 This revision starts from Git commit
 `fe09ee0eca28dc666dd9c729ac266b8426c055b9`. It corrects the public offline
@@ -9,6 +9,19 @@ reconstructs public exported ledgers, and revises the manuscript's evidence
 labels. It does not execute a Raspberry Pi campaign, reopen the primary
 private raw archive, measure new Wi-Fi latency, train a detector, or rerun
 the existing hardware bootstrap contrasts.
+
+## Subsequent retained-record integration
+
+The follow-up starting at `75a29eda2105b926ab00699b138037e50b13eb9e`
+incorporates the supplied local formal-record review, raw-split overlap and
+real-model interface diagnostic. Its scope and independent exported-report
+reconciliation are documented in
+[`FORMAL_RECORD_INTEGRATION.md`](FORMAL_RECORD_INTEGRATION.md).
+The private original logs, source corpus and model were not rerun in this
+paper-integration workspace. The main and supplementary text now describe
+the new findings, while all frozen hardware outputs, the original abstract,
+formal statements and labeled equations remain preserved. New physical
+extensions and an eligible held-out evidence-value experiment remain open.
 
 ## Checks completed
 

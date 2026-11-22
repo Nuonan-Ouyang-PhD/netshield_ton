@@ -1,24 +1,34 @@
 {
   "schema_version": 1,
   "methodology_revision_base": "e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5",
-  "overall_status": "OFFLINE_PREPARATION_COMPLETE_REAL_EXPERIMENTS_NOT_EXECUTED",
-  "validation_report": "OFFLINE_VERIFICATION.json",
-  "new_fixture_tests_passed": 35,
+  "overall_status": "RETAINED_RECORD_REVIEW_INTEGRATED_TARGETED_EXPERIMENTS_INCOMPLETE",
+  "validation_report": "FORMAL_INTEGRATION_VERIFICATION.json",
   "existing_frozen_scientific_files_rechecked": 120,
-  "new_detector_model_execution": false,
   "new_physical_hardware_execution": false,
   "stages": {
     "public_methodology_correction_and_export_reconstruction": "COMPLETED_AND_RECHECKED",
     "asset_discovery_and_input_identity_tools": "VALIDATED_ON_SYNTHETIC_FIXTURES",
     "matched_binary_evidence_value_scorer": "VALIDATED_ON_SYNTHETIC_FIXTURES",
     "conditional_hardware_plan_generator": "VALIDATED_ON_SYNTHETIC_FIXTURES",
-    "deployed_private_runtime_allocator_inspection": "PENDING_LOCAL_PRIVATE_INPUTS",
-    "primary_campaign_primitive_ledger_reaudit": "PENDING_EXISTING_PRIVATE_RECORDS",
-    "actual_encoder_model_adapter_and_content_inventory": "PENDING_LOCAL_PRIVATE_INPUTS",
-    "held_out_actual_content_value_ablation": "NOT_EXECUTED",
-    "allocator_hardware_comparison": "CONDITIONAL_NOT_EXECUTED",
-    "causal_shared_stage_controller_calibration_and_hardware_comparison": "CONDITIONAL_NOT_EXECUTED",
-    "manuscript_integration_of_new_empirical_results": "PENDING_REAL_RESULTS"
+    "deployed_private_runtime_allocator_inspection": "LOCAL_REVIEW_REPORTS_AFFECTED_ARCHIVED_RUNTIME",
+    "primary_campaign_primitive_ledger_reaudit": "PARTIAL_WINDOW_EVENT_REVIEW_COMPLETE_CHUNK_AND_INFLIGHT_PENDING",
+    "actual_encoder_model_adapter_and_content_inventory": "HISTORICAL_CONTENT_REVIEW_AND_PILOT_INTERFACE_DIAGNOSTIC_COMPLETE_FORMAL_ADAPTER_PENDING",
+    "held_out_actual_content_value_ablation": "BLOCKED_SPLIT_OVERLAP_AND_UNRESOLVED_CAPTURE_MODEL_TRAINING_LINEAGE",
+    "allocator_hardware_comparison": "APPLICABLE_BLOCKED_THREE_PROBE_QUALIFICATION",
+    "causal_shared_stage_controller_calibration_and_hardware_comparison": "BLOCKED_THREE_PROBE_QUALIFICATION_AND_CAUSAL_CONTROLLER_CALIBRATION",
+    "manuscript_integration_of_new_empirical_results": "RETAINED_RECORD_FINDINGS_INTEGRATED_NO_NEW_FORMAL_EXPERIMENT"
   },
-  "scope": "Preparation tools and a complete handoff are delivered. Passing fixtures and matching hashes do not establish model execution, dataset independence, physical timing, or safety. Only the public checkout was available for source discovery in this workspace."
+  "scope": "The supplied local review and exported audit records are integrated. This workspace reaggregates derived reports, not the 1,512 private source logs or model/corpus. The interface diagnostic uses nine archived observations and 27 representation rows, with no efficacy labels or measured transport times. New physical and independent held-out experiments remain incomplete.",
+  "local_record_review_base": "75a29eda2105b926ab00699b138037e50b13eb9e",
+  "prior_preparation_fixture_tests_passed": 35,
+  "real_model_interface_diagnostic_reported": true,
+  "current_workspace_detector_model_execution": false,
+  "new_formal_detection_experiment_executed": false,
+  "reported_device_qualification": "At the supplied local review, P1 was reachable and historical P2/P3 names failed resolution. Device availability was not retested from this workspace.",
+  "current_preparation_and_reconciliation_fixture_tests_passed": 42,
+  "retained_methodology_and_contention_tests_passed": 27,
+  "current_submission_pages": {
+    "manuscript": 14,
+    "supplementary": 33
+  }
 }

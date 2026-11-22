@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify offline preparation and preservation of prior scientific artifacts.
+"""Verify preparation, supplied audit exports, and retained scientific artifacts.
 
 No network, device access, model training, experiment launch or result
 fabrication is performed. All new test data are temporary synthetic fixtures.
@@ -25,7 +25,7 @@ def digest(path: Path) -> str:
 
 def source_identities() -> dict:
     paths = sorted(EXTENSION.rglob("*.py")) + [Path(__file__)]
-    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value"):
+    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation"):
         paths.extend(sorted(directory.rglob("*.json")))
     return {path.relative_to(ROOT).as_posix(): digest(path) for path in paths}
 
@@ -42,6 +42,8 @@ def main() -> int:
         ("input_freezing", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION), "-p", "test_freeze_inputs.py", "-v"]),
         ("evidence_value_scoring", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "evidence_value/tests"), "-p", "test_*.py", "-v"]),
         ("hardware_plan_generation", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "hardware"), "-p", "test_*.py", "-v"]),
+        ("exported_record_reconciliation_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "formal_record_reconciliation"), "-p", "test_*.py", "-v"]),
+        ("supplied_record_exports", [sys.executable, str(EXTENSION / "formal_record_reconciliation/reconcile.py"), "verify-public"]),
         ("frozen_science_and_prior_reconstruction", [sys.executable, "scripts/verify_methodology_revision.py"]),
     ]
     checks = []
@@ -50,7 +52,7 @@ def main() -> int:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
         matches = re.findall(r"Ran (\d+) tests?", result.stderr)
         tests = sum(int(value) for value in matches)
-        passed = result.returncode == 0 and (tests > 0 or name == "frozen_science_and_prior_reconstruction")
+        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports"})
         checks.append({
             "name": name,
             "status": "PASS" if passed else "FAIL",
@@ -68,6 +70,7 @@ def main() -> int:
     report = {
         "schema_version": 1,
         "status": "OFFLINE_PREPARATION_VALIDATED" if passed else "OFFLINE_PREPARATION_FAILED",
+        "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
         "new_scientific_experiments_executed": False,
         "physical_devices_used": False,
         "detector_models_executed": False,
@@ -75,7 +78,7 @@ def main() -> int:
         "sources_unchanged_during_verification": stable,
         "source_sha256": before,
         "checks": checks,
-        "interpretation": "This verifies preparation tools on synthetic fixtures and preserves prior public evidence. It does not qualify private inputs or demonstrate detection gain, physical latency, or deployment safety.",
+        "interpretation": "This verifies preparation/reconciliation tools, checks supplied path-free audit exports, and preserves prior public evidence. It does not reopen private source logs, run models or hardware, or establish detection gain or physical safety.",
     }
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

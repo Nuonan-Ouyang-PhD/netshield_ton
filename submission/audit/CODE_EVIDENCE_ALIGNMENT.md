@@ -1,6 +1,25 @@
 # Code–evidence alignment audit
 
-## Baseline and source authority
+## Audit stages and current interpretation
+
+The methodological review below is retained as the historical baseline. A
+subsequent supplied archive, `TON_EXT_AUDIT_20261122_avIClI`, adds a report of
+local private-runtime inspection, arm-level outputs from a private-record
+checker, an exact-feature split-overlap result, and a nine-observation model
+interface diagnostic. The new stage and its source hashes are documented in
+[`FORMAL_RECORD_INTEGRATION.md`](FORMAL_RECORD_INTEGRATION.md).
+
+The new report supports a more specific account of the deployed allocator
+and payload construction, and its 216 arm summaries can be reconciled with
+the retained campaign results. The private runtime, model weights, underlying
+service/event files, and corpus partitions were not attached to this archive;
+their bytes were therefore not independently reopened in this integration.
+The distinction between the reported local inspection and the publicly
+repeatable summary reconciliation is explicit. The original raw audit's
+`PASS_WITH_ISSUES` verdict remains in force. This stage adds no physical
+campaign and no held-out evidence-value result.
+
+## Historical baseline and source authority
 
 This audit starts from repository commit
 `fe09ee0eca28dc666dd9c729ac266b8426c055b9` and the supplied
@@ -79,9 +98,14 @@ Its report,
 [`CRFA_LEDGER_RECONSTRUCTION.json`](../../supporting_material/methodology_validation/CRFA_LEDGER_RECONSTRUCTION.json),
 checks 36 runs, 10,620 service rounds, and 9,720 occurrences. Recomputed
 post-release full-result counts are 990/2,050/3,130 and the reconstructed
-application-grant cap has zero violations. This is a check of the exported
-per-probe service and occurrence records; the private raw archive was not
-reopened and physical link/NIC traffic was not measured again.
+application-grant cap has zero violations. That public CRFA reconstruction
+checked exported per-probe service and occurrence records without reopening
+the private raw archive or measuring physical link/NIC traffic again. The
+later primary-campaign review described in
+[`FORMAL_RECORD_INTEGRATION.md`](FORMAL_RECORD_INTEGRATION.md) is a separate
+stage: it reports checks over private records and supplies arm summaries for
+reconciliation. It does not replace the public CRFA reconstruction or make a
+packet-level measurement claim.
 
 ## Corrected software and new counterexamples
 
@@ -150,3 +174,25 @@ requirement rather than a new result.
 An operational checklist is retained in
 [`DETECTION_VALUE_PROTOCOL.md`](../../supporting_material/contention_validation/DETECTION_VALUE_PROTOCOL.md)
 with status `NOT_EXECUTED`.
+
+## Later private-record report and content-interface diagnostic
+
+The later audit is integrated through the following public artifacts. Their
+scope is deliberately narrower than rerunning the private experiments.
+
+| Artifact | What can be checked from the supplied material | Remaining boundary |
+|---|---|---|
+| [Arm review](../../supporting_material/experiment_extension/formal_record_reconciliation/results/ARM_REVIEW.csv) and [reconciliation](../../supporting_material/experiment_extension/formal_record_reconciliation/results/RECONCILIATION.json) | Reaggregate 216 accepted primary arms: 63,720 service rounds, 58,320 measured events, 24,012 core-required events and 14,416 timely returns; compare with retained endpoints. | Each arm's 295 rounds includes 5 warm-up, 90 measured and 200 drain rounds. Counts pool six methods and three capacities. The underlying 1,512 private source files are not attached. |
+| [Runtime review](../../supporting_material/experiment_extension/FORMAL_RECORD_REVIEW.md) | Read the reported allocator behavior, package identity and historical payload/consumer description alongside the private-record checker source. | The runtime tree and deployment manifests are not available for this integration to rehash; reported local inspection is not a new public proof of their bytes. |
+| [Split counts](../../supporting_material/experiment_extension/formal_record_reconciliation/results/SPLIT_COUNTS.json) | Recalculate 190,258/996,486 = 19.09% validation-versus-training and 497,391/1,147,055 = 43.36% test-versus-earlier-splits exact feature overlap. | The 39-feature signature excludes labels and identifiers. Raw partitions and actual-model training lineage are absent; this is neither a near-duplicate scan nor an estimate of accuracy inflation. |
+| [Interface summary](../../supporting_material/experiment_extension/formal_record_reconciliation/results/INTERFACE_SUMMARY.json) | Recount nine source observations and 27 representation/decode rows; inspect the script's 18 explicit predictor calls for nine successful cases. | The three labels agree by construction; truth labels and timing fields are absent. This does not execute the proposed information-value ablation or measure detection gain. |
+
+The frozen hardware payloads, the compact heavy-model bit/score/features
+interface pilot, and the prospective light-bit/feature-subset Gaussian naive
+Bayes diagnostic specify three different encoders and consumers. Their
+records and byte costs must not be substituted for each other. The newer
+diagnostic also leaves independent capture lineage, near-duplicate
+qualification and clean held-out efficacy unresolved. Earlier preparation
+records that say models were not executed remain accurate for their own
+stage; the later interface exercise is recorded separately rather than
+rewriting that history.

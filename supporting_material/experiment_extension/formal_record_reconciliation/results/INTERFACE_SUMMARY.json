@@ -1,0 +1,42 @@
+{
+  "accuracy_or_detection_gain_estimated": false,
+  "agreement_diagnostic_status": "PASS",
+  "complete_representation_triplets": 9,
+  "distinct_model_digests_reported": 1,
+  "ground_truth_present": false,
+  "interpretation": "The new alert bit and summary score originate from the same heavy-model output, and full reuses the observation. Agreement is by construction; nine source observations are not nine Pi experiments or held-out efficacy tests.",
+  "levels": {
+    "alert": {
+      "encoded_bytes_max": 16,
+      "encoded_bytes_mean": 16.0,
+      "encoded_bytes_min": 16,
+      "encoded_bytes_total": 144,
+      "rows": 9
+    },
+    "full": {
+      "encoded_bytes_max": 246,
+      "encoded_bytes_mean": 230.77777777777777,
+      "encoded_bytes_min": 209,
+      "encoded_bytes_total": 2077,
+      "rows": 9
+    },
+    "summary": {
+      "encoded_bytes_max": 20,
+      "encoded_bytes_mean": 14.555555555555555,
+      "encoded_bytes_min": 13,
+      "encoded_bytes_total": 131,
+      "rows": 9
+    }
+  },
+  "models_executed_by_reconciler": false,
+  "new_encoders": true,
+  "physical_devices_used_by_reconciler": false,
+  "prediction_agreement_triplets": 9,
+  "prediction_disagreement_triplets": 0,
+  "raw_observations_or_identifiers_exported": false,
+  "rows": 27,
+  "schema_version": 1,
+  "scope": "summary of exported interface diagnostic on archived observations",
+  "source_device_labels": 3,
+  "source_observations": 9
+}

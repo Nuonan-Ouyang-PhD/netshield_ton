@@ -16,6 +16,11 @@ IEEE Transactions on Networking manuscript.
 - Continue the targeted experiment extension with the complete
   [`Codex handoff`](supporting_material/experiment_extension/CODEX_HANDOFF_CN.md)
   and [`offline preparation tools`](supporting_material/experiment_extension/README.md).
+- Review the subsequent retained-record findings and their integration in
+  [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
+  The primary window/event review, raw-split overlap and model-interface
+  diagnostic are distinct from the still-unexecuted hardware and held-out
+  content-value extensions.
 
 ## Methodology correction
 

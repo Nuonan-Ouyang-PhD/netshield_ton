@@ -139,6 +139,27 @@ committed public export (10,620 service rounds and 9,720 occurrences); it
 does not reopen the primary campaign's private raw archive or measure NIC
 bytes. All frozen hardware evidence remains unchanged.
 
+### Level 2b — Reconciliation of supplied private-audit exports
+
+A subsequent authorized local review supplied one derived record for each
+of the 216 accepted primary arms, archived raw-split overlap counts, and 27
+interface-diagnostic rows from nine archived inputs. The path-free export
+and independent aggregation are in
+[`formal_record_reconciliation/`](supporting_material/experiment_extension/formal_record_reconciliation/).
+Its checks establish consistency of these supplied summaries and the public
+accepted-arm index; they do not reopen the 1,512 privately retained source
+logs or establish primitive chunk/in-flight integrity.
+
+The local source inspection reports the deployed integer-remainder defect.
+The supplied records reproduce 63,720 warm-up/measured/drain service rounds,
+58,320 measured events and 10,848 B of unallocated demanded service. Reported
+timely returns pool all six methods and three capacities. The model-interface
+diagnostic is neither a new physical campaign nor a held-out detection study.
+Archived cross-split feature overlap and unresolved capture/model-training
+lineage remain explicit eligibility gaps. The current paper incorporates
+these findings without replacing the frozen hardware results. See the
+[integration audit](submission/audit/FORMAL_RECORD_INTEGRATION.md).
+
 ### Level 3 — Manuscript build
 
 Build the clean review PDFs with Tectonic:

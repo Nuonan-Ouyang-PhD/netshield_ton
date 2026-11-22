@@ -1,5 +1,89 @@
 # 给本地 Codex 的完整执行指令：NetShield ToN 定向补实验
 
+## 本次审计返回后的继续位置（审阅提交 75a29ed）
+
+从同一审阅分支的最新工作状态继续。`75a29ed` 标识本次返回材料对应的审阅
+提交，不代表后续论文整合的最终 HEAD；记录你实际取得的 commit 和工作树状态。
+本分支已将以下有证据支持的审计结果整合到主文、补充材料及两份 PDF。
+保留这些修改，后续按真实新增证据继续更新。下方完整执行协议继续适用，
+本段更新已完成工作、证据边界和剩余优先级。
+
+### 已完成并应接续使用的材料
+
+- 返回的本地审计覆盖 216 个 accepted arms 的逐 arm 汇总：63,720 个服务轮、
+  58,320 个 measured events、24,012 个 core-required、14,416 个按时返回；
+  报告中无 missing return，未分配需求合计 10,848 B。服务轮包括 warmup、
+  measured-generation 和 drain，不能当成 63,720 个 measured windows。
+- 公开 reconciliation 已核对精确 accepted 集合，包括 S03/S04/S07 的 a02，
+  并提供脱敏的 216 行 CSV、汇总、输入/源码哈希和检查边界。它是**导出报告的
+  部分核对**，没有重新读取全部私有原始日志，也没有完成全部部署主机、
+  primitive chunk、in-flight 或物理链路交付证明。
+- 私有部署审查报告已确认实际 allocator 路径受整数余数问题影响，因此
+  allocator 旧/新配对扩展具有依据；严格的逐部署文件绑定仍需补全。
+- 已有 9 个归档输入、27 行新表示输出的模型接口诊断。27 行是同一批输入的
+  alert/summary/full 输出，**不是 27 次独立推理实验、27 个独立样本或 9 次
+  Raspberry Pi 实验**。这些新编码器的预测一致由共同模型/观测构造，不能
+  用作三种历史表示的检测增益结论。
+- 旧数据的 exact overlap 已报告为 validation `190258/996486`、test
+  `497391/1147055`。不能继续把这些旧划分当作干净 held-out，也不能用九输入
+  接口诊断补上其效能资格。
+
+先读本次新增或更新的报告：
+
+- [FORMAL_RECORD_INTEGRATION.md](../../submission/audit/FORMAL_RECORD_INTEGRATION.md)
+  与 [CODE_EVIDENCE_ALIGNMENT.md](../../submission/audit/CODE_EVIDENCE_ALIGNMENT.md)：
+  论文集成位置与证据对应关系。
+- [FORMAL_RECORD_REVIEW.md](FORMAL_RECORD_REVIEW.md)：返回的私有运行时、历史
+  窗口记录、表示内容和设备可用性审查。
+- [RECONCILIATION.json](formal_record_reconciliation/results/RECONCILIATION.json)
+  与 [ARM_REVIEW.csv](formal_record_reconciliation/results/ARM_REVIEW.csv)：
+  接受集合、逐 arm 计数、哈希及不能据此推出的结论。
+- [SPLIT_COUNTS.json](formal_record_reconciliation/results/SPLIT_COUNTS.json)
+  与 [INTERFACE_SUMMARY.json](formal_record_reconciliation/results/INTERFACE_SUMMARY.json)：
+  重叠数量和接口诊断的实际口径。
+
+可先运行以下公开核对入口，再进入尚未完成的私有工作；成功只证明其声明的
+导出材料核对范围：
+
+```bash
+python3 supporting_material/experiment_extension/formal_record_reconciliation/reconcile.py verify-public
+```
+
+### 剩余工作的优先级
+
+1. **补全严格 raw 与部署资格。** 在实际私有材料中绑定 accepted index、
+   每个 deployment manifest、预期主机集合和实际部署文件哈希；逐设备核对
+   完整 window/event 覆盖、重复/缺失身份、队列连续和字节守恒。验证每轮
+   cap 在设备间一致且等于配置，分别检查实际服务、grant 和 demand，不能
+   仅依赖最后一行 cap 或自报零违规。逐事件核验 deadline、clock epoch、
+   creation→return 同域时间；补查 chunk offset、重复传输、取消/丢弃和
+   in-flight。原日志没有的字段保留为缺口，不能从预期值回填。保留历史
+   `PASS_WITH_ISSUES` 及其具体原因，不把本次局部核对改写成完整 raw 证明。
+2. **并行恢复物理实验与数据资格。** 设备返回记录中 P2/P3 尚未通过连接资格，
+   需要按实际现有配置修复名称解析/连接并重新做三探针、core、时钟和日志
+   preflight；不得猜造地址。数据方面追溯独立 capture/episode 和当前模型
+   的实际训练输入 lineage；逐行核验恰为 39 个有限数值，固定特征顺序、
+   类型、signed-zero 和缺失值规则，不能把非数值、NaN/Inf 或缺失偷偷归零。
+   在训练期确定标准化及 near-duplicate 度量/阈值，审查跨组重复与检索覆盖，
+   建立新的合格划分。仅删掉旧报告里已命中的行，不足以证明模型训练集与
+   测试集独立。
+3. **执行仍待完成的定向硬件扩展。** 三探针及原始记录资格通过后，先做
+   同一部署运行时的 old/corrected allocator 配对，保留 launcher、时间锚点、
+   模型、负载和 scorer；按下方协议完成 pilot 和正式块数冻结。共享阶段
+   扩展须先实现可部署的 causal controller，再完成独立 calibration、pilot、
+   formal；同模型 oracle 仍不能充当物理控制器。所有尝试、慢结果、拒绝、
+   负结果和预先定义的基础设施排除均保留。
+4. **完成真实表示与任务的效能实验。** 在合格数据与真实 consumer 上固定任务、
+   三种表示、模型/阈值和分析规则，先做同源事件的无网络内容消融，再做
+   通信约束下的任务输出。归档中的 `CONTENT_PROTOCOL.md` 是未执行的候选
+   设计，不能等同于已经正式冻结的实验协议；需要绑定实际 adapter、模型
+   训练来源、新划分、校准和正式采样/分析计划后再执行。
+
+沿用现有授权持续完成可执行工作；某项缺少真实依赖时只阻塞该项，继续其他
+工作。保留全部历史 252 臂及原始数据、主稿既有理论和共用生成分母。新实验
+使用独立活动/attempt 身份；不能把重分析、接口诊断、软件假设或新模型结果
+混入旧硬件活动，也不能把未完成项目写成已测量结论。
+
 ## 任务与授权
 
 项目是 Nuonan Ouyang 的 ToN NetShield，仓库为

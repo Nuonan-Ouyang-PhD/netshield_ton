@@ -912,6 +912,8 @@ is claimed.
 A separate work-conserving correction, reconstructed with the published
 utility precision, changes five of the 36 action mixes; the Supplementary
 Allocator-Correction Sensitivity reports this implementation dependence.
+Local inspection of the archived runtime reports the same residual-byte
+stopping rule; corrected hardware outcomes remain unmeasured.
 
 \begin{figure*}[t]
 \centering
@@ -1094,10 +1096,15 @@ preserving boundary.}
 \paragraph{Raw reconstruction.}
 The primary full-raw audit rebuilds all 216 accepted hardware arms from
 58,320 measured occurrences with zero raw-to-validator/event-metric mismatch
-and zero shared-cap violation across 63,720 service rounds. Its verdict
-remains \texttt{PASS\_WITH\_ISSUES} because two archival gaps are disclosed:
-a direct S03-a01 SSD-failure artifact and S07 pre-hardware launcher-abort
-files are absent from the raw bundle. Neither gap changes an accepted arm.
+and zero shared-cap violation across 63,720 service rounds. A subsequent
+review finds a common package identity in the accepted deployment records,
+matching probe-service and core-receipt counters in every paired device
+window, and zero queue-recurrence residuals or final backlog. It also records
+10,848~B of unallocated budget despite demand across all service rounds.
+These are application-window checks; chunk continuity and in-flight bytes
+remain unaudited. The original verdict remains \texttt{PASS\_WITH\_ISSUES}
+because direct S03-a01 SSD-failure and S07 pre-hardware launcher-abort
+artifacts are absent. Neither gap changes an accepted arm.
 
 The separately frozen \CRFA{} extension reconstructs 36/36 accepted arms,
 9,720 measured occurrences, and 10,620 shared-service rounds. All
@@ -1134,11 +1141,12 @@ The formal feature replay yields perfect classification on the scored
 occurrences for all frozen detector paths, so correctness adds no information
 to the service metric. The dataset is CICIoT2023-derived
 ~\cite{neto2023ciciot}; the formal occurrence set excludes Recon-PortScan,
-and exact feature-vector overlap exists across frozen partitions. In keeping
-with long-standing cautions about closed-world IDS evaluation
-~\cite{sommer2010closedworld} and recent open-set IIoT work
-~\cite{yang2025openset}, we treat detector correctness as a controlled
-condition rather than evidence of open-world IDS superiority.
+and the archived raw splits contain exact feature matches for 19.09\% of
+validation rows against training and 43.36\% of test rows against training
+or validation. This audit does not reconstruct the deployed model's training
+inputs. Detector correctness remains a controlled replay condition;
+independent generalization requires qualified capture lineage and held-out
+evaluation~\cite{sommer2010closedworld,yang2025openset}.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -1217,17 +1225,17 @@ summary/upgrade costs. These are analytical planning models, not additional
 hardware findings or models fitted to QPG request traces.
 
 \subsection{Evaluating the Value of Evidence}
-The current results establish delivery opportunities for the frozen payload
-levels. They do not measure how alert, summary, and full evidence change
-detection recall, false alarms, localization, or incident-resolution time.
-The utility ordering in Table~\ref{tab:actions} is therefore a policy input.
-Establishing operational value requires a matched evidence-content ablation:
-derive each representation from the same held-out attack episodes, fix the
-downstream detector and alert threshold, and report outcome differences
-together with bytes and end-to-end latency. Splitting by source capture or
-episode and auditing feature duplication is essential for this workload.
-The Supplementary Evidence-Value Evaluation Protocol specifies this pending
-evaluation; no detection gain is inferred from payload size.
+Archived-runtime inspection finds that historical alerts and summaries
+carry the same event/device identifiers and local score, padded to different
+sizes. Full bundles add the features consumed by core inference. Thus the
+utility ordering in Table~\ref{tab:actions} is an engineering preference;
+the measured byte levels do not establish a detection-value hierarchy.
+A new interface diagnostic on nine archived observations verifies encoding
+and model execution only. A matched ablation still needs representations
+from the same independent held-out episodes, a fixed downstream model and
+threshold, and measured outcomes alongside bytes and return latency. The
+Supplementary Evidence-Value Evaluation Protocol separates historical
+payload semantics, this diagnostic, and the pending efficacy evaluation.
 
 \section{Limitations}
 \label{sec:limitations}
@@ -1267,9 +1275,9 @@ OS/network cause of the recurring proposal-arrival order remains unknown.
 The workload is a frozen CICIoT2023-derived feature replay
 ~\cite{neto2023ciciot}, not an uncontrolled packet-level deployment.
 Recon-PortScan, a major validation-error family, is absent from the formal
-replay, and exact feature-vector repetition exists across frozen partitions.
-The perfect formal occurrence-level classification therefore does not imply
-open-world IDS generalization~\cite{sommer2010closedworld,yang2025openset}.
+replay. Raw split overlap, unresolved capture lineage, and incomplete
+near-duplicate qualification limit detector generalization. They do not
+alter the separately audited byte counts and result-return timestamps.
 
 \textbf{Shield separation.}
 The tested campaign does not contain a case where a local device constraint
@@ -1347,7 +1355,7 @@ allocations are feasible and how closely physical service realizes them.
 
 % ============================================================
 % Native IEEEtran reference break for the current final-page pagination.
-\IEEEtriggeratref{19}
+\IEEEtriggeratref{17}
 \begin{thebibliography}{99}
 
 \bibitem{shisher2024timely}

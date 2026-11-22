@@ -1,0 +1,40 @@
+{
+  "exact_cross_split_overlap_reported": true,
+  "feature_hash_method_reported": "39 source-order binary64 values, big endian, signed zeros normalized, labels excluded",
+  "held_out_efficacy_qualified": false,
+  "matching_count_unit": "rows matching any earlier split, not distinct features or independent captures",
+  "new_efficacy_metrics_computed": false,
+  "qualification_status": "BLOCKED_BY_REPORTED_EXACT_OVERLAP_AND_OPEN_LINEAGE_CHECKS",
+  "reported_matching_rows": 687649,
+  "reported_total_rows": 5141673,
+  "schema_version": 1,
+  "scope": "reported exact feature-overlap counts; original arrays not rehashed",
+  "splits": {
+    "test": {
+      "earlier_splits": [
+        "train",
+        "validation"
+      ],
+      "file_sha256": "a4d9ad75f69fa6c0f2be91e90cca052a928b3e16ad8f79bf299a242a2d95c810",
+      "matching_fraction": 0.4336243684914847,
+      "rows": 1147055,
+      "rows_matching_earlier_split": 497391
+    },
+    "train": {
+      "earlier_splits": [],
+      "file_sha256": "63cfa94159878accf44684a6c476ef9e23c8ed7f227bc7e911f76cbba649a654",
+      "matching_fraction": 0.0,
+      "rows": 2998132,
+      "rows_matching_earlier_split": 0
+    },
+    "validation": {
+      "earlier_splits": [
+        "train"
+      ],
+      "file_sha256": "b83f36c120be8f9a9298490d08d730aca2ca359812846760d4282c2f1b1ae3b2",
+      "matching_fraction": 0.19092892423977859,
+      "rows": 996486,
+      "rows_matching_earlier_split": 190258
+    }
+  }
+}

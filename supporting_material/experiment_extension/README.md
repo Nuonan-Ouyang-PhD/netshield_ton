@@ -4,6 +4,20 @@ This directory prepares the next **real** experiments without manufacturing
 new hardware or detection results. Start with [`PROTOCOL.md`](PROTOCOL.md)
 and the complete Chinese [`CODEX_HANDOFF_CN.md`](CODEX_HANDOFF_CN.md).
 
+## Current progress
+
+The subsequent [`FORMAL_RECORD_REVIEW.md`](FORMAL_RECORD_REVIEW.md) reports
+local archived-runtime inspection, primary window/event checks, raw-split
+feature overlap and a nine-input model-interface diagnostic. The
+[`formal_record_reconciliation/`](formal_record_reconciliation/) directory
+provides a path-free exported-report reconciliation, and
+[`FORMAL_RECORD_INTEGRATION.md`](../../submission/audit/FORMAL_RECORD_INTEGRATION.md)
+documents the manuscript update. These are partial empirical/audit advances;
+the fixed-allocator hardware comparison, causal shared-stage experiment and
+qualified held-out content-value evaluation have not been completed.
+[`PREPARATION_STATUS.json`](PREPARATION_STATUS.json) records each stage's
+current evidence scope rather than treating every stage as unexecuted.
+
 The published methodological revision starts at
 `e9a2d335e75d1f34efb71c6a0fa2cf4b085660f5` on review PR #3. Its 120 model
 runs, public selector reconstruction and CRFA export audit remain separate
