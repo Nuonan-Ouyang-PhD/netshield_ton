@@ -1,5 +1,7 @@
 # NetShield ToN：集中收尾状态
 
+当前执行位置见 [定向补实验执行记录](HARDWARE_CLOSEOUT_CN.md)。以下为前次交接记录。
+
 接续基线：`72cc05df530727a48f89f4ed99b05da1c4c3fbe0`，PR #3。
 本轮把公开实现、验证入口、论文描述和后续本地执行合并处理。完整后续指令以
 [COMPLETE_LOCAL_EXECUTION_CN.md](COMPLETE_LOCAL_EXECUTION_CN.md) 为唯一正文入口；

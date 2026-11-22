@@ -1,5 +1,17 @@
 # Offline preparation for conditional supplemental hardware experiments
 
+The private extension workflow now uses `prepare_bundles.py`, `execute_hardware.py`,
+`reconstruct_attempt.py` and `summarize_blocks.py`. The launcher's input freeze
+covers the plan, order, qualification, optional sample-size rule, private deployment
+layout, local tools and every runtime, model and workload file. The reviewed
+tree identities are in `candidate_identity.json`. A qualified plan may use
+`--freeze-only` to record these inputs. A subsequent invocation verifies the
+same manifest and registers a fresh campaign before preflight. Block reports
+retain missing attempts and pairs. The current empirical scope and the
+private synthetic transport checks are recorded in the
+[execution report](../HARDWARE_CLOSEOUT_CN.md).
+
+
 **Status: no physical experiment has been executed by this package.** The
 planner writes `PLANNED_NOT_EXECUTED`, an order table, prerequisite checks and
 hashes. It has no SSH, network, deployment or hardware-running functionality.

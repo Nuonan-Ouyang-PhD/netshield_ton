@@ -1,12 +1,12 @@
 {
-  "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "engine": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
   "ieeetran_sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7",
   "passes_per_document": 3,
   "shell_escape_enabled": false,
   "documents": {
     "netshield_manuscript": {
-      "source_sha256": "c272cd883428e244fdb1f289838c9c74c93ed9c0f2ef367b901cf69ed43e768b",
-      "pdf_sha256": "bb361cc2779cd93f1a23214b6b1f458965da310fef96ad6048198bd695d9dae9",
+      "source_sha256": "60e003af2d7e38e2c62269e9864cda5228986e16a9fb1118d27f2bdb3c5fbafb",
+      "pdf_sha256": "8677451f64907f3c5467eca1f5fc31bbdb55385147d08cda13ee36e652e5c5f7",
       "pages": 14,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -25,7 +25,7 @@
         "figures/fig5_crfa_frontier_attainment.pdf": "ca6620949f6b628f1c9e50c2549d02ebee7c616521bdad2791d84e19939e4d22",
         "figures/fig6_timing_anchors_revised.pdf": "a541f623d88d9512a6e782914c0d56fcab264a9671868ebaf1d477c295fa742e",
         "figures/fig7_scaling_conformance.pdf": "65c474af491e17ff260e7291f6a34fe57f9513ccb294fb3b0426c72fb3402cf8",
-        "netshield_manuscript.tex": "c272cd883428e244fdb1f289838c9c74c93ed9c0f2ef367b901cf69ed43e768b",
+        "netshield_manuscript.tex": "60e003af2d7e38e2c62269e9864cda5228986e16a9fb1118d27f2bdb3c5fbafb",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
         "tables/full_evidence_frontier.tex": "2f8442b5b645297d28320dd3d9ca8eab7b89b58432fe97895bbf54cb06e79a60",
@@ -35,8 +35,8 @@
       "unresolved_references_or_citations": 0
     },
     "netshield_supplementary": {
-      "source_sha256": "46e73c0ccf71d0f290167f64f89d5c5bbe79118bd73947d1da9b97c01b9f4be1",
-      "pdf_sha256": "7e6b49e32b70590f577d37c6978801e882f764d2c82fee1481277dfb98907e80",
+      "source_sha256": "b74bafb049154defde0b6b2a9aa0ab906f9161549e85273f35b547df13a6f254",
+      "pdf_sha256": "222fbed046c5f0381760ee2b3c67d03935957684898aeb5eaaf8e187a6f27709",
       "pages": 34,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -46,7 +46,7 @@
       ],
       "repository_input_sha256": {
         "figures/fig3_iqpg_cycle.pdf": "b320c739dd198b9065dc1a0f9bb691ed545272fea10d197e194895565823e8c0",
-        "netshield_supplementary.tex": "46e73c0ccf71d0f290167f64f89d5c5bbe79118bd73947d1da9b97c01b9f4be1",
+        "netshield_supplementary.tex": "b74bafb049154defde0b6b2a9aa0ab906f9161549e85273f35b547df13a6f254",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_device_fairness.tex": "7ad113e1cb9961eba5c464ebfa99bd0ef2f66d4f74a871c84759812a59c2e095",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",

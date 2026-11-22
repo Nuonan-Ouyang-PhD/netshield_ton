@@ -2,8 +2,10 @@
 
 ## Audit stages and current interpretation
 
+The two private 26-condition receipts bind the earlier and instrumented runtime trees separately. Four loopback transports exercised the probe-to-Core path with synthetic workload and accelerated pacing. Physical calibration and treatment comparisons have zero new arms.
+
 The current consolidated status is
-[`COMPLETION_STATUS_CN.md`](../../supporting_material/experiment_extension/COMPLETION_STATUS_CN.md).
+[current execution record](../../supporting_material/experiment_extension/HARDWARE_CLOSEOUT_CN.md).
 The repaired private rerun and retained 896-row reconciliation are complete
 within their stated scope. The subsequent source-row trace and shared-stage
 candidate are distinguished from the still-unexecuted physical and qualified
@@ -16,7 +18,7 @@ empirical diagnostic results.
 |---|---|---|
 | [Retained review](../../supporting_material/experiment_extension/retained_review/) | Repaired checker execution receipt and 896-row preservation/pairing/subset reconciliation | Recorded-field scope; no newly acquired hardware or independent efficacy estimate |
 | [Source row trace](../../supporting_material/experiment_extension/SOURCE_ROW_TRACE.json) | Reported local matching of 5,141,673 rows to 31 original CSVs; public totals agree with 18/6/7 source groups and previous split denominators | Private rows are not republished; CSV/row coordinates do not identify independent parent acquisitions |
-| [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Initial private synthetic adapter receipt, current candidate source, calibration builder and public regression coverage | Current private runtime qualification, physical calibration, pilot and formal comparison remain required |
+| [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Initial receipt plus both executed 26-case private checks, calibration builder and four loopback transport checks | Three-probe deployment qualification, physical calibration, pilot and formal comparison remain required |
 | [Capture mapping preparation](../../supporting_material/experiment_extension/source_lineage/README.md) | Executable mapping/evidence/split consistency checks | Actual parent evidence, sufficient independent groups, feature qualification and model fitting remain required |
 
 The main paper reports the completed row trace, and the supplement separates

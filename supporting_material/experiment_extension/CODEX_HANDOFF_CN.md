@@ -1,5 +1,7 @@
 # NetShield ToN Codex 执行入口
 
+当前执行位置见 [定向补实验执行记录](HARDWARE_CLOSEOUT_CN.md)。以下为前次交接记录。
+
 完整、自包含的一次性执行指令已集中到：
 
 [COMPLETE_LOCAL_EXECUTION_CN.md](COMPLETE_LOCAL_EXECUTION_CN.md)

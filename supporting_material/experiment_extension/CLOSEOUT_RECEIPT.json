@@ -1,0 +1,122 @@
+{
+  "base": "07ce1520166a29feae96766bfbd51dbc9788a1f9",
+  "private_archived_tree": "be34cdd19441e66a0042b60f9fe75eb0277a8b9a9bb8eeb8f8f87b6b393d7085",
+  "new_physical_attempts": 0,
+  "hardware_pilot_blocks": 0,
+  "physical_calibration_conditions_executed": 0,
+  "independent_capture_count": null,
+  "new_fit": false,
+  "p1": {
+    "identity_matches_archived": true,
+    "boot_epoch_observed": true,
+    "ntp_synchronized": false
+  },
+  "p2": {
+    "dns_failure": 3,
+    "connection_timeout": 3
+  },
+  "p3": {
+    "dns_failure": 1,
+    "connection_timeout": 1
+  },
+  "model_and_workload_bundles": {
+    "allocator": 2,
+    "calibration": 16
+  },
+  "connection_receipt_sha256": "45f8f7007561acbbdd938dbb225aa2e9b7aa74bee70dab5d9b23621d04ab8e51",
+  "blocked_launch_test": "refused_before_device_access",
+  "loopback": [
+    {
+      "case": "zero",
+      "measured_events": 270,
+      "raw_file_hashes": "891831060cd8a6f29aa4d26e3df68a9529bfa1bda797676e1d20228ad425b995",
+      "physical": false,
+      "analysis_files": {
+        "admission.jsonl": "c2f8cd7c3651eaed59380ae5970080c1e05b02991754b8fa49e5adf75170eb79",
+        "chunks.jsonl": "4cc99c0bfdfe58bf0f6d131497a46444a96000df5251989e96cfd546a8d48668",
+        "events.jsonl": "bcd964b40d7744aa1722cb87e3cdabff54f036cfddf908d700d342ea8a09f58a",
+        "service.jsonl": "eca4014dd8bbba64905ac55a94e3473597bf8c2bf85f4615b7545604b3a09d82",
+        "sources.json": "891831060cd8a6f29aa4d26e3df68a9529bfa1bda797676e1d20228ad425b995",
+        "summary.json": "d5e9e379950253b17ecd5ea8aff12d8bee209a644385ab192a2159bbb704e43b",
+        "timing_by_stratum.json": "a8a8c39d40e5ae4a58c60aeabbc595ef996284ac4db1cafbb6aa276f41f408d6"
+      },
+      "observed_core_prefixes": [],
+      "schema_validated_records": {
+        "service": 297,
+        "chunks": 180,
+        "admission": 95,
+        "events": 285
+      }
+    },
+    {
+      "case": "tail",
+      "measured_events": 270,
+      "raw_file_hashes": "3aa2a5389fc77087dc94b31b3cdd32286efd82eb9100a71e0cf2fdcb0db2f9c3",
+      "physical": false,
+      "analysis_files": {
+        "admission.jsonl": "9b95f33ba649f87c3cea4f88f520489ba8c399190ae174214a53fc7e80da379f",
+        "chunks.jsonl": "67676ddf5b5fe08eb70ed4bbd1f9fb5e68a46adf8345921ca313bac955578731",
+        "events.jsonl": "06e5ca258563fa174dbe2ffb26ddfa6dde02f8aed6733dc2648cbbc316dd448d",
+        "service.jsonl": "6d00ab3507b7afcf60dcb9b32a76dcaeca3d5839bf5067981751b1a3c61a56f1",
+        "sources.json": "3aa2a5389fc77087dc94b31b3cdd32286efd82eb9100a71e0cf2fdcb0db2f9c3",
+        "summary.json": "ffb73913c8a07840edafa430f0c37eced89fabd05cc044e35bb1a1652db1ed74",
+        "timing_by_stratum.json": "f6d241c7ae1cc79ad07a1a1103e5fa56711d9498f13f032f9e6c1398966f305a"
+      },
+      "observed_core_prefixes": [
+        87381,
+        87381,
+        87382
+      ],
+      "schema_validated_records": {
+        "service": 297,
+        "chunks": 185,
+        "admission": 95,
+        "events": 285
+      }
+    },
+    {
+      "case": "old",
+      "measured_events": 270,
+      "raw_file_hashes": "a0e81402d80043c4119e69fa913bb388e9eda3bf849ff58b64911cd519d9b1c5",
+      "physical": false,
+      "analysis_files": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "chunks.jsonl": "89d7be06c263428cabbe2db94e1d4a713c8be5b7189ba71b7e50947bcd2e06d9",
+        "events.jsonl": "56cfb2d6bfd9f04c98923f46811fc88ae08d77195d0c27029f243cf5a37907f6",
+        "service.jsonl": "1ef5aae836969b4ed82d71ceb9c49a45521d4e4fedb6ed11840a904d0d9e67c3",
+        "sources.json": "a0e81402d80043c4119e69fa913bb388e9eda3bf849ff58b64911cd519d9b1c5",
+        "summary.json": "046aea2e22c65f2c0f301082949bd908298e991f5c4a71868e3b046ce6b743c9",
+        "timing_by_stratum.json": "ce507f96fa7368b1404ffd71f8811221da3013d309c452635ab809fae3efa9a5"
+      },
+      "observed_core_prefixes": null,
+      "schema_validated_records": {
+        "service": 297,
+        "chunks": 357,
+        "admission": 0,
+        "events": 285
+      }
+    },
+    {
+      "case": "fixed",
+      "measured_events": 270,
+      "raw_file_hashes": "cea86629ccf09ca9e078ff603b6903444d99823aa074517adb7eb5f7f0b9302a",
+      "physical": false,
+      "analysis_files": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "chunks.jsonl": "2e90c9f7d2d9611781fb4ef60c8845570dd9d6fee4cd0c97e5de6457ba020669",
+        "events.jsonl": "be7b19ddc640fd776a4194691be3d2bf3457528969e5aca69f8d65672404221d",
+        "service.jsonl": "891f45b4699ec2e0f175edb522a17c92aca1d8046d4a9380f809d0a78e9f8368",
+        "sources.json": "cea86629ccf09ca9e078ff603b6903444d99823aa074517adb7eb5f7f0b9302a",
+        "summary.json": "7edfa5648be15abd4db3514a4dcd155dfa7b579770c2d36549f12a0434ce8aaa",
+        "timing_by_stratum.json": "082500031d069f2a540c64c73af664cba50fcde4595639915b74537d7de4fd21"
+      },
+      "observed_core_prefixes": null,
+      "schema_validated_records": {
+        "service": 297,
+        "chunks": 288,
+        "admission": 0,
+        "events": 285
+      }
+    }
+  ]
+}

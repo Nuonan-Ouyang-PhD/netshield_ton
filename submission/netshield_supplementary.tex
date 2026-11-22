@@ -830,8 +830,11 @@ A separate RC1 runtime adapter supplies a prospective shared-stage policy.
 The initial local receipt records nine synthetic coordinator
 \texttt{submit/decide} cases and one direct admission-function check.
 Its source and receipt are retained separately from later input-validation
-and calibration-scope revisions. These checks exercise implementation logic,
-not measured service times. The candidate considers existing FIFO work and
+and calibration-scope revisions. A subsequent run on a separate private RC1 copy exercised 26 conditions,
+all through \texttt{submit/decide}. Sixteen varied the forced subset and
+initial queue state, six crossed policy with queue state, and four tested
+deadline or queue boundary cases. The clocks, queue inputs and timing profile
+in this check were synthetic. The candidate considers existing FIFO work and
 rechecks earlier reservations whenever another request is added.
 
 The revised prospective calibration crosses all eight selected-probe subsets

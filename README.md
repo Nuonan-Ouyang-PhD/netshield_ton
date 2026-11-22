@@ -1,5 +1,7 @@
 # NetShield
 
+[主稿 PDF](submission/netshield_manuscript.pdf) · [补充材料 PDF](submission/netshield_supplementary.pdf) · [定向补实验执行记录](supporting_material/experiment_extension/HARDWARE_CLOSEOUT_CN.md)
+
 Clean submission and reproduction package for the NetShield
 IEEE Transactions on Networking manuscript.
 

@@ -1,5 +1,7 @@
 # Shared-stage candidate: complete public preparation and local execution
 
+The current hardware preparation and private integration receipts are described in the [execution record](../HARDWARE_CLOSEOUT_CN.md).
+
 The current code is a scoped candidate for the supplemental H-FULL/H-NONE
 study. No physical arm or calibration is supplied by this directory.
 
@@ -24,9 +26,9 @@ Current files:
   record fields, source mapping, clocks, sampling and estimator semantics.
 - `tests/test_stage_admission.py`: public synthetic regressions.
 - [../hardware/test_stage_runtime_adapter.py](../hardware/test_stage_runtime_adapter.py):
-  **26 prospective submit/decide cases** using the real private runtime with
-  synthetic proposals, clocks and profile. This revised runner has not been
-  executed against RC1 in the public workspace.
+  **26 submit/decide cases** using the real private runtime with synthetic
+  proposals, clocks and profile. The [instrumented runtime receipt](final_runtime_26.json)
+  records the executed cases and the exact private tree identity.
 
 ## Candidate behavior
 
