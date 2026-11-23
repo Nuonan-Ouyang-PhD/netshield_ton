@@ -1,5 +1,10 @@
 # Validation status
 
+The current editorial closeout, 50-page visual review and nine executed local
+checks are recorded in [CONTENT_CLOSEOUT.md](audit/CONTENT_CLOSEOUT.md) and
+[CONTENT_CLOSEOUT_CHECKS.json](audit/CONTENT_CLOSEOUT_CHECKS.json). Existing
+content measurements, model identities and acquisition code are preserved.
+
 The editorial integration and package checks preceding the content study are recorded
 in [SUBMISSION_FINALIZATION.md](audit/SUBMISSION_FINALIZATION.md) and
 [FINAL_CHECKS.json](audit/FINAL_CHECKS.json).

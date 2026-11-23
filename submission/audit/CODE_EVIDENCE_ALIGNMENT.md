@@ -108,7 +108,7 @@ with-replacement draws. The source description has been corrected accordingly.
 | 6 and 9. Shared-link safety | Confirmed: isolated `payload/link_rate` assumes access to the full service rate. | Rename its claim as an individual eligibility heuristic. Shared-service screening requires actual competing work, service discipline, backlog, and a delay model. New counterexamples and model experiments are distinct from the frozen S-CQPG hardware method. |
 | 7. Different deadline predicates | Confirmed implementation difference, with a limited equivalence case. | Document origin-round upload completion versus elapsed-time upload completion and use explicit endpoints in corrected outputs. Neither old predicate measures a physical core return. |
 | 8. Paper/code mismatch | Confirmed endpoint labels, replicate language, historical/fixed code identity, and uploaded layout differences. | This mapping identifies the authoritative source, archived outputs, corrected software, and hardware evidence separately. |
-| 10. Value of evidence levels | Not established by the current results. Perfect scored replay correctness across paths cannot distinguish alert/summary/full detection benefit. | Label utilities as controller inputs; add a concrete pending evidence-content ablation protocol in the supplement. No claim of detection improvement or incident-resolution gain is added. |
+| 10. Value of evidence levels | The historical scored replay and 896-window diagnostic do not establish a detection-value hierarchy. A separate CICIoMT2024 study now evaluates all three representations on 72 windows from three held-out captures, with fitted encoders, a common consumer and validation-selected threshold. | The separate study reports 63/62/53 correct scenario-label decisions and 63/62/0 timely-correct returns for alert/summary/full under the configured padded payloads and low allowance. Utilities remain controller preferences; no general detection hierarchy or incident-resolution gain is claimed. Original CICIoT2023 parent-capture lineage remains unresolved. See the [content measurement record](../../supporting_material/experiment_extension/content_measurement/README.md). |
 
 ## Frozen hardware results retained
 
@@ -192,21 +192,29 @@ rule previews the same deterministic execution model and may reject all new
 requests; it is a feasibility demonstration, not an optimal or fair physical
 safety controller.
 
-## Evidence-value evaluation still required
+## Evidence-value requirement and subsequent measurement
 
-The supplementary protocol requires matched representations from the same
-held-out episodes; a declared content transformation for alert/summary/full;
-source-capture/episode splits and duplicate checks; fixed detector/threshold
-comparisons; and separate equal-delivery and shared-deadline experiments.
-Relevant outcomes include per-family recall, false-positive rate,
-precision/recall, calibration, and incident-localization delay alongside
-bytes and observed result-return latency. Resampling units must be independent
-captures or episodes. These inputs and paired outcomes are not present in
-the published aggregate tables, so this remains an unexecuted validation
-requirement rather than a new result.
-An operational checklist is retained in
+The original requirement was to compare declared representations of the same
+held-out observations, group the split by source capture or episode, audit
+duplicates, fix the consumer and validation-selected threshold, and measure
+both correctness and return deadlines. The separate CICIoMT2024
+[content study](../../supporting_material/experiment_extension/content_measurement/README.md)
+now supplies these observations for 72 windows from three held-out captures.
+Its information-only and measured-transport phases use the same windows and
+models. The source audit covers 105,789 rows; model fitting and validation use
+96 and 72 selected windows, respectively. Resampling uses captures, not
+individual rows, and the resulting intervals are descriptive with only three
+test captures.
+
+The labels identify the source capture's power-on or attack scenario. This
+study does not independently adjudicate maliciousness within each window,
+separate class from device and attack subtype, or measure incident-localization
+delay. It does not repair the original CICIoT2023 capture lineage. A general
+detection-value hierarchy and incident-resolution benefit remain unestablished.
+The earlier operational checklist is retained in
 [`DETECTION_VALUE_PROTOCOL.md`](../../supporting_material/contention_validation/DETECTION_VALUE_PROTOCOL.md)
-with status `NOT_EXECUTED`.
+with its historical status `NOT_EXECUTED`; it is not the execution record for
+the later, separately registered CICIoMT2024 study.
 
 ## Later private-record report and content-interface diagnostic
 

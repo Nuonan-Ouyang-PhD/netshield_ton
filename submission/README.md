@@ -18,6 +18,7 @@ NetShield submission.
 - `audit/METHODOLOGY_VALIDATION_REPORT.md`
 - `audit/PDF_BUILD_METADATA.json` and `audit/PDF_BUILD_REPORT.md`
 - `audit/SUBMISSION_FINALIZATION.md` and `audit/FINAL_CHECKS.json`
+- `audit/CONTENT_CLOSEOUT.md` and `audit/CONTENT_CLOSEOUT_CHECKS.json`
 - `BUILD_INSTRUCTIONS.md`
 - `VALIDATION_REPORT.md`
 - `validate_submission.py`
@@ -31,6 +32,8 @@ hardware result layer is published separately under
 `../supporting_material/crfa_hardware/`; private raw arms are not included.
 
 The current manuscript has 14 pages and the supplementary material has 36 pages.
+The content closeout aligns historical status, scenario labels, padded payloads,
+confusion counts and timing/byte-accounting scope with the completed study.
 Results Section V-C now presents the completed backlog-aware physical comparison.
 The separate allocator and shared-stage studies contain 8 and 36 formal physical
 arms, respectively. The calibrated controller's all-reject result and the separately verified CICIoMT2024 content cohort are explicitly reported.

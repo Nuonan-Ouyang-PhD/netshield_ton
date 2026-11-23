@@ -1,6 +1,19 @@
 # PDF build and visual verification
 
-## Held-out content measurement
+## Current content-study editorial closeout
+
+The current PDFs have 14 manuscript pages and 36 supplementary pages. Both
+were rebuilt with three pdfLaTeX passes and genuine IEEEtran. All 50 pages
+were visually reviewed; final logs contain no overfull boxes, missing
+characters or unresolved citations/references. The current source, asset and
+PDF hashes are in [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json); the
+specific changes and executed checks are in [CONTENT_CLOSEOUT.md](CONTENT_CLOSEOUT.md)
+and [CONTENT_CLOSEOUT_CHECKS.json](CONTENT_CLOSEOUT_CHECKS.json).
+
+The sections below describe historical builds. Their use of "current" refers
+to their own revision, not to this closeout.
+
+## Historical held-out content measurement build at 8fc18a9
 
 The revised manuscript has 14 pages and the supplement has 36. The current engine and the repository inputs for each page set are recorded in [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json). Both final logs have zero overfull boxes and zero unresolved citations or references.
 

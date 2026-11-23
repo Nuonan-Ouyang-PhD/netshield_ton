@@ -746,10 +746,11 @@ measured service latencies, and do not constitute new three-probe hardware
 runs or held-out efficacy measurements.
 
 \subsection{Paired Efficacy Evaluation Design}
-The frozen campaign has identical scored correctness across detector paths.
-Establishing the operational value of evidence therefore still requires a
-paired content/outcome evaluation with qualified independent inputs; fixed
-utility scores, payload sizes, and the interface diagnostic cannot supply it.
+The frozen CICIoT2023 campaign has identical scored correctness across detector
+paths. Its fixed utility scores, payload sizes, and interface diagnostic cannot
+establish a detection-value ordering. Section~\ref{sec:held_out_content}
+reports a separate CICIoMT2024 paired content/outcome evaluation following
+the design principles below.
 
 A suitable ablation uses the same held-out attack episodes for every
 representation. The episode/source-capture split must precede feature
@@ -774,10 +775,10 @@ conditional latency.
 For cross-probe correlation, predefine an episode-level decision and its
 required evidence before testing. Confidence intervals should resample
 independent capture sessions or attack episodes, not repeated feature vectors
-or simulation labels. The currently published summaries lack these paired
-content/outcome observations; completing this protocol requires eligible
-source groups and paired outcomes from the specified representation and
-detector pipelines.
+or simulation labels. The original CICIoT2023 summaries lack paired
+content/outcome observations from qualified independent captures. The separate
+CICIoMT2024 study measures scenario classification and timely result return;
+incident localization and cross-probe correlation utility remain unmeasured.
 
 \section{Private-record and archived-corpus follow-up}
 \label{sec:private_followup}
@@ -894,12 +895,14 @@ trajectories provide block-level contrasts and preserve the nominal-time anchor.
 
 \clearpage
 \section{Held-Out Content and Timely Correctness}
+\label{sec:held_out_content}
 We selected ten CICIoMT2024 Wi-Fi captures whose feature files matched the
 original distribution byte for byte. Seven individually isolated device power-on
 captures supplied benign traffic. ARP spoofing, port scanning and malformed
-MQTT supplied one attack scenario each. Capture time intervals were disjoint
-between splits. A hash-based rule selected 24 windows per capture before
-prediction. Four captures supplied training windows, three supplied validation
+MQTT supplied one attack scenario each; labels identify the source scenario.
+Capture time intervals were disjoint between splits. A hash-based rule selected
+24 windows per capture before prediction. Four captures supplied training windows,
+three supplied validation
 windows, and three supplied testing windows. All 105,789 source windows were
 searched across splits for exact and three-significant-digit matches over the
 39 ordered features; neither comparison found a shared signature. Rounded
@@ -913,24 +916,42 @@ all 39. The consumer received only the decoded representation. Each of the
 observations over Wi-Fi in six matched blocks spanning all six representation
 orders. Fresh queues opened each arm. Each probe generated one observation
 per second; the Core authorized at most 131,072 uplink application bytes per
-round in total. Return latency was measured from event creation on the same
-probe and includes encoding. All 216 executions returned, with no service
-budget violation in 120 rounds.
+round in total. Return latency starts at event creation from an already
+extracted feature window, before encoding, and ends at result reception on
+the same probe clock. It includes encoding and Core inference but excludes
+live packet capture and feature extraction. All 216 executions returned,
+with no service budget violation in 120 rounds.
 
-\begin{center}\begin{tabular}{lrrrr}\toprule
-Representation & Padded bytes & Correct & Timely & Timely and correct\\ \midrule
-Alert & 256 & 63 & 72 & 63\\
-Summary & 16,384 & 62 & 72 & 62\\
-Full & 131,072 & 53 & 0 & 0\\
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+Representation & Information (B) & Padded payload (B) & Correct & Timely & Timely and correct\\ \midrule
+Alert & 1 & 256 & 63 & 72 & 63\\
+Summary & 33 & 16,384 & 62 & 72 & 62\\
+Full & 313 & 131,072 & 53 & 0 & 0\\
 \bottomrule\end{tabular}\end{center}
-Each result column has denominator 72. The testing units were two benign
-power-on captures and one malformed MQTT capture. Before imposing the deadline,
-the equal-capture full-minus-alert difference was $-0.139$ (descriptive 95\%
+Each result column has denominator 72. Padding preserves the tested evidence
+service contract; it is not additional detection information. Three simultaneous
+full requests offer three times the round allowance, whereas their unpadded
+encodings total 939~B. The timing result applies to the padded load.
+
+Before applying the deadline, the 24 attack and 48 benign windows give:
+\begin{center}\begin{tabular}{lrrrrrr}\toprule
+Representation & TP & FN & FP & TN & Recall (\%) & FPR (\%)\\ \midrule
+Alert & 18 & 6 & 3 & 45 & 75.00 & 6.25\\
+Summary & 17 & 7 & 3 & 45 & 70.83 & 6.25\\
+Full & 19 & 5 & 14 & 34 & 79.17 & 29.17\\
+\bottomrule\end{tabular}\end{center}
+Relative to alert, full yields one more true positive and eleven more false
+positives, lowering overall accuracy. These outcomes
+describe this fitted consumer, not a general ordering of evidence value.
+Before imposing the deadline, the equal-capture full-minus-alert accuracy
+difference was $-0.139$ (descriptive 95\%
 paired capture-bootstrap interval $[-0.292,0.042]$). Under the measured
-deadline the difference was $-0.875$ ($[-1.000,-0.750]$). The load offered
-by three simultaneous full requests was three times the round allowance.
-The small set of test captures limits inference about other attack types,
-consumer models, sites, loads and representations. The original CICIoT2023
-segments retain their separate provenance limitation.
+deadline the timely-correct difference was $-0.875$ ($[-1.000,-0.750]$). The inferential
+units are the three test captures, not the 72 windows or 216 transmissions.
+They comprise two benign power-on devices and one malformed MQTT scenario;
+class, device and attack subtype remain confounded. This small single-testbed
+study limits inference about other attacks, consumers, sites, loads and
+representations. The original CICIoT2023 segments retain their separate
+provenance limitation.
 
 \end{document}

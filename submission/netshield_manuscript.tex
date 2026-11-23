@@ -1239,20 +1239,20 @@ summary/upgrade costs. These are analytical planning models, not additional
 hardware findings or models fitted to QPG request traces.
 
 \subsection{Evaluating the Value of Evidence}
-Archived-runtime inspection finds that historical alerts and summaries
-carry the same event/device identifiers and local score, padded to different
-sizes. Full bundles add the features consumed by core inference. Thus the
-utility ordering in Table~\ref{tab:actions} is an engineering preference;
-the measured byte levels do not establish a detection-value hierarchy.
-On 896 archived windows, three encodings gave identical correct decisions;
-366 windows matched fitting data exactly and 544 matched after rounding.
-We therefore tested a separately fitted common consumer on 72 windows from
-three held-out CICIoMT2024 captures~\cite{dadkhah2024iomt}. Alert, summary
-and full yielded 63, 62 and 53 correct decisions. With three simultaneous
-probes sharing 131,072 application bytes per second, the counts both correct
-and returned within one second were 63, 62 and 0. All 72 full results
-eventually returned. These capture-level comparisons cover two power-on
-devices and one malformed MQTT scenario on a single testbed.
+Historical alerts and summaries encode the same event/device identifiers and
+local score with different padding; full adds the features used by core
+inference. The utility ordering in Table~\ref{tab:actions} is an engineering
+preference, not a measured detection-value hierarchy. Three encodings
+classified all 896 archived windows correctly; 366 matched fitting data
+exactly and 544 after rounding.
+A separately fitted common consumer on 72 windows from three held-out
+CICIoMT2024 captures~\cite{dadkhah2024iomt} yielded 63/62/53 correct
+capture-scenario labels for alert/summary/full. Their 1/33/313-byte encodings
+were padded to fixed payloads of 256/16,384/131,072~B. With three probes each
+generating one window per second and sharing 131,072~B/s, 63/62/0 results
+were both correct and returned within one second. All 72 full results
+eventually returned under a padded load three times the allowance. The test
+covers two power-on devices and one malformed MQTT capture on one testbed.
 
 \section{Limitations}
 \label{sec:limitations}

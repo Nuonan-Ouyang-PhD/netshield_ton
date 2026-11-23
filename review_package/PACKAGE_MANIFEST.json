@@ -2,23 +2,25 @@
   "date": "2026-11-23",
   "timezone": "Australia/Melbourne",
   "scientific_results_base_commit": "75d529c9f52612c050832da269a7caf4f7b73539",
+  "content_measurement_commit": "8fc18a981de06af1f46df365f2345703a52cbc67",
+  "scope": "Editorial closeout, existing-result verification and regenerated PDFs/packages; no new collection or fitting.",
   "full_archive_excludes": [
     "review_package/"
   ],
   "archives": [
     {
       "path": "review_package/NetShield_ToN_Review.zip",
-      "bytes": 4887401,
-      "sha256": "7f1d9b8f56f37399a9176b7a32ddec7b846ab1b4aef9db054bbc2b8eee9e4b65",
-      "entries": 504,
-      "manifest_files": 503,
+      "bytes": 4918365,
+      "sha256": "b0a728530fb0bc44c0d503b56a9a170d64a2a5e81d5903eb3ba5690e8b7477dc",
+      "entries": 506,
+      "manifest_files": 505,
       "crc": "PASS",
       "per_file_sha256": "PASS"
     },
     {
       "path": "review_package/NetShield_ToN_Overleaf.zip",
-      "bytes": 787231,
-      "sha256": "0f74ae293d4586106d0ffa21779306f432080f4aa9247c9ca005c9c698611c8a",
+      "bytes": 794208,
+      "sha256": "4d1c99d577a26414f11e8c85ab1197e0ae40e23fae0c7369ad757525a568280e",
       "entries": 37,
       "manifest_files": 36,
       "crc": "PASS",
@@ -27,8 +29,8 @@
   ],
   "pdfs": {
     "netshield_manuscript": {
-      "source_sha256": "74e32f7d69cf55f9acb2a2a6c9f46d750c83737e09b918ea1da97aeb5a68b0b7",
-      "pdf_sha256": "a62443b425991da164cd563871c688b90ac1ce854a1a97b4e81ee622cceae70e",
+      "source_sha256": "692adde9dfe13b0b7276ae791a9ea1836f87f027880db4a5f47521697ee12be9",
+      "pdf_sha256": "163c389226cd18f616c3aa506fcf5f5345a08301bd79dea9d52cc794d8dd1bbd",
       "pages": 14,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -47,7 +49,7 @@
         "figures/fig5_crfa_frontier_attainment.pdf": "ca6620949f6b628f1c9e50c2549d02ebee7c616521bdad2791d84e19939e4d22",
         "figures/fig6_timing_anchors_revised.pdf": "a541f623d88d9512a6e782914c0d56fcab264a9671868ebaf1d477c295fa742e",
         "figures/fig7_scaling_conformance.pdf": "65c474af491e17ff260e7291f6a34fe57f9513ccb294fb3b0426c72fb3402cf8",
-        "netshield_manuscript.tex": "74e32f7d69cf55f9acb2a2a6c9f46d750c83737e09b918ea1da97aeb5a68b0b7",
+        "netshield_manuscript.tex": "692adde9dfe13b0b7276ae791a9ea1836f87f027880db4a5f47521697ee12be9",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
         "tables/full_evidence_frontier.tex": "2f8442b5b645297d28320dd3d9ca8eab7b89b58432fe97895bbf54cb06e79a60",
@@ -57,8 +59,8 @@
       "unresolved_references_or_citations": 0
     },
     "netshield_supplementary": {
-      "source_sha256": "c161422a97a7f354e5a6a653b15d7bcdab45612921cfd6dfdafb0f07739618d7",
-      "pdf_sha256": "cbe76d3764f62486513c502bb7d9e9cfe64b7507bc4e0171d27ae3cb14c98418",
+      "source_sha256": "96db05656445455ce06c2b71f75f92bef1b3b946e3cd217420e64dbcda43ece2",
+      "pdf_sha256": "a4357adfb5f9ec20c74e79a172879c9ea06ce401e6cb90c2fb59b4540c44d86a",
       "pages": 36,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -68,7 +70,7 @@
       ],
       "repository_input_sha256": {
         "figures/fig3_iqpg_cycle.pdf": "b320c739dd198b9065dc1a0f9bb691ed545272fea10d197e194895565823e8c0",
-        "netshield_supplementary.tex": "c161422a97a7f354e5a6a653b15d7bcdab45612921cfd6dfdafb0f07739618d7",
+        "netshield_supplementary.tex": "96db05656445455ce06c2b71f75f92bef1b3b946e3cd217420e64dbcda43ece2",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_device_fairness.tex": "7ad113e1cb9961eba5c464ebfa99bd0ef2f66d4f74a871c84759812a59c2e095",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
@@ -86,5 +88,5 @@
     }
   },
   "content_study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
-  "parent_commit_of_content_measurement": "c5f299ec6c248927f980553bec051b4dd91a64e0"
+  "closeout_report": "submission/audit/CONTENT_CLOSEOUT.md"
 }
