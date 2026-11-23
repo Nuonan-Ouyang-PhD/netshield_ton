@@ -17,7 +17,7 @@ returns within one second. These findings use capture-scenario labels and the
 declared fixed padded payloads. They do not resolve the original CICIoT2023
 parent-capture mapping or establish a general detection-performance ordering.
 
-See the [submission guide](../../SUBMISSION_GUIDE_CN.md) for the current PDFs,
+See the [submission guide](../../SUBMISSION_GUIDE.md) for the current PDFs,
 source packages and verification entry points. The original
 [`PROTOCOL.md`](PROTOCOL.md) and complete Chinese
 [`COMPLETE_LOCAL_EXECUTION_CN.md`](COMPLETE_LOCAL_EXECUTION_CN.md) retain the

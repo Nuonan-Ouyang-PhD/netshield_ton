@@ -1,8 +1,11 @@
-# 三探针硬件扩展
+# Three-probe hardware extension
 
-原 216 臂主实验与 36 臂 CRFA 保留各自的设备与统计口径。下表仅登记新活动。QUAL 为两种初始物理积压的工程资格检查。
+The original 216-arm primary campaign and 36-arm CRFA campaign retain their
+own equipment identities and statistical scope. The table below lists only
+the new campaigns. QUAL denotes the engineering qualification checks for the
+two initial physical backlog conditions.
 
-| 活动 | 计划臂 | 登记尝试 | 重建完成臂 |
+| Campaign | Planned arms | Registered attempts | Reconstructed arms |
 |---|---:|---:|---:|
 | [TON_EXT_ALLOC_4B8_FORMAL_20261123_01](TON_EXT_ALLOC_4B8_FORMAL_20261123_01/arms.json) | 8 | 8 | 8 |
 | [TON_EXT_ALLOC_4B8_PILOT_20261122_01](TON_EXT_ALLOC_4B8_PILOT_20261122_01/arms.json) | 2 | 2 | 2 |
@@ -12,17 +15,30 @@
 | [TON_EXT_STAGE_4B8_PILOT_20261123_01](TON_EXT_STAGE_4B8_PILOT_20261123_01/arms.json) | 6 | 6 | 6 |
 | [TON_EXT_STAGE_4B8_QUAL_20261123_01](TON_EXT_STAGE_4B8_QUAL_20261123_01/arms.json) | 2 | 2 | 2 |
 
-各目录含原始材料哈希、每个角色的动作与队列、同钟时差和配对差。用 Python 3.11 或更新版本，以活动导出目录作为参数运行 verify_results.py，可复算字节守恒、周期及两个时间锚下的及时率。
+Each directory contains source hashes, actions and queues for each role,
+same-clock time differences, and paired contrasts. With Python 3.11 or later,
+run `verify_results.py` with a campaign export directory as its argument to
+recompute byte conservation, cycles and timely-return rates under both time
+anchors.
 
-[内容实验的来源核对](CONTENT_INPUT_REVIEW.md) · [存储修订](storage.json) · [采集源代码](acquisition/)
+[Content provenance review](CONTENT_INPUT_REVIEW.md) · [Storage amendment](storage.json) · [Acquisition code](acquisition/)
 
-## 本次实测结果
+## Measured results
 
-Allocator 正式对照共 4 对。original 和 corrected 各有 1,080 个生成事件；两版分别接纳 264 和 360 个全证据请求，全部最终返回，1 秒内返回数均为 0。每臂未利用的可服务字节分别为 144 和 0。
+The formal allocator comparison contains four pairs. The original and
+corrected versions each generated 1,080 events and admitted 264 and 360 Full
+requests, respectively. Every Full result eventually returned; neither
+version returned a Full result within one second. Unused serviceable bytes
+per arm were 144 and 0, respectively.
 
-Shared-stage 校准前一次活动完成 4 臂，第 5 臂在一次 P2 管理链路健康检查超时后中止。该活动的 5 次尝试单独保留。新活动的 16 个条件各贡献一个首批实测样本，profile 的额外 margin 为 0。独立 pilot 和正式活动分别登记。
+The first shared-stage calibration campaign completed four arms. Its fifth
+arm was aborted after a P2 management-link health check timed out. All five
+attempts are retained separately. Each of the 16 conditions in the replacement
+campaign contributes one measured first batch to the profile, whose extra
+margin is zero. The independent pilot and formal campaigns have separate
+registrations.
 
-| 正式策略及初始积压 | 首批生成 | 接纳 H_FULL | 首批按时全结果 | 90 轮生成 | 90 轮按时全结果 |
+| Formal policy and initial backlog | First-batch events | Admitted H_FULL | First-batch timely Full results | Events over 90 rounds | Timely Full results over 90 rounds |
 |---|---:|---:|---:|---:|---:|
 | B0_P1_P2_P3_backlog_aware_bytes | 18 | 12 | 8 | 1620 | 1044 |
 | B0_P1_P2_P3_causal_shared_stage | 18 | 0 | 0 | 1620 | 0 |
@@ -31,8 +47,20 @@ Shared-stage 校准前一次活动完成 4 臂，第 5 臂在一次 P2 管理链
 | B131072_P1_P2_P3_causal_shared_stage | 18 | 0 | 0 | 1620 | 0 |
 | B131072_P1_P2_P3_isolated_precheck_new_bytes | 18 | 12 | 0 | 1620 | 0 |
 
-正式独立内容价值与通信约束及时正确率均无合格测试队列。仍需将冻结输入对应至可核验的父采集、边界及足够独立的采集组。没有在原 896 行诊断样本上另行宣称分组独立性。
+When these hardware campaigns ended, the original frozen inputs did not
+provide a qualified cohort for independent content-value or
+communication-constrained timely-correctness tests. Their parent captures,
+boundaries and independent acquisition groups remained unverified. The
+original 896-row diagnostic was not treated as an independent test cohort.
+The subsequent [held-out content study](../content_measurement/README.md)
+reports the separate CICIoMT2024 experiment with verified capture provenance.
 
-## 复算校准参数
+## Recompute the calibration parameters
 
-在本目录运行 `python3 -B verify_calibration.py`。公开的 [16 组逐阶段时序](calibration_relative.jsonl) 为每臂的 Core 和每台探针分别平移时间原点，并以角色代替私有时钟标识。同一时钟上的全部纳秒差保持原值。脚本用采集时的计算函数复算 16 组参数，并逐项与[部署使用的 profile](physical_profile.json) 核对。
+Run `python3 -B verify_calibration.py` in this directory. The published
+[16 sets of stage timings](calibration_relative.jsonl) shift the time origin
+separately for the Core and each probe in every arm, and replace private clock
+identifiers with roles. All nanosecond differences on the same clock are
+preserved. The script uses the acquisition-time calculation function to
+recompute all 16 parameter sets and compare them, field by field, with the
+[deployed profile](physical_profile.json).

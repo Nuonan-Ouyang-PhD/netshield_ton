@@ -46,4 +46,4 @@ physical comparisons. The held-out content and matched Wi-Fi results use 72 wind
 
 The complete package and a standalone Overleaf source ZIP are available under
 the repository's `review_package/` directory. See
-[`SUBMISSION_GUIDE_CN.md`](../SUBMISSION_GUIDE_CN.md) for the submission file map.
+[`SUBMISSION_GUIDE.md`](../SUBMISSION_GUIDE.md) for the submission file map.
