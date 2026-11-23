@@ -28,6 +28,12 @@
       "command": "python3 scripts/verify_methodology_revision.py",
       "exit_code": 0,
       "stdout": "PASS: 120 frozen file hashes, 14 formal blocks, 21 labeled equations, unchanged abstract, 36 reproducible public selector cases, 120 software runs independently reconstructed, 10,620 CRFA service rounds / 9,720 occurrences, and source-matched manuscript/supplement PDFs"
+    },
+    {
+      "command": "sha256sum -c docs/MANIFEST_SHA256.txt",
+      "working_directory": "supporting_material/archive/v4_4",
+      "exit_code": 0,
+      "stdout": "./README.md: OK\n./STATUS.md: OK\n./V4_4_RELEASE_NOTES.md: OK\n./audit/AUTHOR_METADATA_CONFIRMED.md: OK\n./audit/COVER_LETTER_FINAL.md: OK\n./audit/FORMAL_CONFIG_PARAMETER_AUDIT.md: OK\n./audit/MANUSCRIPT_NUMERIC_AND_SEMANTIC_AUDIT.md: OK\n./audit/ORIGINALITY_AND_PRIOR_WORK_DISCLOSURE.md: OK\n./audit/SUBMISSION_READINESS.md: OK\n./audit/TON_REVIEWER_ATTACK_V4_3.md: OK\n./docs/README.md: OK\n./frozen_reference/NUMBER_PROVENANCE.md: OK\n./frozen_reference/PROVENANCE.md: OK\n./frozen_reference/STATISTICS_FACTS.md: OK\n./frozen_reference/configs/experiment.high.json: OK\n./frozen_reference/configs/experiment.low.json: OK\n./frozen_reference/configs/experiment.mid.json: OK\n./frozen_reference/ef_action_consistency_results.json: OK\n./frozen_reference/non_inferiority.json: OK\n./frozen_reference/table1_method_overview.csv: OK\n./frozen_reference/table1_method_overview.tex: OK\n./frozen_reference/table2_primary_contrasts.csv: OK\n./frozen_reference/table2_primary_contrasts.tex: OK\n./frozen_reference/tableS1_full_contrasts.csv: OK\n./netshield_ton_full_manuscript_v4_4.pdf: OK\n./netshield_ton_full_manuscript_v4_4.tex: OK\n./netshield_ton_supplementary_v4.pdf: OK\n./source/configs/experiment.high.json: OK\n./source/configs/experiment.low.json: OK\n./source/configs/experiment.mid.json: OK\n./source/figures/fig1_capacity_interaction.png: OK\n./source/figures/fig2_e2e_by_capacity.png: OK\n./source/netshield_ton_supplementary_v4.tex: OK\n./source/references_v4.bib: OK"
     }
   ],
   "pdf_build": {
@@ -114,5 +120,13 @@
     ],
     "status": "PASS",
     "outside_page_text_blocks": 0
+  },
+  "archive_reconciliation": {
+    "reason": "The pre-existing path redaction at 9bcf911 changed only line 7 of the provenance document without refreshing its manifest entry.",
+    "document_sha256": "6c2d92c9d1964abc32b6fe805639efa50b0dea53d8e0f63f30c314455e5b01e2",
+    "manifest_entries_checked": 34,
+    "manifest_entries_matched": 34,
+    "scientific_frozen_files_unchanged": 120,
+    "report": "ARCHIVE_MANIFEST_RECONCILIATION.md"
   }
 }

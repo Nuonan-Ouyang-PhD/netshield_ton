@@ -8,10 +8,10 @@
   "archives": [
     {
       "path": "review_package/NetShield_ToN_Review.zip",
-      "bytes": 4707517,
-      "sha256": "16c42360de34125ccb593aa44a06ea991d4a599d8acabd37917cd61c792f5e7d",
-      "entries": 453,
-      "manifest_files": 452,
+      "bytes": 4709994,
+      "sha256": "9a1c24c21187034b99a1b702248a89a57e6faac8fc2ea7e7b14ffe3079e411c3",
+      "entries": 454,
+      "manifest_files": 453,
       "crc": "PASS",
       "per_file_sha256": "PASS"
     },

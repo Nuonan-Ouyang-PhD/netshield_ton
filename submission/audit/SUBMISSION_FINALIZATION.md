@@ -53,6 +53,7 @@ in `FINAL_CHECKS.json`:
 - `python3 scripts/verify_campaign_audit.py`
 - `python3 scripts/verify_methodology.py`
 - `python3 scripts/verify_methodology_revision.py`
+- `sha256sum -c docs/MANIFEST_SHA256.txt`, from `supporting_material/archive/v4_4`
 
 These checks include 120 frozen file identities, 14 formal blocks, 21 labelled
 equations, the unchanged abstract, 36 public selector cases, reconstruction of
@@ -64,6 +65,15 @@ allocator and 36 shared-stage formal arms and all 16 calibration envelopes.
 Those experiment files and analysis implementations are unchanged by this
 finalization. Independent held-out content value remains unavailable because
 the parent-acquisition mapping is unresolved.
+
+## Historical archive manifest reconciliation
+
+The first final-package CI run exposed a pre-existing checksum mismatch after
+a one-line path redaction in the archived provenance document. Git history
+verified the redaction and its unchanged remaining content. The public document
+is preserved, its single stale manifest entry is corrected, and all 34 archive
+entries now pass the original check. The workflow and scientific files are
+unchanged. See `ARCHIVE_MANIFEST_RECONCILIATION.md` for hashes and commit identities.
 
 ## Delivery and GitHub
 
