@@ -10,7 +10,7 @@ The current consolidated status is
 [physical extension record](../../supporting_material/experiment_extension/physical_extension/README.md).
 The repaired private rerun and retained 896-row reconciliation are complete
 within their stated scope. The subsequent source-row trace, executed physical
-comparisons and still-unexecuted qualified held-out content study have separate
+comparisons and separate CICIoMT2024 held-out content study have separate
 evidence boundaries. `HARDWARE_CLOSEOUT_CN.md`, earlier `FOLLOWUP_REVIEW.md`
 and the nine-observation stage
 below remain historical records; the nine-input construction-based agreement
@@ -233,3 +233,5 @@ rewriting that history.
 ## Replacement-cohort measurements
 
 The [hardware extension](../../supporting_material/experiment_extension/physical_extension/README.md) provides action and queue trajectories, origin-clock endpoints and input identities per physical block.
+
+The [matched content measurements](../../supporting_material/experiment_extension/content_measurement/) identify ten parent captures, both fitted stages and the threshold, and all 216 physical representation transmissions.

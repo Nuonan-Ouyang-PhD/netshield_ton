@@ -1,0 +1,23 @@
+{
+  "private_ledger_sha256": "b6ab29796d0282327db5aff1aefc516d38da92d136f268b3cc790d911cd3ab49",
+  "published_ledger_sha256": "995ebf83cf3ad97bce0a6a58fc21943df5da9b5c009a589eea6601ead3ea1767",
+  "private_files": {
+    "information/score.json": "7f001ef304e31b3ad6e8112721f3674d9d2d3b8e1c0b9198fd41795bc37688f2",
+    "transport/score.json": "70ff7183f9173fc629aa353ed025b58c225e2e4ef99039f18c264d2fe2faadd2",
+    "transport/predictions.csv": "4f288c7b302cddac2bae4240ba2e5a277453d543119ddb575bc4fba4c07d8498",
+    "information/payloads.bin": "c65abda948ea7fc5e068d0edb4195af4b852f4fef4f015fe6203069d83a464f6",
+    "information/calls.jsonl": "d370b0fd0fcfe2a80ffaf46e2c2c7b31d035dfb634433388b675006967004c50",
+    "information/fit_identity.json": "769e34e9f6cf457e89c5757215d10633eb530243d00f5ccc3897cd4951620a12"
+  },
+  "hardware": {
+    "enrolled_roles": [
+      "pi5",
+      "pi4b",
+      "pi4b8g"
+    ],
+    "eligibility": "PASS",
+    "completed_attempts": 1,
+    "interrupted_attempts": 0
+  },
+  "scope": "Only clock identities and clock origins are redacted. Matched scores, signed time differences, payload digests and grant trajectories are preserved. Link-layer bytes and retransmissions are not measured."
+}

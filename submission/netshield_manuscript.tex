@@ -1244,17 +1244,15 @@ carry the same event/device identifiers and local score, padded to different
 sizes. Full bundles add the features consumed by core inference. Thus the
 utility ordering in Table~\ref{tab:actions} is an engineering preference;
 the measured byte levels do not establish a detection-value hierarchy.
-A new interface diagnostic on nine archived observations verifies encoding
-and model execution only. In a separate offline diagnostic, a common consumer
-returned the correct binary decision for all three new representations on
-the same 896 archived rows.
-Of these file-prefix rows, 366 matched training or validation features
-exactly; 544 matched after rounding to three significant digits, including
-the exact matches. A matched ablation still needs representations
-from the same independent held-out episodes, a fixed downstream model and
-threshold, and measured outcomes alongside bytes and return latency. The
-Supplementary Evidence-Value Evaluation Protocol separates historical
-payload semantics, this diagnostic, and the pending efficacy evaluation.
+On 896 archived windows, three encodings gave identical correct decisions;
+366 windows matched fitting data exactly and 544 matched after rounding.
+We therefore tested a separately fitted common consumer on 72 windows from
+three held-out CICIoMT2024 captures~\cite{dadkhah2024iomt}. Alert, summary
+and full yielded 63, 62 and 53 correct decisions. With three simultaneous
+probes sharing 131,072 application bytes per second, the counts both correct
+and returned within one second were 63, 62 and 0. All 72 full results
+eventually returned. These capture-level comparisons cover two power-on
+devices and one malformed MQTT scenario on a single testbed.
 
 \section{Limitations}
 \label{sec:limitations}
@@ -1557,6 +1555,11 @@ E. C. P. Neto, S. Dadkhah, R. Ferreira, A. Zohourian, R. Lu, and A. A. Ghorbani,
 environment,'' \emph{Sensors}, vol. 23, no. 13, Art. no. 5941, 2023,
 doi: 10.3390/s23135941.
 
+\bibitem{dadkhah2024iomt}
+S. Dadkhah, E. C. P. Neto, R. Ferreira, R. C. Molokwu, S. Sadeghi, and
+A. A. Ghorbani, ``CICIoMT2024: A benchmark dataset for multi-protocol
+security assessment in IoMT,'' \emph{Internet of Things}, vol. 28,
+Art. no. 101351, 2024, doi: 10.1016/j.iot.2024.101351.
 \end{thebibliography}
 
 \end{document}

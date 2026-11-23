@@ -30,17 +30,16 @@ controlled raw evidence of the 216-arm physical campaign. The path-free CRFA
 hardware result layer is published separately under
 `../supporting_material/crfa_hardware/`; private raw arms are not included.
 
-The current manuscript has 14 pages and the supplementary material has 35 pages.
+The current manuscript has 14 pages and the supplementary material has 36 pages.
 Results Section V-C now presents the completed backlog-aware physical comparison.
 The separate allocator and shared-stage studies contain 8 and 36 formal physical
-arms, respectively. The calibrated controller's all-reject result and the missing
-independent content-study cohort are explicitly reported.
+arms, respectively. The calibrated controller's all-reject result and the separately verified CICIoMT2024 content cohort are explicitly reported.
 
 The current methodology report supersedes historical validation claims for
 earlier deliveries. Software upload completion and hardware core-result return
 have separate definitions. The supplement includes allocator sensitivity,
 shared-service counterexamples, a file-prefix content diagnostic and the new
-physical comparisons. Independent held-out efficacy is pending.
+physical comparisons. The held-out content and matched Wi-Fi results use 72 windows from three test captures.
 
 The complete package and a standalone Overleaf source ZIP are available under
 the repository's `review_package/` directory. See

@@ -23,14 +23,14 @@ IEEE Transactions on Networking manuscript.
 - Review the subsequent retained-record findings and their integration in
   [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
   The primary window/event review, raw-split overlap and model-interface
-  diagnostic precede the [physical extension](supporting_material/experiment_extension/physical_extension/README.md). The held-out content study still lacks capture-level lineage.
+  diagnostic precede the [physical extension](supporting_material/experiment_extension/physical_extension/README.md). The [held-out content study](supporting_material/experiment_extension/content_measurement/) uses separately verified CICIoMT2024 captures.
 - The [retained-record status](supporting_material/experiment_extension/COMPLETION_STATUS_CN.md)
   covers the private record checks, the 896-row diagnostic and the source-row trace.
   The [physical comparison](supporting_material/experiment_extension/physical_extension/README.md)
   reports 8 allocator and 36 shared-stage formal arms, with separately
   registered qualification, calibration and pilot measurements.
   The [capture provenance review](supporting_material/experiment_extension/physical_extension/CONTENT_INPUT_REVIEW.md)
-  identifies the missing input for an independent content-value measurement.
+  documents the unresolved lineage of the original CICIoT2023 segments.
 
 ## Methodology correction
 

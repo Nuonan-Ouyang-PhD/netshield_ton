@@ -1,0 +1,14 @@
+{
+  "frozen_inputs": {
+    "dataset_manifest.json": "4a23e377f05fcbb91122f28932700efc723e6bc9a6c066876c7745802f0f7830",
+    "test.jsonl": "2d7d046c827f5560e55c85d81f3b25ed684c16973e1653cbef0d5ea76883874e",
+    "train.jsonl": "6a14b442af65228d3374c81e707b9efc4ce9c04294e0a8ee1de83a2feccb7ee9",
+    "validation.jsonl": "ad1a657ae949b95ab418f70e0b8d382b8fa887c4d699da47ee4fca84f890d1f6"
+  },
+  "numpy": "2.3.5",
+  "protocol_sha256": "f109b0a57c7af07217c2c959563f90377a91c52f5683933fe2d191dafc975ae8",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "runner_sha256": "b1389a4859bfdf2e45e03a9273659b9f238e1740ae008f43ec517d430a1ec7e9",
+  "spec_sha256": "c8fcc34558bec98e03df4f65e6087097e46b3648fb048eec4ff38535ffdd15c3",
+  "split_report_sha256": "0c62c1b33a892dbe91411a010011244bbe9589feda35d6e8d32c41189e2aeba2"
+}

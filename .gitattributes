@@ -15,3 +15,7 @@
 # Preserve their exact bytes and all whitespace checks other than blank-at-eol.
 /supporting_material/experiment_extension/hardware/instrumented_allocator.patch whitespace=-blank-at-eol
 /supporting_material/experiment_extension/stage_adapter/physical_capture_hooks.patch whitespace=-blank-at-eol
+
+# CSV evidence preserves the CRLF bytes hashed by the acquisition tools.
+/supporting_material/experiment_extension/content_measurement/**/*.csv -text whitespace=trailing-space,space-before-tab,cr-at-eol
+/supporting_material/experiment_extension/content_measurement/*.csv -text whitespace=trailing-space,space-before-tab,cr-at-eol

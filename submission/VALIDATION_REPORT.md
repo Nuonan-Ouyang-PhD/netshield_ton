@@ -1,12 +1,12 @@
 # Validation status
 
-The final editorial integration and freshly executed package checks are recorded
+The editorial integration and package checks preceding the content study are recorded
 in [SUBMISSION_FINALIZATION.md](audit/SUBMISSION_FINALIZATION.md) and
 [FINAL_CHECKS.json](audit/FINAL_CHECKS.json).
 The current source, software audit, and PDF checks are also reported in
 [METHODOLOGY_VALIDATION_REPORT.md](audit/METHODOLOGY_VALIDATION_REPORT.md),
 [FORMAL_RECORD_INTEGRATION.md](audit/FORMAL_RECORD_INTEGRATION.md), and
-[PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14 and 35 pages. The report below describes the earlier 15 September delivery;
+[PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14 and 36 pages. The report below describes the earlier 15 September delivery;
 its old `build/` paths are not commands for this repository and its pass
 counts must not be reported as newly executed checks.
 

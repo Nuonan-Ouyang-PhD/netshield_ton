@@ -1,0 +1,17 @@
+{
+  "files": {
+    "design.json": "c663e3c4fb3cb6b46d55f873e4f00b23753b5e78a8e7dc04e7f3864022d14c1d",
+    "schedule.json": "783c74380bb2d67fe1d03013135270dd747ad6850986f06ad9085492bce435e0",
+    "audit_windows.py": "6030a5c605123293ceedcc606c16d8c4087eed72b543cbebcb4ca3c0181aeabd",
+    "input_audit.json": "e8f3130f9185a20c9517fcf5dd43d77feac6fdcc65b8e23cffc54317baf4f85d",
+    "parent_evidence.json": "2afdc2330c243a3becc5cdb96898c47d44b2a0f830def9b044faf600eba8b7f8",
+    "spec.json": "c8fcc34558bec98e03df4f65e6087097e46b3648fb048eec4ff38535ffdd15c3",
+    "cohort.json": "4d74ac45c0e0ea361e035b2310cb2e6513396fc2df97b3ad38aaa033259339da",
+    "launch_transport.py": "5631f1c92270f57a1734611192c5d2871378027af05d0221ac37c79ad3e8a477",
+    "stream_probe.py": "0bf5e52c41eae712aeeed7ddd846f9afa8f4a0618dff864296036f1558100c9a",
+    "verify_transport.py": "07823fc5fb1ed0d871a693ed6de66e88dd555bf0fe79c9a70837aebb7788567c",
+    "qualify.py": "84402f8be72eecc6b97b5a6dbde65474dc021b675edcc7774a095a926b653a8f",
+    "prepare_study.py": "160781577350fd301846f7fd4952aaf21ce38ab200c34091addfc016e5cffa7f"
+  },
+  "model_runner": "b1389a4859bfdf2e45e03a9273659b9f238e1740ae008f43ec517d430a1ec7e9"
+}

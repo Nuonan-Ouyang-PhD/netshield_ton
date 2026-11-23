@@ -1,0 +1,11 @@
+group_id,split
+ARP_Spoofing,train
+Blink_Mini_Camera_Power,train
+Ecobee_Camera_Power,train
+M1T_Camera_Power,test
+MQTT-Malformed_Data,test
+Multifunctional_Pager_Power,validation
+Owltron_Camera_Power,test
+Recon-Port_Scan,validation
+SenseUBaby_Power,train
+Singcall_Power,validation

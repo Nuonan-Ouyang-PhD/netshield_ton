@@ -1,0 +1,996 @@
+{
+  "schema_version": "netshield.evidence_value.v1",
+  "study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+  "data_origin": "actual_runtime",
+  "phase": "transport_measured",
+  "validation": "All supplied records satisfy the declared schema; this does not prove completeness against an unprovided acquisition log or truthful instrumentation.",
+  "dataset": {
+    "id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+    "version": "c8fcc34558bec98e03df4f65e6087097e46b3648fb048eec4ff38535ffdd15c3",
+    "population": "all_generated_held_out_occurrences"
+  },
+  "decision_rule": {
+    "kind": "positive_score_greater_than_or_equal",
+    "negative_label": "benign",
+    "positive_label": "attack",
+    "threshold": 0.75
+  },
+  "label_mapping": {
+    "0": "benign",
+    "1": "attack"
+  },
+  "independence_unit": "capture",
+  "group_definition": "Each named isolated-device power-on or single short-window attack-scenario capture on the source testbed. All windows of a capture stay together.",
+  "generated_occurrences": 72,
+  "independent_group_ids": [
+    "M1T_Camera_Power",
+    "MQTT-Malformed_Data",
+    "Owltron_Camera_Power"
+  ],
+  "pooled_by_representation": {
+    "alert": {
+      "generated": 72,
+      "scored": 72,
+      "correct": 63,
+      "status_counts": {
+        "returned": 72,
+        "rejected": 0,
+        "missing": 0,
+        "censored": 0
+      },
+      "scored_coverage": 1.0,
+      "correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 63,
+        "unresolved": 0,
+        "estimate": 0.875,
+        "lower": 0.875,
+        "upper": 0.875
+      },
+      "scored_only_binary_metrics": {
+        "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+        "positive_label": "attack",
+        "negative_label": "benign",
+        "TP": 18,
+        "FP": 3,
+        "FN": 6,
+        "TN": 45,
+        "accuracy": 0.875,
+        "precision": 0.8571428571428571,
+        "recall": 0.75,
+        "specificity": 0.9375,
+        "false_positive_rate": 0.0625,
+        "f1_positive": 0.8
+      },
+      "byte_costs": {
+        "information_bytes": {
+          "known_total": 72,
+          "missing_records": 0,
+          "total": 72
+        },
+        "padding_bytes": {
+          "known_total": 18360,
+          "missing_records": 0,
+          "total": 18360
+        },
+        "payload_bytes": {
+          "known_total": 18432,
+          "missing_records": 0,
+          "total": 18432
+        },
+        "wire_bytes": {
+          "known_total": 0,
+          "missing_records": 72,
+          "total": null
+        }
+      },
+      "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+      "timely_correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 63,
+        "unresolved": 0,
+        "estimate": 0.875,
+        "lower": 0.875,
+        "upper": 0.875
+      },
+      "timing_categories": {
+        "timely_result": 72
+      }
+    },
+    "summary": {
+      "generated": 72,
+      "scored": 72,
+      "correct": 62,
+      "status_counts": {
+        "returned": 72,
+        "rejected": 0,
+        "missing": 0,
+        "censored": 0
+      },
+      "scored_coverage": 1.0,
+      "correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 62,
+        "unresolved": 0,
+        "estimate": 0.8611111111111112,
+        "lower": 0.8611111111111112,
+        "upper": 0.8611111111111112
+      },
+      "scored_only_binary_metrics": {
+        "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+        "positive_label": "attack",
+        "negative_label": "benign",
+        "TP": 17,
+        "FP": 3,
+        "FN": 7,
+        "TN": 45,
+        "accuracy": 0.8611111111111112,
+        "precision": 0.85,
+        "recall": 0.7083333333333334,
+        "specificity": 0.9375,
+        "false_positive_rate": 0.0625,
+        "f1_positive": 0.7727272727272727
+      },
+      "byte_costs": {
+        "information_bytes": {
+          "known_total": 2376,
+          "missing_records": 0,
+          "total": 2376
+        },
+        "padding_bytes": {
+          "known_total": 1177272,
+          "missing_records": 0,
+          "total": 1177272
+        },
+        "payload_bytes": {
+          "known_total": 1179648,
+          "missing_records": 0,
+          "total": 1179648
+        },
+        "wire_bytes": {
+          "known_total": 0,
+          "missing_records": 72,
+          "total": null
+        }
+      },
+      "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+      "timely_correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 62,
+        "unresolved": 0,
+        "estimate": 0.8611111111111112,
+        "lower": 0.8611111111111112,
+        "upper": 0.8611111111111112
+      },
+      "timing_categories": {
+        "timely_result": 72
+      }
+    },
+    "full": {
+      "generated": 72,
+      "scored": 72,
+      "correct": 53,
+      "status_counts": {
+        "returned": 72,
+        "rejected": 0,
+        "missing": 0,
+        "censored": 0
+      },
+      "scored_coverage": 1.0,
+      "correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 53,
+        "unresolved": 0,
+        "estimate": 0.7361111111111112,
+        "lower": 0.7361111111111112,
+        "upper": 0.7361111111111112
+      },
+      "scored_only_binary_metrics": {
+        "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+        "positive_label": "attack",
+        "negative_label": "benign",
+        "TP": 19,
+        "FP": 14,
+        "FN": 5,
+        "TN": 34,
+        "accuracy": 0.7361111111111112,
+        "precision": 0.5757575757575758,
+        "recall": 0.7916666666666666,
+        "specificity": 0.7083333333333334,
+        "false_positive_rate": 0.2916666666666667,
+        "f1_positive": 0.6666666666666666
+      },
+      "byte_costs": {
+        "information_bytes": {
+          "known_total": 22536,
+          "missing_records": 0,
+          "total": 22536
+        },
+        "padding_bytes": {
+          "known_total": 9414648,
+          "missing_records": 0,
+          "total": 9414648
+        },
+        "payload_bytes": {
+          "known_total": 9437184,
+          "missing_records": 0,
+          "total": 9437184
+        },
+        "wire_bytes": {
+          "known_total": 0,
+          "missing_records": 72,
+          "total": null
+        }
+      },
+      "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+      "timely_correct_per_generated": {
+        "generated_denominator": 72,
+        "known_successes": 0,
+        "unresolved": 0,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "timing_categories": {
+        "late_result": 72
+      }
+    }
+  },
+  "by_group_and_representation": {
+    "M1T_Camera_Power": {
+      "alert": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 21,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 21,
+          "unresolved": 0,
+          "estimate": 0.875,
+          "lower": 0.875,
+          "upper": 0.875
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 3,
+          "FN": 0,
+          "TN": 21,
+          "accuracy": 0.875,
+          "precision": 0.0,
+          "recall": null,
+          "specificity": 0.875,
+          "false_positive_rate": 0.125,
+          "f1_positive": 0.0
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 24,
+            "missing_records": 0,
+            "total": 24
+          },
+          "padding_bytes": {
+            "known_total": 6120,
+            "missing_records": 0,
+            "total": 6120
+          },
+          "payload_bytes": {
+            "known_total": 6144,
+            "missing_records": 0,
+            "total": 6144
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 21,
+          "unresolved": 0,
+          "estimate": 0.875,
+          "lower": 0.875,
+          "upper": 0.875
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "summary": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 21,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 21,
+          "unresolved": 0,
+          "estimate": 0.875,
+          "lower": 0.875,
+          "upper": 0.875
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 3,
+          "FN": 0,
+          "TN": 21,
+          "accuracy": 0.875,
+          "precision": 0.0,
+          "recall": null,
+          "specificity": 0.875,
+          "false_positive_rate": 0.125,
+          "f1_positive": 0.0
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 792,
+            "missing_records": 0,
+            "total": 792
+          },
+          "padding_bytes": {
+            "known_total": 392424,
+            "missing_records": 0,
+            "total": 392424
+          },
+          "payload_bytes": {
+            "known_total": 393216,
+            "missing_records": 0,
+            "total": 393216
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 21,
+          "unresolved": 0,
+          "estimate": 0.875,
+          "lower": 0.875,
+          "upper": 0.875
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "full": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 14,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 14,
+          "unresolved": 0,
+          "estimate": 0.5833333333333334,
+          "lower": 0.5833333333333334,
+          "upper": 0.5833333333333334
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 10,
+          "FN": 0,
+          "TN": 14,
+          "accuracy": 0.5833333333333334,
+          "precision": 0.0,
+          "recall": null,
+          "specificity": 0.5833333333333334,
+          "false_positive_rate": 0.4166666666666667,
+          "f1_positive": 0.0
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 7512,
+            "missing_records": 0,
+            "total": 7512
+          },
+          "padding_bytes": {
+            "known_total": 3138216,
+            "missing_records": 0,
+            "total": 3138216
+          },
+          "payload_bytes": {
+            "known_total": 3145728,
+            "missing_records": 0,
+            "total": 3145728
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 0,
+          "unresolved": 0,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0
+        },
+        "timing_categories": {
+          "late_result": 24
+        }
+      }
+    },
+    "MQTT-Malformed_Data": {
+      "alert": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 18,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 18,
+          "unresolved": 0,
+          "estimate": 0.75,
+          "lower": 0.75,
+          "upper": 0.75
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 18,
+          "FP": 0,
+          "FN": 6,
+          "TN": 0,
+          "accuracy": 0.75,
+          "precision": 1.0,
+          "recall": 0.75,
+          "specificity": null,
+          "false_positive_rate": null,
+          "f1_positive": 0.8571428571428571
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 24,
+            "missing_records": 0,
+            "total": 24
+          },
+          "padding_bytes": {
+            "known_total": 6120,
+            "missing_records": 0,
+            "total": 6120
+          },
+          "payload_bytes": {
+            "known_total": 6144,
+            "missing_records": 0,
+            "total": 6144
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 18,
+          "unresolved": 0,
+          "estimate": 0.75,
+          "lower": 0.75,
+          "upper": 0.75
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "summary": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 17,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 17,
+          "unresolved": 0,
+          "estimate": 0.7083333333333334,
+          "lower": 0.7083333333333334,
+          "upper": 0.7083333333333334
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 17,
+          "FP": 0,
+          "FN": 7,
+          "TN": 0,
+          "accuracy": 0.7083333333333334,
+          "precision": 1.0,
+          "recall": 0.7083333333333334,
+          "specificity": null,
+          "false_positive_rate": null,
+          "f1_positive": 0.8292682926829268
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 792,
+            "missing_records": 0,
+            "total": 792
+          },
+          "padding_bytes": {
+            "known_total": 392424,
+            "missing_records": 0,
+            "total": 392424
+          },
+          "payload_bytes": {
+            "known_total": 393216,
+            "missing_records": 0,
+            "total": 393216
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 17,
+          "unresolved": 0,
+          "estimate": 0.7083333333333334,
+          "lower": 0.7083333333333334,
+          "upper": 0.7083333333333334
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "full": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 19,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 19,
+          "unresolved": 0,
+          "estimate": 0.7916666666666666,
+          "lower": 0.7916666666666666,
+          "upper": 0.7916666666666666
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 19,
+          "FP": 0,
+          "FN": 5,
+          "TN": 0,
+          "accuracy": 0.7916666666666666,
+          "precision": 1.0,
+          "recall": 0.7916666666666666,
+          "specificity": null,
+          "false_positive_rate": null,
+          "f1_positive": 0.8837209302325582
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 7512,
+            "missing_records": 0,
+            "total": 7512
+          },
+          "padding_bytes": {
+            "known_total": 3138216,
+            "missing_records": 0,
+            "total": 3138216
+          },
+          "payload_bytes": {
+            "known_total": 3145728,
+            "missing_records": 0,
+            "total": 3145728
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 0,
+          "unresolved": 0,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0
+        },
+        "timing_categories": {
+          "late_result": 24
+        }
+      }
+    },
+    "Owltron_Camera_Power": {
+      "alert": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 24,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 24,
+          "unresolved": 0,
+          "estimate": 1.0,
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "TN": 24,
+          "accuracy": 1.0,
+          "precision": null,
+          "recall": null,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "f1_positive": null
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 24,
+            "missing_records": 0,
+            "total": 24
+          },
+          "padding_bytes": {
+            "known_total": 6120,
+            "missing_records": 0,
+            "total": 6120
+          },
+          "payload_bytes": {
+            "known_total": 6144,
+            "missing_records": 0,
+            "total": 6144
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 24,
+          "unresolved": 0,
+          "estimate": 1.0,
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "summary": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 24,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 24,
+          "unresolved": 0,
+          "estimate": 1.0,
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "TN": 24,
+          "accuracy": 1.0,
+          "precision": null,
+          "recall": null,
+          "specificity": 1.0,
+          "false_positive_rate": 0.0,
+          "f1_positive": null
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 792,
+            "missing_records": 0,
+            "total": 792
+          },
+          "padding_bytes": {
+            "known_total": 392424,
+            "missing_records": 0,
+            "total": 392424
+          },
+          "payload_bytes": {
+            "known_total": 393216,
+            "missing_records": 0,
+            "total": 393216
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 24,
+          "unresolved": 0,
+          "estimate": 1.0,
+          "lower": 1.0,
+          "upper": 1.0
+        },
+        "timing_categories": {
+          "timely_result": 24
+        }
+      },
+      "full": {
+        "generated": 24,
+        "scored": 24,
+        "correct": 20,
+        "status_counts": {
+          "returned": 24,
+          "rejected": 0,
+          "missing": 0,
+          "censored": 0
+        },
+        "scored_coverage": 1.0,
+        "correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 20,
+          "unresolved": 0,
+          "estimate": 0.8333333333333334,
+          "lower": 0.8333333333333334,
+          "upper": 0.8333333333333334
+        },
+        "scored_only_binary_metrics": {
+          "scope": "Returned predictions only; missing/censored/rejected are not silently classified negative. Their outcomes remain in generated-denominator metrics.",
+          "positive_label": "attack",
+          "negative_label": "benign",
+          "TP": 0,
+          "FP": 4,
+          "FN": 0,
+          "TN": 20,
+          "accuracy": 0.8333333333333334,
+          "precision": 0.0,
+          "recall": null,
+          "specificity": 0.8333333333333334,
+          "false_positive_rate": 0.16666666666666666,
+          "f1_positive": 0.0
+        },
+        "byte_costs": {
+          "information_bytes": {
+            "known_total": 7512,
+            "missing_records": 0,
+            "total": 7512
+          },
+          "padding_bytes": {
+            "known_total": 3138216,
+            "missing_records": 0,
+            "total": 3138216
+          },
+          "payload_bytes": {
+            "known_total": 3145728,
+            "missing_records": 0,
+            "total": 3145728
+          },
+          "wire_bytes": {
+            "known_total": 0,
+            "missing_records": 24,
+            "total": null
+          }
+        },
+        "byte_cost_scope": "Information/padding/payload are constructed or offered representation bytes, including rejected rows where known; they are not granted/transmitted service. Wire bytes are separately measured actual attributed uplink bytes.",
+        "timely_correct_per_generated": {
+          "generated_denominator": 24,
+          "known_successes": 0,
+          "unresolved": 0,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "upper": 0.0
+        },
+        "timing_categories": {
+          "late_result": 24
+        }
+      }
+    }
+  },
+  "paired_group_comparisons": [
+    {
+      "treatment": "full",
+      "control": "alert",
+      "primary_comparison": true,
+      "metric": "timely_correct_per_generated",
+      "groups": 3,
+      "weighting": "equal_group_mean_of_generated_denominator_proportions",
+      "estimate": -0.875,
+      "identification_bounds": [
+        -0.875,
+        -0.875
+      ],
+      "percentile_interval": [
+        -1.0,
+        -0.75
+      ],
+      "interval_confidence": 0.95,
+      "interval_unavailable_reason": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261122,
+      "interval_scope": "Paired descriptive group-bootstrap interval; no multiplicity adjustment or causal guarantee. Independence of declared groups requires study-design evidence."
+    },
+    {
+      "treatment": "full",
+      "control": "summary",
+      "primary_comparison": false,
+      "metric": "timely_correct_per_generated",
+      "groups": 3,
+      "weighting": "equal_group_mean_of_generated_denominator_proportions",
+      "estimate": -0.8611111111111112,
+      "identification_bounds": [
+        -0.8611111111111112,
+        -0.8611111111111112
+      ],
+      "percentile_interval": [
+        -1.0,
+        -0.7083333333333334
+      ],
+      "interval_confidence": 0.95,
+      "interval_unavailable_reason": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261122,
+      "interval_scope": "Paired descriptive group-bootstrap interval; no multiplicity adjustment or causal guarantee. Independence of declared groups requires study-design evidence."
+    }
+  ],
+  "estimand_note": "Pooled counts weight occurrences. Bootstrap differences weight each declared capture/episode group equally. No average of per-row F1 is computed; reported F1 is positive-class F1 from each displayed confusion table.",
+  "leakage_audit": {
+    "exact_source_hash_cross_split_conflicts": 0,
+    "source_hashes_are_declared_record_hashes_not_recomputed_feature_bytes": true,
+    "coverage_by_split": {
+      "train": {
+        "records": 96,
+        "hashed": 96,
+        "coverage": 1.0
+      },
+      "validation": {
+        "records": 72,
+        "hashed": 72,
+        "coverage": 1.0
+      },
+      "test": {
+        "records": 72,
+        "hashed": 72,
+        "coverage": 1.0
+      }
+    },
+    "within_split_duplicate_hash_records": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "near_duplicate_audit": {
+      "status": "completed",
+      "method": "Three significant decimal digits, all ordered features",
+      "threshold": 3
+    },
+    "scope": "No cross-split exact duplicates among supplied raw source-feature hashes. Missing hashes, near duplicates and group independence are not certified by this check; encoded representation hashes are not leakage keys."
+  },
+  "provenance": {
+    "scorer_source_sha256": "d56835ac340042d35785036f41cdbfb5ff3aa165e6a22d7fcd82188ea6749084",
+    "protocol_sha256": "5354afbf85aa3310f860e153bb781e54abe075fe666fc3e47eb8be3e08e66628",
+    "input_sha256": {
+      "groups": "2dc8b9849d4f0390c4e121d0870bba77b5bc58596bf84e637a7e3e4148e1e966",
+      "corpus": "c69e2b84bf819739e44a796c0cc225d10feab92f99a5f29c4aaae06374fba621",
+      "occurrences": "608f062f64786b980c4f0b526e2ce144027307d7ad49fe4ba2ad35235d5f65ce",
+      "predictions": "dc0706fc9f42d74842b43cf8fee5104145a799764b6d1746e231c12e8544e440"
+    },
+    "verified_artifacts": [
+      {
+        "role": "model",
+        "id": "consumer-534faeaea448532d14dd96e840ea2ba6ca52f4bb479088c778dc2512d74695b1",
+        "sha256": "534faeaea448532d14dd96e840ea2ba6ca52f4bb479088c778dc2512d74695b1",
+        "bytes_verified": 3631
+      },
+      {
+        "role": "threshold",
+        "id": "threshold-5f72e3a838d7d0b6cdf1386168ecc5c11a2f54c39a3000468d5c2b0a46163d85",
+        "sha256": "5f72e3a838d7d0b6cdf1386168ecc5c11a2f54c39a3000468d5c2b0a46163d85",
+        "bytes_verified": 134
+      },
+      {
+        "role": "encoder:alert",
+        "id": "alert-f7a5b28fb6ff160821d4db670f1c9abea99b3967a910d010b65cc1dd0963319f",
+        "sha256": "f7a5b28fb6ff160821d4db670f1c9abea99b3967a910d010b65cc1dd0963319f",
+        "bytes_verified": 3514
+      },
+      {
+        "role": "encoder:summary",
+        "id": "summary-a62323f6bfe2fbb80d257688d4a60c3f4041fd2181dba9a6242368bf6af1c63b",
+        "sha256": "a62323f6bfe2fbb80d257688d4a60c3f4041fd2181dba9a6242368bf6af1c63b",
+        "bytes_verified": 3514
+      },
+      {
+        "role": "encoder:full",
+        "id": "full-70d4be1d154835a3612ee28972148e6ab7b7a2b141f3b9ebe190290e6355a20d",
+        "sha256": "70d4be1d154835a3612ee28972148e6ab7b7a2b141f3b9ebe190290e6355a20d",
+        "bytes_verified": 3515
+      },
+      {
+        "role": "near_duplicate_audit",
+        "id": "overlap",
+        "sha256": "5bd6fb3c229de88a3b2306c75e44d596fdf4a5c1e9796174cff447d701653593",
+        "bytes_verified": 554
+      }
+    ],
+    "content_hash_scope": "Model/encoder/threshold artifact bytes are checked. Corpus and representation hashes are declared per-record hashes; underlying feature/payload bytes are not supplied to this scorer."
+  }
+}

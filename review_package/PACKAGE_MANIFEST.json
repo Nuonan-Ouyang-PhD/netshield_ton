@@ -8,17 +8,17 @@
   "archives": [
     {
       "path": "review_package/NetShield_ToN_Review.zip",
-      "bytes": 4710971,
-      "sha256": "8940cdc9b968adf41c69c4ba32d8b26ffb58985da0fc96b0b61119c2a1e03f40",
-      "entries": 454,
-      "manifest_files": 453,
+      "bytes": 4887401,
+      "sha256": "7f1d9b8f56f37399a9176b7a32ddec7b846ab1b4aef9db054bbc2b8eee9e4b65",
+      "entries": 504,
+      "manifest_files": 503,
       "crc": "PASS",
       "per_file_sha256": "PASS"
     },
     {
       "path": "review_package/NetShield_ToN_Overleaf.zip",
-      "bytes": 789788,
-      "sha256": "5aec18f88204c9e609e6fe6333fd66984761f3a1a66f891bd98462f10ccc865f",
+      "bytes": 787231,
+      "sha256": "0f74ae293d4586106d0ffa21779306f432080f4aa9247c9ca005c9c698611c8a",
       "entries": 37,
       "manifest_files": 36,
       "crc": "PASS",
@@ -27,8 +27,8 @@
   ],
   "pdfs": {
     "netshield_manuscript": {
-      "source_sha256": "bec6989d775de5feff6a1f65ba5cd67502af9dec49625e04d3f2134f442d292e",
-      "pdf_sha256": "50411b190478158bb50ce4427d182cfff297154f1a73c2ce6f6600474f47f48c",
+      "source_sha256": "74e32f7d69cf55f9acb2a2a6c9f46d750c83737e09b918ea1da97aeb5a68b0b7",
+      "pdf_sha256": "a62443b425991da164cd563871c688b90ac1ce854a1a97b4e81ee622cceae70e",
       "pages": 14,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -47,7 +47,7 @@
         "figures/fig5_crfa_frontier_attainment.pdf": "ca6620949f6b628f1c9e50c2549d02ebee7c616521bdad2791d84e19939e4d22",
         "figures/fig6_timing_anchors_revised.pdf": "a541f623d88d9512a6e782914c0d56fcab264a9671868ebaf1d477c295fa742e",
         "figures/fig7_scaling_conformance.pdf": "65c474af491e17ff260e7291f6a34fe57f9513ccb294fb3b0426c72fb3402cf8",
-        "netshield_manuscript.tex": "bec6989d775de5feff6a1f65ba5cd67502af9dec49625e04d3f2134f442d292e",
+        "netshield_manuscript.tex": "74e32f7d69cf55f9acb2a2a6c9f46d750c83737e09b918ea1da97aeb5a68b0b7",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
         "tables/full_evidence_frontier.tex": "2f8442b5b645297d28320dd3d9ca8eab7b89b58432fe97895bbf54cb06e79a60",
@@ -57,9 +57,9 @@
       "unresolved_references_or_citations": 0
     },
     "netshield_supplementary": {
-      "source_sha256": "f54d42f49c8a125ccce3af675002d61df4c0e259021ad6b7e36b393624c7d214",
-      "pdf_sha256": "57674f497ea51914460bbe8a47029b253d8ef6e6f4364a4717a4576b3f3123a4",
-      "pages": 35,
+      "source_sha256": "c161422a97a7f354e5a6a653b15d7bcdab45612921cfd6dfdafb0f07739618d7",
+      "pdf_sha256": "cbe76d3764f62486513c502bb7d9e9cfe64b7507bc4e0171d27ae3cb14c98418",
+      "pages": 36,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
         "Package hyperref Warning: Token not allowed in a PDF string (Unicode):",
@@ -68,7 +68,7 @@
       ],
       "repository_input_sha256": {
         "figures/fig3_iqpg_cycle.pdf": "b320c739dd198b9065dc1a0f9bb691ed545272fea10d197e194895565823e8c0",
-        "netshield_supplementary.tex": "f54d42f49c8a125ccce3af675002d61df4c0e259021ad6b7e36b393624c7d214",
+        "netshield_supplementary.tex": "c161422a97a7f354e5a6a653b15d7bcdab45612921cfd6dfdafb0f07739618d7",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_device_fairness.tex": "7ad113e1cb9961eba5c464ebfa99bd0ef2f66d4f74a871c84759812a59c2e095",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
@@ -84,5 +84,7 @@
       "overfull_boxes": 0,
       "unresolved_references_or_citations": 0
     }
-  }
+  },
+  "content_study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+  "parent_commit_of_content_measurement": "c5f299ec6c248927f980553bec051b4dd91a64e0"
 }

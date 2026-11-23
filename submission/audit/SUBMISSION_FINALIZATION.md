@@ -1,5 +1,8 @@
 # Final submission build and editorial integration
 
+The following checks describe the package preceding the independent content measurement. For the subsequent build and measured study see [the PDF build record](PDF_BUILD_REPORT.md) and [the content results](../../supporting_material/experiment_extension/content_measurement/README.md).
+
+
 Date: 23 November 2026 (Australia/Melbourne).
 Scientific-results baseline: `75d529c9f52612c050832da269a7caf4f7b73539`.
 

@@ -1,0 +1,6 @@
+{
+  "kind": "positive_score_greater_than_or_equal",
+  "negative_label": "benign",
+  "positive_label": "attack",
+  "threshold": 0.75
+}

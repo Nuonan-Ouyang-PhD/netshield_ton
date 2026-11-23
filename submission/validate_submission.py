@@ -25,7 +25,7 @@ citation_keys: set[str] = set()
 for group in re.findall(r"\\cite\{([^}]+)\}", manuscript):
     citation_keys.update(key.strip() for key in group.split(","))
 
-require(len(bibliography_keys) == 35, "expected 35 bibliography entries")
+require(len(bibliography_keys) == 36, "expected 36 bibliography entries")
 require(citation_keys == bibliography_keys, "citation/bibliography mismatch")
 require((ROOT / "netshield_manuscript.pdf").is_file(), "missing netshield_manuscript.pdf")
 require((ROOT / "netshield_supplementary.pdf").is_file(), "missing netshield_supplementary.pdf")
@@ -51,4 +51,4 @@ for path in ROOT.rglob("*"):
         require("version" not in name and not re.search(r"20\d{6}", name),
                 f"non-clean filename: {path.relative_to(ROOT)}")
 
-print("PASS: clean naming, 35 cited references, expected files, and claim scan")
+print("PASS: clean naming, 36 cited references, expected files, and claim scan")

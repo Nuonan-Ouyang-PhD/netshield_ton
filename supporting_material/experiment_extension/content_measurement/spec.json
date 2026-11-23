@@ -1,0 +1,18 @@
+{
+  "study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+  "dataset_directory": "new_inputs",
+  "trace": "trace.json",
+  "mapping": "mapping.json",
+  "split_assignment": "splits.csv",
+  "provenance_sha256": {
+    "trace": "d056b3576c4f93e4dbf3150c5e806e127991af77629de6f7c7fab791ebfd0694",
+    "mapping": "92175d03ce4d49d80a3aa863faabb635d7347afb78e6e30c3c2d98e8151e1c69",
+    "split_assignment": "7664a606702032de313981cb4757617424c9ac59e31d07520ef2babd21f80209"
+  },
+  "frozen_inputs_sha256": {
+    "dataset_manifest.json": "4a23e377f05fcbb91122f28932700efc723e6bc9a6c066876c7745802f0f7830",
+    "train.jsonl": "6a14b442af65228d3374c81e707b9efc4ce9c04294e0a8ee1de83a2feccb7ee9",
+    "validation.jsonl": "ad1a657ae949b95ab418f70e0b8d382b8fa887c4d699da47ee4fca84f890d1f6",
+    "test.jsonl": "2d7d046c827f5560e55c85d81f3b25ed684c16973e1653cbef0d5ea76883874e"
+  }
+}

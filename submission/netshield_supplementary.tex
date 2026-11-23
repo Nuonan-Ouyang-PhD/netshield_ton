@@ -745,7 +745,7 @@ records check encoding and model execution, contain no scored labels or
 measured service latencies, and do not constitute new three-probe hardware
 runs or held-out efficacy measurements.
 
-\subsection{Pending Paired Efficacy Evaluation}
+\subsection{Paired Efficacy Evaluation Design}
 The frozen campaign has identical scored correctness across detector paths.
 Establishing the operational value of evidence therefore still requires a
 paired content/outcome evaluation with qualified independent inputs; fixed
@@ -826,8 +826,7 @@ Distinct CSV identities therefore cannot by themselves establish independent
 episodes. The accompanying software can refit the alert encoder and a
 common consumer on a capture-level training split, choose a common threshold
 on validation data, and score all three encodings for each held-out row.
-We checked this path with synthetic inputs. Its application to independent
-captures still requires a verified mapping from each segment to its parent.
+We checked this path with synthetic inputs. The independent CICIoMT2024 evaluation below uses ten other captures; the parent identities of the original 31 segments remain unresolved.
 
 A separate RC1 runtime adapter supplies a prospective shared-stage policy.
 The initial local receipt records nine synthetic coordinator
@@ -892,6 +891,46 @@ first batch. The calibrated policy admitted no full requests in either condition
 Its componentwise timing allowances include overlapping intervals. The public
 trajectories provide block-level contrasts and preserve the nominal-time anchor.
 
-\paragraph{Content-study eligibility.} The dataset provider documents PCAP merging and splitting. Acquisition-level boundaries and joins for the 31 retained feature segments remain unresolved. Held-out content-value scores and timely-correct transmission scores on a qualified cohort remain unavailable.
+
+\clearpage
+\section{Held-Out Content and Timely Correctness}
+We selected ten CICIoMT2024 Wi-Fi captures whose feature files matched the
+original distribution byte for byte. Seven individually isolated device power-on
+captures supplied benign traffic. ARP spoofing, port scanning and malformed
+MQTT supplied one attack scenario each. Capture time intervals were disjoint
+between splits. A hash-based rule selected 24 windows per capture before
+prediction. Four captures supplied training windows, three supplied validation
+windows, and three supplied testing windows. All 105,789 source windows were
+searched across splits for exact and three-significant-digit matches over the
+39 ordered features; neither comparison found a shared signature. Rounded
+signatures can miss nearby observations across a rounding boundary.
+
+Training fitted the light logistic encoder and shared consumer on 96 windows;
+72 validation windows determined a common threshold. Alert encoded the light
+decision in one byte. Summary appended four binary64 features and full appended
+all 39. The consumer received only the decoded representation. Each of the
+72 test windows entered every condition. The three probes replayed numerical
+observations over Wi-Fi in six matched blocks spanning all six representation
+orders. Fresh queues opened each arm. Each probe generated one observation
+per second; the Core authorized at most 131,072 uplink application bytes per
+round in total. Return latency was measured from event creation on the same
+probe and includes encoding. All 216 executions returned, with no service
+budget violation in 120 rounds.
+
+\begin{center}\begin{tabular}{lrrrr}\toprule
+Representation & Padded bytes & Correct & Timely & Timely and correct\\ \midrule
+Alert & 256 & 63 & 72 & 63\\
+Summary & 16,384 & 62 & 72 & 62\\
+Full & 131,072 & 53 & 0 & 0\\
+\bottomrule\end{tabular}\end{center}
+Each result column has denominator 72. The testing units were two benign
+power-on captures and one malformed MQTT capture. Before imposing the deadline,
+the equal-capture full-minus-alert difference was $-0.139$ (descriptive 95\%
+paired capture-bootstrap interval $[-0.292,0.042]$). Under the measured
+deadline the difference was $-0.875$ ($[-1.000,-0.750]$). The load offered
+by three simultaneous full requests was three times the round allowance.
+The small set of test captures limits inference about other attack types,
+consumer models, sites, loads and representations. The original CICIoT2023
+segments retain their separate provenance limitation.
 
 \end{document}

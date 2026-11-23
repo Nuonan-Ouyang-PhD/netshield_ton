@@ -1,0 +1,62 @@
+[
+  {
+    "split": "train",
+    "matched": 24,
+    "original_csv_sha256": "ab56ef98e52504aef8821ba97967550a73301ba2de1fe2751e0f63b01daa9a23",
+    "labelled_csv_sha256": "bbf823400c34cf5acc3a2d4b1784563f9237197d757794fda23852de6b8acae3"
+  },
+  {
+    "split": "train",
+    "matched": 24,
+    "original_csv_sha256": "1fd52d937330dfecb101ba88ab51888843fd042f3e8a4a1315a1c4c67cec7bd4",
+    "labelled_csv_sha256": "135c54d8ddc4fbaa45488f589ab333fd9ca4017572331d029226e2a0fae12ebf"
+  },
+  {
+    "split": "train",
+    "matched": 24,
+    "original_csv_sha256": "b87b28f6d092b64ccb81fb3db1856672e7b8e763d516429f095e109ac162f460",
+    "labelled_csv_sha256": "06a2b6bcdf90435946d97fae590db0c3127f25feea8025b3be624e925028934e"
+  },
+  {
+    "split": "validation",
+    "matched": 24,
+    "original_csv_sha256": "f1194bbcad8a792474701fa868e004aad442ce5cb98f0eb11d661b881c9bbfea",
+    "labelled_csv_sha256": "30fb8cd9eb596bb2cde3fda100423688142199a8abc625dd7e1587fdef115aba"
+  },
+  {
+    "split": "validation",
+    "matched": 24,
+    "original_csv_sha256": "6b02993b2b46cef3e32cef7700d1d9e9743e5c4c06021cc141dce1f94afd2933",
+    "labelled_csv_sha256": "accb4e519b41f7d360ce1b20edf97bfe9961c03b2193cc12cbd3be69039aa1be"
+  },
+  {
+    "split": "test",
+    "matched": 24,
+    "original_csv_sha256": "6ff5ecb7b9944aa0247682f33011a321f5ac30278f0cb37802fc102d1e163aa2",
+    "labelled_csv_sha256": "6e5db0c23a9f388e102f9e44fead49afe83ab029a493e254cfd9317c4d5d2301"
+  },
+  {
+    "split": "test",
+    "matched": 24,
+    "original_csv_sha256": "e1aa84e3a88f34b46c1ff5a93e14db6465eb35fe83219c22efb7bc842ff83515",
+    "labelled_csv_sha256": "3d87c69e709c33e4024ba13fc4288de22652ac9d41e45754f8621e3385485b10"
+  },
+  {
+    "split": "train",
+    "matched": 24,
+    "original_csv_sha256": "f0d68653cfe5873f280a0cd84323145d6112861819204b22e3d1e690d02df6ad",
+    "labelled_csv_sha256": "9da135a0ea82de305161f6c5fc1e4376f6bcc21f0606298433279d60a0d58725"
+  },
+  {
+    "split": "validation",
+    "matched": 24,
+    "original_csv_sha256": "7dc0785d3e69d4e1a083582dad0efc4c94c35bbc75e56ec0ddb9bd2f6a34e872",
+    "labelled_csv_sha256": "0f5a49d5c5e6aa4a82cbce32534830d94fc6c12037cbd0c45842a5ed18c09400"
+  },
+  {
+    "split": "test",
+    "matched": 24,
+    "original_csv_sha256": "292efe2f8b07203c53c65f7d5c5af05bcc4429cd06701a9a4fc4fc65ecf8e402",
+    "labelled_csv_sha256": "334cb29a072ae8b7782d848b56fc2356bc164c3fea717395f3e0ff9cc3d948bf"
+  }
+]
