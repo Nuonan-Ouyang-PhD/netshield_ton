@@ -22,17 +22,27 @@ rejection outcome alongside these findings. Public results, reconstruction
 scripts and explicit provenance connect the analytical claims to the measured
 service outcomes.
 
+A separate CICIoMT2024 study compares three representations on the same 72
+held-out feature windows using real three-probe transmission and core
+inference. Alert, Summary and Full yield 63, 62 and zero correct returns within
+one second under the declared fixed padded payloads and shared budget. The
+paper reports the confusion counts, recall and false-positive rates, with
+conclusions limited to the stated models, capture-scenario labels and three
+held-out captures.
+
 The work is original, has not been published previously, and is not under
 consideration elsewhere. All authors have approved the manuscript and agree
 with its submission. The contribution concerns evidence feasibility,
-admission, queue behavior and service timing. Independent downstream detection
-value remains outside the validated empirical scope.
+admission, queue behavior and service timing, complemented by this bounded
+content comparison. Broader detection generalization and incident-level
+localization remain outside the validated empirical scope.
 
 The repository includes the clean manuscript and supplementary material,
 machine-readable result tables, validation scripts, and a data/reproduction
-guide. Third-party CICIoT2023 files and private hardware raw evidence are not
-redistributed in the repository; their access and licensing boundaries are
-documented separately.
+guide. Third-party source datasets and private historical hardware raw evidence
+are not redistributed in the repository; their access and licensing boundaries
+are documented separately. The content-study directory provides its public
+model, prediction and transport records for result reconstruction.
 
 Thank you for your consideration.
 

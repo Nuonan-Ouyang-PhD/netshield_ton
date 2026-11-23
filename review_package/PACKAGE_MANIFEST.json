@@ -3,15 +3,15 @@
   "timezone": "Australia/Melbourne",
   "scientific_results_base_commit": "75d529c9f52612c050832da269a7caf4f7b73539",
   "content_measurement_commit": "8fc18a981de06af1f46df365f2345703a52cbc67",
-  "scope": "Editorial closeout, existing-result verification and regenerated PDFs/packages; no new collection or fitting.",
+  "scope": "Final delivery documentation reconciliation after the editorial closeout; paper sources, PDFs and scientific records unchanged. No new collection or fitting.",
   "full_archive_excludes": [
     "review_package/"
   ],
   "archives": [
     {
       "path": "review_package/NetShield_ToN_Review.zip",
-      "bytes": 4918365,
-      "sha256": "b0a728530fb0bc44c0d503b56a9a170d64a2a5e81d5903eb3ba5690e8b7477dc",
+      "bytes": 4920399,
+      "sha256": "8723c5bba76704ebf778dd96140341819eefbfc4b472de6208374c21ec93b51d",
       "entries": 506,
       "manifest_files": 505,
       "crc": "PASS",
@@ -19,8 +19,8 @@
     },
     {
       "path": "review_package/NetShield_ToN_Overleaf.zip",
-      "bytes": 794208,
-      "sha256": "4d1c99d577a26414f11e8c85ab1197e0ae40e23fae0c7369ad757525a568280e",
+      "bytes": 794504,
+      "sha256": "98500bf777a10a8d45c6f24f4a56152fcd7d1d7b5b4a012c5c37f2c99b18349e",
       "entries": 37,
       "manifest_files": 36,
       "crc": "PASS",
@@ -88,5 +88,6 @@
     }
   },
   "content_study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
-  "closeout_report": "submission/audit/CONTENT_CLOSEOUT.md"
+  "closeout_report": "submission/audit/CONTENT_CLOSEOUT.md",
+  "editorial_closeout_commit": "c841c95c4f0c546bc73cebb30e0f139a3a8d395a"
 }

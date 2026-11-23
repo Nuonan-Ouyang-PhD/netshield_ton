@@ -89,3 +89,22 @@ to avoid self-referential hashes.
 
 The author submits the paper. GitHub changes remain on PR #3's draft review
 branch; main is not merged.
+
+## Final delivery documentation reconciliation
+
+The subsequent delivery check confirmed that the editorial closeout was
+already present at remote commit `c841c95c4f0c546bc73cebb30e0f139a3a8d395a`,
+with successful push and pull-request integrity runs. Its two PDFs, their
+source and asset hashes, both archive manifests, and all 48 preserved
+content-study files were independently checked against the retained checkout.
+The existing content records again reproduced 63/62/0 timely-correct returns,
+120 service rounds and 10,635,264 application-payload bytes.
+
+This final documentation pass updates the cover letter, experiment landing
+page, reproduction entry points and current evidence table to acknowledge the
+completed separate content study. The old pre-collection checkpoint is
+explicitly historical. The paper sources, both PDFs, figures, models, protocol
+and measured results remain byte-identical to `c841c95`. The unchanged 14-page
+main and 36-page supplement were freshly rendered and all 50 pages visually
+checked; the renders match the preceding closeout page for page. Archive
+contents and applicable checksums are refreshed for these documentation edits.

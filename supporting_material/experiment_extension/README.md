@@ -1,11 +1,34 @@
-# Targeted experiment preparation
+# Targeted experiments: results and retained preparation
 
-This directory prepares the next **real** experiments without manufacturing
-new hardware or detection results. Start with [`PROTOCOL.md`](PROTOCOL.md)
-and the single complete Chinese
-[`COMPLETE_LOCAL_EXECUTION_CN.md`](COMPLETE_LOCAL_EXECUTION_CN.md).
+## Completed studies as of 23 November 2026
 
-## Current progress
+The [physical extension](physical_extension/README.md) completed 44 formal
+physical arms: eight allocator arms and 36 shared-stage arms, with separately
+registered qualification, calibration and pilot measurements. The corrected
+allocator increased Full selection but both versions had zero timely Full
+returns in the tested low-capacity condition. Backlog-aware admission improved
+timely returns in the declared backlog condition; the calibrated shared-stage
+controller rejected every Full request.
+
+The separate [CICIoMT2024 content study](content_measurement/README.md) completed
+three-representation inference and real three-probe transport on the same
+72 held-out windows. Alert, Summary and Full produced 63, 62 and zero correct
+returns within one second. These findings use capture-scenario labels and the
+declared fixed padded payloads. They do not resolve the original CICIoT2023
+parent-capture mapping or establish a general detection-performance ordering.
+
+See the [submission guide](../../SUBMISSION_GUIDE_CN.md) for the current PDFs,
+source packages and verification entry points. The original
+[`PROTOCOL.md`](PROTOCOL.md) and complete Chinese
+[`COMPLETE_LOCAL_EXECUTION_CN.md`](COMPLETE_LOCAL_EXECUTION_CN.md) retain the
+preparation and execution history; completed studies do not need to be
+repeated for a documentation update.
+
+## Historical preparation checkpoint
+
+The following checkpoint predates physical collection and the separate
+CICIoMT2024 study. Its pending statuses are retained as history and are
+superseded by the completed-study records linked above.
 
 The private rerun and 896-row reconciliation were completed at `9cc64ed` and
 reviewed at `a936fe8`; see [`retained_review/`](retained_review/). The repaired

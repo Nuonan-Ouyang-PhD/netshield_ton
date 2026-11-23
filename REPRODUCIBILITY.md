@@ -6,6 +6,24 @@ published workload, commands that can be run from this repository, and the
 material that remains controlled because it contains private physical-testbed
 evidence.
 
+## Completed separate content study
+
+The [CICIoMT2024 content study](supporting_material/experiment_extension/content_measurement/README.md)
+uses ten verified parent captures, split 4/3/3 for training, validation and
+testing. Its 72 held-out windows have three paired representation predictions
+and 216 real transmissions. The study README documents the source-capture
+labels, effective versus padded bytes and feature-window timing scope.
+The public result reconstruction runs from this checkout:
+
+```bash
+python3 -B supporting_material/experiment_extension/content_measurement/verify_public.py
+```
+
+The historical CICIoT2023 lineage and 896-row diagnostic limitations described
+below remain applicable to those original materials. They do not mark this
+separate completed study as pending. The public reconstruction verifies
+retained records; it does not refit models or start physical experiments.
+
 ## 1. Public dataset source
 
 The paper identifies its workload as a frozen **CICIoT2023-derived

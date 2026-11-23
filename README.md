@@ -19,7 +19,7 @@ IEEE Transactions on Networking manuscript.
   [`one-pass Codex execution instructions`](supporting_material/experiment_extension/COMPLETE_LOCAL_EXECUTION_CN.md)
   and [`offline preparation tools`](supporting_material/experiment_extension/README.md).
   Their earlier pre-collection checkpoints are superseded by the completed
-  physical results linked below.
+  physical and held-out content results linked below.
 - Review the subsequent retained-record findings and their integration in
   [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
   The primary window/event review, raw-split overlap and model-interface
@@ -85,6 +85,12 @@ formal workload: the authorized frozen workload/model/runtime bundle and the
 private raw hardware archive are also required for an exact physical rerun.
 This boundary is documented in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
+The separate held-out content study uses verified CICIoMT2024 parent captures.
+Its [study README](supporting_material/experiment_extension/content_measurement/README.md)
+records the source identities, split, scenario labels, fixed payloads and
+public verification command. These new captures do not repair the historical
+CICIoT2023 lineage limitation.
+
 ## Equipment and physical cohort identities
 
 - The accepted primary and CRFA campaigns used Raspberry Pi 5, Raspberry
@@ -106,7 +112,7 @@ package-only checks above.
 
 ## Reproduction boundary
 
-The repository supports five reproducible activities:
+The repository supports six reproducible activities:
 
 1. build and validate the clean manuscript package;
 2. verify the committed aggregate evidence, hashes, provenance, and claim
@@ -119,7 +125,10 @@ The repository supports five reproducible activities:
    ledgers without private inputs;
 5. recompute the replacement-cohort physical comparisons and all 16 empirical
    calibration parameter sets from the public exports using the commands in
-   [`physical_extension/README.md`](supporting_material/experiment_extension/physical_extension/README.md).
+   [`physical_extension/README.md`](supporting_material/experiment_extension/physical_extension/README.md);
+6. reconstruct the held-out content predictions, confusion counts and 216
+   measured transmissions with
+   [`content_measurement/verify_public.py`](supporting_material/experiment_extension/content_measurement/verify_public.py).
 
 Current offline commands and the historical/current source distinction are
 documented in [`supporting_material/methodology_repair/CORRECTIONS.md`](supporting_material/methodology_repair/CORRECTIONS.md).

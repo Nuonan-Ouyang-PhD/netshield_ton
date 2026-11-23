@@ -6,8 +6,10 @@ The supplementary transport counts aggregate the four case receipts in [TRANSPOR
 
 The two private 26-condition receipts bind the earlier and instrumented runtime trees separately. Four loopback transports exercised the probe-to-Core path with synthetic workload and accelerated pacing. The subsequent replacement-cohort physical extension completed 8 allocator and 36 shared-stage formal arms, in addition to separately registered qualification, calibration and pilot measurements.
 
-The current consolidated status is
-[physical extension record](../../supporting_material/experiment_extension/physical_extension/README.md).
+The current study records are the
+[physical extension](../../supporting_material/experiment_extension/physical_extension/README.md)
+and the separate
+[CICIoMT2024 content study](../../supporting_material/experiment_extension/content_measurement/README.md).
 The repaired private rerun and retained 896-row reconciliation are complete
 within their stated scope. The subsequent source-row trace, executed physical
 comparisons and separate CICIoMT2024 held-out content study have separate
@@ -23,7 +25,8 @@ empirical diagnostic results.
 | [Source row trace](../../supporting_material/experiment_extension/SOURCE_ROW_TRACE.json) | Reported local matching of 5,141,673 rows to 31 original CSVs; public totals agree with 18/6/7 source groups and previous split denominators | Private rows are not republished; CSV/row coordinates do not identify independent parent acquisitions |
 | [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Both executed 26-case private checks, four loopback checks, physical qualification, a complete 16-condition calibration, six pilot arms and 36 formal arms | The calibrated policy admitted no Full requests; overlapping empirical allowances do not establish a useful deadline guarantee |
 | [Physical comparisons](../../supporting_material/experiment_extension/physical_extension/README.md) | Four allocator pairs and six shared-stage blocks, with public queue/endpoint exports and block-level analyses | Replacement-cohort scope; allocator timely-Full counts remain zero, while backlog-aware admission improves the stated backlog condition |
-| [Capture mapping preparation](../../supporting_material/experiment_extension/source_lineage/README.md) | Executable mapping/evidence/split consistency checks | Actual parent evidence, sufficient independent groups, feature qualification and model fitting remain required |
+| [Capture mapping preparation](../../supporting_material/experiment_extension/source_lineage/README.md) | Executable mapping/evidence/split consistency checks for the original CICIoT2023 route | Actual parent evidence, sufficient independent groups, feature qualification and model fitting remain required for that original route |
+| [Held-out content study](../../supporting_material/experiment_extension/content_measurement/README.md) | Verified CICIoMT2024 parent-capture split; three representations on 72 paired test windows; 216 real transmissions and their public reconstruction | Three held-out captures, capture-scenario labels and fixed padded payloads; no general detection ordering or repair of the original CICIoT2023 lineage |
 
 The main paper reports the completed row trace, and the supplement separates
 the initial nine coordinator-path checks plus one direct-function check from
