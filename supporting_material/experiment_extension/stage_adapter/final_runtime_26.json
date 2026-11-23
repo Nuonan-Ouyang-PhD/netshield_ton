@@ -1,0 +1,326 @@
+{
+  "status": "PASS_SYNTHETIC_PRIVATE_RUNTIME_ADAPTER_ONLY",
+  "submit_decide_cases": 26,
+  "direct_selector_only_cases": 0,
+  "synthetic_clock_and_profile": true,
+  "tree": "84b5b11db4a5e60d20dcefbcad550c961ed6f41eea402d9815bec495f9c0ea34",
+  "runner_sha256": "d0e6fbc2da87bf276a83111820da0a6da91dab5236e1f2e413cb1f4754a15637",
+  "cases": [
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P2",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P2",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "instrumented_fixed_full_capture",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "isolated_precheck_new_bytes",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "isolated_precheck_new_bytes",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "backlog_aware_bytes",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "backlog_aware_bytes",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1",
+        "P2"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [
+        "P1"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        0,
+        0,
+        0
+      ],
+      "selected": [
+        "P1"
+      ],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        43691,
+        43691,
+        43690
+      ],
+      "selected": [],
+      "submit_decide": true
+    },
+    {
+      "method": "causal_shared_stage",
+      "queued": [
+        1,
+        0,
+        0
+      ],
+      "selected": [],
+      "submit_decide": true
+    }
+  ]
+}

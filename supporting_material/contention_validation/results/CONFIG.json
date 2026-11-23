@@ -1,0 +1,435 @@
+{
+  "assumptions": [
+    "Shared fixed-rate application-byte proxy; unused per-tick service expires.",
+    "FIFO per probe with integer max-min allocation across ready probes.",
+    "One FIFO core; result return has configured delay but no competing return-byte queue.",
+    "All new events created at tick zero; deterministic detector/preprocessing precedes upload readiness.",
+    "Uplink-extra and return delays are declared sensitivity inputs, not real Wi-Fi measurements.",
+    "Background payload is the remaining byte count of an old request; its core processing is pending.",
+    "Fixed admission identifier order; no optimality or long-run fairness claim.",
+    "Deadline reservation previews this exact model; not a proof for unmodeled runtime jitter.",
+    "Alert/summary detection utility and detection accuracy are not evaluated."
+  ],
+  "audited_repository_base_commit": "fe09ee0eca28dc666dd9c729ac266b8426c055b9",
+  "cases": [
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_empty_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_empty_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_empty_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 65536,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_half_round_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 65536,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_half_round_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 65536,
+      "capacity": "low",
+      "capacity_bytes": 131072,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_low_half_round_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_empty_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_empty_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_empty_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 131072,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_half_round_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 131072,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_half_round_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 131072,
+      "capacity": "mid",
+      "capacity_bytes": 262144,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n03_mid_half_round_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_empty_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_empty_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_empty_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 196608,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_half_round_zero",
+      "n": 3,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 196608,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_half_round_assumed_homogeneous",
+      "n": 3,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 196608,
+      "capacity": "high",
+      "capacity_bytes": 393216,
+      "capacity_ratio_denominator": 1,
+      "capacity_ratio_numerator": 1,
+      "case_id": "n03_high_half_round_assumed_heterogeneous",
+      "n": 3,
+      "profile": "assumed_heterogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 699050,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n08_mid_empty_zero",
+      "n": 8,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 699050,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n08_mid_empty_assumed_homogeneous",
+      "n": 8,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 349525,
+      "capacity": "mid",
+      "capacity_bytes": 699050,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n08_mid_half_round_zero",
+      "n": 8,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 349525,
+      "capacity": "mid",
+      "capacity_bytes": 699050,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n08_mid_half_round_assumed_homogeneous",
+      "n": 8,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 1398101,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n16_mid_empty_zero",
+      "n": 16,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 1398101,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n16_mid_empty_assumed_homogeneous",
+      "n": 16,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 699050,
+      "capacity": "mid",
+      "capacity_bytes": 1398101,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n16_mid_half_round_zero",
+      "n": 16,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 699050,
+      "capacity": "mid",
+      "capacity_bytes": 1398101,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n16_mid_half_round_assumed_homogeneous",
+      "n": 16,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 2796202,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n32_mid_empty_zero",
+      "n": 32,
+      "profile": "zero"
+    },
+    {
+      "backlog": "empty",
+      "backlog_bytes": 0,
+      "capacity": "mid",
+      "capacity_bytes": 2796202,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n32_mid_empty_assumed_homogeneous",
+      "n": 32,
+      "profile": "assumed_homogeneous"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 1398101,
+      "capacity": "mid",
+      "capacity_bytes": 2796202,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n32_mid_half_round_zero",
+      "n": 32,
+      "profile": "zero"
+    },
+    {
+      "backlog": "half_round",
+      "backlog_bytes": 1398101,
+      "capacity": "mid",
+      "capacity_bytes": 2796202,
+      "capacity_ratio_denominator": 3,
+      "capacity_ratio_numerator": 2,
+      "case_id": "n32_mid_half_round_assumed_homogeneous",
+      "n": 32,
+      "profile": "assumed_homogeneous"
+    }
+  ],
+  "deadline_ticks": 1000,
+  "event_rows": 1668,
+  "evidence_type": "deterministic_software_sensitivity",
+  "full_bytes": 131072,
+  "latencies_are_measured": false,
+  "method_definitions": {
+    "backlog_aware": "Isolated precheck, then fixed-order existing remaining bytes plus new full payload sum <=C.",
+    "deadline_reservation": "Fixed-order greedy admission; exact shared network/core rollout must keep every admitted new result <=1000ms.",
+    "isolated_precheck": "Admit every candidate whose configured no-competition returned-result estimate is <=1000ms.",
+    "new_bytes_only": "Isolated precheck, then fixed-order new full payload sum <=C; backlog ignored."
+  },
+  "methods": [
+    "isolated_precheck",
+    "new_bytes_only",
+    "backlog_aware",
+    "deadline_reservation"
+  ],
+  "profiles": {
+    "assumed_heterogeneous": {
+      "core_compute_ticks": [
+        10,
+        40,
+        100
+      ],
+      "detector_compute_ticks": [
+        20,
+        80,
+        140
+      ],
+      "preprocessing_ticks": [
+        10,
+        20,
+        30
+      ],
+      "return_ticks": [
+        5,
+        15,
+        30
+      ],
+      "uplink_extra_ticks": [
+        5,
+        25,
+        50
+      ]
+    },
+    "assumed_homogeneous": {
+      "core_compute_ticks": [
+        35
+      ],
+      "detector_compute_ticks": [
+        40
+      ],
+      "preprocessing_ticks": [
+        20
+      ],
+      "return_ticks": [
+        10
+      ],
+      "uplink_extra_ticks": [
+        15
+      ]
+    },
+    "zero": {
+      "core_compute_ticks": [
+        0
+      ],
+      "detector_compute_ticks": [
+        0
+      ],
+      "preprocessing_ticks": [
+        0
+      ],
+      "return_ticks": [
+        0
+      ],
+      "uplink_extra_ticks": [
+        0
+      ]
+    }
+  },
+  "repository": "https://github.com/Nuonan-Ouyang-PhD/netshield_ton",
+  "run_count": 120,
+  "schema_version": 1,
+  "service_rows": 1637,
+  "source_sha256": {
+    "../methodology_repair/simulation_primitives.py": "e4471550f8e8f630af01258a5f45e73ed58c03481aeeb75614585130ce6c6b98",
+    "run_contention_validation.py": "5046daa5a2c756e104236897dd58857069de693d4419edf8922ceb4ab9d0665f"
+  },
+  "tick_milliseconds": 1
+}

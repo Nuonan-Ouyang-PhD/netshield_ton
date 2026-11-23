@@ -1,0 +1,1468 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_02",
+  "action_periods": {},
+  "paired_percentile_intervals": {},
+  "planned": 16,
+  "attempts": 16,
+  "complete_arms": 16,
+  "by_contrast": {
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -135
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6592592592592592,
+            -0.6592592592592592
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6592592592592592,
+            -0.6592592592592592
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.3148148148148148,
+            -0.3148148148148148
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6592592592592592,
+            -0.6592592592592592
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6592592592592592,
+            -0.6592592592592592
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.3148148148148148,
+            -0.3148148148148148
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.3444444444444444,
+            0.3444444444444444
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.007407407407407418,
+            -0.007407407407407418
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.3259259259259259,
+            0.3259259259259259
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.3259259259259259,
+            0.3259259259259259
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.3444444444444444,
+            0.3444444444444444
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.007407407407407418,
+            -0.007407407407407418
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.3259259259259259,
+            0.3259259259259259
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.3259259259259259,
+            0.3259259259259259
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            -0.3518518518518518,
+            -0.3518518518518518
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.01851851851851849,
+            -0.01851851851851849
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.01851851851851849,
+            -0.01851851851851849
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P2_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P2_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P2_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -135
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -1
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.31851851851851853,
+            -0.31851851851851853
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -1
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3296296296296296,
+            -0.3296296296296296
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 134
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.31851851851851853,
+            -0.31851851851851853
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 134
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3296296296296296,
+            -0.3296296296296296
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -1
+      }
+    ],
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.31851851851851853,
+            -0.31851851851851853
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -1
+      }
+    ],
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3296296296296296,
+            -0.3296296296296296
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.31851851851851853,
+            -0.31851851851851853
+          ]
+        },
+        "unused_difference_bytes": 1
+      }
+    ],
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 1
+      }
+    ],
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3296296296296296,
+            -0.3296296296296296
+          ]
+        },
+        "unused_difference_bytes": 1
+      }
+    ],
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.31851851851851853,
+            0.31851851851851853
+          ]
+        },
+        "unused_difference_bytes": -1
+      }
+    ],
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.01481481481481478,
+            -0.01481481481481478
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.011111111111111072,
+            -0.011111111111111072
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P2_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "unused_difference_bytes": 1
+      }
+    ],
+    "B131072_P2_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.3296296296296296,
+            -0.3296296296296296
+          ]
+        },
+        "unused_difference_bytes": 1
+      }
+    ],
+    "B131072_P2_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.003703703703703709,
+            0.003703703703703709
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ]
+  },
+  "mean_within_block_bounds": {
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6592592592592592,
+        -0.6592592592592592
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6592592592592592,
+        -0.6592592592592592
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.3148148148148148,
+        -0.3148148148148148
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.6666666666666666,
+        -0.6666666666666666
+      ],
+      "all_measured_generation_batches": [
+        -0.6666666666666666,
+        -0.6666666666666666
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B0_NONE_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6592592592592592,
+        -0.6592592592592592
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6592592592592592,
+        -0.6592592592592592
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.3148148148148148,
+        -0.3148148148148148
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.6666666666666666,
+        -0.6666666666666666
+      ],
+      "all_measured_generation_batches": [
+        -0.6666666666666666,
+        -0.6666666666666666
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.3444444444444444,
+        0.3444444444444444
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.007407407407407418,
+        -0.007407407407407418
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.3259259259259259,
+        0.3259259259259259
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.3259259259259259,
+        0.3259259259259259
+      ]
+    },
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.3444444444444444,
+        0.3444444444444444
+      ]
+    },
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.007407407407407418,
+        -0.007407407407407418
+      ]
+    },
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.3259259259259259,
+        0.3259259259259259
+      ]
+    },
+    "B0_P1_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.3259259259259259,
+        0.3259259259259259
+      ]
+    },
+    "B0_P1_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.6666666666666666,
+        -0.6666666666666666
+      ],
+      "all_measured_generation_batches": [
+        -0.3518518518518518,
+        -0.3518518518518518
+      ]
+    },
+    "B0_P1_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.01851851851851849,
+        -0.01851851851851849
+      ]
+    },
+    "B0_P1_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.01851851851851849,
+        -0.01851851851851849
+      ]
+    },
+    "B0_P2_P3_instrumented_fixed_full_capture minus B0_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "B0_P2_P3_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "B0_P2_instrumented_fixed_full_capture minus B0_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.31851851851851853,
+        -0.31851851851851853
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B131072_NONE_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3296296296296296,
+        -0.3296296296296296
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.31851851851851853,
+        -0.31851851851851853
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B131072_P1_P2_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3296296296296296,
+        -0.3296296296296296
+      ]
+    },
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P1_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.31851851851851853,
+        -0.31851851851851853
+      ]
+    },
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B131072_P1_P2_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3296296296296296,
+        -0.3296296296296296
+      ]
+    },
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P1_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.31851851851851853,
+        -0.31851851851851853
+      ]
+    },
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    },
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B131072_P1_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3296296296296296,
+        -0.3296296296296296
+      ]
+    },
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.31851851851851853,
+        0.31851851851851853
+      ]
+    },
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.01481481481481478,
+        -0.01481481481481478
+      ]
+    },
+    "B131072_P1_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.011111111111111072,
+        -0.011111111111111072
+      ]
+    },
+    "B131072_P2_P3_instrumented_fixed_full_capture minus B131072_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ]
+    },
+    "B131072_P2_P3_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.3296296296296296,
+        -0.3296296296296296
+      ]
+    },
+    "B131072_P2_instrumented_fixed_full_capture minus B131072_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.003703703703703709,
+        0.003703703703703709
+      ]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_QUAL_20261123_01",
+  "role_map": {
+    "P1": "pi5",
+    "P2": "pi4b",
+    "P3": "pi4b8g"
+  },
+  "contrast": "corrected minus deployed original",
+  "arms": [
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_QUAL_20261123_01_CALIBRATION_B0001_R01",
+      "condition": "B131072_P1_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_QUAL_20261123_01_CALIBRATION_B0001_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 81,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3,
+              0.3
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_QUAL_20261123_01_CALIBRATION_B0001_R02",
+      "condition": "B0_P1_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_QUAL_20261123_01_CALIBRATION_B0001_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 84,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3111111111111111,
+              0.3111111111111111
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    }
+  ],
+  "paired_blocks": [],
+  "interval_scope": "Within-block censoring bounds. Sampling uncertainty requires the formal freeze."
+}

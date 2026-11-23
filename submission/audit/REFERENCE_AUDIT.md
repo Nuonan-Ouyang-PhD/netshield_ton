@@ -84,3 +84,7 @@ Direct fetches of several publisher/DOI endpoints were blocked; verification use
 accessible author papers, institutional records and publisher-indexed records as
 specified above. Failed Crossref API requests are not represented as successful
 registry checks. No third-party paper PDF has been bundled with this submission.
+
+## Subsequent content-study reference
+
+The current bibliography adds Dadkhah et al., *Internet of Things* 28, 101351 (2024). The ten source captures and rows used from this dataset are identified in the content-measurement register. [Publisher](https://doi.org/10.1016/j.iot.2024.101351)

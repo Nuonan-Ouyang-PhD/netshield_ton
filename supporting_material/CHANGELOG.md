@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-11-22 — Methodology correction for review
+
+- Preserved the original V1.3 source in `legacy/` and corrected active
+  integer service, backlog admission, endpoint names and deterministic
+  Task A case counting.
+- Reconstructed 36 historical selector configurations from public parameters;
+  reported 24 changed queue trajectories and 5 changed action mixes under
+  corrected residual service.
+- Executed 120 declared shared-service software cases and independently
+  reconstructed their ledgers plus the public CRFA service/event export.
+- Added 27 regression tests, source/evidence mapping, corrected build
+  instructions, and revised 14-page main / 32-page supplementary PDFs.
+- Kept all frozen physical evidence unchanged. New hardware, measured Wi-Fi
+  calibration and evidence-content detection evaluation remain unexecuted.
+
 ## 2026-09-10 — Dataset and reproducibility guide
 
 - Added the official CICIoT2023 description/download links and citation.

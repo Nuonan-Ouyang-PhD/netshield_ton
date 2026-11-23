@@ -1,0 +1,2570 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_FORMAL_20261123_01",
+  "role_map": {
+    "P1": "pi5",
+    "P2": "pi4b",
+    "P3": "pi4b8g"
+  },
+  "contrast": "corrected minus deployed original",
+  "arms": [
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R01",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R02",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 171,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6333333333333333,
+              0.6333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R03",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 177,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6555555555555556,
+              0.6555555555555556
+            ]
+          },
+          "nominal": {
+            "timely": 119,
+            "censored": 0,
+            "coverage_bounds": [
+              0.44074074074074077,
+              0.44074074074074077
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R04",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R05",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 83
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R06",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0001_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 173,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6407407407407407,
+              0.6407407407407407
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R01",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R02",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 173,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6407407407407407,
+              0.6407407407407407
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R03",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 175,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6481481481481481,
+              0.6481481481481481
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R04",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 83
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R05",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R06",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0002_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 173,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6407407407407407,
+              0.6407407407407407
+            ]
+          },
+          "nominal": {
+            "timely": 119,
+            "censored": 0,
+            "coverage_bounds": [
+              0.44074074074074077,
+              0.44074074074074077
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R01",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 173,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6407407407407407,
+              0.6407407407407407
+            ]
+          },
+          "nominal": {
+            "timely": 119,
+            "censored": 0,
+            "coverage_bounds": [
+              0.44074074074074077,
+              0.44074074074074077
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R02",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R03",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 83
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R04",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 177,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6555555555555556,
+              0.6555555555555556
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R05",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 172,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6370370370370371,
+              0.6370370370370371
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R06",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0003_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R01",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 82
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R02",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 175,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6481481481481481,
+              0.6481481481481481
+            ]
+          },
+          "nominal": {
+            "timely": 119,
+            "censored": 0,
+            "coverage_bounds": [
+              0.44074074074074077,
+              0.44074074074074077
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R03",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 177,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6555555555555556,
+              0.6555555555555556
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R04",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R05",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R06",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0004_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 175,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6481481481481481,
+              0.6481481481481481
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R01",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 172,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6370370370370371,
+              0.6370370370370371
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R02",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R03",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R04",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 172,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6370370370370371,
+              0.6370370370370371
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R05",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 171,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6333333333333333,
+              0.6333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 5,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R06",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0005_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 82
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R01",
+      "condition": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 178,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6592592592592592,
+              0.6592592592592592
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R02",
+      "condition": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 83
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R03",
+      "condition": "B131072_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R04",
+      "condition": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 179,
+          "post_release": {
+            "timely": 165,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6111111111111112,
+              0.6111111111111112
+            ]
+          },
+          "nominal": {
+            "timely": 119,
+            "censored": 0,
+            "coverage_bounds": [
+              0.44074074074074077,
+              0.44074074074074077
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R05",
+      "condition": "B0_P1_P2_P3_backlog_aware_bytes",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 174,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6444444444444445,
+              0.6444444444444445
+            ]
+          },
+          "nominal": {
+            "timely": 120,
+            "censored": 0,
+            "coverage_bounds": [
+              0.4444444444444444,
+              0.4444444444444444
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 6,
+      "arm": "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R06",
+      "condition": "B0_P1_P2_P3_causal_shared_stage",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_FORMAL_20261123_01_FORMAL_B0006_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    }
+  ],
+  "paired_blocks": [
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          0.6407407407407407,
+          0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.007407407407407418,
+          0.007407407407407418
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.6666666666666666,
+          -0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          -0.6333333333333333,
+          -0.6333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6555555555555556,
+          -0.6555555555555556
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6555555555555556,
+          -0.6555555555555556
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6407407407407407,
+          -0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6407407407407407,
+          -0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6407407407407407,
+          0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.007407407407407418,
+          -0.007407407407407418
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 2,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6481481481481481,
+          -0.6481481481481481
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6407407407407407,
+          -0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6407407407407407,
+          -0.6407407407407407
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          0.6370370370370371,
+          0.6370370370370371
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.01851851851851849,
+          -0.01851851851851849
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 3,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.6666666666666666,
+          -0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          -0.6555555555555556,
+          -0.6555555555555556
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 82
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6481481481481481,
+          -0.6481481481481481
+        ]
+      },
+      "unused_serviceable_difference_bytes": 82
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6481481481481481,
+          -0.6481481481481481
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6555555555555556,
+          0.6555555555555556
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.007407407407407418,
+          0.007407407407407418
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 4,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6481481481481481,
+          -0.6481481481481481
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6370370370370371,
+          0.6370370370370371
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6370370370370371,
+          -0.6370370370370371
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 82
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6333333333333333,
+          -0.6333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 82
+    },
+    {
+      "block": 5,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6333333333333333,
+          -0.6333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6592592592592592,
+          0.6592592592592592
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.014814814814814725,
+          0.014814814814814725
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_causal_shared_stage",
+      "right": "B0_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6444444444444445,
+          -0.6444444444444445
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_causal_shared_stage",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6111111111111112,
+          -0.6111111111111112
+        ]
+      },
+      "unused_serviceable_difference_bytes": 83
+    },
+    {
+      "block": 6,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_causal_shared_stage",
+      "right": "B131072_P1_P2_P3_backlog_aware_bytes",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.6111111111111112,
+          -0.6111111111111112
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    }
+  ],
+  "interval_scope": "Within-block censoring bounds. Sampling uncertainty requires the formal freeze."
+}

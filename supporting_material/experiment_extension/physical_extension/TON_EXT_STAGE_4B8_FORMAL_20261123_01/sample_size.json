@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "study": "shared_stage",
+  "rule": "fixed_complete_blocks",
+  "status": "FROZEN_SAMPLE_SIZE_RULE",
+  "formal_blocks": 6,
+  "formal_outcome_peeking_for_stopping": false,
+  "independent_unit": "fresh_physical_complete_condition_block",
+  "pilot_campaign_id": "TON_EXT_STAGE_4B8_PILOT_20261123_01",
+  "pilot_report_sha256": "9d197533e20f09c0e94d404a3a648bad5110c95cf27a1bacdc788064eb378531",
+  "rationale": "Six fresh complete physical blocks cover a whole six-condition Williams cycle. One 36-arm fixed sample balances all within-block positions and transitions. Workloads exclude the independent stage calibration and pilot. Pilot wall seconds per arm: [311.9, 312.0, 311.8, 313.2, 311.6, 312.8]. A single pilot block cannot estimate between-block variance. No power or precision guarantee.",
+  "analysis_script_sha256": "d59cfe5404eb1cf89950a0839484052fb73efcd4430bf6c9e8dcdcd6c5d876bb",
+  "analysis": "Enumerate all n^n paired physical-block bootstrap samples for the two endpoints of the censoring bounds; nearest-rank 2.5 and 97.5 percentiles. Only complete fixed sets of 2 to 6 blocks receive this small-sample descriptive interval. Report every block and corrected minus original or policy contrasts in the preregistered strata, calendar order, censoring endpoints and descriptive range. Small block counts limit inference."
+}

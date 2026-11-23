@@ -1,0 +1,1095 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:netshield:hardware-extension-raw-ledger:1",
+  "title": "Proposed normalized supplemental hardware records; no measured records are supplied",
+  "description": "Private runtime adapter must retain original primitive logs and provide a hash-bound field map. This schema is an implementation contract, not a claim that all fields already exist in the private runtime. Use null with explicit reasons, preserve clock domains, and retain every attempt.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/event"
+    },
+    {
+      "$ref": "#/$defs/service"
+    },
+    {
+      "$ref": "#/$defs/transport_chunk"
+    },
+    {
+      "$ref": "#/$defs/admission"
+    },
+    {
+      "$ref": "#/$defs/attempt"
+    }
+  ],
+  "$defs": {
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "campaign_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh supplemental campaign, never a frozen campaign ID."
+        },
+        "study": {
+          "enum": [
+            "allocator",
+            "shared_stage"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "calibration",
+            "pilot",
+            "formal"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh physical complete-block identity; a scheduling seed is not a session."
+        },
+        "arm_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scheduled condition execution identity."
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique physical attempt; retain unsuccessful attempts."
+        },
+        "condition_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact condition ID from the frozen plan."
+        },
+        "record_type": {
+          "const": "event"
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique occurrence, independent of representation/source-sample repetition."
+        },
+        "device_id": {
+          "enum": [
+            "P1",
+            "P2",
+            "P3"
+          ]
+        },
+        "origin_cohort": {
+          "enum": [
+            "warmup",
+            "measured",
+            "background"
+          ]
+        },
+        "generation_round": {
+          "type": "integer",
+          "description": "Original round; background may precede measured round zero."
+        },
+        "analysis_strata": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "first_measured_generation_batch",
+              "all_measured_generation_batches",
+              "calibration_only",
+              "warmup",
+              "background"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "source_sample_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Controlled source identifier; keep private when redistribution is restricted."
+        },
+        "requested_action": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Action before safety/admission."
+        },
+        "admitted_action": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Final action; rejected remote work remains a generated event."
+        },
+        "requires_core": {
+          "type": "boolean"
+        },
+        "selected_for_full": {
+          "type": "boolean"
+        },
+        "payload_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Actual encoded application payload, including declared padding."
+        },
+        "payload_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Hash of actual serialized payload; null only when no payload exists."
+        },
+        "origin_host_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable originating host identity, not a public IP address."
+        },
+        "origin_clock_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Origin monotonic clock identity including reboot/epoch identity."
+        },
+        "core_host_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Core host identity if applicable."
+        },
+        "core_clock_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Core monotonic clock identity including reboot/epoch identity."
+        },
+        "scheduled_release_origin_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Nominal release in originating probe monotonic clock."
+        },
+        "actual_event_creation_origin_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Primary deadline anchor on originating probe clock."
+        },
+        "detector_start_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Detector stage on originating probe clock."
+        },
+        "detector_end_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Detector stage on same originating probe clock."
+        },
+        "preprocess_start_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Preprocessing stage on originating probe clock; overlap if real is retained."
+        },
+        "preprocess_end_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Preprocessing stage on originating probe clock."
+        },
+        "network_enqueue_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Payload enqueue on originating probe clock."
+        },
+        "payload_submit_start_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Transport submission begins on originating probe clock."
+        },
+        "payload_submit_end_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Local transport submission completes; NOT necessarily remote receipt."
+        },
+        "evidence_ack_received_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Explicit complete-evidence acknowledgement received on originating clock; null if protocol has no such ACK."
+        },
+        "core_payload_ready_core_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Complete evidence available on core clock, never subtracted from an origin timestamp."
+        },
+        "core_enqueue_core_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Core inference queue entry on core clock."
+        },
+        "core_start_core_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Actual inference starts on core clock."
+        },
+        "core_end_core_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Actual inference ends on core clock."
+        },
+        "core_result_send_core_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Result handed to transport on core clock."
+        },
+        "result_received_origin_ns": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Matched result received at originating probe; authoritative result deadline endpoint."
+        },
+        "deadline_ns": {
+          "const": 1000000000
+        },
+        "observed_through_origin_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Last trustworthy follow-up instant on originating clock."
+        },
+        "deadline_matured": {
+          "type": "boolean",
+          "description": "Derived from observed_through >= actual_creation + deadline, not guessed from missing results."
+        },
+        "terminal_state": {
+          "enum": [
+            "pending",
+            "terminal_failed",
+            "terminal_cancelled",
+            "terminal_success_timely",
+            "terminal_success_late"
+          ]
+        },
+        "missing_timestamp_reasons": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Every null timestamp has a reason, e.g. not_applicable, not_instrumented, missing_capture, pending; never substitute zero."
+        },
+        "prediction": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Actual final admitted execution output; remote and local endpoints must remain distinguishable."
+        },
+        "ground_truth": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Authorized label if available; not a runtime decision input."
+        },
+        "queued_remaining_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Remaining queued application bytes at retained observation end."
+        },
+        "inflight_remaining_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Remaining in-flight unique application bytes at observation end."
+        },
+        "discarded_payload_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Explicit cancelled/discarded bytes; never silently erased."
+        },
+        "raw_source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Reference into retained immutable primitive source records."
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "campaign_id",
+        "study",
+        "phase",
+        "session_id",
+        "arm_id",
+        "attempt_id",
+        "condition_id",
+        "record_type",
+        "event_id",
+        "device_id",
+        "origin_cohort",
+        "generation_round",
+        "analysis_strata",
+        "source_sample_id",
+        "requested_action",
+        "admitted_action",
+        "requires_core",
+        "selected_for_full",
+        "payload_bytes",
+        "payload_sha256",
+        "origin_host_id",
+        "origin_clock_id",
+        "core_host_id",
+        "core_clock_id",
+        "scheduled_release_origin_ns",
+        "actual_event_creation_origin_ns",
+        "detector_start_origin_ns",
+        "detector_end_origin_ns",
+        "preprocess_start_origin_ns",
+        "preprocess_end_origin_ns",
+        "network_enqueue_origin_ns",
+        "payload_submit_start_origin_ns",
+        "payload_submit_end_origin_ns",
+        "evidence_ack_received_origin_ns",
+        "core_payload_ready_core_ns",
+        "core_enqueue_core_ns",
+        "core_start_core_ns",
+        "core_end_core_ns",
+        "core_result_send_core_ns",
+        "result_received_origin_ns",
+        "deadline_ns",
+        "observed_through_origin_ns",
+        "deadline_matured",
+        "terminal_state",
+        "missing_timestamp_reasons",
+        "prediction",
+        "ground_truth",
+        "queued_remaining_bytes",
+        "inflight_remaining_bytes",
+        "discarded_payload_bytes",
+        "raw_source_record_ids"
+      ]
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "campaign_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh supplemental campaign, never a frozen campaign ID."
+        },
+        "study": {
+          "enum": [
+            "allocator",
+            "shared_stage"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "calibration",
+            "pilot",
+            "formal"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh physical complete-block identity; a scheduling seed is not a session."
+        },
+        "arm_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scheduled condition execution identity."
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique physical attempt; retain unsuccessful attempts."
+        },
+        "condition_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact condition ID from the frozen plan."
+        },
+        "record_type": {
+          "const": "service"
+        },
+        "service_round_index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Service period identity, separately from event origin round."
+        },
+        "service_period_kind": {
+          "enum": [
+            "setup",
+            "warmup",
+            "measured",
+            "drain"
+          ]
+        },
+        "device_id": {
+          "enum": [
+            "P1",
+            "P2",
+            "P3"
+          ]
+        },
+        "service_host_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Host that records this service accounting boundary."
+        },
+        "service_clock_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Clock identity for the service boundary; do not compare with probe clocks without alignment proof."
+        },
+        "service_start_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Round start on service clock."
+        },
+        "service_end_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Round end on same service clock."
+        },
+        "shared_cap_bytes": {
+          "enum": [
+            131072,
+            262144
+          ]
+        },
+        "queue_before_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Queued bytes immediately before new admissions in this service period."
+        },
+        "new_admitted_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Actually enqueued new bytes in this service period."
+        },
+        "cancelled_from_queue_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Explicit queue removals other than service."
+        },
+        "service_granted_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Allocator grant, retained separately from actual service."
+        },
+        "actual_unique_application_service_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Actual charged unique payload bytes from the transport/queue data path; reconstruct from primitive chunk records, not a cap-violation flag."
+        },
+        "queue_after_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Queue after admission, cancellation and actual service."
+        },
+        "initial_state_fixture_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Identifies predeclared initial backlog fixture only when applied."
+        },
+        "transport_chunk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "raw_source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "campaign_id",
+        "study",
+        "phase",
+        "session_id",
+        "arm_id",
+        "attempt_id",
+        "condition_id",
+        "record_type",
+        "service_round_index",
+        "service_period_kind",
+        "device_id",
+        "service_host_id",
+        "service_clock_id",
+        "service_start_ns",
+        "service_end_ns",
+        "shared_cap_bytes",
+        "queue_before_bytes",
+        "new_admitted_bytes",
+        "cancelled_from_queue_bytes",
+        "service_granted_bytes",
+        "actual_unique_application_service_bytes",
+        "queue_after_bytes",
+        "initial_state_fixture_id",
+        "transport_chunk_ids",
+        "raw_source_record_ids"
+      ]
+    },
+    "transport_chunk": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "campaign_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh supplemental campaign, never a frozen campaign ID."
+        },
+        "study": {
+          "enum": [
+            "allocator",
+            "shared_stage"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "calibration",
+            "pilot",
+            "formal"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh physical complete-block identity; a scheduling seed is not a session."
+        },
+        "arm_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scheduled condition execution identity."
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique physical attempt; retain unsuccessful attempts."
+        },
+        "condition_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact condition ID from the frozen plan."
+        },
+        "record_type": {
+          "const": "transport_chunk"
+        },
+        "chunk_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique raw transport accounting record, not reconstructed only from grant counters."
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Origin occurrence identity; background requests retain their own IDs."
+        },
+        "device_id": {
+          "enum": [
+            "P1",
+            "P2",
+            "P3"
+          ]
+        },
+        "service_round_index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Frozen accounting round charged for this chunk."
+        },
+        "transport_host_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Host emitting the data-path service observation."
+        },
+        "transport_clock_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Local monotonic clock identity for this observation."
+        },
+        "transport_observed_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Local data-path timestamp."
+        },
+        "payload_offset_start": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Inclusive offset into the unique encoded payload."
+        },
+        "payload_offset_end": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Exclusive offset; conservation auditor detects duplicate ranges and holes."
+        },
+        "observed_payload_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes actually observed at the specified data-path point."
+        },
+        "accounting_point": {
+          "enum": [
+            "queue_to_transport_unique_service",
+            "core_unique_receipt",
+            "duplicate_wire_send"
+          ]
+        },
+        "charged_unique_service": {
+          "type": "boolean",
+          "description": "Apply exactly the frozen application-byte accounting semantics; duplicate wire retransmission stays separate."
+        },
+        "application_wire_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Application wire count if measured; not NIC/Wi-Fi airtime."
+        },
+        "raw_source_record_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Immutable primitive source record reference."
+        }
+      },
+      "required": [
+        "schema_version",
+        "campaign_id",
+        "study",
+        "phase",
+        "session_id",
+        "arm_id",
+        "attempt_id",
+        "condition_id",
+        "record_type",
+        "chunk_id",
+        "event_id",
+        "device_id",
+        "service_round_index",
+        "transport_host_id",
+        "transport_clock_id",
+        "transport_observed_ns",
+        "payload_offset_start",
+        "payload_offset_end",
+        "observed_payload_bytes",
+        "accounting_point",
+        "charged_unique_service",
+        "application_wire_bytes",
+        "raw_source_record_id"
+      ]
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "campaign_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh supplemental campaign, never a frozen campaign ID."
+        },
+        "study": {
+          "enum": [
+            "allocator",
+            "shared_stage"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "calibration",
+            "pilot",
+            "formal"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh physical complete-block identity; a scheduling seed is not a session."
+        },
+        "arm_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scheduled condition execution identity."
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique physical attempt; retain unsuccessful attempts."
+        },
+        "condition_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact condition ID from the frozen plan."
+        },
+        "record_type": {
+          "const": "admission"
+        },
+        "decision_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique causal admission decision."
+        },
+        "decision_host_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Controller host identity."
+        },
+        "decision_clock_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Controller clock identity."
+        },
+        "decision_time_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Controller-local decision time."
+        },
+        "candidate_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "selected_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "queue_bytes_by_probe": {
+          "type": "object",
+          "properties": {
+            "P1": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Observed remaining bytes at decision."
+            },
+            "P2": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Observed remaining bytes at decision."
+            },
+            "P3": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Observed remaining bytes at decision."
+            }
+          },
+          "required": [
+            "P1",
+            "P2",
+            "P3"
+          ],
+          "additionalProperties": false
+        },
+        "core_executing_jobs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Observed active jobs at decision."
+        },
+        "core_queued_complete_jobs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Observed complete jobs waiting at decision."
+        },
+        "core_job_state_digest": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Digest of retained job IDs and causally estimated remaining costs."
+        },
+        "remaining_application_budget_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Budget remaining at this point in the actual service round."
+        },
+        "fallback_by_event": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "rejection_reason_by_event": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "calibration_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Independent frozen calibration used for estimates; never current event future timings."
+        },
+        "controller_source_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact deployed controller source/build identity."
+        },
+        "estimate_inputs_raw_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Only state observed by decision time; source audit must verify causality."
+        },
+        "predicted_result_slack_ns_by_event": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "description": "Prediction only. Do not replace observed result timing with this value."
+        }
+      },
+      "required": [
+        "schema_version",
+        "campaign_id",
+        "study",
+        "phase",
+        "session_id",
+        "arm_id",
+        "attempt_id",
+        "condition_id",
+        "record_type",
+        "decision_id",
+        "decision_host_id",
+        "decision_clock_id",
+        "decision_time_ns",
+        "candidate_event_ids",
+        "selected_event_ids",
+        "queue_bytes_by_probe",
+        "core_executing_jobs",
+        "core_queued_complete_jobs",
+        "core_job_state_digest",
+        "remaining_application_budget_bytes",
+        "fallback_by_event",
+        "rejection_reason_by_event",
+        "calibration_sha256",
+        "controller_source_sha256",
+        "estimate_inputs_raw_record_ids",
+        "predicted_result_slack_ns_by_event"
+      ]
+    },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "campaign_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh supplemental campaign, never a frozen campaign ID."
+        },
+        "study": {
+          "enum": [
+            "allocator",
+            "shared_stage"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "calibration",
+            "pilot",
+            "formal"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fresh physical complete-block identity; a scheduling seed is not a session."
+        },
+        "arm_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scheduled condition execution identity."
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique physical attempt; retain unsuccessful attempts."
+        },
+        "condition_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact condition ID from the frozen plan."
+        },
+        "record_type": {
+          "const": "attempt"
+        },
+        "attempt_state": {
+          "enum": [
+            "started",
+            "completed",
+            "infrastructure_excluded",
+            "protocol_nonconformant",
+            "aborted"
+          ]
+        },
+        "started_utc": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Wall-clock provenance only; not used for cross-host latency subtraction."
+        },
+        "ended_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Null while unfinished."
+        },
+        "retry_of_attempt_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Earlier complete attempt, if a predeclared infrastructure retry was permitted."
+        },
+        "exclusion_reason_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Only a preregistered independent infrastructure reason; timing/cap/detection outcomes are never exclusion reasons."
+        },
+        "exclusion_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "included_in_formal_analysis": {
+          "type": "boolean"
+        },
+        "runtime_manifest_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Deployed runtime/config/model/input/launcher identity manifest."
+        },
+        "plan_sha256": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact plan used before this attempt."
+        },
+        "formal_freeze_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Required for formal phase; calibration/pilot use their own separately frozen records."
+        },
+        "raw_archive_manifest_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Final raw capture manifest; null if not yet finalized."
+        },
+        "scientific_outcomes_used_for_exclusion_or_retry": {
+          "const": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "campaign_id",
+        "study",
+        "phase",
+        "session_id",
+        "arm_id",
+        "attempt_id",
+        "condition_id",
+        "record_type",
+        "attempt_state",
+        "started_utc",
+        "ended_utc",
+        "retry_of_attempt_id",
+        "exclusion_reason_code",
+        "exclusion_evidence_ids",
+        "included_in_formal_analysis",
+        "runtime_manifest_sha256",
+        "plan_sha256",
+        "formal_freeze_sha256",
+        "raw_archive_manifest_sha256",
+        "scientific_outcomes_used_for_exclusion_or_retry"
+      ]
+    }
+  },
+  "x-cross-record-invariants": [
+    "All planned/generated new occurrences are accounted for exactly once in the final normalized event ledger; all attempts retained.",
+    "Queue_before + new_admitted - cancelled_from_queue - actual_unique_application_service = queue_after for each probe/service period.",
+    "Sum actual unique application service across all probes in a round <= shared_cap_bytes; reconstruct from primitive chunks independently of grant/violation flags.",
+    "Unique payload offsets cover received/sent bytes without hiding duplicate wire transmissions; complete payload = received_unique + queued + inflight + discarded under the frozen accounting point.",
+    "Result latency subtracts only result_received_origin_ns - actual_event_creation_origin_ns on one origin_clock_id; nominal sensitivity substitutes scheduled_release_origin_ns on that same clock.",
+    "Core wait and inference durations use only core_clock_id; never subtract core timestamps from origin timestamps without validated clock alignment and error bounds.",
+    "Missing unmatured results remain pending/censored; do not convert them silently into definitive misses or successes. All-generated timely-output denominators retain rejected and missing requests.",
+    "First measured batch and all-measured strata are fixed in the plan before outcomes. Background requests are separate from new generated denominators.",
+    "Admission uses state observable by decision_time, frozen calibration and actual remaining service/core work; no post-event measured times as current decision inputs."
+  ]
+}

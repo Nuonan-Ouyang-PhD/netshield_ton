@@ -1,0 +1,11 @@
+parent_capture_id,split
+Blink_Mini_Camera_Power,train
+SenseUBaby_Power,train
+Ecobee_Camera_Power,train
+Multifunctional_Pager_Power,validation
+Singcall_Power,validation
+Owltron_Camera_Power,test
+M1T_Camera_Power,test
+ARP_Spoofing,train
+Recon-Port_Scan,validation
+MQTT-Malformed_Data,test

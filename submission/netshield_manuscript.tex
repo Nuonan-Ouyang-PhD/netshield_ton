@@ -7,7 +7,6 @@
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{microtype}
-\usepackage{balance}
 \graphicspath{{figures/}}
 \usepackage[hidelinks]{hyperref}
 
@@ -75,7 +74,7 @@ shared bottleneck, evidence scheduling, latency SLO, queue-aware control.
 Edge intrusion detection increasingly combines local inference with remote
 evidence handling. A probe may retain a decision locally, emit a compact
 summary, or upload richer evidence for core-side execution and correlation.
-These actions differ not only in security utility but also in the number of
+These actions differ not only in configured utility but also in the number of
 bytes injected into a shared service. Evidence generation is therefore an
 \emph{endogenous networking decision}: the controller chooses the offered
 load before the bottleneck serves it.
@@ -303,6 +302,8 @@ Q_i(t+1)=\left[Q_i(t)+b(a_i(t))-g_i(t)\right]^+.
 The implementation exposes ten frozen actions spanning light, medium, and
 heavy detector execution and evidence levels from no upload to full core-side
 evidence. Table~\ref{tab:actions} lists the frozen payload and utility fields.
+The utility scores are controller inputs; their ordering does not establish
+an empirical detection or incident-resolution benefit of larger evidence.
 
 \begin{table}[t]
 \centering
@@ -579,10 +580,18 @@ Section~\ref{sec:method}.
 \CQPG{} first obtains per-probe queue-penalized requests and monotonically
 reduces simultaneous requests until the common budget is satisfied.
 \SCQPG{} adds a local safety filter before the same joint admission stage.
-Network byte feasibility follows from joint admission. In the hardware
-campaign, low-capacity safety filtering and ordinary shared-capacity
+The frozen filter estimates local computation, core computation, and an
+isolated transfer at the entire application-service rate. It is an individual
+eligibility heuristic, not a shared-link deadline guarantee.
+Joint admission bounds new payload; if queues are nonempty, completing both
+backlog and new work in the round additionally requires
+$\sum_i[Q_i(t)+b(a_i(t))]\leq C(t)$ under ideal work-conserving service.
+Neither byte condition reserves time for physical processing or return
+latency. In the hardware campaign, low-capacity safety filtering and ordinary shared-capacity
 admission reach the same final summary mix; Section~\ref{sec:results}
-reports the intervention audit.
+reports the intervention audit. The Supplementary Shared-Service
+Counterexamples separately test contention, backlog, and assumed processing
+delays without altering the frozen hardware method.
 
 \section{Experimental Methodology}
 \label{sec:method}
@@ -707,6 +716,12 @@ occupancy. Classifier correctness is not multiplied into the main service
 metric because correctness is constant on the scored formal replay
 occurrences.
 
+These result-return metrics use hardware timestamps. The offline service
+simulators instead stop an upload when its last payload byte leaves the
+modeled FIFO. Their 1-s metric is timely \emph{full-upload completion},
+without modeled detector execution, Wi-Fi overhead, core queuing/inference,
+or result return. It is reported separately from timely full-core output.
+
 \subsection{Statistical Reporting}
 Action composition, core-required fractions, exact byte totals, analytical
 queue growth, and admission counts are deterministic under a frozen plan and
@@ -722,20 +737,30 @@ Five read-only analyses complement the hardware campaign without modifying
 its accepted raw evidence.
 
 \textbf{Queue-weight sensitivity.}
-The exact frozen \IQPG{} objective and allocator are replayed over 12 formal
-seeds for
+The frozen \IQPG{} objective and historical allocator are replayed for
 \begin{multline*}
 v\in\{1,3,10,30,100,168,300,1000,\\
 3000,10000,30000,100000\}.
 \end{multline*}
-The $v=1$ replay must reproduce the hardware action mix, payload, core
-fraction, and sampled maximum queue before the sweep is accepted.
+Together with three capacities this gives 36 deterministic configurations.
+The archived 432 rows repeat each configuration under 12 session/seed labels
+for hardware matching: the seed is unused by independent synchronized
+selection and contributes no replication or sampling variability. The
+$v=1$ historical replay reproduces the hardware action mix, payload, core
+fraction, and sampled maximum queue. The archived allocator's integer
+remainder rule is retained for that identity comparison; a work-conserving
+correction is versioned separately in the code-evidence audit.
 
 \textbf{Phase-randomized independent control.}
-Twenty fixed seeds assign each probe an independent initial phase in $[0,1)$~s.
+Twenty fixed seeds sample three distinct initial phases uniformly without
+replacement from the 1-ms grid in $[0,1)$~s.
 Each probe observes only its own queue; no action/queue exchange and no joint
 admission are introduced. This is a discrete-event software sensitivity, not
-a hardware measurement.
+a hardware measurement. Its deadline is last-byte completion minus modeled
+creation time at most 1,000~ms. The round-based sensitivity instead checks
+completion in the origin round; the two definitions coincide only for
+beginning-of-round releases and a one-round upload deadline with zero
+processing overhead.
 
 \textbf{Schedule-anchor reconstruction.}
 Both~\eqref{eq:postlat} and~\eqref{eq:nomlat} are reconstructed directly
@@ -884,12 +909,17 @@ remains exactly $1/2$ through $v=30{,}000$ and becomes 0.6222 only at
 $v=100{,}000$; high capacity remains full evidence at every tested $v$.
 Low-capacity action composition changes with $v$, so no all-$v$ cycle identity
 is claimed.
+A separate work-conserving correction, reconstructed with the published
+utility precision, changes five of the 36 action mixes; the Supplementary
+Allocator-Correction Sensitivity reports this implementation dependence.
+Local inspection of the archived runtime reports the same residual-byte
+stopping rule. In a separate low-capacity hardware pilot at $v=1$, the correction increased full requests from 66 to 90 per 270 generated events. Four subsequent order-balanced physical pairs reproduced both counts in every block. The original allocator left 144 serviceable bytes unused per arm, and the corrected allocator left zero. All 264 original and 360 corrected full requests in the formal comparison eventually returned; neither variant returned a full result within one second. These measurements use the replacement probe cohort described in the supplement.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.92\textwidth]{fig4_v_sensitivity.pdf}
 \caption{Parameter robustness: frozen-selector sensitivity across the 12
-tested queue weights. Unlike the time-domain mechanism in
+tested queue weights using the archived allocator. Unlike the time-domain mechanism in
 Fig.~\ref{fig:cycle}, this sweep tests how behavior changes with $v$.}
 \label{fig:vsweep}
 \end{figure*}
@@ -902,35 +932,34 @@ $p^\star=\rho$, providing conformance to the saturated reduced-regime
 prediction rather than evidence that every decentralized controller has that
 rate.
 
-The common-denominator mid-capacity software comparison is still useful
-because it separates request rate from deadline attainment.
-Table~\ref{tab:rq2common} divides timely full-core results by all 270
+The common-denominator mid-capacity software comparison separates request
+rate from upload-deadline attainment in the archived service model.
+Table~\ref{tab:rq2common} divides timely full-upload completions by all 270
 generated events per simulated arm. C-QPG and the desynchronized independent
-controller produce 0.3333 and 0.3352 timely full results per generated event,
+controller produce 0.3333 and 0.3352 timely full uploads per generated event,
 respectively, yet C-QPG generates only 14.746~MB versus 23.593~MB---a
 37.5\% reduction in application bytes. The synchronized controller generates
-17.695~MB but produces no timely full-core result.
+17.695~MB but produces no timely full upload. These figures retain the
+historical simulation and do not include processing or result-return delays.
 
 \begin{table}[t]
 \centering
 \caption{Mid-capacity software sensitivity on a common 270-event
-denominator. ``Timely full'' is on-time full-core results divided by all
-generated events.}
+denominator. ``Timely'' counts last-byte full-upload completion within 1~s;
+core-result return is not simulated.}
 \label{tab:rq2common}
 \scriptsize
 \input{tables/rq2_mid_common_denominator.tex}
 \end{table}
 
-The new hardware extension changes the interpretation of that counterfactual.
-At mid capacity, both the phase-randomized independent software policy and
-\CRFA{} use a $2/3$ full-request/admission fraction, but their timely output is
-very different: 0.3352 in the software phase study versus 0.6327 in the
-\CRFA{} hardware extension. This is not a direct hardware-versus-hardware
-method comparison, because the phase-randomized policy remains a software
-sensitivity. It nevertheless demonstrates why request fraction alone is not a
-service result: deterministic joint admission can place work directly on the
-same-round feasible frontier, whereas independent queue dynamics can consume
-the same long-run byte rate while losing work to deadlines.
+The phase-randomized policy and \CRFA{} both use a $2/3$
+full-request/admission fraction at mid capacity. Their timing quantities have
+different endpoints: 0.3352 is simulated upload completion, whereas 0.6327 is
+measured hardware core-result return. They therefore do not estimate a
+between-method performance gain. The software study demonstrates that an
+admissible request rate can still miss upload deadlines; the physical
+extension separately measures how a constructed byte-feasible schedule
+survives processing, wireless, and return delays.
 
 C-QPG represents a third operating point. It intentionally gives up one full
 slot at mid capacity in exchange for a summary from every probe in every
@@ -942,12 +971,13 @@ As a first-order occupancy benchmark, if three probes independently request
 full evidence with probability $p=2/3$ in a synchronous slot, then
 $P(J=1)=6/27$, $P(J=2)=12/27$, and $P(J=3)=8/27$. With a 2$B$ service budget,
 all requests complete within a round for $J\leq2$ but none does for $J=3$
-under equal sharing, giving conditional timely fraction $5/9\approx0.556$.
-The measured software mean is 0.5028. We treat $5/9$ as an independence
+under equal sharing, giving conditional timely-upload fraction $5/9\approx0.556$.
+The archived software mean is 0.5028. We treat $5/9$ as an independence
 approximation, not a proven upper bound; the gap shows that queue-state
 coupling and residual service history matter.
 
 \subsection{RQ3: Physical Hardware Adds Timing Residuals Beyond Byte Feasibility}
+\label{subsec:physical-timing}
 The analytical region predicts which payload tuples fit the application
 budget; it does not predict OS scheduling, barrier waiting, Wi-Fi timing,
 serialization, core execution, or result-return delay.
@@ -964,6 +994,15 @@ At mid capacity, E and F each admit one full request per three generated
 events. Conditional post-release on-time rates among those core-required
 events are about 0.8815 and 0.8935. One-round byte feasibility therefore does
 not imply perfect physical SLO attainment.
+
+\paragraph{Backlog-aware physical admission.}
+Six order-balanced physical blocks on a replacement cohort compare isolated
+new-byte, backlog-aware and calibrated admission. With 131,072~B initial
+backlog, they select 12/6/0 full requests from 18 first-batch generated events;
+0/6/0 return within one second. Backlog accounting adds one timely result
+per block. With empty queues, both byte policies return $8/18$ on time;
+calibrated admission rejects all full requests. The supplement reports the
+16-condition calibration and later-round results.
 
 \paragraph{Frontier attenuation in the rotating extension.}
 \CRFA{} makes that residual directly measurable because its admitted full
@@ -1067,10 +1106,15 @@ preserving boundary.}
 \paragraph{Raw reconstruction.}
 The primary full-raw audit rebuilds all 216 accepted hardware arms from
 58,320 measured occurrences with zero raw-to-validator/event-metric mismatch
-and zero shared-cap violation across 63,720 service rounds. Its verdict
-remains \texttt{PASS\_WITH\_ISSUES} because two archival gaps are disclosed:
-a direct S03-a01 SSD-failure artifact and S07 pre-hardware launcher-abort
-files are absent from the raw bundle. Neither gap changes an accepted arm.
+and zero shared-cap violation across 63,720 service rounds. A subsequent
+review finds a common package identity in the accepted deployment records,
+matching probe-service and core-receipt counters in every paired device
+window, and zero queue-recurrence residuals or final backlog. It also records
+10,848~B of unallocated budget despite demand across all service rounds.
+These are application-window checks; chunk continuity and in-flight bytes
+remain unaudited. The original verdict remains \texttt{PASS\_WITH\_ISSUES}
+because direct S03-a01 SSD-failure and S07 pre-hardware launcher-abort
+artifacts are absent. Neither gap changes an accepted arm.
 
 The separately frozen \CRFA{} extension reconstructs 36/36 accepted arms,
 9,720 measured occurrences, and 10,620 shared-service rounds. All
@@ -1081,7 +1125,8 @@ used as acceptance gates. Across the two hardware campaigns, 252 accepted arms,
 68,040 measured occurrences, and 74,340 reconstructed service rounds are
 accounted for, with no shared application-byte cap violation.
 
-The read-only offline analyses contain 432 queue-weight rows, 240 phase-study
+The read-only offline analyses contain 432 queue-weight rows representing
+36 distinct deterministic configurations, 240 phase-study
 rows, 648 primary-campaign timestamp-reconstruction rows, and 20 probe-count
 conformance rows, with no retained failed analysis. Only timestamp
 reconstruction is derived from measured hardware timestamps; the queue-weight,
@@ -1097,17 +1142,25 @@ mix. At mid capacity, E and F each record 2,160 full-to-summary capacity
 admission degradations, and at high capacity neither mechanism degrades full
 evidence. The data support the filter as an auditable local-feasibility
 interface, not as an independently superior performance mechanism.
+An action passing the isolated filter can still miss its deadline under
+concurrent uploads or residual backlog. The filter's name denotes its
+implementation role, not a verified multi-device safety guarantee.
 
 \paragraph{Classifier correctness.}
 The formal feature replay yields perfect classification on the scored
 occurrences for all frozen detector paths, so correctness adds no information
 to the service metric. The dataset is CICIoT2023-derived
 ~\cite{neto2023ciciot}; the formal occurrence set excludes Recon-PortScan,
-and exact feature-vector overlap exists across frozen partitions. In keeping
-with long-standing cautions about closed-world IDS evaluation
-~\cite{sommer2010closedworld} and recent open-set IIoT work
-~\cite{yang2025openset}, we treat detector correctness as a controlled
-condition rather than evidence of open-world IDS superiority.
+and the archived raw splits contain exact feature matches for 19.09\% of
+validation rows against training and 43.36\% of test rows against training
+or validation. Later provenance checks link the portable export to
+source-model and training/validation digests and match all 5,141,673 frozen
+rows to 31 unlabelled per-PCAP feature CSVs by source group and row number.
+The source files identify PCAP segments, but the available records do not
+establish how many independent captures produced them.
+Detector correctness remains a controlled replay condition;
+independent generalization requires qualified capture lineage and held-out
+evaluation~\cite{sommer2010closedworld,yang2025openset}.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -1130,7 +1183,8 @@ point determined by the required representation policy.
 
 \subsection{Synchronization and Admission Are Distinct Mechanisms}
 At mid capacity, phase-randomized I-QPG requests full evidence for $2/3$ of
-generated events, matching the fraction admitted by \CRFA{}. Within the same software model, however, its timely-full output is only
+generated events, matching the fraction admitted by \CRFA{}. In the archived
+software model, however, its timely-full-upload fraction is only
 0.3352. Thus an admissible long-run request rate can coexist with
 same-round deadline misses. The physical \CRFA{} measurements separately
 quantify how much of a byte-feasible construction meets the hardware SLO.
@@ -1184,13 +1238,21 @@ probability under independent within-round requests and to heterogeneous
 summary/upgrade costs. These are analytical planning models, not additional
 hardware findings or models fitted to QPG request traces.
 
-\subsection{Evidence Richness Is Not Security Utility}
-A summary and a full upload provide different downstream information.
-Reducing bytes may improve timeliness while reducing forensic richness;
-additional full evidence may increase deadline pressure. Deployment therefore
-requires a task-specific value for remote representation and forensic detail,
-selected within the measured service-feasibility boundary. Connecting those
-values to incident-resolution outcomes is a separate evaluation step.
+\subsection{Evaluating the Value of Evidence}
+Historical alerts and summaries encode the same event/device identifiers and
+local score with different padding; full adds the features used by core
+inference. The utility ordering in Table~\ref{tab:actions} is an engineering
+preference, not a measured detection-value hierarchy. Three encodings
+classified all 896 archived windows correctly; 366 matched fitting data
+exactly and 544 after rounding.
+A separately fitted common consumer on 72 windows from three held-out
+CICIoMT2024 captures~\cite{dadkhah2024iomt} yielded 63/62/53 correct
+capture-scenario labels for alert/summary/full. Their 1/33/313-byte encodings
+were padded to fixed payloads of 256/16,384/131,072~B. With three probes each
+generating one window per second and sharing 131,072~B/s, 63/62/0 results
+were both correct and returned within one second. All 72 full results
+eventually returned under a padded load three times the allowance. The test
+covers two power-on devices and one malformed MQTT capture on one testbed.
 
 \section{Limitations}
 \label{sec:limitations}
@@ -1230,15 +1292,18 @@ OS/network cause of the recurring proposal-arrival order remains unknown.
 The workload is a frozen CICIoT2023-derived feature replay
 ~\cite{neto2023ciciot}, not an uncontrolled packet-level deployment.
 Recon-PortScan, a major validation-error family, is absent from the formal
-replay, and exact feature-vector repetition exists across frozen partitions.
-The perfect formal occurrence-level classification therefore does not imply
-open-world IDS generalization~\cite{sommer2010closedworld,yang2025openset}.
+replay. Raw split overlap, unresolved capture lineage, and incomplete
+near-duplicate qualification limit detector generalization. They do not
+alter the separately audited byte counts and result-return timestamps.
 
 \textbf{Shield separation.}
 The tested campaign does not contain a case where a local device constraint
 rejects an action that is independently feasible under the shared network
 budget. The safety filter is therefore an implementation/audit interface in
 this paper, not an independently proven performance layer.
+The calibrated rule in Section~\ref{subsec:physical-timing} uses overlapping
+empirical timing allowances. Its all-reject outcome supplies no evidence of
+useful deadline-feasible service.
 
 \textbf{Evidence value.}
 The experiment measures coverage, richness, byte demand, and timeliness, not
@@ -1266,15 +1331,10 @@ all event/action/payload/drain/cap gates passing. Frozen markers for the
 original 216-arm campaign were checked unchanged before and after the
 extension.
 
-The primary campaign, extension, raw audits, and read-only offline analyses
-are hashed separately. Offline sensitivity and conformance analyses do not
-modify accepted hardware evidence. The artifact package records that the
-\CRFA{} mirror resides on the same user-authorized external physical volume
-as its primary copy and is therefore an integrity-checked mirror rather than
-an independent physical backup. Before public release, the final artifact
-will expose persistent checksums and a durable archival identifier. Dataset
-redistribution rights are handled separately; reproducibility does not require
-redistributing third-party CICIoT2023 content~\cite{neto2023ciciot}.
+Separate hashes identify the campaigns, raw audits and offline analyses.
+The \CRFA{} and replacement-cohort copies share their primary research disk.
+The artifact supplies checksums and reproduction instructions for the source
+data distributed by CICIoT2023~\cite{neto2023ciciot}.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -1298,11 +1358,8 @@ conditional rate-balance prediction without guaranteeing timely completion.
 Every selected \CRFA{} full result is eventually returned, so its gap to the
 byte frontier is timing rather than selected-evidence loss. Schedule-relative
 release offsets further separate post-release service from nominal deadlines.
-Across 252 accepted hardware arms, 68,040 measured events and 74,340
-reconstructed service rounds are accounted for with zero shared
-application-byte cap violations. Together, the analysis, constructive
-controller, and auditable hardware measurements expose which evidence
-allocations are feasible and how closely physical service realizes them.
+Across the original and rotating campaigns, 252 accepted arms, 68,040 measured events and 74,340
+reconstructed service rounds yielded zero shared application-byte cap violations.
 
 % ============================================================
 \begin{thebibliography}{99}
@@ -1439,7 +1496,6 @@ D. Crankshaw, X. Wang, G. Zhou, M. J. Franklin, J. E. Gonzalez, and I. Stoica,
 ``Clipper: A low-latency online prediction serving system,'' in
 \emph{Proc. 14th USENIX NSDI}, 2017, pp. 613--627.
 
-\balance
 \bibitem{shen2019nexus}
 H. Shen, L. Chen, Y. Jin, L. Zhao, B. Kong, M. Philipose, A. Krishnamurthy,
 and R. Sundaram, ``Nexus: A GPU cluster engine for accelerating DNN-based
@@ -1499,6 +1555,11 @@ E. C. P. Neto, S. Dadkhah, R. Ferreira, A. Zohourian, R. Lu, and A. A. Ghorbani,
 environment,'' \emph{Sensors}, vol. 23, no. 13, Art. no. 5941, 2023,
 doi: 10.3390/s23135941.
 
+\bibitem{dadkhah2024iomt}
+S. Dadkhah, E. C. P. Neto, R. Ferreira, R. C. Molokwu, S. Sadeghi, and
+A. A. Ghorbani, ``CICIoMT2024: A benchmark dataset for multi-protocol
+security assessment in IoMT,'' \emph{Internet of Things}, vol. 28,
+Art. no. 101351, 2024, doi: 10.1016/j.iot.2024.101351.
 \end{thebibliography}
 
 \end{document}

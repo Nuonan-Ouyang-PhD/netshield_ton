@@ -1,0 +1,38 @@
+--- a/netshield/core.py
++++ b/netshield/core.py
+@@ -286,7 +286,7 @@
+         return base[shift:] + base[:shift]
+ 
+     @staticmethod
+-    def _allocate_shared_cap(demands: dict[str, int], shared_cap_bytes: int) -> dict[str, int]:
++    def _allocate_shared_cap(demands: dict[str, int], shared_cap_bytes: int, window_index: int = 0) -> dict[str, int]:
+         """Deterministic byte-level max-min (water-filling) allocation.
+ 
+         Grants never exceed demand (0 <= g_i <= d_i) and never exceed the
+@@ -294,7 +294,7 @@
+         iteration order of ``demands``: ties are broken by device id so
+         the result is reproducible regardless of request arrival order.
+         """
+-        devices = sorted(demands)
++        devices = Coordinator._rotated_priority(sorted(demands), window_index)
+         remaining = int(shared_cap_bytes)
+         grants: dict[str, int] = {}
+         unserved = [d for d in devices if demands[d] > 0]
+@@ -303,6 +303,8 @@
+         while remaining > 0 and unserved:
+             share = remaining // len(unserved)
+             if share == 0:
++                for device in unserved[:remaining]:
++                    grants[device] = grants.get(device, 0) + 1
+                 break
+             progressed = False
+             for d in list(unserved):
+@@ -495,7 +497,7 @@
+                             "executing_jobs":int(self.inference_active),
+                             "queued_complete_jobs":sum(b["received"] == b.get("total_bytes") for b in self.segment_buffers.values()),
+                             "controller_source_sha256":self.controller_sha})
+-        grants = self._allocate_shared_cap(demands, shared_cap_bytes)
++        grants = self._allocate_shared_cap(demands, shared_cap_bytes, window_index or 0)
+         if self.initial_backlog and window_index == self.config.warmup_windows - 1:
+             grants = {"P1": 87381, "P2": 87381, "P3": 87382}
+         aggregate_admitted = sum(grants.values())

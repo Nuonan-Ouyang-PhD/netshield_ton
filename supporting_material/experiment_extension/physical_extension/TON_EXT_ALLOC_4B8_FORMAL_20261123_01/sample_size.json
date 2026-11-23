@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "study": "allocator",
+  "rule": "fixed_complete_blocks",
+  "status": "FROZEN_SAMPLE_SIZE_RULE",
+  "formal_blocks": 4,
+  "formal_outcome_peeking_for_stopping": false,
+  "independent_unit": "fresh_physical_complete_condition_block",
+  "pilot_campaign_id": "TON_EXT_ALLOC_4B8_PILOT_20261122_01",
+  "pilot_report_sha256": "4a55640c17f23cf6a3744e5a6a3c7cc4fcdca810d05a746c7a3b63a064c9e7f6",
+  "rationale": "Four independent physical blocks cover two full two-condition order cycles across four archived workloads. The fixed resource budget is eight individually reset arms, selected for balanced order and replication of each order. Report individual differences and their mean with the actual denominator. Pilot wall seconds per arm: [332.3, 331.6]. A single pilot block cannot estimate between-block variance. No power or precision guarantee.",
+  "analysis_script_sha256": "d59cfe5404eb1cf89950a0839484052fb73efcd4430bf6c9e8dcdcd6c5d876bb",
+  "analysis": "Enumerate all n^n paired physical-block bootstrap samples for the two endpoints of the censoring bounds; nearest-rank 2.5 and 97.5 percentiles. Only complete fixed sets of 2 to 6 blocks receive this small-sample descriptive interval. Report every block and corrected minus original or policy contrasts in the preregistered strata, calendar order, censoring endpoints and descriptive range. Small block counts limit inference."
+}

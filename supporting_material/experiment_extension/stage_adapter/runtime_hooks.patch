@@ -1,0 +1,104 @@
+--- a/netshield/config.py
++++ b/netshield/config.py
+@@ -31,1 +31,3 @@
+     drain_windows: int = 0
++    stage_profile: dict[str, str] | None = None
++    stage_capture_devices: tuple[str, ...] = ()
+--- a/netshield/core.py
++++ b/netshield/core.py
+@@ -75,2 +75,3 @@
+ from .actions import Candidate, degrade, select_local
++from .stage_admission import load_profile, select as select_stage, validate_snapshot, clock_epoch
+-from .common import JsonlWriter, atomic_json, monotonic_ns, run_id, sha256_file, software_manifest, utc_now
++from .common import JsonlWriter, atomic_json, monotonic_ns, run_id, sha256_file, software_manifest, utc_now, package_tree_sha256
+@@ -88,1 +89,3 @@
+ METHODS = {"fixed_local", "fixed_summary", "fixed_full", "independent_dpp", "central_dpp", "shielded_dpp"}
++STAGE_METHODS = {"instrumented_fixed_full_capture","isolated_precheck_new_bytes","backlog_aware_bytes","causal_shared_stage"}
++METHODS.update(STAGE_METHODS)
+@@ -115,2 +118,12 @@
+         self.config = config
++        self.stage_profile = None
++        self.stage_clock_ids = {}
++        self.stage_enabled = config.method in STAGE_METHODS
++        if self.stage_enabled != config.experiment_id.startswith("TON_EXT_STAGE_"):
++            raise ValueError("dedicated stage campaign and method required")
++        if self.stage_enabled and (config.deadline_ms!=1000 or config.window_seconds!=1
++                or set(config.expected_devices)!={"P1","P2","P3"}):
++            raise ValueError("wrong stage configuration")
++        if config.method=="causal_shared_stage":
++            self.stage_profile = load_profile(config_path, config.experiment_id, package_tree_sha256())
+         self.output = output
+@@ -311,2 +324,4 @@
+                 chosen[device] = self._fixed(candidates, "none")
++            elif self.stage_enabled:
++                chosen[device], = [c for c in candidates if c.action_id=="H_FULL"]
+             elif method == "fixed_local":
+@@ -401,2 +416,42 @@
+         }
++        if self.stage_enabled and not all(p.get("drain_window") for p in proposals.values()):
++            if any(p.get("drain_window") for p in proposals.values()):
++                raise ValueError("inconsistent stage window")
++            order = self._rotated_priority(self._tiebreak_base_order(list(proposals)), window_index)
++            partial = {k:v["received"] for k,v in self.segment_buffers.items()}
++            decision_ns = monotonic_ns()
++            if shared_cap_bytes!=262144 or any(c.payload_bytes!=131072 for c in chosen.values()):
++                raise ValueError("unexpected shared-stage bytes")
++            validate_snapshot(proposals, order, shared_cap_bytes, decision_ns, partial)
++            digest = None
++            if self.stage_profile:
++                profile,digest=self.stage_profile
++                selected,trace=select_stage(proposals, order, shared_cap_bytes, decision_ns, profile, partial)
++            elif self.config.method=="instrumented_fixed_full_capture":
++                selected=list(self.config.stage_capture_devices)
++                if len(set(selected))!=len(selected) or len(selected)>3 or not set(selected)<=set(order):
++                    raise ValueError("unknown capture batch")
++                trace=[dict(device=d,accepted=d in selected) for d in order]
++            else:
++                free=shared_cap_bytes
++                if self.config.method=="backlog_aware_bytes":
++                    free-=sum(p["queue_bytes"] for p in proposals.values())
++                selected=[]
++                trace=[]
++                for d in order:
++                    accepted=chosen[d].safe and free>=131072
++                    trace.append(dict(device=d,isolated_safe=chosen[d].safe,available_bytes=free,accepted=accepted))
++                    if accepted:
++                        selected.append(d)
++                        free-=131072
++            for d,p in proposals.items():
++                action_id = "H_FULL" if d in selected else "H_NONE"
++                chosen[d], = [Candidate.from_dict(c) for c in p["candidates"] if c["action_id"]==action_id]
++                demands[d] = p["queue_bytes"] + chosen[d].payload_bytes
++            requested = sum(p["queue_bytes"] + 131072 for p in proposals.values())
++            self.log.write({"record_type":"stage_decision", "window_index":window_index,
++                            "core_decision_ns":decision_ns, "core_clock_id":clock_epoch(), "calibration_sha256":digest,
++                            "snapshot":{d:{"ready":p["stage"],"received_ns":p["stage_received_ns"]}
++                                        for d,p in proposals.items()}, "partial":partial,
++                            "priority":order,"cap":shared_cap_bytes,"decisions":trace})
+         grants = self._allocate_shared_cap(demands, shared_cap_bytes)
+@@ -448,2 +503,9 @@
+     async def submit(self, proposal: dict[str, Any]) -> dict[str, Any]:
++        if self.stage_enabled:
++            proposal["stage_received_ns"] = monotonic_ns()
++            if not proposal.get("drain_window"):
++                device, epoch = proposal["device_id"], proposal["stage"]["origin_clock_id"]
++                if not isinstance(epoch, str) or not epoch or self.stage_clock_ids.get(device, epoch)!=epoch:
++                    raise ValueError("probe clock epoch changed during stage arm")
++                self.stage_clock_ids[device] = epoch
+         window = int(proposal["window_index"])
+--- a/netshield/probe.py
++++ b/netshield/probe.py
+@@ -468,2 +468,13 @@
+         }
++        if campaign_id.startswith("TON_EXT_STAGE_") and not proposal.get("drain_window"):
++            from .stage_admission import clock_epoch
++            stamp = monotonic_ns()
++            deadline = int(config.deadline_ms * 1_000_000)
++            proposal["stage"] = {
++                "key": event_key_str, "slack_ns": deadline - (stamp-created_probe_monotonic_ns),
++                "sample_probe_ns": stamp, "origin_clock_id": clock_epoch(), "fifo": [
++                    {"key": item.event_key, "remaining": item.remaining_bytes,
++                     "slack_ns": item.contract.deadline_ns - (stamp-item.contract.created_probe_monotonic_ns)}
++                    for item in evidence_queue],
++            }
+         await send_frame(writer, proposal)

@@ -1,0 +1,156 @@
+{
+  "status": "OFFLINE_PREPARATION_VALIDATED",
+  "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
+  "new_fixture_tests": 95,
+  "sources_unchanged_during_verification": true,
+  "synthetic_model_fit_and_inference_test_passed": true,
+  "research_models_executed": false,
+  "source_sha256": {
+    "scripts/verify_experiment_extension.py": "4a3e18c3785c85864315b751423b66fe13b5911d57bfe75aee2cc258ff8178eb",
+    "supporting_material/experiment_extension/SOURCE_ROW_TRACE.json": "f544ffd6782f538020820ef2f9e1b9c668c9fdddb040a58b8c816518c93623a0",
+    "supporting_material/experiment_extension/audit_retained_diagnostic.py": "7c0326cee6ab34a532d0c864fa875b6697bd4ce4f25311cd0c8b4cafdb31ff34",
+    "supporting_material/experiment_extension/check_model_interface.py": "c564ecfcdc54fba6166541d4c87e991a47af9ed0ed13eb74695fa63b643ef50b",
+    "supporting_material/experiment_extension/check_split_overlap.py": "27231498d5f5df8cb7c53ba705029e8ade11b3282fe760f1dae414de3c907676",
+    "supporting_material/experiment_extension/content_diagnostic.py": "5324454a9411c9109cfcf4cf9e140a784bd22e7debe2905c048252ef9713c9b9",
+    "supporting_material/experiment_extension/discover_assets.py": "69f8d5a1ffd4df0212e93d786653490f02ebdc820af96213cec92661f8a839d1",
+    "supporting_material/experiment_extension/evidence_value/run_content_study.py": "b1389a4859bfdf2e45e03a9273659b9f238e1740ae008f43ec517d430a1ec7e9",
+    "supporting_material/experiment_extension/evidence_value/score_evidence_value.py": "d56835ac340042d35785036f41cdbfb5ff3aa165e6a22d7fcd82188ea6749084",
+    "supporting_material/experiment_extension/evidence_value/tests/test_content_study.py": "345e82ca343e0ddfb04e90abb0f4ae3d9c7cedfc2dc5515982fcd0f844a2ccf0",
+    "supporting_material/experiment_extension/evidence_value/tests/test_score_evidence_value.py": "a446b35253de43c8188f55885b621755d687e9282f6bc44fab3c61ca9217278f",
+    "supporting_material/experiment_extension/formal_record_reconciliation/reconcile.py": "6b795fd3234b9e31a6ae5cd27ab3309421535b5747ff61276341febbc7bca640",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/INTERFACE_SUMMARY.json": "aaaa836396b170cf739e6443e68144e4f711192ec30c881f0d95429719d7e0e3",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/RECONCILIATION.json": "5d7c75aeb2225058495d5e633ce8ed4a58d6455ca85a68942c8bbe3755aeb3b6",
+    "supporting_material/experiment_extension/formal_record_reconciliation/results/SPLIT_COUNTS.json": "8269763158570bd1b7fce0c871476bddcbd4f5063b6e4cabce99d438bb1e366a",
+    "supporting_material/experiment_extension/formal_record_reconciliation/test_reconcile.py": "4768eb4a8a2535ba341176f20862ad46d16dabb5ad8542d63589a31ef066b1bb",
+    "supporting_material/experiment_extension/freeze_inputs.py": "cdcf0e2ceb63612e92dcb17377bc3df5031900ce18b8761b38d0a7f4ce6c782d",
+    "supporting_material/experiment_extension/hardware/candidate_identity.json": "ebdd8e8eef5b45afab116ae6695e6a367380b6e37ba56f642bd043adc6c58bac",
+    "supporting_material/experiment_extension/hardware/execute_hardware.py": "2968f6d2a392aa66713ad080ceca208ed4ee427e290539aa5523a64273d0e600",
+    "supporting_material/experiment_extension/hardware/formal_freeze_template.json": "4f5bb3899343c2cb53143c4e736d915ae3cc38410adef0887b0c2dbe5025d80b",
+    "supporting_material/experiment_extension/hardware/plan_hardware.py": "c4e17766d83a4b8101d01fb9ff2ab60113307144bb7399651e4c6be7ba5f1b74",
+    "supporting_material/experiment_extension/hardware/prepare_bundles.py": "3359b9eaf9e7be251b860cfe61039de64ee843d1a847b8b2fae78447a40cda3c",
+    "supporting_material/experiment_extension/hardware/protocol.json": "8e6f5726b56b19bc3c21255e32444828cb15f32ed5af2ecff694973500f7bc72",
+    "supporting_material/experiment_extension/hardware/qualification_template.json": "2479fbfa1a221c38bb123eaefa49ae0b57694ce0d08fb30e152c99b22732fd91",
+    "supporting_material/experiment_extension/hardware/raw_ledger_schema.json": "660e20cb0709eafd9d5dc5cd66b7a87ee4c9a01d1a9a1b4cf00d73454c6eefd3",
+    "supporting_material/experiment_extension/hardware/recheck_allocator.py": "3dcdaf5e30e201f397755e06746acb9d13dcd485f7d5a2fed87c8279e9287bd3",
+    "supporting_material/experiment_extension/hardware/reconstruct_attempt.py": "b99c7cd10b53150af759225f78cb5518752ebde90fe146c6c89097d544444af1",
+    "supporting_material/experiment_extension/hardware/sample_size_rule_template.json": "7fb90ea1e59669ec629c584d319476bec46458865c341d889abf369d191917df",
+    "supporting_material/experiment_extension/hardware/summarize_blocks.py": "d841604142f07a6fdc64aefc4117008ee2fd087a372dc26670008b37f4447267",
+    "supporting_material/experiment_extension/hardware/test_extension_transport.py": "080bcdb9e5f4d15938bfdf7b1772e7b1ba7f53881ca65fa6880e74a3da41ffd1",
+    "supporting_material/experiment_extension/hardware/test_plan_hardware.py": "c146400e4476ba7f94ffebac3995aee00a57a982147909ac025ddc51d6a513ed",
+    "supporting_material/experiment_extension/hardware/test_private_transport.py": "32d487f2ff77e0747651af691a2448cd988b7c9a4a76ea60d2faee18031ec0b2",
+    "supporting_material/experiment_extension/hardware/test_stage_runtime_adapter.py": "d0e6fbc2da87bf276a83111820da0a6da91dab5236e1f2e413cb1f4754a15637",
+    "supporting_material/experiment_extension/private_record_qualification/legacy/qualify_private_records_dc5269c.py": "5b193c43e476df783837b51b49d40750222dd8acb3723ada16cd89f8ce81affd",
+    "supporting_material/experiment_extension/private_record_qualification/tests/test_qualify_private_records.py": "cc147ff35b88a9f5e7c8998fb140c7275965cbe89fbda5acdcba25fba8e9b17e",
+    "supporting_material/experiment_extension/qualify_private_records.py": "7b65c5520d3853876764b70d8ffc65b7ce645a58096a54d852753b045b0ecb8d",
+    "supporting_material/experiment_extension/retained_review/allocator_corrected.json": "c60978a071e8ca18e130bfd4dc89d2cf33d24cf15dd799c1964f98326aec5cd1",
+    "supporting_material/experiment_extension/retained_review/allocator_original.json": "b8a9ae64fc5a7b9360d7db41957e024056e65ba385006ec1e7290a2802218337",
+    "supporting_material/experiment_extension/retained_review/diagnostic_review.json": "06973a565ba8dd785d6ba947b233440f247a97ae3f5cedf8ae70620d2e117135",
+    "supporting_material/experiment_extension/retained_review/qualification_summary.json": "f3b7a39ab03dc010509ab79a6d97931554c0f6d5704d9d06a5981a2abcc7baea",
+    "supporting_material/experiment_extension/retained_review/test_verify_export.py": "fdf4c637f1586fc13e27e631e6482d847aa1057661df8f780c699ccaf1f1dd3e",
+    "supporting_material/experiment_extension/retained_review/verify_export.py": "10c147dd688d0acc2e5b3787de4c1897e0326475b5f1caa899a590782b4b09a7",
+    "supporting_material/experiment_extension/review_formal_records.py": "85ae801b44e534659d29f6ac2f9986553625d788265ccffc473fd2d4fecbd7ce",
+    "supporting_material/experiment_extension/source_lineage/prepare_capture_split.py": "7da6191a37a2f665dc4860fa5c4f8ac0a54f99300fa850dce9268516e63b86ec",
+    "supporting_material/experiment_extension/source_lineage/test_prepare_capture_split.py": "ddfb2595a1dfbb2dce5aef3066cac77c13899a6a878036fa36db1aecf001984c",
+    "supporting_material/experiment_extension/stage_adapter/assemble_calibration.py": "1da84bc439b992d779b0b4c65cfa4f5ad03fcbc28b853e0861e81096c265f489",
+    "supporting_material/experiment_extension/stage_adapter/build_profile.py": "2d89d1980404417efae1078e38a6a76173486c516e5f65ea0cfad49683f79197",
+    "supporting_material/experiment_extension/stage_adapter/final_runtime_26.json": "aa8d64e1cac7fc2780ac1e64a581e6aad5b141a426c6f7497ed29d43f00424e6",
+    "supporting_material/experiment_extension/stage_adapter/legacy/stage_admission_72cc05d.py": "c93c6cd4acf145f92a200ad2c267c556ac6cc6b928d487d134b6bb3737459039",
+    "supporting_material/experiment_extension/stage_adapter/legacy/stage_test_72cc05d.json": "50b93125ecf22a9047c01e6fe2fa6458ed879d87990e167bac2a917c8efbc09f",
+    "supporting_material/experiment_extension/stage_adapter/legacy/test_stage_runtime_adapter_72cc05d.py": "fb71e42b6de5388b67a10149f0a8d9417c9d1815d8c809bad0039741083b5804",
+    "supporting_material/experiment_extension/stage_adapter/private_integration.json": "e70eb92917dd1c6c241307e90f2937270e38ec04031c9cfb4b755b0c1623e65c",
+    "supporting_material/experiment_extension/stage_adapter/stage_admission.py": "9eea2ec16819dbcf1195a80347d787ba4b07d5ce280eb01c44e71aea2e656b9f",
+    "supporting_material/experiment_extension/stage_adapter/stage_test.json": "50b93125ecf22a9047c01e6fe2fa6458ed879d87990e167bac2a917c8efbc09f",
+    "supporting_material/experiment_extension/stage_adapter/tests/test_stage_admission.py": "e9467e3618b8805508f5dbdfcc46a8917d380c18a268f651e60a95b6911e66e3",
+    "supporting_material/experiment_extension/test_discover_assets.py": "c30bb2e0713877df1558a46595f2bbb819936a516729fda03a57570a36b73cdb",
+    "supporting_material/experiment_extension/test_freeze_inputs.py": "e41cbe67c9a38483242e8c873b5245f20dba9ece441382a6a33e8bed294d19ac",
+    "supporting_material/experiment_extension/trace_feature_rows.py": "f69cf44a028eaaaf8cc8a890c92e68ee3839307f1f7867df25bb0fc7a9593da6"
+  },
+  "private_validation_receipt_sha256": "9ff74ea2493b77ec9d564216fff6a4d431cb403c47e011007f3bea5e058f2f78",
+  "checks": [
+    {
+      "name": "asset_discovery",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 5
+    },
+    {
+      "name": "input_freezing",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 2
+    },
+    {
+      "name": "evidence_value_scoring",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 24
+    },
+    {
+      "name": "hardware_plan_generation",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 13
+    },
+    {
+      "name": "exported_record_reconciliation_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 7
+    },
+    {
+      "name": "private_record_qualification_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 11
+    },
+    {
+      "name": "retained_review_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 10
+    },
+    {
+      "name": "source_lineage_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 8
+    },
+    {
+      "name": "stage_candidate_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 15
+    },
+    {
+      "name": "public_source_row_trace",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "retained_review_public_summary",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "supplied_record_exports",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "frozen_science_and_prior_reconstruction",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    }
+  ],
+  "repository_verification": {
+    "validate_submission": "PASS: clean naming, 35 cited references, expected files, and claim scan",
+    "verify_campaign_audit": "PASS: manifest, 12 sessions, 216 validators, 12 packages, and privacy scan",
+    "verify_methodology": "PASS: frozen V1.3 hashes (original driver in legacy/), 1343 retained rows, scope guards, and privacy scan",
+    "verify_methodology_revision": "PASS: 120 frozen file hashes, 14 formal blocks, 21 labeled equations, unchanged abstract, 36 reproducible public selector cases, 120 software runs independently reconstructed, 10,620 CRFA service rounds / 9,720 occurrences, and source-matched manuscript/supplement PDFs",
+    "verify_submission": "PASS: V1.3 submission hashes, evidence, provenance, citations, claims, and privacy scan"
+  }
+}

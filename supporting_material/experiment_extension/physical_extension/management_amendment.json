@@ -1,0 +1,13 @@
+{
+  "previous_campaign": "TON_EXT_STAGE_4B8_CAL_20261123_01",
+  "interrupted_attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R05_A001",
+  "reason": "P2 management SSH timeout. Multicast name subsequently resolved to the switch-side address via an unavailable Mac route. Direct Wi-Fi and the enrolled wired jump path both passed pinned identity verification.",
+  "evidence": {
+    "health": "dd65d32d7f7c106ca3cf236b8836808141b2a5d60489f42405506be4532f09dc",
+    "exits": "6b9e35e539859fd474c9773cbd4d150be5ab2aca065626c8864a7263f4935098",
+    "recovery": "af084d23191fd57c250001b13492cade0fbfd153efccc9d0854dc5c5707a5e98",
+    "additional_P2_raw": "fe622e4d2c9f8af115c7061b8d63eec25a0ebdd8b2b25e4fce139380320caeff"
+  },
+  "new_campaign": "TON_EXT_STAGE_4B8_CAL_20261123_02",
+  "scope": "Complete prospective 16-condition cohort; prior partial block archived separately. Common application route, workload, order seed, stage runtime and endpoints retained. No outcome used for recovery."
+}

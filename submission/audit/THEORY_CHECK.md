@@ -1,6 +1,13 @@
 # NetShield Theory/Data Cross-Check
 
-Status: **PASS**
+Status: **Historical numeric cross-check retained; endpoint interpretation corrected.**
+
+The original numerical checks below are not a fresh hardware rerun. See
+[CODE_EVIDENCE_ALIGNMENT.md](CODE_EVIDENCE_ALIGNMENT.md) for the current
+source/metric mapping and [METHODOLOGY_VALIDATION_REPORT.md](METHODOLOGY_VALIDATION_REPORT.md)
+for independently executed revision checks. Archived simulator cap zeros are
+implementation invariants; physical cap findings require service-ledger
+reconstruction.
 
 ## Full-evidence byte frontier
 
@@ -26,17 +33,20 @@ Interpretation: the low/mid gap between summary-preserving C-QPG and CRFA is a m
 
 ## Desynchronization common denominator
 
-Software sensitivity at mid capacity:
+Historical upload-only software sensitivity at mid capacity:
 
-- C-QPG: timely-full/generated = 0.333333; payload = 14.745600 MB.
-- Phase-randomized I-QPG: timely-full/generated = 0.335185; payload = 23.592960 MB; conditional timely = 0.502778.
-- C-QPG application-byte reduction at near-equal software timely-full output: 37.5%.
+- C-QPG: timely-full-upload/generated = 0.333333; payload = 14.745600 MB.
+- Phase-randomized I-QPG: timely-full-upload/generated = 0.335185; payload = 23.592960 MB; conditional timely upload = 0.502778.
+- C-QPG application-byte reduction at near-equal software timely-full-upload output: 37.5%.
 
-The phase-randomized 2/3 request fraction and CRFA 2/3 admitted fraction are analytically related operating fractions but not a direct hardware-versus-hardware method comparison.
+The phase-randomized 2/3 request fraction and CRFA 2/3 admitted fraction are
+analytically related operating fractions. Their timing endpoints differ:
+modeled last-byte completion versus observed hardware core-result return.
+Their reported timing fractions do not estimate a between-method gain.
 
 ## Desynchronization independent-slot benchmark
 
-- Bernoulli `p=2/3` approximation: conditional timely = 5/9 = 0.555556; common timely-full/generated = 10/27 = 0.370370.
+- Bernoulli `p=2/3` approximation: conditional timely upload = 5/9 = 0.555556; common timely-full-upload/generated = 10/27 = 0.370370.
 - Simulated phase-randomized mean: conditional = 0.502778; common = 0.335185.
 - The Bernoulli calculation is an independence approximation, not a proved upper bound.
 

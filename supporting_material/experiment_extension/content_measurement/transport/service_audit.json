@@ -1,0 +1,8 @@
+{
+  "service_rounds": 120,
+  "application_bytes": 10635264,
+  "completed_miniblock_arms": 18,
+  "cap_violations": 0,
+  "unreturned": 0,
+  "evidence_wire_bytes_including_link_retransmissions": "unobserved"
+}

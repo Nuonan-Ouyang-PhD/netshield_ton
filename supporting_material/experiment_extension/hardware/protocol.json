@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "OFFLINE_PREPARATION_NOT_EXECUTED",
+  "devices": ["P1", "P2", "P3"],
+  "full_payload_bytes": 131072,
+  "capacity_bytes_per_round": {"low": 131072, "mid": 262144},
+  "round_ns": 1000000000,
+  "deadline_ns": 1000000000,
+  "warmup_rounds": 5,
+  "measured_rounds": 90,
+  "max_drain_rounds": 200,
+  "anchor_primary": "actual_event_creation_to_result_receipt_on_originating_probe_clock",
+  "anchor_sensitivity": "scheduled_release_to_result_receipt_on_originating_probe_clock",
+  "allocator": {
+    "eligibility": "Only after inspection and regression tests establish that the deployed private allocator contains the affected integer remainder behavior.",
+    "queue_weight": 1,
+    "selector": "synchronized_independent_I_QPG",
+    "primary_capacity": "low",
+    "optional_control_capacity": "mid",
+    "variants": ["deployed_original", "integer_remainder_fix"],
+    "allowed_runtime_difference": "Only the inspected allocator implementation and its version identification; no action-table, launcher, clock, selector, scorer, model, payload or input changes."
+  },
+  "shared_stage": {
+    "design": "controlled_H_FULL_H_NONE_admission_diagnostic",
+    "capacity": "mid",
+    "requested_action": "H_FULL",
+    "unselected_action": "H_NONE",
+    "candidate_probes": ["P1", "P2", "P3"],
+    "backlog_totals_bytes": [0, 131072],
+    "backlog_by_probe_bytes": {
+      "0": {"P1": 0, "P2": 0, "P3": 0},
+      "131072": {"P1": 43691, "P2": 43691, "P3": 43690}
+    },
+    "backlog_injection": "Once, immediately before the first measured candidate batch. Record actual per-probe remaining bytes at the decision instant; never inject hidden replacement backlog each round.",
+    "background_semantics": "Remaining tails of identified preexisting full requests whose core execution waits for complete upload; received prefixes and payload hashes must be retained and verified.",
+    "initial_core_executing_jobs": 0,
+    "initial_core_queued_complete_jobs": 0,
+    "primary_backlog_stratum": "first_measured_generation_batch",
+    "secondary_stratum": "all_measured_generation_batches",
+    "policies": ["isolated_precheck_new_bytes", "backlog_aware_bytes", "causal_shared_stage"],
+    "calibration_capture_batches": [[], ["P1"], ["P2"], ["P3"], ["P1", "P2"], ["P1", "P3"], ["P2", "P3"], ["P1", "P2", "P3"]],
+    "calibration_design_revision": 2,
+    "calibration_request_semantics": "All three probes generate real requests in every condition; stage_capture_devices selects forced H_FULL recipients and every other probe takes its real H_NONE fallback. The empty subset retains three generated events.",
+    "calibration_policy": "instrumented_fixed_full_capture",
+    "controller_status": "PUBLIC_CANDIDATE_AND_PRIVATE_RUNTIME_HOOKS_PRESENT_CURRENT_RUNTIME_QUALIFICATION_AND_DISJOINT_PHYSICAL_CALIBRATION_REQUIRED",
+    "formal_latency_inputs": "Frozen from independent calibration/pilot; no future test completion times or same-model oracle values.",
+    "claim_boundary": "Diagnostic admission mechanisms, not a rerun of summary-preserving S-CQPG; modeled or empirical latency estimates are not hard physical safety bounds."
+  },
+  "ordering": {
+    "design": "even_order_Williams_crossover",
+    "randomized": "condition relabeling and design-row order inside each full cycle",
+    "balance_scope": "position and directed adjacent transitions within an arm-order block, exact only for complete design cycles",
+    "reset_between_conditions": "Drain/verify the previous arm, restart the frozen runtime state, verify fresh timestamps and hashes, and apply only the declared initial state. Retain complete raw records."
+  },
+  "phases": {
+    "calibration": "Distinct physical data used for stage characterization. Shared-stage capture only; no controller-comparison result.",
+    "pilot": "Separate data for instrumentation checks, nuisance variation, feasibility and choosing a fixed formal block count. Freeze decisions before formal outcomes.",
+    "formal": "Predeclared complete blocks, frozen inputs/controller/calibration/analysis. No stopping, exclusion or retry based on favorable timing, detection, significance or cap outcomes."
+  },
+  "execution": {
+    "planner_executes_hardware": false,
+    "private_runtime_present": false,
+    "hardware_results_present": false,
+    "formal_sample_size_default": null,
+    "fresh_campaign_prefixes": ["TON_EXT_ALLOC_", "TON_EXT_STAGE_"],
+    "forbidden_campaign_ids": ["NSF12_20260906_RC1", "NSF12_CRFA_20260913"]
+  }
+}

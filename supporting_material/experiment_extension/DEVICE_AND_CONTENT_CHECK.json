@@ -1,0 +1,71 @@
+{
+  "base_commit": "c9a7bdcd603b84124725480673a61aa30165e227",
+  "date": "2026-11-22T20:52:43+11:00",
+  "field_report": "Operator confirmed P2 and P3 powered and network connected; switch and Wi-Fi reported.",
+  "probe_checks": {
+    "P1": {
+      "commands_success": true,
+      "identity": true,
+      "ntp": false,
+      "temperature": true,
+      "power": true,
+      "memory": true,
+      "disk": true,
+      "wifi": false,
+      "route": false,
+      "governors": true,
+      "idle": true,
+      "no_symlink_parent": true,
+      "fresh_target": true
+    },
+    "P2": {
+      "commands_success": true,
+      "identity": true,
+      "ntp": false,
+      "temperature": true,
+      "power": true,
+      "memory": true,
+      "disk": true,
+      "wifi": false,
+      "route": false,
+      "governors": true,
+      "idle": true,
+      "no_symlink_parent": true,
+      "fresh_target": true
+    }
+  },
+  "access": {
+    "P1": "registered host",
+    "P2": "pinned SSH via P1 on the switch; hardware identity verified",
+    "P3": "registered SSH address timed out; multicast name unresolved; router returned NXDOMAIN for historical local DNS name"
+  },
+  "wireless": "Both verified probes reported radio disabled. Unprivileged radio-on requests were denied; non-interactive sudo required a password. Both lacked a default route.",
+  "private_probe_receipts_sha256": {
+    "connections.json": "f77ccb5617ce30f00abded26691f822755970fff50444300abbe4f01e3f6d6d0",
+    "p1_jump.json": "813431f7d496bf5456c68e0a89e723c03be9da48fb8ff1f4e140b31f3282a6b4",
+    "p1_diagnostic.txt": "558026bbea5bab8e83acaf9887b51fdc4ba663b79800558a993a6fd1835a59f1",
+    "p2_network.json": "5c6e5fa5fe2dbf5366c1c052f0d7941bfe8c83da1a67d184863b68a540b44997",
+    "p3_dns.txt": "e68a1195ae37124e4f0150e77a5ee8dc178c9212443c226c292af515a4f24f11",
+    "P1_rc1_preflight.json": "240dec8e4fff478dfb684ec96ca66d70acccdd470ce5e2f5c2d89861ed9e694c",
+    "P1_wifi_action.json": "eb098ebea8dc1f5c57dccabacc67e3fb95d986af15d401f41808df8476653b69",
+    "P2_rc1_preflight.json": "fe2688cfd8e0659b67134ba50b82e6a0ab2e25ea108d8d5b345b95d8384407b6",
+    "P2_wifi_action.json": "eb098ebea8dc1f5c57dccabacc67e3fb95d986af15d401f41808df8476653b69"
+  },
+  "software_check": {
+    "data_origin": "SYNTHETIC_FIXTURE",
+    "generated_test_occurrences": 8,
+    "test_captures": 2,
+    "model_calls": 24,
+    "representation_bytes": {
+      "alert": 1,
+      "summary": 33,
+      "full": 313
+    },
+    "fit_and_protocol_identity_sha256": "99a7bedef76a24957ba720a5df3ca83209bc19d730977f9c2f407f829e3e4ca8",
+    "score_sha256": "4c65835be0f8509149c6ab6eaf9ac7fecdae0f379c200754615dd5560adc635f",
+    "private_artifact_inventory_sha256": "19736dddf094d0668031e244a08e0e6a821864478e325cb47bdc75b0b926b388"
+  },
+  "new_physical_arms": 0,
+  "physical_calibration_conditions_measured": 0,
+  "qualified_independent_content_runs": 0
+}

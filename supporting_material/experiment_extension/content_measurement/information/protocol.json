@@ -1,0 +1,93 @@
+{
+  "analysis": {
+    "bootstrap": {
+      "confidence": 0.95,
+      "samples": 2000,
+      "seed": 20261122
+    },
+    "comparisons": [
+      [
+        "full",
+        "alert"
+      ],
+      [
+        "full",
+        "summary"
+      ]
+    ],
+    "primary_comparison": [
+      "full",
+      "alert"
+    ],
+    "primary_metric": "correct_per_generated",
+    "weighting": "equal_group"
+  },
+  "artifacts": {
+    "encoders": {
+      "alert": {
+        "id": "alert-f7a5b28fb6ff160821d4db670f1c9abea99b3967a910d010b65cc1dd0963319f",
+        "path": "alert.json",
+        "sha256": "f7a5b28fb6ff160821d4db670f1c9abea99b3967a910d010b65cc1dd0963319f"
+      },
+      "full": {
+        "id": "full-70d4be1d154835a3612ee28972148e6ab7b7a2b141f3b9ebe190290e6355a20d",
+        "path": "full.json",
+        "sha256": "70d4be1d154835a3612ee28972148e6ab7b7a2b141f3b9ebe190290e6355a20d"
+      },
+      "summary": {
+        "id": "summary-a62323f6bfe2fbb80d257688d4a60c3f4041fd2181dba9a6242368bf6af1c63b",
+        "path": "summary.json",
+        "sha256": "a62323f6bfe2fbb80d257688d4a60c3f4041fd2181dba9a6242368bf6af1c63b"
+      }
+    },
+    "model": {
+      "id": "consumer-534faeaea448532d14dd96e840ea2ba6ca52f4bb479088c778dc2512d74695b1",
+      "path": "consumer.json",
+      "sha256": "534faeaea448532d14dd96e840ea2ba6ca52f4bb479088c778dc2512d74695b1"
+    },
+    "threshold": {
+      "id": "threshold-5f72e3a838d7d0b6cdf1386168ecc5c11a2f54c39a3000468d5c2b0a46163d85",
+      "path": "threshold.json",
+      "sha256": "5f72e3a838d7d0b6cdf1386168ecc5c11a2f54c39a3000468d5c2b0a46163d85"
+    }
+  },
+  "data_origin": "actual_runtime",
+  "dataset": {
+    "corpus_sha256": "c69e2b84bf819739e44a796c0cc225d10feab92f99a5f29c4aaae06374fba621",
+    "groups_sha256": "2dc8b9849d4f0390c4e121d0870bba77b5bc58596bf84e637a7e3e4148e1e966",
+    "id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+    "occurrences_sha256": "608f062f64786b980c4f0b526e2ce144027307d7ad49fe4ba2ad35235d5f65ce",
+    "population": "all_generated_held_out_occurrences",
+    "version": "c8fcc34558bec98e03df4f65e6087097e46b3648fb048eec4ff38535ffdd15c3"
+  },
+  "decision_rule": {
+    "kind": "positive_score_greater_than_or_equal",
+    "negative_label": "benign",
+    "positive_label": "attack",
+    "threshold": 0.75
+  },
+  "group_definition": "Each named isolated-device power-on or single short-window attack-scenario capture on the source testbed. All windows of a capture stay together.",
+  "independence_unit": "capture",
+  "label_mapping": {
+    "0": "benign",
+    "1": "attack"
+  },
+  "labels": [
+    "benign",
+    "attack"
+  ],
+  "near_duplicate_audit": {
+    "artifact": {
+      "id": "overlap",
+      "path": "overlap.json",
+      "sha256": "5bd6fb3c229de88a3b2306c75e44d596fdf4a5c1e9796174cff447d701653593"
+    },
+    "method": "Three significant decimal digits, all ordered features",
+    "status": "completed",
+    "threshold": 3
+  },
+  "phase": "information_only",
+  "schema_version": "netshield.evidence_value.v1",
+  "study_id": "TON_CONTENT_IOMT_POWER_SHORT_WINDOW_20261123_01",
+  "transport": null
+}

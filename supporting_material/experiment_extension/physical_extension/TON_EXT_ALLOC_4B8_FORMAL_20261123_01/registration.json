@@ -1,0 +1,50 @@
+{
+  "campaign": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01",
+  "study": "allocator",
+  "phase": "formal",
+  "engineering_qualification": false,
+  "frozen_blocks": 4,
+  "order_seed": 2026112302,
+  "time_anchor": {
+    "primary": "actual_event_creation_to_result_receipt_on_originating_probe_clock",
+    "sensitivity": "scheduled_release_to_result_receipt_on_originating_probe_clock"
+  },
+  "balance": {
+    "blocks": 4,
+    "complete_design_cycles": 2,
+    "conditions_per_block": 2,
+    "directed_transition_maximum": 2,
+    "directed_transition_minimum": 2,
+    "exact_position_and_transition_balance": true,
+    "maximum_within_condition_position_count_spread": 0,
+    "partial_cycle_blocks": 0,
+    "position_counts": {
+      "low_deployed_original": [
+        2,
+        2
+      ],
+      "low_integer_remainder_fix": [
+        2,
+        2
+      ]
+    },
+    "scope": "Within-block positions/adjacent condition transitions only. Between-block transitions are excluded; runtime resets still required. Scheduling seeds are not scientific replicates.",
+    "within_block_directed_transition_counts": [
+      {
+        "count": 2,
+        "from": "low_deployed_original",
+        "to": "low_integer_remainder_fix"
+      },
+      {
+        "count": 2,
+        "from": "low_integer_remainder_fix",
+        "to": "low_deployed_original"
+      }
+    ]
+  },
+  "derived_launcher_sha256": "39ff3b448d6f49296bd778c765434e60c1b133d2a27d2978f70e6f83c1e30edd",
+  "normalizer_sha256": "b97fc1d6f4c7ee133586ff22cb1f837b93878abd5a432af6ceeaae4b32e74191",
+  "scope_sha256": "5539f8b6db24ae70d5f044914155efcc99bf589cf70eeb02afd7759df344003f",
+  "input_freeze_sha256": "e9f38100e123ee8d06f6d5db756c8493b4e2712343eeacc0c5bf0054a87d189a",
+  "same_disk_copy": true
+}

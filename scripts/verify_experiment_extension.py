@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+"""Verify preparation, supplied audit exports, and retained scientific artifacts.
+
+The content-runner tests fit and call models on synthetic fixtures. All new test data are temporary synthetic fixtures.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+EXTENSION = ROOT / "supporting_material/experiment_extension"
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def source_identities() -> dict:
+    paths = sorted(EXTENSION.rglob("*.py")) + [Path(__file__)]
+    for directory in (EXTENSION / "hardware", EXTENSION / "evidence_value", EXTENSION / "formal_record_reconciliation", EXTENSION / "retained_review", EXTENSION / "stage_adapter", EXTENSION / "source_lineage"):
+        paths.extend(sorted(directory.rglob("*.json")))
+    paths.append(EXTENSION / "SOURCE_ROW_TRACE.json")
+    return {path.relative_to(ROOT).as_posix(): digest(path) for path in paths}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, help="Fresh JSON report path; existing reports are never overwritten")
+    args = parser.parse_args()
+    if args.output and args.output.exists():
+        parser.error("Output exists; use a fresh report path")
+    before = source_identities()
+    commands = [
+        ("asset_discovery", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION), "-p", "test_discover_assets.py", "-v"]),
+        ("input_freezing", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION), "-p", "test_freeze_inputs.py", "-v"]),
+        ("evidence_value_scoring", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "evidence_value/tests"), "-p", "test_*.py", "-v"]),
+        ("hardware_plan_generation", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "hardware"), "-p", "test_*.py", "-v"]),
+        ("exported_record_reconciliation_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "formal_record_reconciliation"), "-p", "test_*.py", "-v"]),
+        ("private_record_qualification_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "private_record_qualification/tests"), "-p", "test_*.py", "-v"]),
+        ("retained_review_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "retained_review"), "-p", "test_*.py", "-v"]),
+        ("source_lineage_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "source_lineage"), "-p", "test_*.py", "-v"]),
+        ("stage_candidate_tests", [sys.executable, "-m", "unittest", "discover", "-s", str(EXTENSION / "stage_adapter/tests"), "-p", "test_*.py", "-v"]),
+        ("public_source_row_trace", [sys.executable, str(EXTENSION / "source_lineage/prepare_capture_split.py"), "verify-public"]),
+        ("retained_review_public_summary", [sys.executable, str(EXTENSION / "retained_review/verify_export.py")]),
+        ("supplied_record_exports", [sys.executable, str(EXTENSION / "formal_record_reconciliation/reconcile.py"), "verify-public"]),
+        ("frozen_science_and_prior_reconstruction", [sys.executable, "scripts/verify_methodology_revision.py"]),
+    ]
+    checks = []
+    for name, command in commands:
+        start = time.monotonic()
+        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+        matches = re.findall(r"Ran (\d+) tests?", result.stderr)
+        tests = sum(int(value) for value in matches)
+        passed = result.returncode == 0 and (tests > 0 or name in {"frozen_science_and_prior_reconstruction", "supplied_record_exports", "retained_review_public_summary", "public_source_row_trace"})
+        checks.append({
+            "name": name,
+            "status": "PASS" if passed else "FAIL",
+            "command": ["python3" if item == sys.executable else item.replace(str(ROOT) + "/", "") for item in command],
+            "return_code": result.returncode,
+            "tests_run": tests,
+            "tool_elapsed_seconds": round(time.monotonic() - start, 3),
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+        })
+        print(f"{name}: {'PASS' if passed else 'FAIL'} ({tests} fixture tests)")
+    after = source_identities()
+    stable = before == after
+    passed = stable and all(check["status"] == "PASS" for check in checks)
+    report = {
+        "schema_version": 1,
+        "status": "OFFLINE_PREPARATION_VALIDATED" if passed else "OFFLINE_PREPARATION_FAILED",
+        "validation_scope": "PREPARATION_AND_EXPORTED_RECORD_RECONCILIATION",
+        "new_scientific_experiments_executed": False,
+        "physical_devices_used": False,
+        "synthetic_model_fit_and_inference_test_passed": next(c["status"] == "PASS" for c in checks if c["name"] == "evidence_value_scoring"),
+        "research_models_executed": False,
+        "new_fixture_tests": sum(check["tests_run"] for check in checks),
+        "sources_unchanged_during_verification": stable,
+        "source_sha256": before,
+        "checks": checks,
+        "interpretation": "This verifies preparation/reconciliation, lineage-input and stage-candidate tools on synthetic fixtures, checks supplied path-free audit exports and the public source-row trace counts, and preserves prior scientific evidence. It does not reopen private logs or the 5,141,673 source rows, reexecute the private stage runtime, rescore the 896-row diagnostic, run models on research data or use hardware, or establish detection gain or physical safety.",
+    }
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open("x", encoding="utf-8") as handle:
+            json.dump(report, handle, indent=2, sort_keys=True)
+            handle.write("\n")
+    print(json.dumps({key: value for key, value in report.items() if key not in {"checks", "source_sha256"}}, indent=2))
+    return 0 if passed else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

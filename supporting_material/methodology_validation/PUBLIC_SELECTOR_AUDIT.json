@@ -1,0 +1,112 @@
+{
+  "all_configs_have_one_archived_simulation_outcome": true,
+  "all_configs_have_one_archived_trajectory": true,
+  "archived_rows": 432,
+  "compared_fields": [
+    "action_counts",
+    "core_required_fraction",
+    "payload_bytes",
+    "queue_trajectory_bytes",
+    "max_queue_bytes"
+  ],
+  "corrected_allocation_policy": "work-conserving integer max-min with round-rotating residual priority",
+  "corrected_cases_with_changed_action_counts": 5,
+  "corrected_cases_with_changed_trajectory": 24,
+  "corrected_seed_independence_cases": 36,
+  "evidence_type": "public_parameter_reconstruction_and_frozen_table_audit",
+  "hardware_rerun": false,
+  "inputs_sha256": {
+    "archived_csv": "688461ca48a940a4e1371e037c66c3b739d79c521e36b374f50450ec06abefcf",
+    "audit_script": "c89e997c6bed5a7f86b66445fb1942cd01765112cefd51403d8d6a855b1a22e6",
+    "corrected_source": "46d97be69e276f2c4e04e589d02267b29ff1f7b7dc9519bc7dec12dc6c471e0d",
+    "legacy_source": "6dc4608ba00ae27f9f13334371309eb49c945049b458d3cb922e1443e84fea3c",
+    "primitives": "e4471550f8e8f630af01258a5f45e73ed58c03481aeeb75614585130ce6c6b98"
+  },
+  "latency_scope": "round-end upload proxy; no compute, Wi-Fi, core execution or result return",
+  "legacy_reconstruction_matches_selected_frozen_fields_cases": 36,
+  "parameter_configurations": 36,
+  "private_workload_or_action_table_loaded": false,
+  "public_actions": [
+    {
+      "detector": "light",
+      "evidence": "none",
+      "execution": "local",
+      "id": "L_NONE",
+      "payload": 0,
+      "utility": 0.758501
+    },
+    {
+      "detector": "light",
+      "evidence": "alert",
+      "execution": "local",
+      "id": "L_ALERT",
+      "payload": 256,
+      "utility": 0.825168
+    },
+    {
+      "detector": "light",
+      "evidence": "summary",
+      "execution": "local",
+      "id": "L_SUMMARY",
+      "payload": 4096,
+      "utility": 0.891835
+    },
+    {
+      "detector": "medium",
+      "evidence": "none",
+      "execution": "local",
+      "id": "M_NONE",
+      "payload": 0,
+      "utility": 0.766968
+    },
+    {
+      "detector": "medium",
+      "evidence": "alert",
+      "execution": "local",
+      "id": "M_ALERT",
+      "payload": 256,
+      "utility": 0.833635
+    },
+    {
+      "detector": "medium",
+      "evidence": "summary",
+      "execution": "local",
+      "id": "M_SUMMARY",
+      "payload": 8192,
+      "utility": 0.900302
+    },
+    {
+      "detector": "heavy",
+      "evidence": "none",
+      "execution": "local",
+      "id": "H_NONE",
+      "payload": 0,
+      "utility": 0.768378
+    },
+    {
+      "detector": "heavy",
+      "evidence": "alert",
+      "execution": "local",
+      "id": "H_ALERT",
+      "payload": 256,
+      "utility": 0.835044
+    },
+    {
+      "detector": "heavy",
+      "evidence": "summary",
+      "execution": "local",
+      "id": "H_SUMMARY",
+      "payload": 16384,
+      "utility": 0.901711
+    },
+    {
+      "detector": "heavy",
+      "evidence": "full",
+      "execution": "core",
+      "id": "H_FULL",
+      "payload": 131072,
+      "utility": 0.968378
+    }
+  ],
+  "utilities_precision": "six decimals as published; not the private full-precision action file"
+}

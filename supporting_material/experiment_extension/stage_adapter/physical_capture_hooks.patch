@@ -1,0 +1,359 @@
+--- a/netshield/config.py
++++ b/netshield/config.py
+@@ -29,6 +29,9 @@
+     # Offline repair: finite drain windows after generation stops
+     # (contract §2; default 0 keeps the historical no-drain behavior).
+     drain_windows: int = 0
++    stage_initial_backlog_bytes: int | None = None
++    stage_profile: dict[str, str] | None = None
++    stage_capture_devices: tuple[str, ...] = ()
+ 
+ 
+ def load_json(path: Path) -> dict[str, Any]:
+--- a/netshield/core.py
++++ b/netshield/core.py
+@@ -73,7 +73,8 @@
+ from typing import Any
+ 
+ from .actions import Candidate, degrade, select_local
+-from .common import JsonlWriter, atomic_json, monotonic_ns, run_id, sha256_file, software_manifest, utc_now
++from .stage_admission import load_profile, select as select_stage, validate_snapshot, clock_epoch
++from .common import JsonlWriter, atomic_json, monotonic_ns, run_id, sha256_file, software_manifest, utc_now, package_tree_sha256
+ from .config import ExperimentConfig, load_experiment
+ from .detectors import DetectorPool
+ from .evidence import extract_features, compute_application_wire_bytes, compute_application_payload_sha256, compute_features_sha256
+@@ -86,6 +87,8 @@
+ 
+ 
+ METHODS = {"fixed_local", "fixed_summary", "fixed_full", "independent_dpp", "central_dpp", "shielded_dpp"}
++STAGE_METHODS = {"instrumented_fixed_full_capture","isolated_precheck_new_bytes","backlog_aware_bytes","causal_shared_stage"}
++METHODS.update(STAGE_METHODS)
+ 
+ ARM_LABELS = {
+     "fixed_local": "A",
+@@ -113,6 +116,24 @@
+         service_budget_bps: int | None = None,
+     ):
+         self.config = config
++        self.stage_profile = None
++        self.stage_clock_ids = {}
++        self.stage_enabled = config.method in STAGE_METHODS
++        self.initial_backlog = config.stage_initial_backlog_bytes
++        self.inference_active = False
++        self.controller_sha = sha256_file(Path(__file__).with_name("stage_admission.py")) if self.stage_enabled else None
++        if self.initial_backlog is not None and (
++            not self.stage_enabled or type(self.initial_backlog) is not int
++            or self.initial_backlog not in (0, 131072) or config.warmup_windows != 5
++        ):
++            raise ValueError("invalid initial shared-stage state")
++        if self.stage_enabled != config.experiment_id.startswith("TON_EXT_STAGE_"):
++            raise ValueError("dedicated stage campaign and method required")
++        if self.stage_enabled and (config.deadline_ms!=1000 or config.window_seconds!=1
++                or set(config.expected_devices)!={"P1","P2","P3"}):
++            raise ValueError("wrong stage configuration")
++        if config.method=="causal_shared_stage":
++            self.stage_profile = load_profile(config_path, config.experiment_id, package_tree_sha256())
+         self.output = output
+         self.session_id = session_id
+         self.capacity_level = capacity_level
+@@ -309,6 +330,8 @@
+                 # Generation has stopped: choose a zero-payload carrier
+                 # action only. Existing queue demand is still jointly served.
+                 chosen[device] = self._fixed(candidates, "none")
++            elif self.stage_enabled:
++                chosen[device], = [c for c in candidates if c.action_id=="H_FULL"]
+             elif method == "fixed_local":
+                 chosen[device] = self._fixed(candidates, "none")
+             elif method == "fixed_summary":
+@@ -399,7 +422,82 @@
+             + (0 if proposals[device].get("drain_window") else chosen[device].payload_bytes)
+             for device in chosen
+         }
++        if self.stage_enabled and not all(p.get("drain_window") for p in proposals.values()):
++            if any(p.get("drain_window") for p in proposals.values()):
++                raise ValueError("inconsistent stage window")
++            order = self._rotated_priority(self._tiebreak_base_order(list(proposals)), window_index)
++            partial = {k:v["received"] for k,v in self.segment_buffers.items()}
++            decision_ns = monotonic_ns()
++            if shared_cap_bytes!=262144 or any(c.payload_bytes!=131072 for c in chosen.values()):
++                raise ValueError("unexpected shared-stage bytes")
++            validate_snapshot(proposals, order, shared_cap_bytes, decision_ns, partial)
++            digest = None
++            if self.initial_backlog is not None and window_index < self.config.warmup_windows:
++                if partial or any(p["queue_bytes"] for p in proposals.values()):
++                    raise ValueError("unexpected queued work during preparation")
++                create_background = self.initial_backlog and window_index == self.config.warmup_windows - 1
++                selected = list(order) if create_background else []
++                trace = [dict(device=d, accepted=d in selected, preparation=True) for d in order]
++            elif self.stage_profile:
++                profile,digest=self.stage_profile
++                selected,trace=select_stage(proposals, order, shared_cap_bytes, decision_ns, profile, partial)
++            elif self.config.method=="instrumented_fixed_full_capture":
++                selected=list(self.config.stage_capture_devices)
++                if len(set(selected))!=len(selected) or len(selected)>3 or not set(selected)<=set(order):
++                    raise ValueError("unknown capture batch")
++                trace=[dict(device=d,accepted=d in selected) for d in order]
++            else:
++                free=shared_cap_bytes
++                if self.config.method=="backlog_aware_bytes":
++                    free-=sum(p["queue_bytes"] for p in proposals.values())
++                selected=[]
++                trace=[]
++                for d in order:
++                    accepted=chosen[d].safe and free>=131072
++                    trace.append(dict(device=d,isolated_safe=chosen[d].safe,available_bytes=free,accepted=accepted))
++                    if accepted:
++                        selected.append(d)
++                        free-=131072
++            for d,p in proposals.items():
++                action_id = "H_FULL" if d in selected else "H_NONE"
++                chosen[d], = [Candidate.from_dict(c) for c in p["candidates"] if c["action_id"]==action_id]
++                demands[d] = p["queue_bytes"] + chosen[d].payload_bytes
++            requested = sum(p["queue_bytes"] + 131072 for p in proposals.values())
++            if self.initial_backlog is not None and window_index == self.config.warmup_windows:
++                tails = {"P1":43691, "P2":43691, "P3":43690}
++                for device, proposal in proposals.items():
++                    tail = tails[device] if self.initial_backlog else 0
++                    fifo = proposal["stage"]["fifo"]
++                    if proposal["queue_bytes"] != tail or len(fifo) != int(tail > 0):
++                        raise ValueError("first measured batch has incorrect FIFO state")
++                    if tail:
++                        job, = fifo
++                        key = job["key"]
++                        contract = self.event_contracts[key]
++                        buf = self.segment_buffers[key]
++                        prefix = 131072 - tail
++                        if (contract.device_id != device or contract.origin_window_index != window_index-1
++                            or contract.payload_sha256 != job["payload_sha256"]
++                            or buf["coverage"] != bytes([1])*prefix + bytes(tail)
++                            or hashlib.sha256(buf["data"][:prefix]).hexdigest() != job["prefix_sha256"]):
++                            raise ValueError("initial FIFO prefix/contract mismatch")
++                queued_complete = sum(b["total_bytes"] == b["received"] for b in self.segment_buffers.values())
++                if queued_complete or self.inference_active:
++                    raise ValueError("Core is not idle at initial barrier")
++                self.log.write(dict(record_type="stage_initial_state", window_index=window_index,
++                    partial_bytes=partial, core_clock_id=clock_epoch(),
++                    queued_complete_jobs=queued_complete, executing_jobs=int(self.inference_active)))
++            self.log.write({"record_type":"stage_decision", "window_index":window_index,
++                            "core_decision_ns":decision_ns, "core_clock_id":clock_epoch(), "calibration_sha256":digest,
++                            "snapshot":{d:{"ready":p["stage"],"received_ns":p["stage_received_ns"]}
++                                        for d,p in proposals.items()}, "partial":partial,
++                            "priority":order,"cap":shared_cap_bytes,"decisions":trace,
++                            "executing_jobs":int(self.inference_active),
++                            "queued_complete_jobs":sum(b["received"] == b.get("total_bytes") for b in self.segment_buffers.values()),
++                            "controller_source_sha256":self.controller_sha})
+         grants = self._allocate_shared_cap(demands, shared_cap_bytes)
++        if self.initial_backlog and window_index == self.config.warmup_windows - 1:
++            grants = {"P1": 87381, "P2": 87381, "P3": 87382}
+         aggregate_admitted = sum(grants.values())
+         invalid_grants = {
+             device: grant for device, grant in grants.items()
+@@ -446,6 +544,13 @@
+         return decisions
+ 
+     async def submit(self, proposal: dict[str, Any]) -> dict[str, Any]:
++        if self.stage_enabled:
++            proposal["stage_received_ns"] = monotonic_ns()
++            if not proposal.get("drain_window"):
++                device, epoch = proposal["device_id"], proposal["stage"]["origin_clock_id"]
++                if not isinstance(epoch, str) or not epoch or self.stage_clock_ids.get(device, epoch)!=epoch:
++                    raise ValueError("probe clock epoch changed during stage arm")
++                self.stage_clock_ids[device] = epoch
+         window = int(proposal["window_index"])
+         device = proposal["device_id"]
+         loop = asyncio.get_running_loop()
+@@ -487,6 +592,9 @@
+ 
+                 decision = await self.submit(message)
+                 await send_frame(writer, {"type": "decision", **decision})
++                if self.config.experiment_id.startswith(("TON_EXT_ALLOC_", "TON_EXT_STAGE_")):
++                    self.log.write(dict(record_type="decision_dispatched", device_id=message["device_id"],
++                        window_index=message["window_index"], core_ns=monotonic_ns(), core_clock_id=clock_epoch()))
+ 
+                 # v0.4.7-rc2: Read binary evidence possibly containing
+                 # multiple per-event segments.  Segments carry
+@@ -520,6 +628,10 @@
+                 )
+                 await send_frame(writer, receipt_ack)
+                 await send_frame(writer, evidence_ack)
++                if self.config.experiment_id.startswith(("TON_EXT_ALLOC_", "TON_EXT_STAGE_")):
++                    self.log.write(dict(record_type="results_dispatched", device_id=device_id,
++                        window_index=message["window_index"], core_ns=monotonic_ns(), core_clock_id=clock_epoch(),
++                        keys=[r["event_key"] for r in evidence_ack["completed_results"]]))
+         except asyncio.IncompleteReadError:
+             pass
+         finally:
+@@ -747,7 +859,13 @@
+             receipt_segments.append(seg_receipt)
+             if seg_receipt["complete"]:
+                 self.finalized_keys.add(event_key_str)
+-                record = self._finalize_event(event_key_str, buf, action, message)
++                ready_ns = monotonic_ns()
++                self.inference_active = True
++                try:
++                    record = self._finalize_event(event_key_str, buf, action, message)
++                finally:
++                    self.inference_active = False
++                record["payload_ready_core_ns"] = ready_ns
+                 self.finalized_payload_sha[event_key_str] = record.get("application_payload_sha256")
+                 self.finalized_results[event_key_str] = dict(record)
+                 completed_events.append(record)
+--- a/netshield/probe.py
++++ b/netshield/probe.py
+@@ -329,6 +329,9 @@
+     # v0.4.7: service_budget_bps from config
+     service_budget_bps = config.app_capacity_bps
+     campaign_id = config.experiment_id
++    from .stage_admission import clock_epoch
++    extension_capture = campaign_id.startswith(("TON_EXT_STAGE_", "TON_EXT_ALLOC_"))
++    probe_epoch = clock_epoch() if extension_capture else None
+     probe_run_id = args.run_id or run_id(f"probe_{device_id}")
+ 
+     # v0.4.7: Hashes for traceability
+@@ -466,13 +469,29 @@
+             "queue_bytes": queue_bytes, "observed_goodput_bps": service_budget_bps,
+             "telemetry": telemetry, "candidates": candidates,
+         }
++        if campaign_id.startswith("TON_EXT_STAGE_") and not proposal.get("drain_window"):
++            from .stage_admission import clock_epoch
++            stamp = monotonic_ns()
++            deadline = int(config.deadline_ms * 1_000_000)
++            proposal["stage"] = {
++                "key": event_key_str, "slack_ns": deadline - (stamp-created_probe_monotonic_ns),
++                "sample_probe_ns": stamp, "origin_clock_id": clock_epoch(), "fifo": [
++                    {"key": item.event_key, "remaining": item.remaining_bytes,
++                     "slack_ns": item.contract.deadline_ns - (stamp-item.contract.created_probe_monotonic_ns)}
++                    for item in evidence_queue],
++            }
++            if window_index == config.warmup_windows:
++                for job, item in zip(proposal["stage"]["fifo"], evidence_queue):
++                    job["payload_sha256"] = item.contract.payload_sha256
++                    job["prefix_sha256"] = hashlib.sha256(item.bundle[:item.sent_bytes]).hexdigest()
+         await send_frame(writer, proposal)
+ 
+         decision_start = monotonic_ns()
+         decision = await read_frame(reader)
+         if decision.get("type") != "decision":
+             raise ValueError("Expected decision")
+-        decision_latency_ms = (monotonic_ns() - decision_start) / 1_000_000.0
++        received_decision_ns = monotonic_ns()
++        decision_latency_ms = (received_decision_ns - decision_start) / 1_000_000.0
+ 
+         action = decision["action"]
+         # v0.4.7: Always compute local score (even for fixed_local)
+@@ -482,6 +501,7 @@
+         )
+         local_inference_ms = (monotonic_ns() - local_inference_start) / 1_000_000.0
+         local_prediction = int(selected_score >= 0.5)
++        local_completed_ns = monotonic_ns()
+ 
+         payload_bytes = int(action["payload_bytes"])
+         grant_bytes = int(decision["grant_bytes"])
+@@ -530,7 +550,14 @@
+             enqueue_feature_bytes = 0
+             enqueue_context_bytes = 0
+             enqueue_padding_bytes = 0
+-        serialization_ms = (monotonic_ns() - serialization_start) / 1_000_000.0
++        serialization_end = monotonic_ns()
++        serialization_ms = (serialization_end - serialization_start) / 1_000_000.0
++        if extension_capture:
++            log.write(dict(record_type="probe_stage", window_index=window_index, event_key=event_key_str,
++                action_id=action["action_id"], origin_clock_id=probe_epoch,
++                sample_ns=proposal.get("stage", {}).get("sample_probe_ns"), decision_received_ns=received_decision_ns,
++                local_start_ns=local_inference_start, local_end_ns=local_completed_ns,
++                encode_start_ns=serialization_start, encode_end_ns=serialization_end))
+ 
+         # v0.4.7: FIFO queue logic with EvidenceItem
+         # New evidence enters the queue (with its pre-built bundle)
+@@ -742,7 +769,9 @@
+             wire_info = compute_application_wire_bytes(header, application_payload)
+             protocol_header_bytes = wire_info["protocol_header_bytes"]
+             application_wire_bytes = wire_info["application_wire_bytes"]
++            send_ns = monotonic_ns()
+             await send_binary_evidence(writer, header, application_payload)
++            sent_ns = monotonic_ns()
+         else:
+             # Nothing to send this window: metadata-only frame
+             header = {
+@@ -761,7 +790,9 @@
+                 "model": action["detector"],
+                 "segments": [],
+             }
++            send_ns = monotonic_ns()
+             await send_binary_evidence(writer, header, b"")
++            sent_ns = monotonic_ns()
+ 
+         # Count bytes only after the production send path has accepted the
+         # frame. Payload and protocol framing remain separate in the ledger.
+@@ -795,6 +826,7 @@
+         # v0.4.7-rc2: Receive two-step ACK from core
+         # Step 1: receipt_ack (Mac confirms the frame bytes it received)
+         receipt_ack = await read_frame(reader)
++        receipt_ns = monotonic_ns()
+         if receipt_ack.get("type") != "receipt_ack":
+             raise ValueError(f"Expected receipt_ack, got {receipt_ack.get('type')}")
+         server_wait_for_payload_ms = receipt_ack.get("server_wait_for_payload_ms")
+@@ -820,6 +852,11 @@
+ 
+         # Step 2: evidence_ack (Mac inference result)
+         ack = await read_frame(reader)
++        result_frame_ns = monotonic_ns()
++        if extension_capture:
++            log.write(dict(record_type="transport_frame", window_index=window_index,
++                device_id=device_id, origin_clock_id=probe_epoch, result_ns=result_frame_ns,
++                receipt_ns=receipt_ns, send_ns=send_ns, sent_ns=sent_ns, sent_segments=segments, receipt_ack=receipt_ack, result_ack=ack))
+         if ack.get("type") != "evidence_ack":
+             raise ValueError(f"Expected evidence_ack, got {ack.get('type')}")
+         decision_latency_ms = (monotonic_ns() - upload_start) / 1_000_000.0
+@@ -830,7 +867,7 @@
+         core_inference_ms = ack.get("core_inference_ms")
+         ack_completed_ids = list(ack.get("completed_event_ids") or [])
+ 
+-        ack_now_ns = monotonic_ns()
++        ack_now_ns = result_frame_ns
+         result_rejections.extend(apply_result_ack(
+             ledger=ledger, ack=ack, window_index=window_index, now_ns=ack_now_ns
+         ))
+@@ -1045,7 +1082,9 @@
+             "segments": segments,
+             "offline_fixture": bool(config.synthetic),
+         }
++        send_ns = monotonic_ns()
+         await send_binary_evidence(writer, header, application_payload)
++        sent_ns = monotonic_ns()
+         wire_info = compute_application_wire_bytes(header, application_payload)
+         for idx, seg in enumerate(segments):
+             if seg.get("event_key"):
+@@ -1054,6 +1093,7 @@
+                     protocol_bytes=wire_info["protocol_header_bytes"] if idx == 0 else 0,
+                 )
+         receipt_ack = await read_frame(reader)
++        receipt_ns = monotonic_ns()
+         if receipt_ack.get("type") != "receipt_ack":
+             raise ValueError("Expected receipt_ack during drain")
+         if application_payload and receipt_ack.get("application_payload_sha256") != compute_application_payload_sha256(application_payload):
+@@ -1064,10 +1104,15 @@
+             window_index=window_index, now_ns=monotonic_ns(),
+         )
+         ack = await read_frame(reader)
++        result_frame_ns = monotonic_ns()
++        if extension_capture:
++            log.write(dict(record_type="transport_frame", window_index=window_index,
++                device_id=device_id, origin_clock_id=probe_epoch, result_ns=result_frame_ns,
++                receipt_ns=receipt_ns, send_ns=send_ns, sent_ns=sent_ns, sent_segments=segments, receipt_ack=receipt_ack, result_ack=ack))
+         if ack.get("type") != "evidence_ack":
+             raise ValueError("Expected evidence_ack during drain")
+         drain_rejections.extend(apply_result_ack(
+-            ledger=ledger, ack=ack, window_index=window_index, now_ns=monotonic_ns()
++            ledger=ledger, ack=ack, window_index=window_index, now_ns=result_frame_ns
+         ))
+         log.write({
+             "record_type": "probe_drain_window",
+@@ -1108,6 +1153,7 @@
+         "status": "complete",
+         "valid": True,
+         "observation_end_monotonic_ns": observation_end_ns,
++        "origin_clock_id": probe_epoch,
+         "events_generated": len(ledger.entries),
+         "queued_remaining_bytes": sum(x["queued"] for x in payload_state.values()),
+         "inflight_payload_bytes": sum(x["inflight"] for x in payload_state.values()),

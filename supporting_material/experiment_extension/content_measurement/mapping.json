@@ -1,0 +1,84 @@
+{
+  "schema_version": "netshield.source_capture_mapping.v1",
+  "data_origin": "actual_provenance",
+  "group_definition": "Each named isolated-device power-on or single short-window attack-scenario capture on the source testbed. All windows of a capture stay together.",
+  "evidence": [
+    {
+      "id": "parent_evidence",
+      "path": "parent_evidence.json",
+      "sha256": "2afdc2330c243a3becc5cdb96898c47d44b2a0f830def9b044faf600eba8b7f8"
+    }
+  ],
+  "sources": [
+    {
+      "original_csv_sha256": "ab56ef98e52504aef8821ba97967550a73301ba2de1fe2751e0f63b01daa9a23",
+      "parent_capture_id": "Blink_Mini_Camera_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "1fd52d937330dfecb101ba88ab51888843fd042f3e8a4a1315a1c4c67cec7bd4",
+      "parent_capture_id": "SenseUBaby_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "b87b28f6d092b64ccb81fb3db1856672e7b8e763d516429f095e109ac162f460",
+      "parent_capture_id": "Ecobee_Camera_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "f1194bbcad8a792474701fa868e004aad442ce5cb98f0eb11d661b881c9bbfea",
+      "parent_capture_id": "Multifunctional_Pager_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "6b02993b2b46cef3e32cef7700d1d9e9743e5c4c06021cc141dce1f94afd2933",
+      "parent_capture_id": "Singcall_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "6ff5ecb7b9944aa0247682f33011a321f5ac30278f0cb37802fc102d1e163aa2",
+      "parent_capture_id": "Owltron_Camera_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "e1aa84e3a88f34b46c1ff5a93e14db6465eb35fe83219c22efb7bc842ff83515",
+      "parent_capture_id": "M1T_Camera_Power",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "f0d68653cfe5873f280a0cd84323145d6112861819204b22e3d1e690d02df6ad",
+      "parent_capture_id": "ARP_Spoofing",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "7dc0785d3e69d4e1a083582dad0efc4c94c35bbc75e56ec0ddb9bd2f6a34e872",
+      "parent_capture_id": "Recon-Port_Scan",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    },
+    {
+      "original_csv_sha256": "292efe2f8b07203c53c65f7d5c5af05bcc4429cd06701a9a4fc4fc65ecf8e402",
+      "parent_capture_id": "MQTT-Malformed_Data",
+      "evidence_ids": [
+        "parent_evidence"
+      ]
+    }
+  ]
+}

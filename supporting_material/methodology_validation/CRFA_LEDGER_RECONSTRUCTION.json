@@ -1,0 +1,43 @@
+{
+  "crfa": {
+    "cap_violations_reconstructed": 0,
+    "capacity_counts": {
+      "high": {
+        "generated": 3240,
+        "nominal_timely_full": 1079,
+        "post_release_timely_full": 3130,
+        "recorded_prediction_matches_label": 3240,
+        "returned_full": 3240,
+        "selected_full": 3240
+      },
+      "low": {
+        "generated": 3240,
+        "nominal_timely_full": 360,
+        "post_release_timely_full": 990,
+        "recorded_prediction_matches_label": 1080,
+        "returned_full": 1080,
+        "selected_full": 1080
+      },
+      "mid": {
+        "generated": 3240,
+        "nominal_timely_full": 720,
+        "post_release_timely_full": 2050,
+        "recorded_prediction_matches_label": 2160,
+        "returned_full": 2160,
+        "selected_full": 2160
+      }
+    },
+    "hardware_rerun": false,
+    "inputs_sha256": {
+      "CRFA_OCCURRENCE_LEDGER.csv": "f0a1ede42fb75767e5642508f1fd00848fc56d9e7f2ef857706a7f26974aaf1f",
+      "CRFA_SERVICE_AUDIT.csv": "a7d1d42105e1dbe855fa1339939c2bf8e3e0ceeb330a7bf8428930401b9e55ef"
+    },
+    "interpretation": "Record consistency and application grant cap; not a physical-link/NIC measurement or an independent IDS-content comparison.",
+    "occurrences_reconstructed": 9720,
+    "private_raw_archive_reopened": false,
+    "scope": "public CRFA exported per-probe service and occurrence ledgers",
+    "service_rounds_reconstructed": 10620,
+    "service_runs": 36,
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "cross_split_rows": {
+    "exact": 0,
+    "rounded": 0
+  },
+  "method": "SHA-256 of 39 ordered big-endian binary64 values, signed zero normalized. Near candidates use Python .3g decimal rounding per raw coordinate before packing. All rows and splits searched. Rounding-boundary neighbours can be missed. A cross-split signature blocks fitting; no rows are dropped.",
+  "tables": {
+    "exact": "99e241b4a4da5b461c2e665086eb00faa6dec2dfa4d4dc51c3f923d018e45e77",
+    "rounded": "99e241b4a4da5b461c2e665086eb00faa6dec2dfa4d4dc51c3f923d018e45e77"
+  }
+}

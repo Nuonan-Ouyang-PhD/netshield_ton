@@ -1,0 +1,172 @@
+{
+  "design": "c663e3c4fb3cb6b46d55f873e4f00b23753b5e78a8e7dc04e7f3864022d14c1d",
+  "features": [
+    "Header_Length",
+    "Protocol Type",
+    "Time_To_Live",
+    "Rate",
+    "fin_flag_number",
+    "syn_flag_number",
+    "rst_flag_number",
+    "psh_flag_number",
+    "ack_flag_number",
+    "ece_flag_number",
+    "cwr_flag_number",
+    "ack_count",
+    "syn_count",
+    "fin_count",
+    "rst_count",
+    "HTTP",
+    "HTTPS",
+    "DNS",
+    "Telnet",
+    "SMTP",
+    "SSH",
+    "IRC",
+    "TCP",
+    "UDP",
+    "DHCP",
+    "ARP",
+    "ICMP",
+    "IGMP",
+    "IPv",
+    "LLC",
+    "Tot sum",
+    "Min",
+    "Max",
+    "AVG",
+    "Std",
+    "Tot size",
+    "IAT",
+    "Number",
+    "Variance"
+  ],
+  "register": [
+    {
+      "parent": "Blink_Mini_Camera_Power",
+      "split": "train",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/Blink_Mini_Camera_Power.pcap.csv",
+      "sha256": "ab56ef98e52504aef8821ba97967550a73301ba2de1fe2751e0f63b01daa9a23",
+      "rows": 57,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "SenseUBaby_Power",
+      "split": "train",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/SenseUBaby_Power.pcap.csv",
+      "sha256": "1fd52d937330dfecb101ba88ab51888843fd042f3e8a4a1315a1c4c67cec7bd4",
+      "rows": 33,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "Ecobee_Camera_Power",
+      "split": "train",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/Ecobee_Camera_Power.pcap.csv",
+      "sha256": "b87b28f6d092b64ccb81fb3db1856672e7b8e763d516429f095e109ac162f460",
+      "rows": 256,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "Multifunctional_Pager_Power",
+      "split": "validation",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/Multifunctional_Pager_Power.pcap.csv",
+      "sha256": "f1194bbcad8a792474701fa868e004aad442ce5cb98f0eb11d661b881c9bbfea",
+      "rows": 72,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "Singcall_Power",
+      "split": "validation",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/Singcall_Power.pcap.csv",
+      "sha256": "6b02993b2b46cef3e32cef7700d1d9e9743e5c4c06021cc141dce1f94afd2933",
+      "rows": 51,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "Owltron_Camera_Power",
+      "split": "test",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/Owltron_Camera_Power.pcap.csv",
+      "sha256": "6ff5ecb7b9944aa0247682f33011a321f5ac30278f0cb37802fc102d1e163aa2",
+      "rows": 121,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "M1T_Camera_Power",
+      "split": "test",
+      "archive": "profilling.zip",
+      "member": "profilling_CSV/M1T_Camera_Power.pcap.csv",
+      "sha256": "e1aa84e3a88f34b46c1ff5a93e14db6465eb35fe83219c22efb7bc842ff83515",
+      "rows": 41,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "ARP_Spoofing",
+      "split": "train",
+      "archive": "attacks.zip",
+      "member": "csv/train/ARP_Spoofing_train.pcap.csv",
+      "sha256": "f0d68653cfe5873f280a0cd84323145d6112861819204b22e3d1e690d02df6ad",
+      "rows": 16047,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "Recon-Port_Scan",
+      "split": "validation",
+      "archive": "attacks.zip",
+      "member": "csv/train/Recon-Port_Scan_train.pcap.csv",
+      "sha256": "7dc0785d3e69d4e1a083582dad0efc4c94c35bbc75e56ec0ddb9bd2f6a34e872",
+      "rows": 83981,
+      "nonfinite": 0,
+      "selected": 24
+    },
+    {
+      "parent": "MQTT-Malformed_Data",
+      "split": "test",
+      "archive": "attacks.zip",
+      "member": "csv/train/MQTT-Malformed_Data_train.pcap.csv",
+      "sha256": "292efe2f8b07203c53c65f7d5c5af05bcc4429cd06701a9a4fc4fc65ecf8e402",
+      "rows": 5130,
+      "nonfinite": 0,
+      "selected": 24
+    }
+  ],
+  "overlap": {
+    "all_rows": {
+      "exact": {
+        "signatures": 0,
+        "rows": 0,
+        "compared_rows": 105789
+      },
+      "rounded": {
+        "signatures": 0,
+        "rows": 0,
+        "compared_rows": 105789
+      }
+    },
+    "frozen_sample": {
+      "exact": {
+        "signatures": 0,
+        "rows": 0,
+        "compared_rows": 240
+      },
+      "rounded": {
+        "signatures": 0,
+        "rows": 0,
+        "compared_rows": 240
+      }
+    }
+  }
+}

@@ -1,0 +1,1910 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_02",
+  "role_map": {
+    "P1": "pi5",
+    "P2": "pi4b",
+    "P3": "pi4b8g"
+  },
+  "contrast": "corrected minus deployed original",
+  "arms": [
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01",
+      "condition": "B0_P1_P2_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 178,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6592592592592592,
+              0.6592592592592592
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02",
+      "condition": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03",
+      "condition": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 3,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 270,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 135
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04",
+      "condition": "B0_P2_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 2,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 180,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "nominal": {
+            "timely": 180,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05",
+      "condition": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 1
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06",
+      "condition": "B131072_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 89,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3296296296296296,
+              0.3296296296296296
+            ]
+          },
+          "nominal": {
+            "timely": 88,
+            "censored": 0,
+            "coverage_bounds": [
+              0.32592592592592595,
+              0.32592592592592595
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07",
+      "condition": "B131072_P1_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 86,
+            "censored": 0,
+            "coverage_bounds": [
+              0.31851851851851853,
+              0.31851851851851853
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08",
+      "condition": "B131072_NONE_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09",
+      "condition": "B0_P1_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 178,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6592592592592592,
+              0.6592592592592592
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10",
+      "condition": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 1
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11",
+      "condition": "B0_NONE_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12",
+      "condition": "B0_P1_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 85,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3148148148148148,
+              0.3148148148148148
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13",
+      "condition": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 3,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 270,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 135
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14",
+      "condition": "B0_P3_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15",
+      "condition": "B0_P2_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16",
+      "condition": "B131072_P2_instrumented_fixed_full_capture",
+      "attempts": [
+        "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 1,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    }
+  ],
+  "paired_blocks": [
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.01851851851851849,
+          0.01851851851851849
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.3259259259259259,
+          -0.3259259259259259
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.3259259259259259,
+          -0.3259259259259259
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P3_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.01851851851851849,
+          0.01851851851851849
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.3259259259259259,
+          -0.3259259259259259
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.3259259259259259,
+          -0.3259259259259259
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          0.3518518518518518,
+          0.3518518518518518
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.007407407407407418,
+          0.007407407407407418
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.007407407407407418,
+          0.007407407407407418
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "all_measured_generation_batches": [
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_instrumented_fixed_full_capture",
+      "right": "B0_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.3444444444444444,
+          -0.3444444444444444
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.3444444444444444,
+          -0.3444444444444444
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.3148148148148148,
+          0.3148148148148148
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.3148148148148148,
+          0.3148148148148148
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P3_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6592592592592592,
+          0.6592592592592592
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P3_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6592592592592592,
+          0.6592592592592592
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_instrumented_fixed_full_capture",
+      "right": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6592592592592592,
+          0.6592592592592592
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.6592592592592592,
+          0.6592592592592592
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "0",
+      "left": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "right": "B0_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          -0.003703703703703709,
+          -0.003703703703703709
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3296296296296296,
+          0.3296296296296296
+        ]
+      },
+      "unused_serviceable_difference_bytes": -1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.011111111111111072,
+          0.011111111111111072
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3296296296296296,
+          0.3296296296296296
+        ]
+      },
+      "unused_serviceable_difference_bytes": -1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3296296296296296,
+          0.3296296296296296
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3296296296296296,
+          0.3296296296296296
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P3_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3296296296296296,
+          0.3296296296296296
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": -1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.01481481481481478,
+          0.01481481481481478
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": -1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          -0.3333333333333333,
+          -0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          -0.31851851851851853,
+          -0.31851851851851853
+        ]
+      },
+      "unused_serviceable_difference_bytes": 1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -134
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.31851851851851853,
+          0.31851851851851853
+        ]
+      },
+      "unused_serviceable_difference_bytes": -1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.31851851851851853,
+          0.31851851851851853
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.31851851851851853,
+          0.31851851851851853
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "all_measured_generation_batches": [
+          0.31851851851851853,
+          0.31851851851851853
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -134
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P3_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 1
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "right": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -135
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 0
+    },
+    {
+      "block": 1,
+      "capacity": "mid",
+      "backlog": "131072",
+      "left": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+      "right": "B131072_NONE_instrumented_fixed_full_capture",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": 135
+    }
+  ],
+  "interval_scope": "Within-block censoring bounds. Sampling uncertainty requires the formal freeze."
+}

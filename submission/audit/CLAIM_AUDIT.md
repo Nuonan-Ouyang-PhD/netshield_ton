@@ -1,5 +1,14 @@
 # Claim audit — editorial revision, 15 September 2026
 
+**Historical editorial record.** The statements and `build/` paths below
+refer to that earlier integrated package, not to the current clean repository
+layout. The current methodological correction is recorded in
+[CODE_EVIDENCE_ALIGNMENT.md](CODE_EVIDENCE_ALIGNMENT.md) and
+[METHODOLOGY_VALIDATION_REPORT.md](METHODOLOGY_VALIDATION_REPORT.md), including
+the corrected upload-only simulation endpoint and deterministic replicate
+count. The original results are retained; this record is not a new validation
+claim.
+
 This revision changes presentation and literature positioning, not the experimental
 record. `build/baseline_invariants.json` records hashes from the supplied INTEGRATED
 source. `build/validate_revision.py` checks them against the revised source.

@@ -3,6 +3,13 @@
 These are self-contained derivations added during manuscript editing, not measured findings.
 Existing empirical NUMBER_PROVENANCE.csv is intentionally unchanged.
 
+This is the historical analytical-additions record. For current code/evidence
+corrections, see [CODE_EVIDENCE_ALIGNMENT.md](CODE_EVIDENCE_ALIGNMENT.md) and
+[METHODOLOGY_VALIDATION_REPORT.md](METHODOLOGY_VALIDATION_REPORT.md).
+Byte-service completion in the archived software is upload completion, not
+detector/core/result-return completion. Quantile examples remain analytical
+planning examples and do not establish detection value or a physical deadline.
+
 | Quantity | Value / relationship | Derivation / location |
 |---|---|---|
 | Mid residual per probe | 131072/3 B = 128/3 KiB; 43,691 B / 42.7 KiB rounded | Main III-F; Supplement III |
@@ -19,6 +26,10 @@ Existing empirical NUMBER_PROVENANCE.csv is intentionally unchanged.
 | Continuous slope | -(1-sigma)/sigma; magnitude 7 at sigma=1/8 | Only on a nondegenerate feasible active-line segment |
 | Discrete slack Pareto example | (m,k)=(3,0), C=B, S=B/8 | Universal coverage cannot be maintained after a full upgrade |
 
-Implementation: build/check_analytical_extensions.py. Exact small-case enumeration and arithmetic regression:
-13 groups, 6555 cases. The large-n bound checks are finite regressions, not a numerical proof of the limit.
+Historical implementation in the supplied integrated package:
+`build/check_analytical_extensions.py` (not included at that path in the clean
+repository). The archived execution reported 13 groups and 6555 cases of
+small-case enumeration and arithmetic regression. This historical statement
+does not claim the script was rerun by the present correction. The large-n
+bound checks are finite regressions, not a numerical proof of the limit.
 No empirical schedule, CSV, denominator, confidence interval or controller policy was changed by these calculations.
