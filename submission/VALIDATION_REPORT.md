@@ -3,8 +3,7 @@
 The current source, software audit, and PDF checks are reported in
 [METHODOLOGY_VALIDATION_REPORT.md](audit/METHODOLOGY_VALIDATION_REPORT.md),
 [FORMAL_RECORD_INTEGRATION.md](audit/FORMAL_RECORD_INTEGRATION.md), and
-[PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14
-and 33 pages. The report below describes the earlier 15 September delivery;
+[PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14 and 35 pages. The report below describes the earlier 15 September delivery;
 its old `build/` paths are not commands for this repository and its pass
 counts must not be reported as newly executed checks.
 

@@ -1,0 +1,1520 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_01",
+  "study": "shared_stage",
+  "phase": "calibration",
+  "engineering_qualification": false,
+  "frozen_blocks": 1,
+  "order_seed": 2026112303,
+  "time_anchor": {
+    "primary": "actual_event_creation_to_result_receipt_on_originating_probe_clock",
+    "sensitivity": "scheduled_release_to_result_receipt_on_originating_probe_clock"
+  },
+  "balance": {
+    "blocks": 1,
+    "complete_design_cycles": 0,
+    "conditions_per_block": 16,
+    "directed_transition_maximum": 1,
+    "directed_transition_minimum": 0,
+    "exact_position_and_transition_balance": false,
+    "maximum_within_condition_position_count_spread": 1,
+    "partial_cycle_blocks": 1,
+    "position_counts": {
+      "B0_NONE_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P1_P2_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P1_P2_instrumented_fixed_full_capture": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P1_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P1_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P2_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B0_P2_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "B0_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "B131072_NONE_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B131072_P1_P2_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "B131072_P1_P2_instrumented_fixed_full_capture": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B131072_P1_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B131072_P1_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B131072_P2_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "B131072_P2_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "B131072_P3_instrumented_fixed_full_capture": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "scope": "Within-block positions/adjacent condition transitions only. Between-block transitions are excluded; runtime resets still required. Scheduling seeds are not scientific replicates.",
+    "within_block_directed_transition_counts": [
+      {
+        "count": 1,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_NONE_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B0_P1_P2_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_NONE_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P2_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P1_P3_instrumented_fixed_full_capture"
+      },
+      {
+        "count": 0,
+        "from": "B131072_P1_P2_P3_instrumented_fixed_full_capture",
+        "to": "B131072_P2_P3_instrumented_fixed_full_capture"
+      }
+    ]
+  },
+  "derived_launcher_sha256": "00449485431597476d2556b72a3d7dfb290c6bba479e40463a260274bafd393d",
+  "normalizer_sha256": "b97fc1d6f4c7ee133586ff22cb1f837b93878abd5a432af6ceeaae4b32e74191",
+  "scope_sha256": "051d1fb89ed451368d6b503bb378a0eca4e5f4e82922f96bbb61d5afbff20429",
+  "input_freeze_sha256": "f57fb13afce6ad268b4f0e57b1ac58a45fb399c7451c23976088a2d0126643ad",
+  "same_disk_copy": true
+}

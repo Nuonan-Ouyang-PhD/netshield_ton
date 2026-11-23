@@ -1,0 +1,138 @@
+{
+  "campaign_reaggregation": {
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01": {
+      "public_analysis_sha256": "805d067060e7b267ebc9029a660f59264749d8e5c7f4e49a1cdb94388482b340",
+      "attempts": 8,
+      "complete_arms": 8
+    },
+    "TON_EXT_ALLOC_4B8_PILOT_20261122_01": {
+      "public_analysis_sha256": "d4d04d6db623faae9fe8214c5788f65a16534bcb3df161a135824dad1abfa853",
+      "attempts": 2,
+      "complete_arms": 2
+    },
+    "TON_EXT_STAGE_4B8_CAL_20261123_01": {
+      "public_analysis_sha256": "fa02d379d00fdcc38b9a0c07882e30a127822717393b0ca5f72272b186ec71d2",
+      "attempts": 5,
+      "complete_arms": 4
+    },
+    "TON_EXT_STAGE_4B8_CAL_20261123_02": {
+      "public_analysis_sha256": "f8811df3a0f54a820076bc01d33cbe4336c5466a1714de97c3276914a5c1f14d",
+      "attempts": 16,
+      "complete_arms": 16
+    },
+    "TON_EXT_STAGE_4B8_FORMAL_20261123_01": {
+      "public_analysis_sha256": "e6b8b6cfd868866bdf6f0e06d7c26bbc6a5b4b1439a20e2d5a1e7edf33607a24",
+      "attempts": 36,
+      "complete_arms": 36
+    },
+    "TON_EXT_STAGE_4B8_PILOT_20261123_01": {
+      "public_analysis_sha256": "c02fbc0ac07327e4bac92479d02572977c2d65ae7a9cde68f7616379f9d06380",
+      "attempts": 6,
+      "complete_arms": 6
+    },
+    "TON_EXT_STAGE_4B8_QUAL_20261123_01": {
+      "public_analysis_sha256": "d83d99dc5ce39fca479180f9bef63c015ceba987b7a502f90eb693c752c639a9",
+      "attempts": 2,
+      "complete_arms": 2
+    }
+  },
+  "profile_sha256": "64fbab962ba3bba9dd6a18dfe33d3c9376bd3363f4059941e87ea02afd0922ec",
+  "verified_empirical_envelopes": 16,
+  "acquisition_sources_verified": true,
+  "fixture_tests": 95,
+  "offline_checks": [
+    {
+      "name": "asset_discovery",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 5
+    },
+    {
+      "name": "input_freezing",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 2
+    },
+    {
+      "name": "evidence_value_scoring",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 24
+    },
+    {
+      "name": "hardware_plan_generation",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 13
+    },
+    {
+      "name": "exported_record_reconciliation_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 7
+    },
+    {
+      "name": "private_record_qualification_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 11
+    },
+    {
+      "name": "retained_review_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 10
+    },
+    {
+      "name": "source_lineage_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 8
+    },
+    {
+      "name": "stage_candidate_tests",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 15
+    },
+    {
+      "name": "public_source_row_trace",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "retained_review_public_summary",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "supplied_record_exports",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    },
+    {
+      "name": "frozen_science_and_prior_reconstruction",
+      "status": "PASS",
+      "return_code": 0,
+      "tests_run": 0
+    }
+  ],
+  "pdfs": {
+    "netshield_manuscript": {
+      "pages": 14,
+      "pdf_sha256": "e6ff0d9618f5dba5801418d09ee19850c733dc7283324aef33ef607a1f58a2ee",
+      "overfull_boxes": 0,
+      "unresolved_references_or_citations": 0
+    },
+    "netshield_supplementary": {
+      "pages": 35,
+      "pdf_sha256": "f97266e3a79a0681ab39c05b4fafdcbb2495f291e84cfac3def50cc2ffdf4e9e",
+      "overfull_boxes": 0,
+      "unresolved_references_or_citations": 0
+    }
+  },
+  "layout_review": "All 49 pages rendered. Manuscript pp. 7, 13, 14 and supplement p. 35 inspected at enlarged scale."
+}

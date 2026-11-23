@@ -1,0 +1,649 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_FORMAL_20261123_01",
+  "action_periods": {},
+  "paired_percentile_intervals": {
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_causal_shared_stage": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.5555555555555555
+      ],
+      "all_measured_generation_batches": [
+        0.6382716049382716,
+        0.65
+      ]
+    },
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.00864197530864195,
+        0.00864197530864197
+      ]
+    },
+    "B0_P1_P2_P3_causal_shared_stage minus B0_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        -0.5555555555555555,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6524691358024691,
+        -0.6382716049382716
+      ]
+    },
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_causal_shared_stage": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.6259259259259259,
+        0.6481481481481481
+      ]
+    },
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.6259259259259259,
+        0.6481481481481481
+      ]
+    },
+    "B131072_P1_P2_P3_causal_shared_stage minus B131072_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "planned": 36,
+  "attempts": 36,
+  "complete_arms": 36,
+  "by_contrast": {
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_causal_shared_stage": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            0.6333333333333333,
+            0.6333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6481481481481481,
+            0.6481481481481481
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            0.6555555555555556,
+            0.6555555555555556
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6481481481481481,
+            0.6481481481481481
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6370370370370371,
+            0.6370370370370371
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6444444444444445,
+            0.6444444444444445
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_isolated_precheck_new_bytes": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.007407407407407418,
+            -0.007407407407407418
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.007407407407407418,
+            0.007407407407407418
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.01851851851851849,
+            0.01851851851851849
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.007407407407407418,
+            -0.007407407407407418
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            -0.014814814814814725,
+            -0.014814814814814725
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B0_P1_P2_P3_causal_shared_stage minus B0_P1_P2_P3_isolated_precheck_new_bytes": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            -0.6407407407407407,
+            -0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6407407407407407,
+            -0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ],
+          "all_measured_generation_batches": [
+            -0.6370370370370371,
+            -0.6370370370370371
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6555555555555556,
+            -0.6555555555555556
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6370370370370371,
+            -0.6370370370370371
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6592592592592592,
+            -0.6592592592592592
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_causal_shared_stage": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6555555555555556,
+            0.6555555555555556
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6407407407407407,
+            0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6407407407407407,
+            0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6481481481481481,
+            0.6481481481481481
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6333333333333333,
+            0.6333333333333333
+          ]
+        },
+        "unused_difference_bytes": 0
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6111111111111112,
+            0.6111111111111112
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ],
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_isolated_precheck_new_bytes": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6555555555555556,
+            0.6555555555555556
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6407407407407407,
+            0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6407407407407407,
+            0.6407407407407407
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6481481481481481,
+            0.6481481481481481
+          ]
+        },
+        "unused_difference_bytes": -82
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6333333333333333,
+            0.6333333333333333
+          ]
+        },
+        "unused_difference_bytes": -82
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            0.6111111111111112,
+            0.6111111111111112
+          ]
+        },
+        "unused_difference_bytes": -83
+      }
+    ],
+    "B131072_P1_P2_P3_causal_shared_stage minus B131072_P1_P2_P3_isolated_precheck_new_bytes": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -83
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -82
+      },
+      {
+        "block": 5,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -82
+      },
+      {
+        "block": 6,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -83
+      }
+    ]
+  },
+  "mean_within_block_bounds": {
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_causal_shared_stage": {
+      "first_measured_generation_batch": [
+        0.4444444444444444,
+        0.4444444444444444
+      ],
+      "all_measured_generation_batches": [
+        0.6444444444444445,
+        0.6444444444444445
+      ]
+    },
+    "B0_P1_P2_P3_backlog_aware_bytes minus B0_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        -0.0006172839506172756,
+        -0.0006172839506172756
+      ]
+    },
+    "B0_P1_P2_P3_causal_shared_stage minus B0_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        -0.4444444444444444,
+        -0.4444444444444444
+      ],
+      "all_measured_generation_batches": [
+        -0.6450617283950617,
+        -0.6450617283950617
+      ]
+    },
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_causal_shared_stage": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.6382716049382716,
+        0.6382716049382716
+      ]
+    },
+    "B131072_P1_P2_P3_backlog_aware_bytes minus B131072_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        0.6382716049382716,
+        0.6382716049382716
+      ]
+    },
+    "B131072_P1_P2_P3_causal_shared_stage minus B131072_P1_P2_P3_isolated_precheck_new_bytes": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

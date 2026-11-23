@@ -1,0 +1,19 @@
+{
+  "authority": "f9ce9bf9b25d40cdb93e07fff4f187ed992f030d section 0.1",
+  "utc": "2026-11-22T21:16:05.521840+00:00",
+  "archive_sha256": "14c424825efd7cc5711e7bf86c20fee2df2dc9dea4b42402e0807b74128db05a",
+  "previous_catalog_sha256": "82fff1abc9e22468ab1b45fed01d59ce9a20e5ab690eb6b289e4e7d47d293f35",
+  "previous_protocol_sha256": "1dc9f4b52d38cb0fe0e68a9785a1c433d3ed0b4e5da05fe72c41cafa66487d53",
+  "attempts_before_amendment": 0,
+  "copy_type": "same physical research disk",
+  "primary_reserve_gib": 200,
+  "copy_reserve_gib": 20,
+  "readback": "SHA-256 for every file",
+  "current_input_freeze": "dc06792efacaf0683f5aa808762e089f31a26638959f83033020696fb83d1513",
+  "current_protocol_sha256": "23ed08bdf45728cd85b64be34d550caf333fff03b2bfe0641794f04202665e48",
+  "catalog_sha256": "335afa30d8dd66de2bd87607c99ff7e33970b9bc5de341688dd67a58c3a18d17",
+  "same_device_verified": true,
+  "readback_bytes": 1048576,
+  "receipt_sha256": "a0b1dbb9a83525ee4f528122f2183164e5f63771452d1bc659d1c1c4d08a5f8a",
+  "reused_device_variant_receipts": 6
+}

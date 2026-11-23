@@ -5,8 +5,8 @@
   "shell_escape_enabled": false,
   "documents": {
     "netshield_manuscript": {
-      "source_sha256": "845c8a43c0606290e2e78b530263834ae879c4a44d3a99272f6e6ee7ba2d0ade",
-      "pdf_sha256": "f57a1b80f0eef4e402af5cc47eef0e96fa5007d8fcda673405f401df40d6015c",
+      "source_sha256": "30bb2bd60858083077c5658a7d78767b63e47e17421e9336df393c2e73189a7b",
+      "pdf_sha256": "e6ff0d9618f5dba5801418d09ee19850c733dc7283324aef33ef607a1f58a2ee",
       "pages": 14,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
@@ -25,7 +25,7 @@
         "figures/fig5_crfa_frontier_attainment.pdf": "ca6620949f6b628f1c9e50c2549d02ebee7c616521bdad2791d84e19939e4d22",
         "figures/fig6_timing_anchors_revised.pdf": "a541f623d88d9512a6e782914c0d56fcab264a9671868ebaf1d477c295fa742e",
         "figures/fig7_scaling_conformance.pdf": "65c474af491e17ff260e7291f6a34fe57f9513ccb294fb3b0426c72fb3402cf8",
-        "netshield_manuscript.tex": "845c8a43c0606290e2e78b530263834ae879c4a44d3a99272f6e6ee7ba2d0ade",
+        "netshield_manuscript.tex": "30bb2bd60858083077c5658a7d78767b63e47e17421e9336df393c2e73189a7b",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",
         "tables/full_evidence_frontier.tex": "2f8442b5b645297d28320dd3d9ca8eab7b89b58432fe97895bbf54cb06e79a60",
@@ -35,9 +35,9 @@
       "unresolved_references_or_citations": 0
     },
     "netshield_supplementary": {
-      "source_sha256": "ff96b317dca52e5b5e2826c4c82177f35476c13458caf2dfce875f4d05c36524",
-      "pdf_sha256": "dcba9d4efcb854cee988fe200bed9e66fabaa3734cd42d02d41baa1b52dda3a8",
-      "pages": 34,
+      "source_sha256": "f54d42f49c8a125ccce3af675002d61df4c0e259021ad6b7e36b393624c7d214",
+      "pdf_sha256": "f97266e3a79a0681ab39c05b4fafdcbb2495f291e84cfac3def50cc2ffdf4e9e",
+      "pages": 35,
       "warning_lines": [
         "Package epstopdf Warning: Shell escape feature is not enabled.",
         "Package hyperref Warning: Token not allowed in a PDF string (Unicode):",
@@ -46,7 +46,7 @@
       ],
       "repository_input_sha256": {
         "figures/fig3_iqpg_cycle.pdf": "b320c739dd198b9065dc1a0f9bb691ed545272fea10d197e194895565823e8c0",
-        "netshield_supplementary.tex": "ff96b317dca52e5b5e2826c4c82177f35476c13458caf2dfce875f4d05c36524",
+        "netshield_supplementary.tex": "f54d42f49c8a125ccce3af675002d61df4c0e259021ad6b7e36b393624c7d214",
         "tables/anchor_summary_by_device.tex": "3b0434f6805e57be0d2b5b870ba85f2022eb24d1ed237b39a1a7708cdedf1f84",
         "tables/crfa_device_fairness.tex": "7ad113e1cb9961eba5c464ebfa99bd0ef2f66d4f74a871c84759812a59c2e095",
         "tables/crfa_hardware_summary.tex": "af354dd28d47b095aee43b493143c6119304af3083cb0e431c38a14ed325937f",

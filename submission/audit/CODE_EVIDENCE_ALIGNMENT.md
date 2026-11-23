@@ -224,3 +224,7 @@ qualification and clean held-out efficacy unresolved. Earlier preparation
 records that say models were not executed remain accurate for their own
 stage; the later interface exercise is recorded separately rather than
 rewriting that history.
+
+## Replacement-cohort measurements
+
+The [hardware extension](../../supporting_material/experiment_extension/physical_extension/README.md) provides action and queue trajectories, origin-clock endpoints and input identities per physical block.

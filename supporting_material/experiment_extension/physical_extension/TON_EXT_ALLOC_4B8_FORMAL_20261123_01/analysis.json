@@ -1,0 +1,188 @@
+{
+  "campaign": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01",
+  "action_periods": {
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R01_A001": {
+      "action": [
+        3,
+        0,
+        30
+      ],
+      "action_and_queue": [
+        3,
+        0,
+        30
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R02_A001": {
+      "action": [
+        4,
+        0,
+        22
+      ],
+      "action_and_queue": [
+        4,
+        0,
+        22
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R01_A001": {
+      "action": [
+        4,
+        0,
+        22
+      ],
+      "action_and_queue": [
+        4,
+        0,
+        22
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R02_A001": {
+      "action": [
+        3,
+        0,
+        30
+      ],
+      "action_and_queue": [
+        3,
+        0,
+        30
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R01_A001": {
+      "action": [
+        4,
+        0,
+        22
+      ],
+      "action_and_queue": [
+        4,
+        0,
+        22
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R02_A001": {
+      "action": [
+        3,
+        0,
+        30
+      ],
+      "action_and_queue": [
+        3,
+        0,
+        30
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R01_A001": {
+      "action": [
+        3,
+        0,
+        30
+      ],
+      "action_and_queue": [
+        3,
+        0,
+        30
+      ]
+    },
+    "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R02_A001": {
+      "action": [
+        4,
+        0,
+        22
+      ],
+      "action_and_queue": [
+        4,
+        0,
+        22
+      ]
+    }
+  },
+  "paired_percentile_intervals": {
+    "low_integer_remainder_fix minus low_deployed_original": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "planned": 8,
+  "attempts": 8,
+  "complete_arms": 8,
+  "by_contrast": {
+    "low_integer_remainder_fix minus low_deployed_original": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -144
+      },
+      {
+        "block": 2,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -144
+      },
+      {
+        "block": 3,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -144
+      },
+      {
+        "block": 4,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0,
+            0.0
+          ]
+        },
+        "unused_difference_bytes": -144
+      }
+    ]
+  },
+  "mean_within_block_bounds": {
+    "low_integer_remainder_fix minus low_deployed_original": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

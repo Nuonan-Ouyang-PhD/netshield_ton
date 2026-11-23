@@ -538,8 +538,7 @@ check. The pooled
 14,416/24,012 count is a reconstruction check, not a CRFA comparison or a new
 method-effect estimate. Coverage comprises application-window counters and
 terminal event records, not independent packet captures, per-chunk offset
-continuity, or in-flight byte accounting. No corrected-allocator hardware
-outcome or new causal shared-filter experiment is supplied by this review.
+continuity, or in-flight byte accounting. The replacement-cohort measurements below have a separate registration.
 
 \subsection{Other Frozen Evidence}
 The separately archived CRFA evidence reconstructs 36/36 accepted arms,
@@ -855,7 +854,44 @@ All three probes generate requests in every condition and nonselected probes
 execute the actual H-NONE fallback. Per-condition profiles require disjoint
 physical measurements; uncovered states cannot inherit assumed timing values.
 The pilot/formal comparison remains the three admission policies crossed
-with two initial backlog levels. No new physical arm, calibrated deadline
-guarantee or independent content-value outcome is supplied by this adapter.
+with two initial backlog levels. The adapter qualification and physical acquisitions have separate registrations.
+
+\clearpage
+\section{Three-Probe Physical Comparisons}
+\subsection{Physical allocator comparison}
+The Mac served three logical probe roles on a Pi 5 and two Pi 4 boards. An 8-GB Pi 4 occupied the third role in this cohort. Each arm used a one-second deadline, a budget of 131,072 application bytes per round, five warm-up rounds, 90 measured rounds and 200 drain rounds. Both conditions used fresh runtimes with identical workloads within each block. The pilot used corrected then original order. Each arm contributed 270 generated events.
+\begin{center}\begin{tabular}{lrrrr}\toprule
+Phase/allocator & Arms & Full & Timely & Unused B\\ \midrule
+Pilot, orig. & 1 & 66 & 0 & 144 \\
+Pilot, corr. & 1 & 90 & 0 & 0 \\
+Formal, orig. & 4 & 264 & 0 & 576 \\
+Formal, corr. & 4 & 360 & 0 & 0 \\
+\bottomrule\end{tabular}\end{center}
+Unused serviceable bytes sum the difference between feasible demand capped at the round budget and unique application bytes served across warm-up, measured and drain rounds. The public trajectories distinguish grants from service and preserve both timing anchors for late and censored observations. The unit of comparison is a physical block on the replacement cohort.
+\subsection{Shared-stage physical measurements}
+Independent calibration reconstructed 16 of 16 planned arms. A preceding calibration cohort stopped at an SSH health-check timeout on its fifth attempt after four completed arms. A new registration bound the same host keys to validated Wi-Fi management addresses. Only the complete replacement calibration supplies the profile. Initial-state qualification has a separate registration.
+Each policy received the same initial backlog, requested payload and candidate set within a block. The primary endpoint uses the first measured batch. The remaining batches follow the naturally evolving queues.
+\begin{center}
+\begin{tabular}{rlrrr}\toprule
+& & \multicolumn{2}{c}{First batch (18 events)} & All 90 rounds (1,620 events)\\
+Backlog (B) & Policy & Full requests & Timely full & Timely full\\ \midrule
+0 & Isolated & 12 & 8 & 1,045 \\
+0 & Backlog-aware & 12 & 8 & 1,044 \\
+0 & Calibrated & 0 & 0 & 0 \\
+131,072 & Isolated & 12 & 0 & 0 \\
+131,072 & Backlog-aware & 6 & 6 & 1,034 \\
+131,072 & Calibrated & 0 & 0 & 0 \\
+\bottomrule\end{tabular}\end{center}
+The table pools six order-balanced physical blocks per condition. Timely results
+returned to the originating probe within one second of event creation. Each
+denominator includes all generated events, including rejections. With a nonempty
+initial queue, the backlog-aware policy delivered one additional timely result per
+three first-batch events in each of the six blocks compared with the isolated
+policy. With empty queues, the two policies delivered the same number in each
+first batch. The calibrated policy admitted no full requests in either condition.
+Its componentwise timing allowances include overlapping intervals. The public
+trajectories provide block-level contrasts and preserve the nominal-time anchor.
+
+\paragraph{Content-study eligibility.} The dataset provider documents PCAP merging and splitting. Acquisition-level boundaries and joins for the 31 retained feature segments remain unresolved. Held-out content-value scores and timely-correct transmission scores on a qualified cohort remain unavailable.
 
 \end{document}

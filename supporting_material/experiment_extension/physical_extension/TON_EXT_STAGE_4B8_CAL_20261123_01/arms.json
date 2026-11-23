@@ -1,0 +1,376 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_01",
+  "phase": "calibration",
+  "study": "shared_stage",
+  "plan_sha256": "5c86f013e5560a069c7c1e1d4225be40bb19a42250021f623e0c18e7ba661499",
+  "freeze_sha256": "f57fb13afce6ad268b4f0e57b1ac58a45fb399c7451c23976088a2d0126643ad",
+  "planned_arms": 16,
+  "attempts": [
+    {
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R01",
+      "attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R01_A001",
+      "block": 1,
+      "condition": "B0_P1_P2_instrumented_fixed_full_capture",
+      "position": 1,
+      "started_sha256": "1b31e88a6ef77c0415a1f128961215929ca1dfbfc69be0f68fefe325f8b4d514",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 177,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6555555555555556,
+              0.6555555555555556
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 180,
+        "timely_full": 177,
+        "censored_full": 0,
+        "returned_full": 180,
+        "nominal_timely_full": 90,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 0,
+        "aggregate_service_bytes": 23592960
+      },
+      "artifacts": {
+        "admission.jsonl": "e99589d7a67a91af7c0045b539b2b9a8cb05a3d78211c08a8ba4d2d79318d5c8",
+        "attempt.jsonl": "c1503c51ce3cdefaf7e8e4dbc68443c1a61182d58969f3f4e961e6567461649d",
+        "chunks.jsonl": "913d090c05211e9729905e2cbcf9a5ec95bfecc67cda8f17a0eb157c55786ffe",
+        "events.jsonl": "b1d44773a69b61e5529cb95acec3c4c1e8cd819857d0b34f7edce60f35601edf",
+        "first_batch.jsonl": "3e0b9f05c71aa16bd8e9386e84fb54ff3d99b7223d4a7fcd7ee57c5deae6674d",
+        "service.jsonl": "da5b9e92c040ab63162bd067e11da59635462c11d9d56e2aac852e636771eb47",
+        "sources.json": "43e511d4aeba65808b927a699f74aed1d91098cc9d48346010217ba2cfa012a7",
+        "summary.json": "1582d0931112526cd8e65a00cedbd9165a678def578186034fabc544ff5bcbb7",
+        "timing_by_stratum.json": "ab81975584f61793bd881ac0eada703408c386d7bc9d058e215ab0e2f8e9bd0e"
+      },
+      "raw_artifacts": {
+        "P1.tar": "a95713ba6c5e1fd63f3b55bf6ca283862bf9a3186e6dd3a3d9addd9839dcea14",
+        "P2.tar": "50565b9ea217286dfb219a5505a4a62316d53a6ac009677b4a87de718058698a",
+        "P3.tar": "c39b9a70d558182215dc03475698b76e38ea9431a012806401f748569b64155b",
+        "deployment.tar": "de38a94417a73891128a1f96641310b40f886eca9f258b31f9d20bf22e95c958"
+      },
+      "endpoint_sha256": "eec3c017921253438688931d83b9529ee40986d26f0ee09d01b4ccedbf73e99f",
+      "measured_action_mix": {
+        "H_FULL": 180,
+        "H_NONE": 90
+      }
+    },
+    {
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R02",
+      "attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R02_A001",
+      "block": 1,
+      "condition": "B131072_P1_P2_instrumented_fixed_full_capture",
+      "position": 2,
+      "started_sha256": "a0d240c7056227fe36c176f584764b1dab52236dfb5c8be7adcc76c0a4ca2fad",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 180,
+        "timely_full": 0,
+        "censored_full": 0,
+        "returned_full": 180,
+        "nominal_timely_full": 0,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 0,
+        "aggregate_service_bytes": 23986176
+      },
+      "artifacts": {
+        "admission.jsonl": "2ecb1a92208d77cf155c257f844dbe2bfeaea25fad02b21521cf8833234d0d2c",
+        "attempt.jsonl": "744ced00ee50230ef3de8ad213ca2629ebcf10d911883b1ed8afe523d03a1193",
+        "chunks.jsonl": "0c2ee1e7ee48b6952f139381d2401d59e22d4290baa68c06696eb170d038cf76",
+        "events.jsonl": "3d3c6bc187d4b79bb0fa62a036dadddb8e96e9dec34ef29a1dc01e6f56a68a93",
+        "first_batch.jsonl": "7e8fa4866589ad9e112738d200947d38b6d05c7a4f0d95ac863d76fd5c5b2168",
+        "service.jsonl": "0427de3881095e83c0962be52b5e988723ddbd2ef178e06e1e3a0bc590aab30c",
+        "sources.json": "c210e8de2ede7ed9fef80760e52f3eb481041dfc0def70c9fb40b5f1eaf6eaad",
+        "summary.json": "53ea6c63491677438a65691c515859e8abed19d3833bd9b516b8501d3009a4fb",
+        "timing_by_stratum.json": "1de026ebe664a16f9ba770e0eb3ed3c235ca2156a85b910bd1a3b4dc6d78b19a"
+      },
+      "raw_artifacts": {
+        "P1.tar": "35746f1127c71754e2d78cbee740e23a777674d19b45bef44da48246e00492d5",
+        "P2.tar": "6ada8cc5a6eb1026770a26926aab1be096ce51b4fae33bd297abac3bad2407c5",
+        "P3.tar": "88b06f314eeb26c2e17fa08b9df222eeb56e8b272b8132a54558fba25f5cefb6",
+        "deployment.tar": "b9253601445b2f8c828f616eebf255457b49530c50e67e81eee60a017f95a787"
+      },
+      "endpoint_sha256": "26e3628f1991f0cad2b1670200c577d56bd66e232f4885d5ca36d93ddd4a864a",
+      "measured_action_mix": {
+        "H_FULL": 180,
+        "H_NONE": 90
+      }
+    },
+    {
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R03",
+      "attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R03_A001",
+      "block": 1,
+      "condition": "B0_P1_P2_P3_instrumented_fixed_full_capture",
+      "position": 3,
+      "started_sha256": "38e7aa4a5ed96a77f6b2c1d12ad47b007d4ab6e23deac4ce8e102be3397ffcd1",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 3,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 270,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 270,
+        "timely_full": 0,
+        "censored_full": 0,
+        "returned_full": 270,
+        "nominal_timely_full": 0,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 135,
+        "aggregate_service_bytes": 35389440
+      },
+      "artifacts": {
+        "admission.jsonl": "81e8edcb7b468a9e7ce0c9a70d8b4618db4d8ed93580e3bfeb6d01c2b04c8f9e",
+        "attempt.jsonl": "bcc42d434d344c9f5bfe47acd5cd640c1f6a48d2e88dcd154bde2310ed14d710",
+        "chunks.jsonl": "da147c28e7d74dc55a66cc998f46bddf5a58899f77f8751ec30469b205576a3c",
+        "events.jsonl": "a469268f0738d46eec8e630ac909525473ad50320f63aacb0518b5d367ef1cc0",
+        "first_batch.jsonl": "dd1306f14832d59973c7d379d2c185097b63d0c5ff8c281c5dc14771a93410e1",
+        "service.jsonl": "e66a8d90a92e2f4b4214d3028f3ead8a60e9add636d12c78b166e1d27645f5d8",
+        "sources.json": "2e69437ddd3abdf80d36b474835f337d6aa3d57f0f2477372c066e43935c62d6",
+        "summary.json": "3afc49070cdce20a6d94022bc4953a75029802068048a9ca035bf2080a8cb880",
+        "timing_by_stratum.json": "d27c61e85b212b39374d5495c4f7e2796f8766d96da859eb2802c31f5a519553"
+      },
+      "raw_artifacts": {
+        "P1.tar": "f7ae2b0485a53e5ef6b64fa319995beef39523fe1033b2b0b8c127d6b03f73c1",
+        "P2.tar": "b85c918e546b34854f6839c635bc0877572f3ed53537391f7a6ded5b1c0bffb2",
+        "P3.tar": "ae304277322b575b83f613f3185aca510b07d654e7dc4e300b0c3984ec9124a6",
+        "deployment.tar": "392a2e8db20a6df912cc3b1b3ab815424c0d460b0cf08f424f070a7f231cd36f"
+      },
+      "endpoint_sha256": "49698c0ddf87edea97c526e3d7af1d42b38f9a23290296a336237223f75e6db1",
+      "measured_action_mix": {
+        "H_FULL": 270
+      }
+    },
+    {
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R04",
+      "attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R04_A001",
+      "block": 1,
+      "condition": "B0_P2_P3_instrumented_fixed_full_capture",
+      "position": 4,
+      "started_sha256": "2e270ed9fa80c40ff0fc94a25ca1c3cbb61297bd27fd42fbe86952ce87536479",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 2,
+          "post_release": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          "nominal": {
+            "timely": 1,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 180,
+          "post_release": {
+            "timely": 176,
+            "censored": 0,
+            "coverage_bounds": [
+              0.6518518518518519,
+              0.6518518518518519
+            ]
+          },
+          "nominal": {
+            "timely": 90,
+            "censored": 0,
+            "coverage_bounds": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 180,
+        "timely_full": 176,
+        "censored_full": 0,
+        "returned_full": 180,
+        "nominal_timely_full": 90,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 0,
+        "aggregate_service_bytes": 23592960
+      },
+      "artifacts": {
+        "admission.jsonl": "d4ab7e700d407886edb812193151f2a7278a1af75d4f1e96da3773aa9d9c8924",
+        "attempt.jsonl": "aae250f3561792dd638636bce87f416b6a84e3fe800a0a8633c1c27dc84004ee",
+        "chunks.jsonl": "2d75d3d1374f9d3253c8291b55296347613d1c1867bd0fddaad2dc1556c06246",
+        "events.jsonl": "567b50b2dfc72af9a888249ba19ea2dd57597ddfa64697358fd5f89eb50f5613",
+        "first_batch.jsonl": "580c17c888ea705607bdbad5908bb5deb51834df30045fd629fd21d21b437b19",
+        "service.jsonl": "0c0be4601d1114907daf7f83e1ad3e85cf1eaa4126a432c72c9bb2ec0009ad1b",
+        "sources.json": "bff6662657d7ad1881f5ec611ed0fd0a1e56de25c0814330d97dc7112df57abc",
+        "summary.json": "51b8aa5ebda63c32fad6acfe540fb66ff04afe31298294663aeef084ee6179b2",
+        "timing_by_stratum.json": "e4f1e44b0ea9a285bde04a5cd498c46b516f62d74f0b67567cead0b313c14c7a"
+      },
+      "raw_artifacts": {
+        "P1.tar": "ad82dce8f6e31bd16e4bb00eb701a597851a055f2d0f428f1b6969b86160b67c",
+        "P2.tar": "f6c16977c169ffa6d472c9bcfcc0ad1a12cc6a644738a69e0704d84199a42f2e",
+        "P3.tar": "e7fb33c8390f4df7e7d12cf36e9a0570a10e0ec33c502cf0f54c0d6152913072",
+        "deployment.tar": "a4cb7ad79357895f4d7531ec72372bd3bd5c034db6258dd29701069b47e91799"
+      },
+      "endpoint_sha256": "87da3cc866eea3b256ec1752085e11158475db5ebbffa04bb43af2e4b1d96af9",
+      "measured_action_mix": {
+        "H_NONE": 90,
+        "H_FULL": 180
+      }
+    },
+    {
+      "arm": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R05",
+      "attempt": "TON_EXT_STAGE_4B8_CAL_20261123_01_CALIBRATION_B0001_R05_A001",
+      "block": 1,
+      "condition": "B131072_P2_P3_instrumented_fixed_full_capture",
+      "position": 5,
+      "started_sha256": "d8087bd9fc08f0e01d9ce4460d24edfc74674865593a03699da78431c8f8c4d0",
+      "completed": false,
+      "state": "interrupted"
+    }
+  ],
+  "trajectory_sha256": "d4a8aa5533295873ebf46e8cda388140e81010b1489b7af8165f1008cc4375dc"
+}

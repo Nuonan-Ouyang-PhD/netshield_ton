@@ -1,0 +1,459 @@
+{
+  "schema_version": 2,
+  "phase": "calibration",
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_02",
+  "runtime_tree_sha256": "84b5b11db4a5e60d20dcefbcad550c961ed6f41eea402d9815bec495f9c0ea34",
+  "workers": 1,
+  "basis": "physical_capture",
+  "clock_policy": "within_host_intervals_only",
+  "estimator": "per_condition_componentwise_observed_maximum",
+  "margin_ns": 0,
+  "controller_sha256": "9eea2ec16819dbcf1195a80347d787ba4b07d5ce280eb01c44e71aea2e656b9f",
+  "scope": {
+    "devices": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "payload_bytes": 131072,
+    "capacity_bytes_per_round": 262144,
+    "deadline_ns": 1000000000,
+    "initial_core_executing_jobs": 0,
+    "initial_core_queued_complete_jobs": 0
+  },
+  "envelopes": [
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [],
+      "proposal_transit_ns": 853800076,
+      "dispatch_compute_upload_ns": 919333,
+      "fallback_compute_ns": 6638440,
+      "core_per_job_ns": 0,
+      "return_ns": 0,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P1"
+      ],
+      "proposal_transit_ns": 973114618,
+      "dispatch_compute_upload_ns": 85159625,
+      "fallback_compute_ns": 4061976,
+      "core_per_job_ns": 4594250,
+      "return_ns": 138028653,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P1",
+        "P2"
+      ],
+      "proposal_transit_ns": 788190661,
+      "dispatch_compute_upload_ns": 191584334,
+      "fallback_compute_ns": 4100530,
+      "core_per_job_ns": 2313458,
+      "return_ns": 336121635,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "proposal_transit_ns": 919770768,
+      "dispatch_compute_upload_ns": 1138458000,
+      "fallback_compute_ns": 0,
+      "core_per_job_ns": 7797625,
+      "return_ns": 1143869751,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P1",
+        "P3"
+      ],
+      "proposal_transit_ns": 971839882,
+      "dispatch_compute_upload_ns": 127975250,
+      "fallback_compute_ns": 4215841,
+      "core_per_job_ns": 4658542,
+      "return_ns": 139798735,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P2"
+      ],
+      "proposal_transit_ns": 913557911,
+      "dispatch_compute_upload_ns": 132734292,
+      "fallback_compute_ns": 6483493,
+      "core_per_job_ns": 1525500,
+      "return_ns": 137433204,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P2",
+        "P3"
+      ],
+      "proposal_transit_ns": 929324918,
+      "dispatch_compute_upload_ns": 153837666,
+      "fallback_compute_ns": 6638625,
+      "core_per_job_ns": 1340833,
+      "return_ns": 160450102,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "selected_devices": [
+        "P3"
+      ],
+      "proposal_transit_ns": 920531893,
+      "dispatch_compute_upload_ns": 126269167,
+      "fallback_compute_ns": 6574752,
+      "core_per_job_ns": 870959,
+      "return_ns": 128192525,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [],
+      "proposal_transit_ns": 870987057,
+      "dispatch_compute_upload_ns": 49308458,
+      "fallback_compute_ns": 6642509,
+      "core_per_job_ns": 1290125,
+      "return_ns": 98908609,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P1"
+      ],
+      "proposal_transit_ns": 815464339,
+      "dispatch_compute_upload_ns": 89929917,
+      "fallback_compute_ns": 4074179,
+      "core_per_job_ns": 2211750,
+      "return_ns": 91982985,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P1",
+        "P2"
+      ],
+      "proposal_transit_ns": 875592328,
+      "dispatch_compute_upload_ns": 1130884125,
+      "fallback_compute_ns": 4000507,
+      "core_per_job_ns": 8128167,
+      "return_ns": 1138374256,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "proposal_transit_ns": 887755817,
+      "dispatch_compute_upload_ns": 2105706917,
+      "fallback_compute_ns": 0,
+      "core_per_job_ns": 7915208,
+      "return_ns": 2123811593,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P1",
+        "P3"
+      ],
+      "proposal_transit_ns": 871756359,
+      "dispatch_compute_upload_ns": 1141917375,
+      "fallback_compute_ns": 4120993,
+      "core_per_job_ns": 2831125,
+      "return_ns": 1148390072,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P2"
+      ],
+      "proposal_transit_ns": 879497266,
+      "dispatch_compute_upload_ns": 124602375,
+      "fallback_compute_ns": 6627371,
+      "core_per_job_ns": 1675042,
+      "return_ns": 128969224,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P2",
+        "P3"
+      ],
+      "proposal_transit_ns": 883578260,
+      "dispatch_compute_upload_ns": 1172993416,
+      "fallback_compute_ns": 6660919,
+      "core_per_job_ns": 1430917,
+      "return_ns": 1183766259,
+      "observed_batches": 1
+    },
+    {
+      "backlog_by_probe_bytes": {
+        "P1": 43691,
+        "P2": 43691,
+        "P3": 43690
+      },
+      "selected_devices": [
+        "P3"
+      ],
+      "proposal_transit_ns": 793433664,
+      "dispatch_compute_upload_ns": 189066875,
+      "fallback_compute_ns": 6674066,
+      "core_per_job_ns": 2652459,
+      "return_ns": 186593291,
+      "observed_batches": 1
+    }
+  ],
+  "source_identity": {
+    "records_sha256": "d98b9a4b91d8b94088bbea83a3b624519cc928bc747591da99afbfc2aee3ccd7",
+    "plan_sha256": "cd05ee84c27e89d1768e84ddf4ede3a451f5df9affc95973fbbb3c9b88a2f99b",
+    "field_map_sha256": "c41d744c05470e3190b809c939b624bd285a705cd0f56ded82707417e12a4722",
+    "adapter_sha256": "b97fc1d6f4c7ee133586ff22cb1f837b93878abd5a432af6ceeaae4b32e74191",
+    "mapping_review_sha256": "863d0d9e7b5ba615a9f3c8b825f2d2a41573e9d451237ffc1ec8b823c556f050",
+    "raw_source_sha256": {
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/core_windows": "6fad827f23751b6ea08499e38e017373c76fe49f0afaf860a1f8c9ede6b20af0",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P1/run_status.json": "d55add043740aa9e0413f5f9c748ab7a0ac73bca0783cb2ab63489b2ec5ff28f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P1/probe_windows.jsonl": "a434ddbc697dfe11672060e53605407626abbb570026e2568ff3579c23f56f52",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P1/event_ledger.jsonl": "74cc26416f28e4fb3a687f792ca300c2ce264180fe4bf4888e8ef6555506c011",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P2/run_status.json": "3d23a5c6e1123244fb76ca91eb3a3b7091a2c144005c1c8b048ea496454201ba",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P2/probe_windows.jsonl": "a0b2b1b94a82691cdc40468f9c969dd472b5279cb76a95d7288df2e33f11a8df",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P2/event_ledger.jsonl": "c1a6c389653fa13a293bc6dce2aca5775356da4704d9669d4093f9b38b408e41",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P3/run_status.json": "59e90afd074d2c2d08609c31b56420866672b51853545c85b059f7f0fdc5e3c7",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P3/probe_windows.jsonl": "e41171da55b721b09cb4a467fb999333c71ec5e00b719706f6e9b9828212f841",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R01_A001/P3/event_ledger.jsonl": "8c2fe28b69bb3aba90dd1449b98c85497e28d969d77509398ca2335df187d446",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/core_windows": "4869c5f85224af0a6bdd201333ff4e85fc35dc009475c49342dd66b349001099",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P1/run_status.json": "56327b25969521aa456c886b54c626dbf9ee0f593b4eed3c0b4a57633266252b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P1/probe_windows.jsonl": "0793ab0b812b47a3a2143abed2bfa991b89432313518acb40ff983cb39d86b7a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P1/event_ledger.jsonl": "72659f98390a4ebdc01eaba343029e38011687ae31bbab0d138ab722404b9568",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P2/run_status.json": "da4aefd713ed56365c08e62e84de2e896470733fdac40f58a32f90e29c029445",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P2/probe_windows.jsonl": "3bae425c077feab022fce375499e327e985f7369d19f8179f72337e019ad8fc9",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P2/event_ledger.jsonl": "33835fc82922d81c2351e6415d393eb67d57f69cd8278a93d566f1e2946df735",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P3/run_status.json": "92f919512c5c53f56e980b779f2bb6d67e7727f33a1334228932b547d2aa11bb",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P3/probe_windows.jsonl": "d5cc0baf82c2e2fa44c3c7d8e6d9bf659234b8e49fd66c26f18c61725bd779d8",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R02_A001/P3/event_ledger.jsonl": "243fc62659f8fbb00a168b6882621c19091048af3bf8f777c4bb5c9dea760ec0",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/core_windows": "5e3c54273dc02fb931ca4d0a6f30c890055a6e685fbcdf5935c22493b960c04e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P1/run_status.json": "f7882268d6fa7ca43e45cd9e40d2f70b16ec7ee897d3b08162ed5f0221625b05",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P1/probe_windows.jsonl": "a26669570d4f0d6aab628e9d402b98c31d2be88f8df0192ffa6ae84b2cbaebd0",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P1/event_ledger.jsonl": "7c9c4aa1f98133e6036b6be63f10a89ae2053d807f66f7b0420ec1c09475c30c",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P2/run_status.json": "f38e3babb12ab885e0fbb8810d84c7fe1e2181f0019008effdb9e14f7c71c600",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P2/probe_windows.jsonl": "f9ec9d124287403ab4642dce6682eef14ac8369e2aa27b8676de24c04440ef45",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P2/event_ledger.jsonl": "cb4f758d4078cae5594b5e6fcc163e55732dbe50969e5510212e9ee1ad0134fe",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P3/run_status.json": "6f08a13dd4343ab5907ba67f788d630ac2bf074436bfed49c06d9b6bde007d11",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P3/probe_windows.jsonl": "2759d669abb1ec749377d1f8038c14600b09ede56cc4ac3fc5f307673e0433d4",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R03_A001/P3/event_ledger.jsonl": "a321909a9717e0a96ac6949d18554496317a3fbe486818540c3a02c9dbe603e2",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/core_windows": "433103fa1b872e0d98f4a9baffc75b3c35b07cc871b97428ec0013526f6b19e9",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P1/run_status.json": "554c5c614b1e90379ea462b261e73a92a7c5145700b1891ad2d13056738f3d3a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P1/probe_windows.jsonl": "49b30104b7a91d9b801358935d7c37ccee32aca42e277fb24ead8886fbf2802d",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P1/event_ledger.jsonl": "8946b6cc7474e0a6c9ecaa7a899ff2c1d32f13bdadc85bb317efa08b2063659f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P2/run_status.json": "c65f5f224e4f8ecbd0604e2f5df168b4288f54478cfe5bc56ee20db0d2c073f3",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P2/probe_windows.jsonl": "869936b31e1beb52cec8b7d84d56cff85b8dc03f25f00eb094ab6add746c489a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P2/event_ledger.jsonl": "d2a7123343777189b9ee9c91f84a41a8e89ccb43957eb6cbb74aaed0d900cddb",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P3/run_status.json": "82be1333834c05febc1436462d93cfa5ddee294a2ac7ba6f794148a52dc40604",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P3/probe_windows.jsonl": "f239b906bb2068ba9615f7b8bd41939f4a379bf8f6657a58b161121bc696591b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R04_A001/P3/event_ledger.jsonl": "fd9f16eeb741cddca5e056b84d4c58bd729d5084c3f5cf3224a6caa3397c8788",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/core_windows": "7a844f30659da67204c785bd8f166ed52c841f912a921b9384116bda2e225f31",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P1/run_status.json": "bce2c9e128575019d878c66f7c53e33a4bf73e2faa98c6ae9b80dc106b12b02c",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P1/probe_windows.jsonl": "05bae53edb14ae1f2478f2a32b6cb6a1b38eccfa0369117eb111c074c718a318",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P1/event_ledger.jsonl": "db9c0537ff22bf64edf4a12442289fd002d892b6203d86a08b114bdc806cc6c8",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P2/run_status.json": "169a19655e6c6484f507ac8b71df27b1e4769d666c56b624c0735f21967c3155",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P2/probe_windows.jsonl": "90c354fb43dfa9a1b5246fba5c623aa68243228e49e01ee90926ef70d9238a6b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P2/event_ledger.jsonl": "8a1bbb9d72421415d8e3e507a66d38e19f34e0b8b6099fc6201ad31581154c34",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P3/run_status.json": "65031a09913b21f2e193ce4b4c414e4e9971862978b42369e9c090b5bc4206b1",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P3/probe_windows.jsonl": "40c7739e64043c01c5a18a656b19277509732359fd6d348e0d5736066f6b9d7c",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R05_A001/P3/event_ledger.jsonl": "3b64a63c1867ade7cfdbca9a14f2a35db28765cdcc7ef5fee3be9385d2a00271",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/core_windows": "d44734b7dab69b6a62d048adf6c00e66b18603b6a8a80b2abf45c70ab8137bc9",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P1/run_status.json": "062f1f6c85222a93f1b9d2083f54b1c7822d782cbfc3ca71211abd3ee4f5a1a4",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P1/probe_windows.jsonl": "47c02d4bd9a716e7d34fe61b87a062771fe40a7539187339979dec3d55bddd25",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P1/event_ledger.jsonl": "cdc4c1fbde63c9f563d0e564b3f713e64eba907c416f14f486fcb2e0878f23a9",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P2/run_status.json": "62d713769dd158de3de1a5dc6e66f2fa329874763913349f1492de47c2dc9bfa",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P2/probe_windows.jsonl": "ba8760edaf71426e1604c1f80217dfa5cba49ea722d358ab92fc152f4436f811",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P2/event_ledger.jsonl": "a176ccd130dafc23556d971504d49d4ed1ae6fc1df0e28757c1125739c1af235",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P3/run_status.json": "60c9667591ad3b42001e5cbf8f20f267064a2d79ccd3967501a43f38acb9953b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P3/probe_windows.jsonl": "f9f8350ea39ace9c546920032a3220abb20a2c15075c5600598ee2ebd41f41cd",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R06_A001/P3/event_ledger.jsonl": "6b0b7e539f2eb4a2b6b9644cf9aa6318ac8a1235412f0981954e470250ef0659",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/core_windows": "040eaf91d8cce38495f49debdc030c4cceecb245dca8bbdf2a2411f4e674858e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P1/run_status.json": "44c14e97199a184f5b95035497cb276829cfa6397b387d99f22608d25f8976ce",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P1/probe_windows.jsonl": "9267f81bb071853c21bedec96c83f536c7da6f0374628ff231a7b2c75eafa9c8",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P1/event_ledger.jsonl": "5e375b3f0b6013b6ecb0c206200a01c562e15cba2b855dc8e448c01ab43be005",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P2/run_status.json": "a293ab77c6abfd1ec49a8ea44377a987a465b8d1403fb89eb6a32ad73c5ef5c7",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P2/probe_windows.jsonl": "42f4855e9ce697dcc96e8ace239ad4c90864b4cbbaab8e6e8a0b59fc3dd27e89",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P2/event_ledger.jsonl": "e721cc6c6330c9752122f512f92265356d61f6c40aa4a7f98500033b09dd81fe",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P3/run_status.json": "fb8062b6a3fc07f0af34938a9e43b139bdf1f391307e75a5d869f980c31cddc5",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P3/probe_windows.jsonl": "588786cd9b9080fd0d55901f073362edb23fddd6d0cb13d963ca2dea9a292955",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R07_A001/P3/event_ledger.jsonl": "723b5ba7999618033ddc8de308f12fcbab8af3b63e044a9f61eb5b2e2693b3e1",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/core_windows": "edf83b6070a0ec18972afefb026b53ab92a7201b535a0ea0ebd3d907e9c10d33",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P1/run_status.json": "3fc0fe12ab792edc013fa83009947376a3c00043fed8866fa854d556aa827cea",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P1/probe_windows.jsonl": "cb101b2870969ce1c4a07c590bdfd8e52eab1895f16bdd0e751243270b0bc117",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P1/event_ledger.jsonl": "560ad70057af110f8fb132e7944682728c1f0c36c5e9482d4d3ef68f4463d60b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P2/run_status.json": "302bda933614580c90d431ae8544db1cef20d0c360f39ccbb0e96e0dbcdc2afb",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P2/probe_windows.jsonl": "aa4367099176ff01fe216514f5ecfd14b9d65aeeab86d5a4cf4037f6e946ff2a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P2/event_ledger.jsonl": "d44547b6048bb2475b23a102548698a2254f0804922e0d29c674fad44cbb75b4",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P3/run_status.json": "5f7695533c469410db619165a44d73e14f99543897b284d33df993f0d5675704",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P3/probe_windows.jsonl": "9822b04157b9cd476943e8c1e626635e397edac27a096fda3ddabe7622d004fe",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R08_A001/P3/event_ledger.jsonl": "4eb2614bba0d65fc9b9d780a93dfe174b39fba86fff4f6eb38eeeacdca65dbf9",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/core_windows": "b5c679cb257d9536376881d7d48fed5b9dda0ce615b846b713920e7b189fcc2e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P1/run_status.json": "5586a76d2b41b5bdb42101769b1e80368fdbeb3bd2619bd0d965cb2eb0fd1bcd",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P1/probe_windows.jsonl": "c532b898da7b6b94e2225472b3acbf6285d796d9cf238fe36d12e8e38d1bf8c5",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P1/event_ledger.jsonl": "291098fdbf105828225a33ca1b37ef326b665491cc968a7d3ea13451b53af180",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P2/run_status.json": "99bfa3f8ee1d18dad7c8933199f22515dc94d1bbb36b3d639dc089b40c8dc75e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P2/probe_windows.jsonl": "073ffbb77b672fddaa77da60be3ce3e711eb07fac7f8ddc99e400bb47033abe1",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P2/event_ledger.jsonl": "af2c723e8638729ba3958ed488a6cc5b26aa31054508eab28270e1bc91ca8d77",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P3/run_status.json": "547247acff166ff6037246fd88002bf7440cec706a9c9a9becd2fe6bc50f2c6e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P3/probe_windows.jsonl": "4785b9c34f440e875f1e93852dfc090567ac48d61b6e64902c7fd1b9b0159b2e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R09_A001/P3/event_ledger.jsonl": "60b0e59a425eacc7dab38dad7da598c6649b9137d6bb172e1dac59732aabdc75",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/core_windows": "eb3b6200c30f83151cdbad246e0fc9b9123363f558613365b3a36a6cf1f76ab7",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P1/run_status.json": "587b4688218de91e5c69973b11ef72a5621f3a50825c2ec1de35c6859cb9772f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P1/probe_windows.jsonl": "1151093c47eb20ed9624eb5c1fccec583d4b8835375e5864c4c260fa3f29ec07",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P1/event_ledger.jsonl": "20eaf7f8358b5f6919ed8b149d4f184d2edec81c6c2de49a5021777eb330b532",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P2/run_status.json": "23df3654f2081a2414dda80de1ecca2bddddb8c77fc598c161091b38b9eaa0d6",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P2/probe_windows.jsonl": "a0fb53220aa4ea09a5453189deeb0140483ccc6df9390c0da9c8025257a08a6a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P2/event_ledger.jsonl": "06236d689eabab23034b33b86067b20265beaad24d996be538c349df32f6c6aa",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P3/run_status.json": "db34d385fb520306d04ac527f8ca76c8264f065fea809a645cada85064baa07a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P3/probe_windows.jsonl": "d1c593f1d89354a1ba4f5cd4138dab70f4b9b5bd5f428e24433bf1137a265611",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R10_A001/P3/event_ledger.jsonl": "392b0b483efb2c0b90acb0afce6298c7366396a64fa8d6367b658ca1ecec2155",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/core_windows": "74b81e17553bc4f3e0e3043ea6fcc3599e2d1654376b2bebfd69e06fab8ec588",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P1/run_status.json": "b44d07d9b9e33a0020c257d858662ff45a360f9f823e460c609c84ace472efdf",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P1/probe_windows.jsonl": "10494d226c7a4df17517b4a8c3374460e8a8ea9fae30ae0b80822e73f54f971a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P1/event_ledger.jsonl": "882efd5e26dc6bb7ba92647a7762101693e5b5c7d3853d2bc661d1322aae5d0b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P2/run_status.json": "cad13d431c12b313818fa890a337040c255b2e67080a7d07249178ec63743a38",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P2/probe_windows.jsonl": "54141d56680a8c1846a6efee6e5847cbe88688093037fb1066ae9520606f2940",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P2/event_ledger.jsonl": "2ae322b3f1c1f20c35b91d923c18fb3f3c6421d6b057aabebc5b625f4eb594ba",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P3/run_status.json": "e3a10584a667a05d414c1a70c016cc53bb5082b972ccfa9d09f931db2fcc7d7e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P3/probe_windows.jsonl": "4577b35ab6b83c360bfa0b304cf721c25983574c6a7d0c4cb1a8085aa7211b3c",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R11_A001/P3/event_ledger.jsonl": "1390d2f78a9d292befb164b11acafe4945394158d5fb78800297cb028267dbff",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/core_windows": "4af6c7f3217107dede18a3b28a3c095c92157aa93781e3d2a02faade985e32ad",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P1/run_status.json": "3b78a1fd1e585d16d5d9fc8f2bb8be9c9e1fa4cadcd81b797950580609fd3405",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P1/probe_windows.jsonl": "e285d0488f87e971e6f711c1139707e353da2a67cecfd7f01819dea7915faea5",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P1/event_ledger.jsonl": "4d66daf41fb35d08cd7e9816fcc2ba05b3758877f684145f8d9897329786e0e3",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P2/run_status.json": "e2161a97c25b8b8faa45492a885265e3bedf465e904bba16176da5a87e3e3871",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P2/probe_windows.jsonl": "6a21933ed034e12c75223f957ab007b9e0ded6f711b18fafd695abb1da4f7145",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P2/event_ledger.jsonl": "662eea133a4cf291a0c8465a64eeb5dc87f4cde36ab55b7046ef5fdf7c100844",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P3/run_status.json": "9988e4b760bcf9866ba5fde7435701c019dafc77927e178c053ac4daf15d8061",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P3/probe_windows.jsonl": "c4054a54d25e0b64f74745a3c1a442952d69ca9846fc6a03dc15f4c9a22672fe",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R12_A001/P3/event_ledger.jsonl": "d105d77c378c362d3a12036668ebc7145f0f1a979af42fc41e2329e31fd77741",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/core_windows": "4dcd7290b630b77a1a92182f9deb79393124a65d0f2fce1baa7e4aa3b58b90f0",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P1/run_status.json": "15f8ee97999f117f75f619f1da1f6328a0fd9e951c47f369799d8c2397ab42ca",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P1/probe_windows.jsonl": "4cef8eeabc87fc5fd67852c5f2ea0971f8c0d6a13a404b576c58978f14578481",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P1/event_ledger.jsonl": "fab80cbc2d0b676fc6dc01cb99d0ca5b8a003f8260fabfe9a5d3e2c000de7c2f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P2/run_status.json": "e7b7857c976718e353fffce724880f9f0a2aea99051d9570f3a2a59e578ce541",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P2/probe_windows.jsonl": "1ab4c288774279c6905cc847f198aa9c5e5e2af70c94a0fd8ecf4316d5d3787f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P2/event_ledger.jsonl": "9113118eafa4fe91ea45ae0b2a019eb8eb87149b12bbfb49676a5bdf1b96da55",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P3/run_status.json": "8f8958a10be13c8d3d552891a3ea1f016439e6b54b3078f73ac32e83671dfd36",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P3/probe_windows.jsonl": "ac6c4d695ccd4960a592baf5a08af6384e9edcd58088fd72265b74f32235284e",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R13_A001/P3/event_ledger.jsonl": "97851814494e9a9b5727dd3531fd50c74ba8108fa725e2b4f315de93eb6e942a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/core_windows": "c9e7b44b3e7f7db6b54ead1dbac4aeb1acbe02013c905880a91526c4d988632b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P1/run_status.json": "4e780ab7f98bfeea7396bb06ed60b87e93440d36cb0cdf02e62323b93adf2f6d",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P1/probe_windows.jsonl": "8cb1be668a8c990ec89b00f0075e33c302b8b83a1509dd5606bfdc55ee75c46f",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P1/event_ledger.jsonl": "797ddd720f5e33b5b4ef84a10be6d0a7b3392cffdf61bb899411ba2407835c15",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P2/run_status.json": "6947bdb6851261ab629585121bc40d6ee72aa6e4d822426ad7b4be0a1e0271a5",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P2/probe_windows.jsonl": "71590eb929cb04d63d38dbd1a4a38bd7f6af80a91d63fdc045d62f9a5429e3b8",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P2/event_ledger.jsonl": "3ff2c6ce366d81534c4174e29ff6e1478287196f28b9513556dbbe8097c793ea",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P3/run_status.json": "db4ffa2d8017671490217f70d33272585402f64d8e9440585f3b4d099b5a53d4",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P3/probe_windows.jsonl": "c46340e0716abd9397a33dc2dad13dc5c3fed6e546c64386dae8964a8cbc2204",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R14_A001/P3/event_ledger.jsonl": "9bd235fa9e38aeeedef95118198b986a6e57e5618103058116ecc642fddfbafb",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/core_windows": "57a943530a16fdeaf80e8c95f88fb4b64824b5776bee3a60601630de41e55a0d",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P1/run_status.json": "3c65df01c7d0a14ebe58aeb86d7b3103aefccb436581c354ef8f34fbc419598d",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P1/probe_windows.jsonl": "dd2c7a95599bd33e44c8dc3765cdab3c0f30dc8219cf14237ac13d93b132528b",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P1/event_ledger.jsonl": "fc12a4ca0dba008f2d507e96357f16d57f1833b88c945c9b58f4f4f88d97e976",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P2/run_status.json": "b1e1aacf006ac750d4b9538619443056467e2cdea934ad95259950a8e43bf9f6",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P2/probe_windows.jsonl": "4e3dbb590ba4f6a19087a3b1c14f73ca1c1b7e209e984f89183ac69d86c72778",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P2/event_ledger.jsonl": "8be6c5d8e8ab3025304c6d0fbf4320355ecf914c1f79bb47cf4a72579ba0e112",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P3/run_status.json": "919b49446476e8318eacda28a689baa5d3e39695abe17390f53873e7a9b4ec0a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P3/probe_windows.jsonl": "57abe8b6a85749a3703e3cc096812d5f884ada57599a73b92b496248c2137b53",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R15_A001/P3/event_ledger.jsonl": "d403542041de3f7b0dcb159bb753357edfd5330439a1ac987101d86d74a2067a",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/core_windows": "ee9acc1b611c746039dc4e6a78a00e300e7f661b84a7010c75fc8ebad19efd10",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P1/run_status.json": "1bcf125cb03abfab7ecd2a8c4a8879e84f2a51b1a5bc6aae8ff72d15f159110c",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P1/probe_windows.jsonl": "d2fed7c0d27a57835de4497750a01f735a636886a831d86ffcda9b8c2cf0bcdd",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P1/event_ledger.jsonl": "b2c669a5705a47829d5983c14e3470196d2e73614cf7cf6be1d26e7574eafb77",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P2/run_status.json": "742937c22c2986bbaac99237a0d9e59fb7b92124289a01cc5b07361ebed8a383",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P2/probe_windows.jsonl": "15f4b5965ccb24dfe66e646aba5fdbc8bcabc345d6cbc1b9e9d39acbdf938730",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P2/event_ledger.jsonl": "c5e1ec3221d5437257cbc9ceefd470a87d2c1842ab0bc2dd7a94cb16c9be4b94",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P3/run_status.json": "7ef3d8fd80e154f4e419f215779eeba571a4e3920de4189dc78c16b0d169b336",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P3/probe_windows.jsonl": "55fe32d56fad19355fb986dde260b13df4c18556b05ffe431eea6793cff67ff2",
+      "TON_EXT_STAGE_4B8_CAL_20261123_02_CALIBRATION_B0001_R16_A001/P3/event_ledger.jsonl": "58977bd2e2b7533ed68467ff88445c308c0052a77ae272d02ccebab693e9947f"
+    }
+  },
+  "calibration_complete_blocks": 1,
+  "interpretation": "Derived empirical allowances, not deterministic bounds or physical qualification. Proposal allowance uses origin-local round trip. Return allowance uses origin-local post-decision result suffix. Components deliberately overlap; no cross-host subtraction is used."
+}

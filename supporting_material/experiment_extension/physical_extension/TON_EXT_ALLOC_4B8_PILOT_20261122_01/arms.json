@@ -1,0 +1,188 @@
+{
+  "campaign": "TON_EXT_ALLOC_4B8_PILOT_20261122_01",
+  "phase": "pilot",
+  "study": "allocator",
+  "plan_sha256": "fa350327386313fd25384155ed7a6a25486a413b50ce3a9c3690ccdebb1cbe73",
+  "freeze_sha256": "dc06792efacaf0683f5aa808762e089f31a26638959f83033020696fb83d1513",
+  "planned_arms": 2,
+  "attempts": [
+    {
+      "arm": "TON_EXT_ALLOC_4B8_PILOT_20261122_01_PILOT_B0001_R01",
+      "attempt": "TON_EXT_ALLOC_4B8_PILOT_20261122_01_PILOT_B0001_R01_A001",
+      "block": 1,
+      "condition": "low_integer_remainder_fix",
+      "position": 1,
+      "started_sha256": "7a7211f4dd12790bc2da8e40e00b832bbb9091829cce75f9d7f313a63a3cc324",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 90,
+        "timely_full": 0,
+        "censored_full": 0,
+        "returned_full": 90,
+        "nominal_timely_full": 0,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 0,
+        "aggregate_service_bytes": 12582912
+      },
+      "artifacts": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "attempt.jsonl": "92fe36f5f548947a16e40d5d21ab525830dcd21e768faadaa766fad9a65387c6",
+        "chunks.jsonl": "1e365d8dfcb18fe0bd879d0f8985532dbe6c6425edece1c4ba1fa9a4764d4202",
+        "events.jsonl": "aadba637425d268eb7beafebd09d62d13dc2e3ba886363259bf7431897fbbc41",
+        "service.jsonl": "44b4154df5e37be9b6ef1f7653be9b7a476ba977413bb089f5a37383afec24cc",
+        "sources.json": "efdde0f0c2b46ee094192b820385ec8d2e9d40526d8aa476bef058449b07bb3b",
+        "summary.json": "d8095c8298754af21be6ae6b4aa12e565a64a3da079f07a94d2cc81c362dcf5f",
+        "timing_by_stratum.json": "d37b1ea8a9f537a1b229bf756e274cc0e947a4ab23929fab8e0231d42136490e"
+      },
+      "raw_artifacts": {
+        "P1.tar": "059c305d213687dab8f1eea8c9489b37f4badfe62dc40146fe02778e8738627f",
+        "P2.tar": "e49ebc77ec93f68e71fbda933dbfa48544a8a9694b73e8037c4dc28b4dfa8eec",
+        "P3.tar": "c7dcca0b732d97e6dc2a0de018c3e7b92235483b7a054ae6bd0238680cf31fd5",
+        "deployment.tar": "9597352b5b9889cc24e99f2857e36bbce8e45ae1d1c96187f347f53662d57a5c"
+      },
+      "endpoint_sha256": "043afcc119d5c29bbf7732dbbcead182a0eae84e94cd908d1d11357876c6ce09",
+      "measured_action_mix": {
+        "H_NONE": 180,
+        "H_FULL": 90
+      }
+    },
+    {
+      "arm": "TON_EXT_ALLOC_4B8_PILOT_20261122_01_PILOT_B0001_R02",
+      "attempt": "TON_EXT_ALLOC_4B8_PILOT_20261122_01_PILOT_B0001_R02_A001",
+      "block": 1,
+      "condition": "low_deployed_original",
+      "position": 2,
+      "started_sha256": "4658fef5d4c5f7ebaec860351a96cd986efd1c9654e554b050660999d970430f",
+      "completed": true,
+      "state": "completed",
+      "timing": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 66,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "counts": {
+        "sent_segments_without_receipt": 0,
+        "service_above_grant_device_rounds": 0,
+        "generated": 270,
+        "selected": 66,
+        "timely_full": 0,
+        "censored_full": 0,
+        "returned_full": 66,
+        "nominal_timely_full": 0,
+        "nominal_censored_full": 0,
+        "cap_violation_rounds": 0,
+        "actual_service_cap_violation_rounds": 0,
+        "unused_serviceable_bytes": 144,
+        "aggregate_service_bytes": 10002432
+      },
+      "artifacts": {
+        "admission.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "attempt.jsonl": "bc8ba27787b6476a04a1605719d2202b40d70da05875733dca323f3fcbce2a55",
+        "chunks.jsonl": "ba5c99177a4a906bd8f55d301a35aafdf62f8b41d1f24affab5c5517fd5a0f84",
+        "events.jsonl": "58bd88c1d8254731a6c2a5e6de435c01d82901e8196252d1ba82b7b9630705bf",
+        "service.jsonl": "ad477e3248e0e85bae62695e3f704e3d72590b01c254391b650d4acad321a027",
+        "sources.json": "e09bb47965fc895c6ca2949823387edb3001e8a96bf76dbccb8a5f7fd7ee52ed",
+        "summary.json": "488d98d3d47ee7b21aac47954e5e702b428f7bf98121112c69f4373058917b98",
+        "timing_by_stratum.json": "b84520ba732f1263d059f98ad8a194dedff71308c17bd42fa1673d787fc36c1c"
+      },
+      "raw_artifacts": {
+        "P1.tar": "aaba7ecd70b1b1c28f6f36e68431c2ae28fc210170d96e8b4b0d087b453578dd",
+        "P2.tar": "f13566d41a5745f7c4896887735d472c224f4917312a808f6affe1817aaed8c6",
+        "P3.tar": "152f9c0d11ee4b212237edc4a7c989a81fac511ead1dda849c87566685b5cf94",
+        "deployment.tar": "a84da2e38fb59607f9ed4e9a8cbd06ee4d53201c4cd90cf17e98af37e8a2aaa9"
+      },
+      "endpoint_sha256": "c55431638292085f736092eed59684ac30f1ef5bae4f83206c43bf7537b9336f",
+      "measured_action_mix": {
+        "H_NONE": 138,
+        "M_SUMMARY": 66,
+        "H_FULL": 66
+      }
+    }
+  ],
+  "trajectory_sha256": "8142d7133cd1ce4218ee9e578e15c7c03cc4fc5318c3e2e5e73b0c2115b82bbd"
+}

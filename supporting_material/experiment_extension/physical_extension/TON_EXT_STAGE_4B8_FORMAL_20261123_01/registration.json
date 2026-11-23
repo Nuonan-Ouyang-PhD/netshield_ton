@@ -1,0 +1,230 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_FORMAL_20261123_01",
+  "study": "shared_stage",
+  "phase": "formal",
+  "engineering_qualification": false,
+  "frozen_blocks": 6,
+  "order_seed": 2026112305,
+  "time_anchor": {
+    "primary": "actual_event_creation_to_result_receipt_on_originating_probe_clock",
+    "sensitivity": "scheduled_release_to_result_receipt_on_originating_probe_clock"
+  },
+  "balance": {
+    "blocks": 6,
+    "complete_design_cycles": 1,
+    "conditions_per_block": 6,
+    "directed_transition_maximum": 1,
+    "directed_transition_minimum": 1,
+    "exact_position_and_transition_balance": true,
+    "maximum_within_condition_position_count_spread": 0,
+    "partial_cycle_blocks": 0,
+    "position_counts": {
+      "B0_P1_P2_P3_backlog_aware_bytes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "B0_P1_P2_P3_causal_shared_stage": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "B0_P1_P2_P3_isolated_precheck_new_bytes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "B131072_P1_P2_P3_backlog_aware_bytes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "B131072_P1_P2_P3_causal_shared_stage": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "B131072_P1_P2_P3_isolated_precheck_new_bytes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "scope": "Within-block positions/adjacent condition transitions only. Between-block transitions are excluded; runtime resets still required. Scheduling seeds are not scientific replicates.",
+    "within_block_directed_transition_counts": [
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B0_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B0_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B131072_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B131072_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B131072_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_backlog_aware_bytes",
+        "to": "B0_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_backlog_aware_bytes",
+        "to": "B0_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_backlog_aware_bytes",
+        "to": "B131072_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_backlog_aware_bytes",
+        "to": "B131072_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_backlog_aware_bytes",
+        "to": "B131072_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_causal_shared_stage",
+        "to": "B0_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_causal_shared_stage",
+        "to": "B0_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_causal_shared_stage",
+        "to": "B131072_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_causal_shared_stage",
+        "to": "B131072_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B0_P1_P2_P3_causal_shared_stage",
+        "to": "B131072_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B0_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B0_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B0_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B131072_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_isolated_precheck_new_bytes",
+        "to": "B131072_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_backlog_aware_bytes",
+        "to": "B0_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_backlog_aware_bytes",
+        "to": "B0_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_backlog_aware_bytes",
+        "to": "B0_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_backlog_aware_bytes",
+        "to": "B131072_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_backlog_aware_bytes",
+        "to": "B131072_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_causal_shared_stage",
+        "to": "B0_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_causal_shared_stage",
+        "to": "B0_P1_P2_P3_backlog_aware_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_causal_shared_stage",
+        "to": "B0_P1_P2_P3_causal_shared_stage"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_causal_shared_stage",
+        "to": "B131072_P1_P2_P3_isolated_precheck_new_bytes"
+      },
+      {
+        "count": 1,
+        "from": "B131072_P1_P2_P3_causal_shared_stage",
+        "to": "B131072_P1_P2_P3_backlog_aware_bytes"
+      }
+    ]
+  },
+  "derived_launcher_sha256": "39ff3b448d6f49296bd778c765434e60c1b133d2a27d2978f70e6f83c1e30edd",
+  "normalizer_sha256": "b97fc1d6f4c7ee133586ff22cb1f837b93878abd5a432af6ceeaae4b32e74191",
+  "scope_sha256": "f2f980faf4de47890c5016a371e28b1b14060168f88bf8e56dba0d83ecbba879",
+  "input_freeze_sha256": "8ba95a153311f63d2e913bd6eea7029770172b80fe79b96bd58838bb2340152d",
+  "same_disk_copy": true
+}

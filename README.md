@@ -1,6 +1,6 @@
 # NetShield
 
-[主稿 PDF](submission/netshield_manuscript.pdf) · [补充材料 PDF](submission/netshield_supplementary.pdf) · [定向补实验执行记录](supporting_material/experiment_extension/HARDWARE_CLOSEOUT_CN.md)
+[主稿 PDF](submission/netshield_manuscript.pdf) · [补充材料 PDF](submission/netshield_supplementary.pdf) · [定向补实验执行记录](supporting_material/experiment_extension/physical_extension/README.md)
 
 Clean submission and reproduction package for the NetShield
 IEEE Transactions on Networking manuscript.
@@ -21,14 +21,13 @@ IEEE Transactions on Networking manuscript.
 - Review the subsequent retained-record findings and their integration in
   [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
   The primary window/event review, raw-split overlap and model-interface
-  diagnostic are distinct from the still-unexecuted hardware and held-out
-  content-value extensions.
-- Read the [consolidated completion status](supporting_material/experiment_extension/COMPLETION_STATUS_CN.md).
-  The repaired private rerun, 896-row reconciliation and full source-row trace
-  are completed within their stated scopes. The shared-stage candidate and
-  per-condition calibration tooling are supplied. Independent held-out
-  efficacy and physical comparisons still require real acquisition evidence,
-  qualified independent inputs and testbed access.
+  diagnostic precede the [physical extension](supporting_material/experiment_extension/physical_extension/README.md). The held-out content study still lacks capture-level lineage.
+- The [retained-record status](supporting_material/experiment_extension/COMPLETION_STATUS_CN.md)
+  covers the private record checks, the 896-row diagnostic and the source-row trace.
+  The [physical comparison](supporting_material/experiment_extension/physical_extension/README.md)
+  reports the three-probe allocator measurements and shared-stage calibration.
+  The [capture provenance review](supporting_material/experiment_extension/physical_extension/CONTENT_INPUT_REVIEW.md)
+  identifies the missing input for an independent content-value measurement.
 
 ## Methodology correction
 

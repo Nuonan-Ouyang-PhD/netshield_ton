@@ -1,6 +1,6 @@
 # PDF build and visual verification
 
-The current build used TeX Live 2026, IEEEtran and three pdfLaTeX passes per document. The manuscript has 14 pages and the supplement has 34. All pages were rendered for review. The final logs passed the overfull-box and unresolved-reference checks. Engine, input and PDF identities are in PDF_BUILD_METADATA.json.
+The current build used TeX Live 2026, IEEEtran and three pdfLaTeX passes per document. The manuscript has 14 pages and the supplement has 35. All pages were rendered for review. The final logs passed the overfull-box and unresolved-reference checks. Engine, input and PDF identities are in PDF_BUILD_METADATA.json.
 
 ## Earlier consolidated source-row and stage-candidate integration
 

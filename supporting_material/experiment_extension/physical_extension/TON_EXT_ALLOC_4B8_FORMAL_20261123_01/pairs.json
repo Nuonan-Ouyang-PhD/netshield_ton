@@ -1,0 +1,506 @@
+{
+  "campaign": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01",
+  "role_map": {
+    "P1": "pi5",
+    "P2": "pi4b",
+    "P3": "pi4b8g"
+  },
+  "contrast": "corrected minus deployed original",
+  "arms": [
+    {
+      "block": 1,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R01",
+      "condition": "low_integer_remainder_fix",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 1,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R02",
+      "condition": "low_deployed_original",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0001_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 66,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 144
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R01",
+      "condition": "low_deployed_original",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 66,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 144
+    },
+    {
+      "block": 2,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R02",
+      "condition": "low_integer_remainder_fix",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0002_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R01",
+      "condition": "low_deployed_original",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 66,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 144
+    },
+    {
+      "block": 3,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R02",
+      "condition": "low_integer_remainder_fix",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0003_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R01",
+      "condition": "low_integer_remainder_fix",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R01_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 90,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 0
+    },
+    {
+      "block": 4,
+      "arm": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R02",
+      "condition": "low_deployed_original",
+      "attempts": [
+        "TON_EXT_ALLOC_4B8_FORMAL_20261123_01_FORMAL_B0004_R02_A001"
+      ],
+      "complete": true,
+      "strata": {
+        "first_measured_generation_batch": {
+          "generated": 3,
+          "selected": 0,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "all_measured_generation_batches": {
+          "generated": 270,
+          "selected": 66,
+          "post_release": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "nominal": {
+            "timely": 0,
+            "censored": 0,
+            "coverage_bounds": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "unused_serviceable_bytes": 144
+    }
+  ],
+  "paired_blocks": [
+    {
+      "block": 1,
+      "capacity": "low",
+      "backlog": "frozen_runtime_initialization",
+      "left": "low_integer_remainder_fix",
+      "right": "low_deployed_original",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -144
+    },
+    {
+      "block": 2,
+      "capacity": "low",
+      "backlog": "frozen_runtime_initialization",
+      "left": "low_integer_remainder_fix",
+      "right": "low_deployed_original",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -144
+    },
+    {
+      "block": 3,
+      "capacity": "low",
+      "backlog": "frozen_runtime_initialization",
+      "left": "low_integer_remainder_fix",
+      "right": "low_deployed_original",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -144
+    },
+    {
+      "block": 4,
+      "capacity": "low",
+      "backlog": "frozen_runtime_initialization",
+      "left": "low_integer_remainder_fix",
+      "right": "low_deployed_original",
+      "complete_pair": true,
+      "difference_bounds": {
+        "first_measured_generation_batch": [
+          0.0,
+          0.0
+        ],
+        "all_measured_generation_batches": [
+          0.0,
+          0.0
+        ]
+      },
+      "unused_serviceable_difference_bytes": -144
+    }
+  ],
+  "interval_scope": "Within-block censoring bounds. Sampling uncertainty requires the formal freeze."
+}

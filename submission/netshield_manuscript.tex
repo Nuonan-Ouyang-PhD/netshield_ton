@@ -913,7 +913,7 @@ A separate work-conserving correction, reconstructed with the published
 utility precision, changes five of the 36 action mixes; the Supplementary
 Allocator-Correction Sensitivity reports this implementation dependence.
 Local inspection of the archived runtime reports the same residual-byte
-stopping rule; corrected hardware outcomes remain unmeasured.
+stopping rule. In a separate low-capacity hardware pilot at $v=1$, the correction increased full requests from 66 to 90 per 270 generated events. Four subsequent order-balanced physical pairs reproduced both counts in every block. The original allocator left 144 serviceable bytes unused per arm, and the corrected allocator left zero. All 264 original and 360 corrected full requests in the formal comparison eventually returned; neither variant returned a full result within one second. These measurements use the replacement probe cohort described in the supplement.
 
 \begin{figure*}[t]
 \centering
@@ -1293,12 +1293,12 @@ The tested campaign does not contain a case where a local device constraint
 rejects an action that is independently feasible under the shared network
 budget. The safety filter is therefore an implementation/audit interface in
 this paper, not an independently proven performance layer.
-Its isolated latency estimate also omits multi-probe contention and backlog;
-the artifact supplies a separate RC1 shared-stage candidate with queue and
-remaining-deadline inputs. On a private RC1 copy, all 26 synthetic conditions exercised the coordinator
-barrier and decision path. Loopback checks also matched each returned Core
-result to its originating probe receipt (see the supplementary material).
-Processing and return times still require independent physical calibration.
+A separate three-probe comparison tested isolated, backlog-aware and calibrated
+admission after 16 independent calibration conditions. With one full payload
+of initial backlog and 18 first-batch events per policy, the policies admitted
+12, 6 and 0 full requests, respectively; 0, 6 and 0 returned within one second.
+The calibrated policy rejected every full request under its empirical timing
+allowances. The supplement reports the empty-queue control and all-round results.
 
 \textbf{Evidence value.}
 The experiment measures coverage, richness, byte demand, and timeliness, not
@@ -1326,15 +1326,10 @@ all event/action/payload/drain/cap gates passing. Frozen markers for the
 original 216-arm campaign were checked unchanged before and after the
 extension.
 
-The primary campaign, extension, raw audits, and read-only offline analyses
-are hashed separately. Offline sensitivity and conformance analyses do not
-modify accepted hardware evidence. The artifact package records that the
-\CRFA{} mirror resides on the same user-authorized external physical volume
-as its primary copy and is therefore an integrity-checked mirror rather than
-an independent physical backup. Before public release, the final artifact
-will expose persistent checksums and a durable archival identifier. Dataset
-redistribution rights are handled separately; reproducibility does not require
-redistributing third-party CICIoT2023 content~\cite{neto2023ciciot}.
+Separate hashes identify the campaigns, raw audits and offline analyses.
+The \CRFA{} and replacement-cohort copies share their primary research disk.
+The artifact supplies checksums and reproduction instructions for the source
+data distributed by CICIoT2023~\cite{neto2023ciciot}.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -1358,15 +1353,10 @@ conditional rate-balance prediction without guaranteeing timely completion.
 Every selected \CRFA{} full result is eventually returned, so its gap to the
 byte frontier is timing rather than selected-evidence loss. Schedule-relative
 release offsets further separate post-release service from nominal deadlines.
-Across 252 accepted hardware arms, 68,040 measured events and 74,340
-reconstructed service rounds are accounted for with zero shared
-application-byte cap violations. Together, the analysis, constructive
-controller, and auditable hardware measurements expose which evidence
-allocations are feasible and how closely physical service realizes them.
+Across the original and rotating campaigns, 252 accepted arms, 68,040 measured events and 74,340
+reconstructed service rounds yielded zero shared application-byte cap violations.
 
 % ============================================================
-% Native IEEEtran reference break for the current final-page pagination.
-\IEEEtriggeratref{14}
 \begin{thebibliography}{99}
 
 \bibitem{shisher2024timely}

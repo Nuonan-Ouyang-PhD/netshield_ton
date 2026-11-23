@@ -1,0 +1,90 @@
+{
+  "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_01",
+  "action_periods": {},
+  "paired_percentile_intervals": {},
+  "planned": 16,
+  "attempts": 5,
+  "complete_arms": 4,
+  "by_contrast": {
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6555555555555556,
+            -0.6555555555555556
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ],
+          "all_measured_generation_batches": [
+            -0.6518518518518519,
+            -0.6518518518518519
+          ]
+        },
+        "unused_difference_bytes": 135
+      }
+    ],
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": [
+      {
+        "block": 1,
+        "bounds": {
+          "first_measured_generation_batch": [
+            0.0,
+            0.0
+          ],
+          "all_measured_generation_batches": [
+            0.0037037037037036535,
+            0.0037037037037036535
+          ]
+        },
+        "unused_difference_bytes": 0
+      }
+    ]
+  },
+  "mean_within_block_bounds": {
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P1_P2_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6555555555555556,
+        -0.6555555555555556
+      ]
+    },
+    "B0_P1_P2_P3_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        -0.3333333333333333,
+        -0.3333333333333333
+      ],
+      "all_measured_generation_batches": [
+        -0.6518518518518519,
+        -0.6518518518518519
+      ]
+    },
+    "B0_P1_P2_instrumented_fixed_full_capture minus B0_P2_P3_instrumented_fixed_full_capture": {
+      "first_measured_generation_batch": [
+        0.0,
+        0.0
+      ],
+      "all_measured_generation_batches": [
+        0.0037037037037036535,
+        0.0037037037037036535
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "campaign": "TON_EXT_ALLOC_4B8_FORMAL_20261123_01",
+    "planned": 8,
+    "attempts": 8,
+    "complete_arms": 8
+  },
+  {
+    "campaign": "TON_EXT_ALLOC_4B8_PILOT_20261122_01",
+    "planned": 2,
+    "attempts": 2,
+    "complete_arms": 2
+  },
+  {
+    "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_01",
+    "planned": 16,
+    "attempts": 5,
+    "complete_arms": 4
+  },
+  {
+    "campaign": "TON_EXT_STAGE_4B8_CAL_20261123_02",
+    "planned": 16,
+    "attempts": 16,
+    "complete_arms": 16
+  },
+  {
+    "campaign": "TON_EXT_STAGE_4B8_FORMAL_20261123_01",
+    "planned": 36,
+    "attempts": 36,
+    "complete_arms": 36
+  },
+  {
+    "campaign": "TON_EXT_STAGE_4B8_PILOT_20261123_01",
+    "planned": 6,
+    "attempts": 6,
+    "complete_arms": 6
+  },
+  {
+    "campaign": "TON_EXT_STAGE_4B8_QUAL_20261123_01",
+    "planned": 2,
+    "attempts": 2,
+    "complete_arms": 2
+  }
+]
