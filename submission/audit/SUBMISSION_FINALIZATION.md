@@ -54,6 +54,7 @@ in `FINAL_CHECKS.json`:
 - `python3 scripts/verify_methodology.py`
 - `python3 scripts/verify_methodology_revision.py`
 - `sha256sum -c docs/MANIFEST_SHA256.txt`, from `supporting_material/archive/v4_4`
+- `git diff --check fe09ee0eca28dc666dd9c729ac266b8426c055b9`, covering the full PR against main
 
 These checks include 120 frozen file identities, 14 formal blocks, 21 labelled
 equations, the unchanged abstract, 36 public selector cases, reconstruction of
@@ -74,6 +75,17 @@ verified the redaction and its unchanged remaining content. The public document
 is preserved, its single stale manifest entry is corrected, and all 34 archive
 entries now pass the original check. The workflow and scientific files are
 unchanged. See `ARCHIVE_MANIFEST_RECONCILIATION.md` for hashes and commit identities.
+
+## Unified-diff format and full-PR whitespace
+
+The pull-request check also includes changes from earlier commits. Two historical
+Markdown instruction files had surplus terminal blank lines; only those blank
+lines were removed. Nineteen flagged lines in two frozen runtime patch files
+are the required single-space markers for empty unified-diff context. Their
+bytes and hashes are preserved. Two exact-path Git attributes disable only
+`blank-at-eol` for those patch artifacts; all other whitespace checks and the
+workflow remain enabled. The full PR now passes `git diff --check` against main.
+The exact unchanged patch hashes and inspection scope are in `FINAL_CHECKS.json`.
 
 ## Delivery and GitHub
 

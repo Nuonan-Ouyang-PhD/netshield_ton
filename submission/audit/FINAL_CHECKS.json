@@ -34,6 +34,12 @@
       "working_directory": "supporting_material/archive/v4_4",
       "exit_code": 0,
       "stdout": "./README.md: OK\n./STATUS.md: OK\n./V4_4_RELEASE_NOTES.md: OK\n./audit/AUTHOR_METADATA_CONFIRMED.md: OK\n./audit/COVER_LETTER_FINAL.md: OK\n./audit/FORMAL_CONFIG_PARAMETER_AUDIT.md: OK\n./audit/MANUSCRIPT_NUMERIC_AND_SEMANTIC_AUDIT.md: OK\n./audit/ORIGINALITY_AND_PRIOR_WORK_DISCLOSURE.md: OK\n./audit/SUBMISSION_READINESS.md: OK\n./audit/TON_REVIEWER_ATTACK_V4_3.md: OK\n./docs/README.md: OK\n./frozen_reference/NUMBER_PROVENANCE.md: OK\n./frozen_reference/PROVENANCE.md: OK\n./frozen_reference/STATISTICS_FACTS.md: OK\n./frozen_reference/configs/experiment.high.json: OK\n./frozen_reference/configs/experiment.low.json: OK\n./frozen_reference/configs/experiment.mid.json: OK\n./frozen_reference/ef_action_consistency_results.json: OK\n./frozen_reference/non_inferiority.json: OK\n./frozen_reference/table1_method_overview.csv: OK\n./frozen_reference/table1_method_overview.tex: OK\n./frozen_reference/table2_primary_contrasts.csv: OK\n./frozen_reference/table2_primary_contrasts.tex: OK\n./frozen_reference/tableS1_full_contrasts.csv: OK\n./netshield_ton_full_manuscript_v4_4.pdf: OK\n./netshield_ton_full_manuscript_v4_4.tex: OK\n./netshield_ton_supplementary_v4.pdf: OK\n./source/configs/experiment.high.json: OK\n./source/configs/experiment.low.json: OK\n./source/configs/experiment.mid.json: OK\n./source/figures/fig1_capacity_interaction.png: OK\n./source/figures/fig2_e2e_by_capacity.png: OK\n./source/netshield_ton_supplementary_v4.tex: OK\n./source/references_v4.bib: OK"
+    },
+    {
+      "command": "git diff --check fe09ee0eca28dc666dd9c729ac266b8426c055b9",
+      "exit_code": 0,
+      "stdout": "",
+      "scope": "Full PR against main, including working tree"
     }
   ],
   "pdf_build": {
@@ -128,5 +134,14 @@
     "manifest_entries_matched": 34,
     "scientific_frozen_files_unchanged": 120,
     "report": "ARCHIVE_MANIFEST_RECONCILIATION.md"
+  },
+  "patch_format_reconciliation": {
+    "reason": "Unified-diff empty context markers consist of exactly one ASCII space. Two exact-path attributes disable only blank-at-eol for these frozen patch files; other whitespace checks remain enabled.",
+    "unchanged_patch_sha256": {
+      "supporting_material/experiment_extension/hardware/instrumented_allocator.patch": "62469db7c2ec408ecbdf08117e3f9030ec26b2dc2ce286eebda808d0eda2a3f8",
+      "supporting_material/experiment_extension/stage_adapter/physical_capture_hooks.patch": "f8abf3eedf0a1519c91098bab91e789e3a3ec995e29631d6fc54aadc45d235a1"
+    },
+    "instruction_change": "Only surplus terminal blank lines removed from two historical Markdown execution instructions.",
+    "workflow_yaml_changed": false
   }
 }

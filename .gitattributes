@@ -10,3 +10,8 @@
 *.pdf binary
 *.png binary
 *.zip binary
+
+# These frozen unified diffs encode an empty context line as one ASCII space.
+# Preserve their exact bytes and all whitespace checks other than blank-at-eol.
+/supporting_material/experiment_extension/hardware/instrumented_allocator.patch whitespace=-blank-at-eol
+/supporting_material/experiment_extension/stage_adapter/physical_capture_hooks.patch whitespace=-blank-at-eol
