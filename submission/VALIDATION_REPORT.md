@@ -1,6 +1,9 @@
 # Validation status
 
-The current source, software audit, and PDF checks are reported in
+The final editorial integration and freshly executed package checks are recorded
+in [SUBMISSION_FINALIZATION.md](audit/SUBMISSION_FINALIZATION.md) and
+[FINAL_CHECKS.json](audit/FINAL_CHECKS.json).
+The current source, software audit, and PDF checks are also reported in
 [METHODOLOGY_VALIDATION_REPORT.md](audit/METHODOLOGY_VALIDATION_REPORT.md),
 [FORMAL_RECORD_INTEGRATION.md](audit/FORMAL_RECORD_INTEGRATION.md), and
 [PDF_BUILD_REPORT.md](audit/PDF_BUILD_REPORT.md). The current PDFs have 14 and 35 pages. The report below describes the earlier 15 September delivery;

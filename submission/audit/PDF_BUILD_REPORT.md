@@ -1,6 +1,19 @@
 # PDF build and visual verification
 
-The current build used TeX Live 2026, IEEEtran and three pdfLaTeX passes per document. The manuscript has 14 pages and the supplement has 35. All pages were rendered for review. The final logs passed the overfull-box and unresolved-reference checks. Engine, input and PDF identities are in PDF_BUILD_METADATA.json.
+## Final submission build — 23 November 2026
+
+The current PDFs were rebuilt from the final sources with the genuine IEEEtran
+class and three pdfLaTeX passes per document. The manuscript has 14 pages and
+the supplement has 35. All 49 rendered pages were visually reviewed; final logs
+contain zero overfull boxes or unresolved references/citations. The actual
+engine is pdfTeX 1.40.26 (TeX Live 2025/dev/Debian). Input and PDF identities
+are in [PDF_BUILD_METADATA.json](PDF_BUILD_METADATA.json); detailed coverage and
+fresh validation results are in [SUBMISSION_FINALIZATION.md](SUBMISSION_FINALIZATION.md)
+and [FINAL_CHECKS.json](FINAL_CHECKS.json).
+
+## Earlier physical-results build
+
+At scientific-results revision `75d529c`, the build used TeX Live 2026, IEEEtran and three pdfLaTeX passes per document. The manuscript has 14 pages and the supplement has 35. All pages were rendered for review. The final logs passed the overfull-box and unresolved-reference checks. Engine, input and PDF identities are in PDF_BUILD_METADATA.json.
 
 ## Earlier consolidated source-row and stage-candidate integration
 

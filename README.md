@@ -15,9 +15,11 @@ IEEE Transactions on Networking manuscript.
   [`METHODOLOGY_REVIEW_CN.md`](METHODOLOGY_REVIEW_CN.md)
 - Follow the current source-to-evidence mapping:
   [`submission/audit/CODE_EVIDENCE_ALIGNMENT.md`](submission/audit/CODE_EVIDENCE_ALIGNMENT.md)
-- Continue the targeted experiment extension with the complete
+- Read the retained experiment workflow in the complete
   [`one-pass Codex execution instructions`](supporting_material/experiment_extension/COMPLETE_LOCAL_EXECUTION_CN.md)
   and [`offline preparation tools`](supporting_material/experiment_extension/README.md).
+  Their earlier pre-collection checkpoints are superseded by the completed
+  physical results linked below.
 - Review the subsequent retained-record findings and their integration in
   [`FORMAL_RECORD_INTEGRATION.md`](submission/audit/FORMAL_RECORD_INTEGRATION.md).
   The primary window/event review, raw-split overlap and model-interface
@@ -25,7 +27,8 @@ IEEE Transactions on Networking manuscript.
 - The [retained-record status](supporting_material/experiment_extension/COMPLETION_STATUS_CN.md)
   covers the private record checks, the 896-row diagnostic and the source-row trace.
   The [physical comparison](supporting_material/experiment_extension/physical_extension/README.md)
-  reports the three-probe allocator measurements and shared-stage calibration.
+  reports 8 allocator and 36 shared-stage formal arms, with separately
+  registered qualification, calibration and pilot measurements.
   The [capture provenance review](supporting_material/experiment_extension/physical_extension/CONTENT_INPUT_REVIEW.md)
   identifies the missing input for an independent content-value measurement.
 
@@ -66,7 +69,7 @@ python3 submission/validate_submission.py
 
 The validation and public simulation scripts use only the Python standard
 library. A working TeX installation with IEEEtran is needed to compile the
-PDFs; see the current build instructions for the pdfLaTeX and Tectonic routes.
+PDFs; see the current build instructions for the pdfLaTeX route.
 
 ## Required data
 
@@ -82,13 +85,17 @@ formal workload: the authorized frozen workload/model/runtime bundle and the
 private raw hardware archive are also required for an exact physical rerun.
 This boundary is documented in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
-## Required equipment for the physical campaign
+## Equipment and physical cohort identities
 
-- Three Raspberry Pi probes: Raspberry Pi 5, Raspberry Pi 4B, and Raspberry
-  Pi 3B+.
+- The accepted primary and CRFA campaigns used Raspberry Pi 5, Raspberry
+  Pi 4B, and Raspberry Pi 3B+ probes.
+- The later allocator and shared-stage comparisons used a separately
+  identified replacement cohort: Raspberry Pi 5, Raspberry Pi 4B, and
+  Raspberry Pi 4B with 8 GB RAM. These measurements do not replace the
+  historical campaigns.
 - One shared edge-core host running the heavy core-side service.
 - Wi-Fi connectivity between the probes and the core service.
-- A workstation with Python 3 for verification and Tectonic for manuscript
+- A workstation with Python 3 for verification and pdfLaTeX for manuscript
   compilation.
 
 The public checkout does not contain SSH targets, machine addresses, private
@@ -99,7 +106,7 @@ package-only checks above.
 
 ## Reproduction boundary
 
-The repository supports four reproducible activities:
+The repository supports five reproducible activities:
 
 1. build and validate the clean manuscript package;
 2. verify the committed aggregate evidence, hashes, provenance, and claim
@@ -109,14 +116,19 @@ The repository supports four reproducible activities:
    `supporting_material/methodology_repair/RUN_METADATA.json` are available;
 4. run the corrected public selector reconstruction and shared-service
    counterexamples, and independently reconstruct the public software/CRFA
-   ledgers without private inputs.
+   ledgers without private inputs;
+5. recompute the replacement-cohort physical comparisons and all 16 empirical
+   calibration parameter sets from the public exports using the commands in
+   [`physical_extension/README.md`](supporting_material/experiment_extension/physical_extension/README.md).
 
 Current offline commands and the historical/current source distinction are
 documented in [`supporting_material/methodology_repair/CORRECTIONS.md`](supporting_material/methodology_repair/CORRECTIONS.md).
 
 The 216-arm physical campaign is auditable from the controlled raw archive,
-but is not publicly rerunnable from this Git checkout alone. No Raspberry Pi
-experiment is started by any repository command.
+but is not publicly rerunnable from this Git checkout alone. The verification
+and build commands above do not start Raspberry Pi experiments. Physical
+acquisition requires the separately qualified equipment, controlled inputs
+and frozen execution protocol.
 
 ## Repository contents
 

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "This repository contains the clean submission package. Contact the corresponding author before citing or redistributing private evidence."
-title: "NetShield: Shared-Bottleneck Evidence Scheduling for Multi-Probe IoT Edge Intrusion Detection"
+title: "NetShield: Timely Evidence Feasibility under Shared Bottlenecks for Multi-Probe Edge Intrusion Detection"
 type: software
 version: "1.0.0"
 date-released: 2026-09-10

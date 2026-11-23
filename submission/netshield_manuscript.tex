@@ -977,6 +977,7 @@ approximation, not a proven upper bound; the gap shows that queue-state
 coupling and residual service history matter.
 
 \subsection{RQ3: Physical Hardware Adds Timing Residuals Beyond Byte Feasibility}
+\label{subsec:physical-timing}
 The analytical region predicts which payload tuples fit the application
 budget; it does not predict OS scheduling, barrier waiting, Wi-Fi timing,
 serialization, core execution, or result-return delay.
@@ -993,6 +994,15 @@ At mid capacity, E and F each admit one full request per three generated
 events. Conditional post-release on-time rates among those core-required
 events are about 0.8815 and 0.8935. One-round byte feasibility therefore does
 not imply perfect physical SLO attainment.
+
+\paragraph{Backlog-aware physical admission.}
+Six order-balanced physical blocks on a replacement cohort compare isolated
+new-byte, backlog-aware and calibrated admission. With 131,072~B initial
+backlog, they select 12/6/0 full requests from 18 first-batch generated events;
+0/6/0 return within one second. Backlog accounting adds one timely result
+per block. With empty queues, both byte policies return $8/18$ on time;
+calibrated admission rejects all full requests. The supplement reports the
+16-condition calibration and later-round results.
 
 \paragraph{Frontier attenuation in the rotating extension.}
 \CRFA{} makes that residual directly measurable because its admitted full
@@ -1293,12 +1303,9 @@ The tested campaign does not contain a case where a local device constraint
 rejects an action that is independently feasible under the shared network
 budget. The safety filter is therefore an implementation/audit interface in
 this paper, not an independently proven performance layer.
-A separate three-probe comparison tested isolated, backlog-aware and calibrated
-admission after 16 independent calibration conditions. With one full payload
-of initial backlog and 18 first-batch events per policy, the policies admitted
-12, 6 and 0 full requests, respectively; 0, 6 and 0 returned within one second.
-The calibrated policy rejected every full request under its empirical timing
-allowances. The supplement reports the empty-queue control and all-round results.
+The calibrated rule in Section~\ref{subsec:physical-timing} uses overlapping
+empirical timing allowances. Its all-reject outcome supplies no evidence of
+useful deadline-feasible service.
 
 \textbf{Evidence value.}
 The experiment measures coverage, richness, byte demand, and timeliness, not

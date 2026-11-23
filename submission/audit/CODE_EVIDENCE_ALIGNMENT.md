@@ -4,14 +4,15 @@ The supplementary transport counts aggregate the four case receipts in [TRANSPOR
 
 ## Audit stages and current interpretation
 
-The two private 26-condition receipts bind the earlier and instrumented runtime trees separately. Four loopback transports exercised the probe-to-Core path with synthetic workload and accelerated pacing. Physical calibration and treatment comparisons have zero new arms.
+The two private 26-condition receipts bind the earlier and instrumented runtime trees separately. Four loopback transports exercised the probe-to-Core path with synthetic workload and accelerated pacing. The subsequent replacement-cohort physical extension completed 8 allocator and 36 shared-stage formal arms, in addition to separately registered qualification, calibration and pilot measurements.
 
 The current consolidated status is
-[current execution record](../../supporting_material/experiment_extension/HARDWARE_CLOSEOUT_CN.md).
+[physical extension record](../../supporting_material/experiment_extension/physical_extension/README.md).
 The repaired private rerun and retained 896-row reconciliation are complete
-within their stated scope. The subsequent source-row trace and shared-stage
-candidate are distinguished from the still-unexecuted physical and qualified
-held-out studies. Earlier `FOLLOWUP_REVIEW.md` and the nine-observation stage
+within their stated scope. The subsequent source-row trace, executed physical
+comparisons and still-unexecuted qualified held-out content study have separate
+evidence boundaries. `HARDWARE_CLOSEOUT_CN.md`, earlier `FOLLOWUP_REVIEW.md`
+and the nine-observation stage
 below remain historical records; the nine-input construction-based agreement
 explanation does not apply to the later Gaussian/Bernoulli consumer's
 empirical diagnostic results.
@@ -20,15 +21,19 @@ empirical diagnostic results.
 |---|---|---|
 | [Retained review](../../supporting_material/experiment_extension/retained_review/) | Repaired checker execution receipt and 896-row preservation/pairing/subset reconciliation | Recorded-field scope; no newly acquired hardware or independent efficacy estimate |
 | [Source row trace](../../supporting_material/experiment_extension/SOURCE_ROW_TRACE.json) | Reported local matching of 5,141,673 rows to 31 original CSVs; public totals agree with 18/6/7 source groups and previous split denominators | Private rows are not republished; CSV/row coordinates do not identify independent parent acquisitions |
-| [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Initial receipt plus both executed 26-case private checks, calibration builder and four loopback transport checks | Three-probe deployment qualification, physical calibration, pilot and formal comparison remain required |
+| [Stage candidate](../../supporting_material/experiment_extension/stage_adapter/README.md) | Both executed 26-case private checks, four loopback checks, physical qualification, a complete 16-condition calibration, six pilot arms and 36 formal arms | The calibrated policy admitted no Full requests; overlapping empirical allowances do not establish a useful deadline guarantee |
+| [Physical comparisons](../../supporting_material/experiment_extension/physical_extension/README.md) | Four allocator pairs and six shared-stage blocks, with public queue/endpoint exports and block-level analyses | Replacement-cohort scope; allocator timely-Full counts remain zero, while backlog-aware admission improves the stated backlog condition |
 | [Capture mapping preparation](../../supporting_material/experiment_extension/source_lineage/README.md) | Executable mapping/evidence/split consistency checks | Actual parent evidence, sufficient independent groups, feature qualification and model fitting remain required |
 
 The main paper reports the completed row trace, and the supplement separates
 the initial nine coordinator-path checks plus one direct-function check from
-later candidate revisions. The prospective calibration now covers all eight
+later candidate revisions. The completed physical calibration covers all eight
 forced-full subsets crossed with backlog 0/B while retaining three real
-requests and H-NONE fallbacks per condition. Pilot/formal still compare six
-policy/backlog conditions. No physical outcome is inferred from this design.
+requests and H-NONE fallbacks per condition. Each condition contributes one
+first measured batch to the deployed empirical profile. The independent pilot
+and formal comparison cover six policy/backlog conditions. The earlier
+calibration activity retains four completed arms and an aborted fifth attempt;
+none supplies the complete replacement profile.
 
 The methodological review below is retained as the historical baseline. A
 subsequent supplied archive, `TON_EXT_AUDIT_20261122_avIClI`, adds a report of
